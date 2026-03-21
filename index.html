@@ -1,339 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VCASSE – Vancouver Centre for AI Safety, Sustainability, & Ethics</title>
-  <style>
-    /* ── Reset & base ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Segoe UI', system-ui, Arial, sans-serif;
-      color: #1a1a2e;
-      background: #f9fafb;
-      line-height: 1.6;
-    }
-
-    /* ── Nav ── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.9rem 2rem;
-      background: #0d1b2a;
-      color: #fff;
-    }
-    .nav-brand {
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: #7ecfff;
-      text-decoration: none;
-    }
-    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
-    .nav-links a {
-      color: #cbd5e1;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: #7ecfff; }
-
-    /* ── Hero ── */
-    .hero {
-      background: linear-gradient(135deg, #0d1b2a 0%, #1e3a5f 60%, #16537e 100%);
-      color: #fff;
-      text-align: center;
-      padding: 6rem 1.5rem 5rem;
-    }
-    .hero-tag {
-      display: inline-block;
-      background: rgba(126, 207, 255, 0.15);
-      border: 1px solid rgba(126, 207, 255, 0.4);
-      color: #7ecfff;
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.9rem;
-      border-radius: 999px;
-      margin-bottom: 1.4rem;
-    }
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 800;
-      line-height: 1.2;
-      max-width: 780px;
-      margin: 0 auto 1.2rem;
-    }
-    .hero h1 span { color: #7ecfff; }
-    .hero p {
-      font-size: 1.1rem;
-      color: #b0c4de;
-      max-width: 580px;
-      margin: 0 auto 2.2rem;
-    }
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 2rem;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: opacity 0.2s, transform 0.15s;
-    }
-    .btn:hover { opacity: 0.9; transform: translateY(-1px); }
-    .btn-primary { background: #7ecfff; color: #0d1b2a; }
-    .btn-outline {
-      border: 2px solid #7ecfff;
-      color: #7ecfff;
-      margin-left: 0.75rem;
-    }
-
-    /* ── Section shared ── */
-    section { padding: 4.5rem 1.5rem; }
-    .container { max-width: 1060px; margin: 0 auto; }
-    .section-title {
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-      color: #0d1b2a;
-    }
-    .section-sub {
-      color: #5a6a7a;
-      max-width: 560px;
-      margin-bottom: 2.8rem;
-    }
-
-    /* ── About ── */
-    .about { background: #fff; }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    .about-text p + p { margin-top: 1rem; }
-    .about-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-    }
-    .stat-card {
-      background: #f0f7ff;
-      border-left: 4px solid #7ecfff;
-      padding: 1.2rem 1.4rem;
-      border-radius: 6px;
-    }
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #1e3a5f;
-    }
-    .stat-label { font-size: 0.85rem; color: #5a6a7a; margin-top: 0.1rem; }
-
-    /* ── Pillars ── */
-    .pillars { background: #f0f7ff; }
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-    .pillar-card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 2rem 1.8rem;
-      box-shadow: 0 2px 12px rgba(13, 27, 42, 0.07);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .pillar-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(13, 27, 42, 0.12);
-    }
-    .pillar-icon {
-      font-size: 2.2rem;
-      margin-bottom: 0.9rem;
-    }
-    .pillar-card h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-      color: #0d1b2a;
-    }
-    .pillar-card p { color: #4a5568; font-size: 0.93rem; }
-
-    /* ── Get Involved ── */
-    .involved { background: #fff; }
-    .involved-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.2rem;
-      margin-top: 0.5rem;
-    }
-    .involved-item {
-      border: 1px solid #d1e3f3;
-      border-radius: 8px;
-      padding: 1.4rem 1.5rem;
-      text-align: center;
-    }
-    .involved-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
-    .involved-item p { font-size: 0.88rem; color: #5a6a7a; }
-
-    /* ── CTA Banner ── */
-    .cta {
-      background: linear-gradient(135deg, #1e3a5f, #16537e);
-      color: #fff;
-      text-align: center;
-      padding: 4rem 1.5rem;
-    }
-    .cta h2 { font-size: 1.9rem; font-weight: 800; margin-bottom: 0.75rem; }
-    .cta p { color: #b0c4de; max-width: 500px; margin: 0 auto 1.8rem; }
-
-    /* ── Footer ── */
-    footer {
-      background: #0d1b2a;
-      color: #8a9bae;
-      padding: 2.5rem 1.5rem;
-      text-align: center;
-      font-size: 0.85rem;
-    }
-    footer a { color: #7ecfff; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-
-    /* ── Responsive ── */
-    @media (max-width: 680px) {
-      .about-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI for Sustainability — VCAISSE Research</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2306402B'/><text x='16' y='22' font-family='sans-serif' font-weight='700' font-size='16' fill='white' text-anchor='middle'>V</text></svg>">
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="#" class="nav-brand">VCASSE</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#pillars">Our Pillars</a></li>
-      <li><a href="#involved">Get Involved</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+  <!-- ═══════════ NAVIGATION ═══════════ -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">VCAISSE</a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Our Focus</a></li>
+        <li><a href="index.html" class="active">Research</a></li>
+        <li><a href="#">Publications</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <a href="#contribute" class="nav-cta">Get Involved</a>
+
+      <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </nav>
 
-  <!-- Hero -->
-  <header class="hero">
-    <div class="hero-tag">Vancouver, BC · Canada</div>
-    <h1>Vancouver Centre for <span>AI Safety,</span><br>Sustainability, &amp; Ethics</h1>
-    <p>Advancing responsible artificial intelligence through research, education, and community engagement — for a future that is safe, equitable, and sustainable.</p>
-    <a href="#about" class="btn btn-primary">Learn More</a>
-    <a href="#involved" class="btn btn-outline">Get Involved</a>
-  </header>
-
-  <!-- About -->
-  <section class="about" id="about">
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-text">
-          <h2 class="section-title">Who We Are</h2>
-          <p class="section-sub">VCASSE is a non-profit centre dedicated to ensuring that the development and deployment of AI systems benefits everyone — now and in the future.</p>
-          <p>Founded in Vancouver, BC, we bring together researchers, technologists, policymakers, and the public to address the most pressing challenges at the intersection of artificial intelligence, environmental sustainability, and social ethics.</p>
-          <p>We believe that safe and ethical AI is not just a technical problem — it is a social, environmental, and governance challenge that requires diverse voices and collaborative action.</p>
+      <div class="hero-content">
+        <div class="section-label">
+          <span class="label-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+          </span>
+          SCHOLARLY FOCUS — SUST01
         </div>
-        <div class="about-stats">
-          <div class="stat-card">
-            <div class="stat-number">3</div>
-            <div class="stat-label">Core Pillars</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">100+</div>
-            <div class="stat-label">Community Members</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">Local</div>
-            <div class="stat-label">Vancouver Based</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">Open</div>
-            <div class="stat-label">To Everyone</div>
-          </div>
+
+        <h1 class="hero-title">
+          AI for
+          <span class="italic-accent">Sustainability</span>
+        </h1>
+
+        <p class="hero-description">
+          Leveraging machine learning to architect a resilient, carbon-neutral
+          future. Our research bridges the gap between planetary boundaries and
+          algorithmic efficiency.
+        </p>
+      </div>
+
+      <div class="hero-image">
+        <div class="hero-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=800&h=600&fit=crop&q=80" alt="Wind turbines in a forest landscape" loading="lazy">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Pillars -->
-  <section class="pillars" id="pillars">
+  <!-- ═══════════ RESEARCH DOMAINS ═══════════ -->
+  <section class="research-domains">
     <div class="container">
-      <h2 class="section-title">Our Three Pillars</h2>
-      <p class="section-sub">Everything we do is grounded in three interconnected areas that together shape the future of AI.</p>
+      <div class="domains-header">
+        <div class="domains-header-left">
+          <div class="section-label">RESEARCH DOMAINS</div>
+          <h2 class="section-title">Our Eco-System</h2>
+        </div>
+        <div class="domains-header-right">
+          <p>A holistic approach to integrating intelligent systems across critical infrastructure and climate protection.</p>
+        </div>
+      </div>
+
+      <div class="domains-grid">
+        <!-- Energy Efficiency -->
+        <div class="domain-card energy fade-in fade-in-delay-1">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <h3 class="card-title">Energy Efficiency</h3>
+          <p class="card-description">Predictive algorithms for industrial-scale energy conservation, reducing waste in manufacturing and urban cooling systems by up to 35%.</p>
+          <div class="card-meta">
+            <span>NODAL COORDINATE: 49.2827° N</span>
+            <span class="meta-line"></span>
+            <a href="#" class="arrow-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Climate Modeling -->
+        <div class="domain-card climate fade-in fade-in-delay-2">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="#475569" opacity="0.6">
+              <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
+            </svg>
+          </div>
+          <h3 class="card-title">Climate Modeling</h3>
+          <p class="card-description">Hyper-local atmospheric simulations using deep neural networks to predict extreme weather events with sub-kilometer precision.</p>
+          <span class="card-badge">REF: IPCC-AR6</span>
+        </div>
+
+        <!-- Smart Resource Grids -->
+        <div class="domain-card smart-grid fade-in fade-in-delay-1">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7" rx="1"/>
+              <rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/>
+              <rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+          </div>
+          <h3 class="card-title">Smart Resource Grids</h3>
+          <p class="card-description">Decentralized AI agents managing water and power distribution across municipal boundaries for peak optimization.</p>
+          <div class="card-version">VERSION 4.2.0_STABLE</div>
+        </div>
+
+        <!-- Solar Image Card -->
+        <div class="domain-card solar-image fade-in fade-in-delay-2">
+          <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=500&h=400&fit=crop&q=80" alt="Solar panels array" loading="lazy">
+        </div>
+
+        <!-- Adaptive Infrastructure -->
+        <div class="domain-card adaptive fade-in fade-in-delay-3">
+          <h3 class="card-title">Adaptive Infrastructure</h3>
+          <p class="card-description">Systems that learn from environmental stressors to reinforce critical services during climate transition periods.</p>
+          <a href="#" class="card-link">
+            VIEW FRAMEWORK
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17L17 7M17 7H7M17 7v10"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SUSTAINABLE COMPUTING PROTOCOLS ═══════════ -->
+  <section class="protocols">
+    <div class="container">
+      <div class="protocols-content">
+        <div class="section-label">PROTOCOL V.2</div>
+        <h2 class="section-title">Sustainable Computing Protocols</h2>
+
+        <div class="protocol-item">
+          <h4>Carbon-Neutral Data Centers</h4>
+          <p>Our research dictates the transition to liquid-immersion cooling and geothermal heat recapture for compute clusters.</p>
+        </div>
+
+        <div class="protocol-item">
+          <h4>Algorithmic Pruning</h4>
+          <p>Reducing model parameter count by up to 90% without accuracy loss to minimize inference energy consumption.</p>
+        </div>
+      </div>
+
+      <div class="protocol-visual fade-in fade-in-delay-2">
+        <div class="visual-header">
+          <span class="visual-label">COMPUTE_EFFICIENCY_METRIC</span>
+          <div class="visual-icon">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H5V7h7v10z"/></svg>
+          </div>
+        </div>
+
+        <div class="progress-bars">
+          <div class="progress-bar">
+            <div class="fill primary" data-width="85" style="width: 0%"></div>
+          </div>
+          <div class="progress-bar">
+            <div class="fill primary" data-width="72" style="width: 0%"></div>
+          </div>
+          <div class="progress-bar">
+            <div class="fill secondary" data-width="65" style="width: 0%"></div>
+          </div>
+          <div class="progress-bar">
+            <div class="fill accent" data-width="50" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div class="metric-display">
+          <div class="metric-value" data-target="-44">0%</div>
+          <div class="metric-label">Carbon Intensity Reduction per Epoch</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PARTNER CTA ═══════════ -->
+  <section class="partner-cta">
+    <div class="container">
+      <div class="partner-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C8 2 6 5 6 8c0 2.5 1.5 4.5 3.5 5.5L8 22h8l-1.5-8.5C16.5 12.5 18 10.5 18 8c0-3-2-6-6-6zm0 2c.5 0 1 .1 1.5.3-.3.4-.8.7-1.5.7s-1.2-.3-1.5-.7c.5-.2 1-.3 1.5-.3z"/>
+        </svg>
+      </div>
+      <h2 class="cta-title">Partner with our Research Collective</h2>
+      <p class="cta-description">We are seeking academic collaborations and industrial partners committed to net-zero computing and ethical planetary stewardship.</p>
+      <div class="cta-buttons">
+        <a href="#" class="btn btn-inverted">Submit Research Proposal</a>
+        <a href="#" class="btn btn-green-light">View Ethics Framework</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ ETHICAL FRAMEWORKS & POLICY (PILLARS) ═══════════ -->
+  <section class="pillars">
+    <div class="container">
+      <div class="section-label fade-in">CORE PILLAR 03</div>
+      <h2 class="section-title fade-in">Ethical Frameworks &amp; Policy</h2>
+
       <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-icon">🛡️</div>
-          <h3>AI Safety</h3>
-          <p>We research and promote techniques to ensure AI systems behave reliably, predictably, and in alignment with human values — reducing the risk of unintended harm from automated decision-making.</p>
+        <div class="pillar-item fade-in fade-in-delay-1">
+          <div class="pillar-number">03.1</div>
+          <h3>Fairness &amp; Bias</h3>
+          <p>Investigating the sociotechnical impacts of algorithmic decision-making on marginalized communities. We develop "Ethics-by-Design" toolkits for developers.</p>
+          <ul class="pillar-tags">
+            <li>ALGORITHMIC IMPACT ASSESSMENTS</li>
+            <li>BIAS DETECTION IN VISION MODELS</li>
+          </ul>
         </div>
-        <div class="pillar-card">
-          <div class="pillar-icon">🌱</div>
-          <h3>Sustainability</h3>
-          <p>We examine the environmental impact of AI — from the energy consumed by large models to the carbon footprint of data centres — and advocate for greener, more resource-efficient approaches.</p>
+
+        <div class="pillar-item fade-in fade-in-delay-2">
+          <div class="pillar-number">03.2</div>
+          <h3>Transparency</h3>
+          <p>Pushing the boundaries of Explainable AI (XAI). How can complex systems articulate their reasoning to human stakeholders in high-stakes environments?</p>
+          <ul class="pillar-tags">
+            <li>INTERPRETABILITY RESEARCH</li>
+            <li>HUMAN-IN-THE-LOOP GOVERNANCE</li>
+          </ul>
         </div>
-        <div class="pillar-card">
-          <div class="pillar-icon">⚖️</div>
-          <h3>Ethics</h3>
-          <p>We engage with questions of fairness, accountability, transparency, and privacy in AI systems, working to ensure these technologies serve the public interest and respect human rights.</p>
+
+        <div class="pillar-item fade-in fade-in-delay-3">
+          <div class="pillar-number">03.3</div>
+          <h3>Global Policy</h3>
+          <p>Advising government bodies on AI regulation. Our focus is on fostering innovation while maintaining strict human-centric safeguards.</p>
+          <ul class="pillar-tags">
+            <li>VANCOUVER AI ACCORD (DRAFT)</li>
+            <li>TRANSNATIONAL SAFETY STANDARDS</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Get Involved -->
-  <section class="involved" id="involved">
-    <div class="container">
-      <h2 class="section-title">Get Involved</h2>
-      <p class="section-sub">There are many ways to contribute to our mission, regardless of your background.</p>
-      <div class="involved-grid">
-        <div class="involved-item">
-          <h4>🎓 Join a Workshop</h4>
-          <p>Attend our public workshops and seminars on AI safety, sustainability, and ethics.</p>
-        </div>
-        <div class="involved-item">
-          <h4>🤝 Volunteer</h4>
-          <p>Help organize events, contribute research, or support outreach in the community.</p>
-        </div>
-        <div class="involved-item">
-          <h4>🔬 Collaborate</h4>
-          <p>Partner with us on research projects that advance responsible AI development.</p>
-        </div>
-        <div class="involved-item">
-          <h4>📣 Spread the Word</h4>
-          <p>Share our work and help grow a community that cares about the future of AI.</p>
-        </div>
+  <!-- ═══════════ CONTRIBUTE CTA ═══════════ -->
+  <section class="contribute-cta" id="contribute">
+    <div class="container fade-in">
+      <h2 class="cta-title">Contribute to the Future of Responsible AI.</h2>
+      <p class="cta-description">We are looking for researchers, ethicists, and engineers to join our 2024-2025 cohort. Apply for residency or view our open research grants.</p>
+      <div class="cta-buttons">
+        <a href="#" class="btn btn-white btn-uppercase">Apply for Residency</a>
+        <a href="#" class="btn btn-outlined btn-uppercase">Explore Datasets</a>
       </div>
     </div>
   </section>
 
-  <!-- CTA Banner -->
-  <section class="cta" id="contact">
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
     <div class="container">
-      <h2>Ready to Shape the Future of AI?</h2>
-      <p>Connect with us to learn more, collaborate, or simply join the conversation about responsible AI in Vancouver and beyond.</p>
-      <a href="mailto:info@vcasse.org" class="btn btn-primary">Contact Us</a>
-    </div>
-  </section>
+      <div class="footer-main">
+        <div class="footer-brand">
+          <h3>Vancouver Centre for AI Safety, Sustainability, and Ethics</h3>
+          <p>Bridging the gap between rapid technological advancement and the enduring values of human safety and ecological responsibility.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Share">
+              <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+            </a>
+            <a href="#" aria-label="Email">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+          </div>
+        </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 Vancouver Centre for AI Safety, Sustainability, &amp; Ethics (VCASSE) · Vancouver, BC, Canada</p>
-    <p style="margin-top:0.5rem;">
-      <a href="#about">About</a> &nbsp;·&nbsp;
-      <a href="#pillars">Our Pillars</a> &nbsp;·&nbsp;
-      <a href="#involved">Get Involved</a> &nbsp;·&nbsp;
-      <a href="mailto:info@vcasse.org">info@vcasse.org</a>
-    </p>
+        <div class="footer-column">
+          <h4>Research &amp; Legal</h4>
+          <ul>
+            <li><a href="#">Ethics Framework</a></li>
+            <li><a href="#">Safety Protocols</a></li>
+            <li><a href="#">Sustainability Reports</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Vancouver Centre for AI Safety, Sustainability, and Ethics. All rights reserved.</p>
+        <div class="footer-location">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Vancouver, BC, Canada
+        </div>
+      </div>
+    </div>
   </footer>
 
+  <script src="js/main.js"></script>
 </body>
 </html>
