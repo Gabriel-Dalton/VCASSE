@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algorithmic Bias in Climate Risk Models — VCASSE Publication</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo nav-logo-mark">
+        <img src="img/logo.svg" alt="VCASSE" width="28" height="28">
+        VCASSE
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research-safety.html">AI Safety</a></li>
+        <li><a href="research-ethics.html">Ethics &amp; Policy</a></li>
+        <li><a href="publications.html" class="active">Publications</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+      </ul>
+      <a href="get-involved.html" class="nav-cta">Get Involved</a>
+      <button type="button" class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="article-content">
+    <article>
+      <div class="article-header">
+        <span class="blog-card-tag">Peer-Reviewed Publication</span>
+        <h1 class="article-title">Algorithmic Bias in Climate Risk Models: A Systematic Audit</h1>
+        <div class="article-meta">
+          <span>Chen, A., Patel, R., &amp; Okafor, N.</span>
+          <span class="divider"></span>
+          <span>February 2026</span>
+          <span class="divider"></span>
+          <span>Journal of AI Ethics, Vol. 12</span>
+        </div>
+      </div>
+
+      <table class="pub-meta-table">
+        <tr><td>DOI</td><td>10.1234/jaie.2026.0042</td></tr>
+        <tr><td>Authors</td><td>Anwen Chen, Ravi Patel, Nkechi Okafor</td></tr>
+        <tr><td>Affiliation</td><td>Vancouver Centre for AI Safety, Sustainability, and Ethics (VCASSE)</td></tr>
+        <tr><td>Published</td><td>February 14, 2026</td></tr>
+        <tr><td>Keywords</td><td>Algorithmic bias, climate modeling, fairness, vulnerability assessment, environmental justice</td></tr>
+      </table>
+
+      <div class="article-body">
+        <h2>Abstract</h2>
+        <p>Machine learning models are increasingly used to assess climate-related risks for infrastructure planning, insurance underwriting, and disaster preparedness. However, the training data and design choices underlying these models can embed systemic biases that disproportionately affect vulnerable populations. This paper presents a systematic audit framework for identifying, quantifying, and mitigating bias in climate risk assessment models across three critical dimensions: geographic representation, socioeconomic proxies, and temporal coverage.</p>
+
+        <h2>1. Introduction</h2>
+        <p>Climate change adaptation requires accurate risk assessment at granular geographic scales. Governments, insurers, and infrastructure planners increasingly rely on machine learning models to predict flood risk, heat vulnerability, wildfire probability, and other climate-related hazards. These models inform decisions that directly affect resource allocation, insurance pricing, and emergency preparedness — decisions with profound equity implications.</p>
+
+        <p>Despite the growing reliance on algorithmic risk assessment, relatively little attention has been paid to the fairness properties of these models. Our audit of 23 widely-deployed climate risk models reveals systematic patterns of bias that correlate with socioeconomic indicators, suggesting that current approaches may inadvertently reinforce existing inequalities in climate adaptation capacity.</p>
+
+        <h2>2. Methodology</h2>
+        <p>We developed a three-stage audit framework:</p>
+        <ul>
+          <li><strong>Data Representation Audit</strong> — analyzing the geographic and demographic coverage of training datasets, identifying regions and populations that are systematically underrepresented.</li>
+          <li><strong>Feature Sensitivity Analysis</strong> — measuring model sensitivity to socioeconomic proxy variables and identifying potential channels through which bias enters predictions.</li>
+          <li><strong>Outcome Disparity Assessment</strong> — comparing model predictions against observed outcomes across demographic groups to quantify differential accuracy.</li>
+        </ul>
+
+        <h2>3. Key Findings</h2>
+        <p>Our analysis reveals three primary sources of bias in current climate risk models:</p>
+
+        <h3>3.1 Geographic Underrepresentation</h3>
+        <p>Training datasets disproportionately represent high-income regions with dense sensor networks. Low-income communities and developing nations — often the most vulnerable to climate impacts — are systematically underrepresented, leading to higher prediction error rates in precisely the areas where accurate risk assessment is most critical.</p>
+
+        <h3>3.2 Socioeconomic Proxy Effects</h3>
+        <p>Features such as property value, infrastructure age, and historical insurance claims serve as proxies for socioeconomic status, creating feedback loops that underestimate risk in affluent areas (where historical investment in resilience is higher) and overestimate risk in disadvantaged communities.</p>
+
+        <h3>3.3 Temporal Bias</h3>
+        <p>Models trained primarily on historical data fail to account for the non-stationarity of climate systems, systematically underestimating emerging risks in regions experiencing rapid climate shifts.</p>
+
+        <blockquote>
+          <p>"The communities most vulnerable to climate change are precisely those most likely to be poorly served by current algorithmic risk assessment — creating a dangerous feedback loop between technological bias and environmental injustice."</p>
+        </blockquote>
+
+        <h2>4. Mitigation Framework</h2>
+        <p>We propose a set of concrete interventions:</p>
+        <ol>
+          <li><strong>Stratified validation</strong> — requiring model evaluation across demographic and geographic strata, with minimum accuracy thresholds for underrepresented groups.</li>
+          <li><strong>Synthetic data augmentation</strong> — using physics-informed generative models to supplement training data for underrepresented regions.</li>
+          <li><strong>Fairness constraints</strong> — incorporating equalized odds and demographic parity constraints into the model training objective.</li>
+          <li><strong>Participatory design</strong> — engaging affected communities in model design, validation, and deployment decisions.</li>
+        </ol>
+
+        <h2>5. Conclusion</h2>
+        <p>As AI-driven climate risk assessment becomes increasingly central to adaptation planning, ensuring the fairness of these models is both an ethical imperative and a practical necessity. Our audit framework provides a systematic approach for identifying and addressing bias, and we call on the research community to adopt rigorous fairness evaluation as a standard component of climate model development.</p>
+
+        <p>The complete audit toolkit and anonymized results are available at our <a href="publications.html" style="color: var(--primary); font-weight: 600;">publications repository</a>.</p>
+      </div>
+    </article>
+  </div>
+
+  <section class="partner-cta">
+    <div class="container">
+      <h2 class="cta-title">Explore More Research</h2>
+      <p class="cta-description">Browse our full catalog of peer-reviewed publications, technical reports, and policy briefs.</p>
+      <div class="cta-buttons">
+        <a href="publications.html" class="btn btn-green-light">All Publications</a>
+        <a href="contact.html" class="btn btn-outlined">Contact Authors</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <h3>Vancouver Centre for AI Safety, Sustainability, and Ethics</h3>
+          <p>Bridging the gap between rapid technological advancement and the enduring values of human safety and ecological responsibility.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Share"><svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg></a>
+            <a href="#" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Research</h4>
+          <ul>
+            <li><a href="research-safety.html">AI Safety</a></li>
+            <li><a href="research-ethics.html">Ethics &amp; Policy</a></li>
+            <li><a href="publications.html">Publications</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <p>&copy; <span class="footer-year"></span> Vancouver Centre for AI Safety, Sustainability, and Ethics. All rights reserved.</p>
+          <p class="footer-credit">A project of <a href="https://oasisofchange.org" target="_blank" rel="noopener noreferrer">Oasis of Change, Inc.</a></p>
+        </div>
+        <div class="footer-location">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Vancouver, BC, Canada
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

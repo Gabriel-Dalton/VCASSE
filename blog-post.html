@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon-Aware Training: Scheduling GPU Workloads — VCASSE Blog</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo nav-logo-mark">
+        <img src="img/logo.svg" alt="VCASSE" width="28" height="28">
+        VCASSE
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research-safety.html">AI Safety</a></li>
+        <li><a href="research-ethics.html">Ethics &amp; Policy</a></li>
+        <li><a href="publications.html" class="active">Publications</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+      </ul>
+      <a href="get-involved.html" class="nav-cta">Get Involved</a>
+      <button type="button" class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="article-content">
+    <article>
+      <div class="article-header">
+        <span class="blog-card-tag">Blog</span>
+        <h1 class="article-title">Carbon-Aware Training: Scheduling GPU Workloads for Minimal Emissions</h1>
+        <div class="article-meta">
+          <span>Dr. Sarah Mitchell</span>
+          <span class="divider"></span>
+          <span>January 15, 2026</span>
+          <span class="divider"></span>
+          <span>8 min read</span>
+        </div>
+      </div>
+
+      <img class="article-hero-image" src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=1200&h=500&fit=crop&q=80" alt="Wind turbines in a forest landscape" loading="lazy">
+
+      <div class="article-body">
+        <p>The environmental cost of training large-scale AI models has become one of the most pressing concerns in responsible computing. A single training run for a state-of-the-art language model can emit as much carbon dioxide as five cars over their entire lifetimes. At VCASSE, we've been investigating how temporal and geographic shifting of compute workloads can dramatically reduce this footprint.</p>
+
+        <h2>The Scale of the Problem</h2>
+        <p>Modern deep learning models require enormous computational resources. The trend toward ever-larger models — with parameter counts reaching into the trillions — has created an exponential growth curve in energy consumption. Our research estimates that AI-related energy consumption will account for 3.5% of global electricity demand by 2030 if current trends continue unchecked.</p>
+
+        <blockquote>
+          <p>"The question is not whether we can afford to make AI training sustainable — it's whether we can afford not to. The computational demands of frontier models are growing faster than our ability to decarbonize the grid."</p>
+        </blockquote>
+
+        <h2>Carbon-Aware Scheduling</h2>
+        <p>Our approach leverages real-time carbon intensity data from electrical grids worldwide. By monitoring the marginal emissions factor of different regions and time periods, we can intelligently schedule training jobs to coincide with periods of high renewable energy availability.</p>
+
+        <h3>Key Findings</h3>
+        <ul>
+          <li><strong>Temporal shifting</strong> — delaying non-urgent training jobs by 6-12 hours to align with low-carbon periods can reduce emissions by 20-30% with minimal impact on research timelines.</li>
+          <li><strong>Geographic shifting</strong> — routing workloads to data centers in regions with cleaner grids can achieve an additional 15-25% reduction.</li>
+          <li><strong>Combined strategies</strong> — when both temporal and geographic shifting are employed together, total emission reductions of 35-45% are achievable.</li>
+        </ul>
+
+        <h2>Implementation Framework</h2>
+        <p>We've developed an open-source scheduler that integrates with popular ML frameworks (PyTorch, JAX, TensorFlow) and cloud providers. The scheduler maintains a real-time map of carbon intensity across available compute regions and automatically routes jobs to minimize total lifecycle emissions.</p>
+
+        <p>The framework operates on three principles:</p>
+        <ol>
+          <li><strong>Deadline-aware optimization</strong> — researchers specify hard and soft deadlines, allowing the scheduler to maximize carbon savings within acceptable time constraints.</li>
+          <li><strong>Checkpoint-based migration</strong> — long-running training jobs can be paused and migrated to cleaner regions as grid conditions change.</li>
+          <li><strong>Transparency reporting</strong> — every training run generates a carbon receipt documenting total emissions, counterfactual emissions, and savings achieved.</li>
+        </ol>
+
+        <h2>Looking Forward</h2>
+        <p>Carbon-aware computing is not a silver bullet, but it represents a significant and immediately actionable step toward sustainable AI. Combined with algorithmic efficiency improvements and hardware advances, we believe the AI research community can dramatically reduce its environmental footprint while continuing to push the boundaries of what's possible.</p>
+
+        <p>The full technical report and open-source scheduler are available on our <a href="publications.html" style="color: var(--primary); font-weight: 600;">publications page</a>. We welcome contributions and feedback from the community.</p>
+      </div>
+    </article>
+  </div>
+
+  <section class="partner-cta">
+    <div class="container">
+      <h2 class="cta-title">Continue Reading</h2>
+      <p class="cta-description">Explore more research from the VCASSE collective on AI safety, sustainability, and ethical governance.</p>
+      <div class="cta-buttons">
+        <a href="publications.html" class="btn btn-green-light">All Publications</a>
+        <a href="get-involved.html" class="btn btn-outlined">Get Involved</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <h3>Vancouver Centre for AI Safety, Sustainability, and Ethics</h3>
+          <p>Bridging the gap between rapid technological advancement and the enduring values of human safety and ecological responsibility.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Share"><svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg></a>
+            <a href="#" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Research</h4>
+          <ul>
+            <li><a href="research-safety.html">AI Safety</a></li>
+            <li><a href="research-ethics.html">Ethics &amp; Policy</a></li>
+            <li><a href="publications.html">Publications</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <p>&copy; <span class="footer-year"></span> Vancouver Centre for AI Safety, Sustainability, and Ethics. All rights reserved.</p>
+          <p class="footer-credit">A project of <a href="https://oasisofchange.org" target="_blank" rel="noopener noreferrer">Oasis of Change, Inc.</a></p>
+        </div>
+        <div class="footer-location">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Vancouver, BC, Canada
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

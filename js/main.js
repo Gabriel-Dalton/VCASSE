@@ -4,17 +4,42 @@ document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
 
+  function closeMobileMenu() {
+    if (!navLinks || !navToggle) return;
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+    document.body.style.overflow = '';
+  }
+
+  const MOBILE_NAV_BREAKPOINT = 1024;
+
   if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      navToggle.classList.toggle('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-controls', 'navLinks');
+
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('active', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('menu-open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
     });
 
     document.addEventListener('click', (e) => {
-      if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
-        navLinks.classList.remove('open');
-        navToggle.classList.remove('active');
-      }
+      if (window.innerWidth > MOBILE_NAV_BREAKPOINT) return;
+      if (navToggle.contains(e.target) || navLinks.contains(e.target)) return;
+      closeMobileMenu();
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > MOBILE_NAV_BREAKPOINT) closeMobileMenu();
     });
   }
 
@@ -136,6 +161,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     lastScroll = scrollY;
   }, { passive: true });
+
+  // ─── Footer: current year ───
+  document.querySelectorAll('.footer-year').forEach((el) => {
+    el.textContent = String(new Date().getFullYear());
+  });
+
+  // ─── Blog filter buttons ───
+  const filterBtns = document.querySelectorAll('.blog-filter-btn');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
 
   // ─── Smooth scroll for anchor links ───
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
