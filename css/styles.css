@@ -687,7 +687,7 @@ img {
 
 .partner-cta {
   padding: 100px 0;
-  margin: 0 24px 24px;
+  margin: 0 24px 48px;
   border-radius: var(--radius-lg);
   background: var(--primary);
   position: relative;
@@ -931,7 +931,7 @@ img {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-lg);
-  margin: 0 24px;
+  margin: 0 24px 48px;
 }
 
 .contribute-cta::before {
@@ -1661,7 +1661,7 @@ noscript + * .fade-in,
 
   .contribute-cta {
     padding: 60px 20px;
-    margin: 0 20px;
+    margin: 0 20px 48px;
     border-radius: var(--radius-md);
   }
 
@@ -1674,8 +1674,7 @@ noscript + * .fade-in,
   }
 
   .partner-cta {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 0 20px 48px;
     padding: 72px 0;
   }
 
