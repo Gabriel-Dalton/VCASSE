@@ -4,6 +4,8 @@
   --primary: #047857;
   --primary-light: #059669;
   --primary-dark: #064e3b;
+  /* CTA + footer share the same deep forest band */
+  --brand-band: var(--primary-dark);
   --primary-glow: rgba(4, 120, 87, 0.12);
   --secondary: #64748b;
   --tertiary: #0f172a;
@@ -901,7 +903,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .contribute-cta {
   padding: 100px 48px;
-  background: var(--primary);
+  background: var(--brand-band);
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-lg);
@@ -946,7 +948,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* ─────────────── FOOTER ─────────────── */
 
 .footer {
-  background: var(--primary);
+  background: var(--brand-band);
   padding: 80px 0 0;
   position: relative;
   overflow: hidden;
@@ -956,7 +958,7 @@ img { max-width: 100%; height: auto; display: block; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 20px 20px;
   pointer-events: none;
 }
@@ -983,7 +985,7 @@ img { max-width: 100%; height: auto; display: block; }
 .footer-brand p {
   font-size: 14px;
   line-height: 1.7;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   max-width: 360px;
   margin-bottom: 28px;
 }
@@ -996,7 +998,7 @@ img { max-width: 100%; height: auto; display: block; }
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   transition: color 0.2s ease;
 }
 
@@ -1008,7 +1010,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 24px;
 }
 
@@ -1018,7 +1020,7 @@ img { max-width: 100%; height: auto; display: block; }
 .footer-column ul a {
   font-size: 14px;
   font-weight: 400;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   transition: color 0.2s ease;
@@ -1027,7 +1029,7 @@ img { max-width: 100%; height: auto; display: block; }
 .footer-column ul a:hover { color: var(--white); }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 24px 0 32px;
   display: flex;
   flex-wrap: wrap;
@@ -1038,7 +1040,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .footer-bottom p {
   font-size: 12px;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255, 255, 255, 0.35);
   letter-spacing: 0.5px;
   text-transform: uppercase;
   margin: 0;
@@ -1050,7 +1052,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .footer-bottom p a {
-  color: rgba(255,255,255,0.55);
+  color: rgba(255, 255, 255, 0.55);
   text-decoration: underline;
   text-underline-offset: 3px;
   text-transform: none;
@@ -1064,7 +1066,7 @@ img { max-width: 100%; height: auto; display: block; }
   align-items: center;
   gap: 6px;
   font-size: 12px;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255, 255, 255, 0.35);
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
@@ -1072,7 +1074,7 @@ img { max-width: 100%; height: auto; display: block; }
 .footer-location svg {
   width: 14px;
   height: 14px;
-  fill: rgba(255,255,255,0.35);
+  fill: rgba(255, 255, 255, 0.35);
 }
 
 /* ─────────────── PAGE HERO (Sub-pages) ─────────────── */
