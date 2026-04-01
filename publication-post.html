@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — VCASSE</title>
+  <title>Publication — VCASSE</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/svg+xml" href="img/logo.svg">
 </head>
@@ -29,8 +29,8 @@
           </ul>
         </li>
         <li><a href="about.html">About</a></li>
-        <li><a href="publications.html">Publications</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="publications.html" class="active">Publications</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
       <button type="button" class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -38,91 +38,7 @@
     </div>
   </nav>
 
-  <section class="page-hero">
-    <div class="container">
-      <div class="page-hero-content">
-        <div class="section-label">REACH OUT</div>
-        <h1 class="page-hero-title">
-          Get in
-          <span class="italic-accent">Touch</span>
-        </h1>
-        <p class="page-hero-description">Whether you're a researcher, policymaker, or prospective collaborator — we'd love to hear from you. Our team is based in Vancouver, BC.</p>
-      </div>
-      <div class="page-hero-visual">
-        <div style="display: flex; flex-direction: column; gap: 16px; align-items: flex-end;">
-          <div class="hero-image-card">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=260&fit=crop&q=80" alt="Vancouver skyline" loading="lazy">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="research-domains">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h3>Contact Information</h3>
-          <p>Whether you're a researcher, policymaker, journalist, or prospective partner &mdash; we'd love to hear from you. Our team is based in Vancouver, BC and collaborates globally.</p>
-
-          <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            </div>
-            <div>
-              <h4>Email</h4>
-              <p>info@vcasse.org</p>
-            </div>
-          </div>
-
-          <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            </div>
-            <div>
-              <h4>Address</h4>
-              <p>Vancouver, BC<br>Canada</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-form">
-          <h3 style="font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 24px;">Send a Message</h3>
-          <form action="#" method="POST">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
-              </div>
-              <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="jane@example.com" required>
-            </div>
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <select id="subject" name="subject">
-                <option value="">Select a topic...</option>
-                <option value="research">Research Collaboration</option>
-                <option value="partnership">Partnership</option>
-                <option value="media">Media Inquiry</option>
-                <option value="general">General Question</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us about your inquiry..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+  <main id="publicationPost"></main>
 
   <footer class="footer">
     <div class="container">
@@ -164,6 +80,8 @@
     </div>
   </footer>
 
+  <script src="js/publications-data.js"></script>
+  <script src="js/publications.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
