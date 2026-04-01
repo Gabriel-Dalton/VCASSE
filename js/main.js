@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ─── Mobile nav toggle ───
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
 
@@ -13,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
-  const MOBILE_NAV_BREAKPOINT = 1024;
+  const MOBILE_NAV_BREAKPOINT = 768;
 
   if (navToggle && navLinks) {
     navToggle.setAttribute('aria-expanded', 'false');
@@ -43,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── Scroll-triggered fade-in animations ───
   const fadeElements = document.querySelectorAll('.fade-in');
 
   function isElementInView(el) {
@@ -82,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeElements.forEach(el => el.classList.add('visible'));
   }
 
-  // ─── Progress bar animation ───
   const progressBars = document.querySelectorAll('.progress-bar .fill');
 
   if (progressBars.length > 0) {
@@ -109,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ─── Metric counter animation ───
   const metricValue = document.querySelector('.metric-value');
 
   if (metricValue) {
@@ -136,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = Math.round(target * eased);
 
-      element.textContent = current + '%';
+      element.textContent = current;
 
       if (progress < 1) {
         requestAnimationFrame(update);
@@ -146,9 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(update);
   }
 
-  // ─── Navbar background on scroll ───
   const navbar = document.querySelector('.navbar');
-  let lastScroll = 0;
 
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
@@ -158,25 +152,12 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       navbar.style.boxShadow = 'none';
     }
-
-    lastScroll = scrollY;
   }, { passive: true });
 
-  // ─── Footer: current year ───
   document.querySelectorAll('.footer-year').forEach((el) => {
     el.textContent = String(new Date().getFullYear());
   });
 
-  // ─── Blog filter buttons ───
-  const filterBtns = document.querySelectorAll('.blog-filter-btn');
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
-
-  // ─── Smooth scroll for anchor links ───
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
