@@ -3,6 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
 
+  function closeNavDropdowns() {
+    document.querySelectorAll('.nav-dropdown.is-open').forEach((dd) => {
+      dd.classList.remove('is-open');
+      const btn = dd.querySelector('.nav-dropdown-trigger');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  }
+
   function closeMobileMenu() {
     if (!navLinks || !navToggle) return;
     navLinks.classList.remove('open');
@@ -10,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('menu-open');
     document.body.style.overflow = '';
+    closeNavDropdowns();
   }
 
   const MOBILE_NAV_BREAKPOINT = 768;
@@ -41,6 +50,32 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.innerWidth > MOBILE_NAV_BREAKPOINT) closeMobileMenu();
     });
   }
+
+  document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+    const trigger = dropdown.querySelector('.nav-dropdown-trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', () => {
+      const willOpen = !dropdown.classList.contains('is-open');
+      document.querySelectorAll('.nav-dropdown.is-open').forEach((dd) => {
+        if (dd !== dropdown) {
+          dd.classList.remove('is-open');
+          const t = dd.querySelector('.nav-dropdown-trigger');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        }
+      });
+      dropdown.classList.toggle('is-open', willOpen);
+      trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-dropdown')) closeNavDropdowns();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeNavDropdowns();
+  });
 
   const fadeElements = document.querySelectorAll('.fade-in');
 

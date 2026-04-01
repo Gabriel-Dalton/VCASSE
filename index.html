@@ -20,9 +20,17 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="research-safety.html">Safety</a></li>
-        <li><a href="sustainability.html">Sustainability</a></li>
-        <li><a href="research-ethics.html">Ethics</a></li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="navResearchMenu">
+            Research
+            <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav-dropdown-menu" id="navResearchMenu" role="menu">
+            <li role="none"><a href="research-safety.html" role="menuitem">Safety</a></li>
+            <li role="none"><a href="sustainability.html" role="menuitem">Sustainability</a></li>
+            <li role="none"><a href="research-ethics.html" role="menuitem">Ethics</a></li>
+          </ul>
+        </li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
 
@@ -35,7 +43,7 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero hero--home">
     <div class="container">
       <div class="hero-content">
         <h1 class="hero-title">
@@ -53,6 +61,71 @@
       <div class="hero-image">
         <div class="hero-image-wrapper">
           <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop&q=80" alt="Abstract technology visualization" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="home-section home-research fade-in" aria-labelledby="home-research-heading">
+    <div class="container">
+      <header class="home-section-header">
+        <p class="home-section-kicker">Research</p>
+        <h2 id="home-research-heading" class="home-section-title">Three pillars of responsible AI</h2>
+        <p class="home-section-lead">Our work spans technical safety, environmental and social sustainability, and the ethical questions that shape who benefits from AI and who bears the risk.</p>
+      </header>
+      <div class="home-research-grid">
+        <article class="modern-card">
+          <div class="modern-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Safety</h3>
+          <p>Robustness, alignment, and risk-aware deployment so systems behave reliably in the real world.</p>
+          <a class="modern-card-link" href="research-safety.html">Explore safety <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="modern-card">
+          <div class="modern-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 2 6.5c0 5.5-4.5 7-8 7.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 22c1.5-6.5 6.5-10 11-11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Sustainability</h3>
+          <p>Energy, data, and lifecycle impacts of AI systems in a changing climate and economy.</p>
+          <a class="modern-card-link" href="sustainability.html">Explore sustainability <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="modern-card">
+          <div class="modern-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Ethics</h3>
+          <p>Justice, governance, and participation so AI serves communities fairly and transparently.</p>
+          <a class="modern-card-link" href="research-ethics.html">Explore ethics <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section class="home-section home-programs fade-in" aria-labelledby="home-programs-heading">
+    <div class="container">
+      <header class="home-section-header">
+        <p class="home-section-kicker">Programs</p>
+        <h2 id="home-programs-heading" class="home-section-title">Building capacity for the public good</h2>
+        <p class="home-section-lead">Hands-on workshops, policy engagement, and community-led initiatives are on the roadmap. Stay in touch as we launch.</p>
+      </header>
+      <div class="home-programs-grid">
+        <div class="program-card">
+          <h3>Public learning series</h3>
+          <p>Accessible sessions on how AI works, what it means for you, and how to ask better questions.</p>
+          <span class="badge-soon">Coming soon</span>
+        </div>
+        <div class="program-card">
+          <h3>Policy &amp; civil society</h3>
+          <p>Briefings and roundtables for policymakers and advocates who need clear, non-hype framing.</p>
+          <span class="badge-soon">Coming soon</span>
+        </div>
+        <div class="program-card">
+          <h3>Student &amp; youth</h3>
+          <p>Programs for schools and early-career builders to practice responsible AI from day one.</p>
+          <span class="badge-soon">Coming soon</span>
         </div>
       </div>
     </div>
