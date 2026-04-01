@@ -1087,9 +1087,11 @@ img {
 
 .footer-bottom .footer-legal {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  max-width: 520px;
+  flex: 1 1 640px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  min-width: 0;
 }
 
 .footer-bottom p {
