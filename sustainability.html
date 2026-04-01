@@ -19,9 +19,17 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="research-safety.html">Safety</a></li>
-        <li><a href="sustainability.html" class="active">Sustainability</a></li>
-        <li><a href="research-ethics.html">Ethics</a></li>
+        <li class="nav-dropdown nav-dropdown--active">
+          <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="navResearchMenu">
+            Research
+            <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav-dropdown-menu" id="navResearchMenu" role="menu">
+            <li role="none"><a href="research-safety.html" role="menuitem">Safety</a></li>
+            <li role="none"><a href="sustainability.html" role="menuitem" class="active">Sustainability</a></li>
+            <li role="none"><a href="research-ethics.html" role="menuitem">Ethics</a></li>
+          </ul>
+        </li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <button type="button" class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
