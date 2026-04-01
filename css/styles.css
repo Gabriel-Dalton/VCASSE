@@ -1601,7 +1601,7 @@ noscript + * .fade-in,
   }
 
   body.menu-open .nav-mobile-toggle.active span {
-    background: var(--white);
+    background: var(--primary);
   }
 
   .hero .container {
