@@ -34,6 +34,7 @@
   --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
   --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Display headings (home sections, CTA, page heroes) */
   --font-display: 'Plus Jakarta Sans', var(--font-sans);
   --font-serif: 'DM Serif Display', Georgia, serif;
   --max-width: 1280px;
@@ -547,6 +548,8 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--text-light);
   position: relative;
   overflow: hidden;
+  /* Pull Contribute CTA closer — less empty band below program cards */
+  padding-bottom: 28px;
 }
 
 .home-programs::before {
@@ -834,7 +837,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .pillars .section-title {
   font-family: var(--font-sans);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 48px;
   color: var(--text-dark);
   letter-spacing: -1.5px;
@@ -902,7 +905,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* ─────────────── CONTRIBUTE CTA ─────────────── */
 
 .contribute-cta {
-  padding: 100px 48px;
+  padding: 72px 48px 96px;
   background: var(--brand-band);
   position: relative;
   overflow: hidden;
@@ -914,7 +917,7 @@ img { max-width: 100%; height: auto; display: block; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 20px 20px;
   pointer-events: none;
 }
@@ -926,12 +929,12 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .contribute-cta .cta-title {
-  font-family: var(--font-sans);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 800;
   font-size: 56px;
   color: var(--white);
-  letter-spacing: -2px;
-  line-height: 1.1;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
   margin-bottom: 24px;
 }
 
@@ -973,10 +976,11 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .footer-brand h3 {
-  font-family: var(--font-sans);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 800;
   font-size: 22px;
   color: var(--white);
+  letter-spacing: -0.03em;
   line-height: 1.3;
   margin-bottom: 20px;
   max-width: 380px;
@@ -1091,7 +1095,7 @@ img { max-width: 100%; height: auto; display: block; }
 .page-hero-content .section-label { margin-bottom: 20px; }
 
 .page-hero-title {
-  font-family: var(--font-sans);
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 72px;
   line-height: 0.95;
@@ -1490,6 +1494,7 @@ noscript + * .fade-in,
   .hero { padding: 40px 0 60px; }
   .hero--home { padding: 36px 0 48px; }
   .home-section { padding: 56px 0; }
+  .home-programs { padding-bottom: 22px; }
   .home-section-header { margin-bottom: 32px; }
   .hero .container { grid-template-columns: 1fr; gap: 40px; }
   .domains-header { flex-direction: column; gap: 16px; }
@@ -1498,7 +1503,7 @@ noscript + * .fade-in,
   .protocols-content .section-title { font-size: 36px; }
   .pillars-grid { grid-template-columns: 1fr; gap: 32px; }
   .pillars .section-title { font-size: 36px; }
-  .contribute-cta { padding: 60px 20px; margin: 0 20px 32px; border-radius: var(--radius-md); }
+  .contribute-cta { padding: 52px 20px 64px; margin: 0 20px 32px; border-radius: var(--radius-md); }
   .contribute-cta .cta-title { font-size: 36px; }
   .footer-main { grid-template-columns: 1fr; gap: 40px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
