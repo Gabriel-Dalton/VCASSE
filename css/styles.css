@@ -1864,7 +1864,7 @@ noscript + * .fade-in,
 
 .article-content {
   max-width: 760px;
-  margin: 24px auto 0;
+  margin: 48px auto 0;
   padding: 56px 40px 80px;
   background: var(--bg-card);
   border: 1px solid var(--border-light);
@@ -1875,7 +1875,7 @@ noscript + * .fade-in,
 @media (min-width: 1025px) {
   .article-content {
     padding-top: 72px;
-    margin-top: 32px;
+    margin-top: 64px;
   }
 }
 
