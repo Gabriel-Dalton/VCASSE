@@ -19,7 +19,6 @@
 
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
         <li class="nav-dropdown">
           <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="navResearchMenu">
             Research
@@ -31,6 +30,8 @@
             <li role="none"><a href="research-ethics.html" role="menuitem">Ethics</a></li>
           </ul>
         </li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="publications.html">Publications</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
 
@@ -131,6 +132,21 @@
     </div>
   </section>
 
+  <!-- BLOG / PUBLICATIONS -->
+  <section class="home-section home-publications fade-in" aria-labelledby="home-publications-heading">
+    <div class="container">
+      <header class="home-section-header">
+        <p class="home-section-kicker">Blog</p>
+        <h2 id="home-publications-heading" class="home-section-title">Publications across all pillars</h2>
+        <p class="home-section-lead">Read tagged notes, briefs, and explainers from Safety, Sustainability, and Ethics. New posts are designed to drop in with a lightweight CMS-style workflow.</p>
+      </header>
+      <div class="publication-cards-grid" id="featuredPublications" aria-live="polite"></div>
+      <div class="home-publications-cta">
+        <a class="btn btn-secondary" href="publications.html">View all publications</a>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTRIBUTE CTA -->
   <section class="contribute-cta" id="contribute">
     <div class="container fade-in">
@@ -173,6 +189,7 @@
           <h4>Information</h4>
           <ul>
             <li><a href="about.html">About</a></li>
+            <li><a href="publications.html">Publications</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="privacy.html">Privacy Policy</a></li>
             <li><a href="terms.html">Terms of Service</a></li>
@@ -190,6 +207,8 @@
     </div>
   </footer>
 
+  <script src="js/publications-data.js"></script>
+  <script src="js/publications.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
