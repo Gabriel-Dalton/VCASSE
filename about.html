@@ -3,74 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VCASSE — Vancouver Centre for AI Safety, Sustainability, and Ethics</title>
+  <title>About — VCASSE</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/svg+xml" href="img/logo.svg">
 </head>
 <body>
 
-  <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo nav-logo-mark">
         <img src="img/logo.svg" alt="VCASSE" width="28" height="28">
         VCASSE
       </a>
-
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
         <li><a href="research-safety.html">Safety</a></li>
         <li><a href="sustainability.html">Sustainability</a></li>
         <li><a href="research-ethics.html">Ethics</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-
       <button type="button" class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
+  <section class="page-hero">
     <div class="container">
-      <div class="hero-content">
-        <h1 class="hero-title">
-          Safety, Sustainability,
-          <span class="italic-accent">&amp; Ethics</span>
+      <div class="page-hero-content">
+        <div class="section-label">ABOUT VCASSE</div>
+        <h1 class="page-hero-title">
+          Who We
+          <span class="italic-accent">Are</span>
         </h1>
-
-        <p class="hero-description">
-          Vancouver's dedicated centre for responsible AI. We research, educate,
-          and advocate across three pillars &mdash; because AI is moving fast, and the
-          people it affects most deserve a seat at the table.
-        </p>
+        <p class="page-hero-description">VCASSE is Vancouver's dedicated centre for responsible artificial intelligence. We exist to make sure Vancouver isn't just a participant in the AI conversation &mdash; we're helping lead it.</p>
       </div>
-
-      <div class="hero-image">
-        <div class="hero-image-wrapper">
-          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop&q=80" alt="Abstract technology visualization" loading="lazy">
+      <div class="page-hero-visual">
+        <div style="display: flex; flex-direction: column; gap: 16px; align-items: flex-end;">
+          <div class="hero-image-card">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=260&fit=crop&q=80" alt="Vancouver skyline" loading="lazy">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTRIBUTE CTA -->
+  <section class="about-page">
+    <div class="container">
+      <div class="about-page-inner fade-in">
+        <div class="protocol-item">
+          <h4>Our Mission</h4>
+          <p>To position Vancouver as a leader in responsible AI by advancing public literacy, informing policy, and ensuring that safety, sustainability, and ethics are at the centre of how our community builds, uses, and governs artificial intelligence.</p>
+        </div>
+        <div class="protocol-item">
+          <h4>Our Vision</h4>
+          <p>A Vancouver where every resident &mdash; from students to policymakers to developers &mdash; understands the impact of AI on their lives and has the tools to shape its future responsibly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="contribute-cta" id="contribute">
     <div class="container fade-in">
       <h2 class="cta-title">Contribute to the Future of Responsible AI.</h2>
       <p class="cta-description">We serve the general public, youth and students, tech companies and developers, and policymakers. If AI affects your life &mdash; and it does &mdash; we're here for you.</p>
       <div class="cta-buttons">
         <a href="contact.html" class="btn btn-white btn-uppercase">Get in Touch</a>
-        <a href="about.html" class="btn btn-outlined btn-uppercase">About Us</a>
+        <a href="research-safety.html" class="btn btn-outlined btn-uppercase">Explore Safety</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-main">
@@ -78,15 +82,10 @@
           <h3>Vancouver Centre for AI Safety, Sustainability, and Ethics</h3>
           <p>Vancouver's dedicated centre for responsible AI. We research, educate, and advocate across safety, sustainability, and ethics.</p>
           <div class="footer-social">
-            <a href="#" aria-label="Share">
-              <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
-            </a>
-            <a href="#" aria-label="Email">
-              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            </a>
+            <a href="#" aria-label="Share"><svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg></a>
+            <a href="#" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
           </div>
         </div>
-
         <div class="footer-column">
           <h4>Research</h4>
           <ul>
@@ -95,7 +94,6 @@
             <li><a href="research-ethics.html">Ethics</a></li>
           </ul>
         </div>
-
         <div class="footer-column">
           <h4>Information</h4>
           <ul>
@@ -106,7 +104,6 @@
           </ul>
         </div>
       </div>
-
       <div class="footer-bottom">
         <p>&copy; <span class="footer-year"></span> VCASSE. All rights reserved.<span class="footer-separator">|</span>A subsidiary of <a href="https://oasisofchange.org" target="_blank" rel="noopener noreferrer">OASIS OF CHANGE, INC.</a></p>
         <div class="footer-location">

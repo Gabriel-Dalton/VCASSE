@@ -881,6 +881,24 @@ img { max-width: 100%; height: auto; display: block; }
 .form-group textarea { min-height: 120px; resize: vertical; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
+/* ─────────────── ABOUT PAGE ─────────────── */
+
+.about-page {
+  padding: 0 0 100px;
+}
+
+.about-page .container {
+  max-width: 720px;
+}
+
+.about-page-inner {
+  padding-top: 8px;
+}
+
+.about-page-inner .protocol-item:first-of-type {
+  margin-top: 0;
+}
+
 /* ─────────────── LEGAL PAGES ─────────────── */
 
 .legal-content { max-width: 800px; margin: 0 auto; padding: 60px 48px 100px; }
@@ -1018,6 +1036,7 @@ noscript + * .fade-in,
   .nav-links.open li:nth-child(3) { transition-delay: 0.1s; }
   .nav-links.open li:nth-child(4) { transition-delay: 0.13s; }
   .nav-links.open li:nth-child(5) { transition-delay: 0.16s; }
+  .nav-links.open li:nth-child(6) { transition-delay: 0.19s; }
 
   .nav-links a {
     display: block;
@@ -1054,4 +1073,5 @@ noscript + * .fade-in,
   .legal-content { padding: 40px 0 60px; }
   .legal-content h2 { font-size: 20px; }
   .form-row { grid-template-columns: 1fr; }
+  .about-page { padding-bottom: 60px; }
 }
