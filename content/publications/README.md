@@ -1,15 +1,17 @@
-# Publications Mini-CMS
+# Publications Workflow
 
-This site uses a lightweight content workflow for publications.
+Publications are individual HTML pages under `publications/`.
 
-## Quick add flow
+## Add a new publication
 
-1. Open `js/publications-data.js`.
-2. Copy the object template from `content/publications/post-template.md`.
-3. Add your publication object to `window.VCASSE_PUBLICATIONS`.
-4. Save. The listing page, post page, and homepage blog cards update automatically.
+1. Duplicate one of the existing publication pages in `publications/`.
+2. Update title, date, tags, excerpt, and body copy.
+3. Add a card to `publications.html` pointing to the new page.
+4. Add a metadata record in `js/publications-data.js` so related-post widgets can include it.
 
-## URLs
+## Related posts on pillar pages
 
-- Listing page: `publications.html`
-- Individual post: `publication-post.html?slug=<your-slug>`
+- `research-safety.html`, `sustainability.html`, and `research-ethics.html` each load:
+  - `js/publications-data.js`
+  - `js/publications-related.js`
+- These scripts render the latest two publications for the page's pillar.
