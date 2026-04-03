@@ -11,7 +11,7 @@ Publications are individual HTML pages under `publications/`.
 
 ## Related posts on pillar pages
 
-- `research-safety.html`, `sustainability.html`, and `research-ethics.html` each load:
+- `safety.html`, `sustainability.html`, and `ethics.html` each load:
   - `js/publications-data.js`
   - `js/publications-related.js`
 - These scripts render the latest two publications for the page's pillar.
