@@ -70,3 +70,13 @@ Safety and ethics are distinct and complementary:
 ## Affiliation
 
 VCASSE operates as a subsidiary program of **Oasis of Change, Inc.**, a federal not-for-profit corporation based in Vancouver, BC.
+
+
+## Publications CMS (Simple Workflow)
+
+The publications area supports two modes via `js/publications-data.js`:
+
+- **Full publication** (`type: "publication"`): links to an HTML page under `publications/`.
+- **Rapid briefing** (`type: "news"`): quick updates for latest AI news or policy notes.
+
+`publications.html` auto-renders both from the data file, so publishing can be as simple as adding one object.
