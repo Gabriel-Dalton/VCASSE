@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Sustainability Checker — VCASSE</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo nav-logo-mark">
+        <img src="img/logo.svg" alt="VCASSE" width="28" height="28">
+        VCASSE
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-dropdown nav-dropdown--active">
+          <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="navResearchMenu">
+            Research
+            <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav-dropdown-menu" id="navResearchMenu" role="menu">
+            <li role="none"><a href="research-safety.html" role="menuitem">Safety</a></li>
+            <li role="none"><a href="sustainability.html" role="menuitem" class="active">Sustainability</a></li>
+            <li role="none"><a href="research-ethics.html" role="menuitem">Ethics</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button type="button" class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero checker-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="section-label">VCASSE PROJECT</div>
+        <h1 class="page-hero-title">
+          AI Sustainability
+          <span class="italic-accent">Checker</span>
+        </h1>
+        <p class="page-hero-description">A public-facing impact widget and Chrome extension concept that translates AI usage into understandable numbers: estimated water, energy, and carbon footprint by prompt.</p>
+        <div class="checker-badges">
+          <span class="checker-badge">Prompt-level estimates</span>
+          <span class="checker-badge">Session totals</span>
+          <span class="checker-badge">Public education first</span>
+        </div>
+      </div>
+      <div class="page-hero-visual">
+        <div class="checker-card-preview">
+          <h3>Live impact snapshot</h3>
+          <p><strong id="heroPromptCount">0</strong> prompts tracked</p>
+          <p><strong id="heroWaterMl">0 mL</strong> water estimate</p>
+          <p><strong id="heroEnergyWh">0 Wh</strong> electricity estimate</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="checker-section">
+    <div class="container checker-grid">
+      <article class="checker-panel fade-in">
+        <h2>Estimate your AI usage footprint</h2>
+        <p class="checker-lead">Use this educational calculator to understand rough per-session impact. These values are directional and should be refined with provider disclosures over time.</p>
+
+        <form id="impactForm" class="checker-form" aria-label="AI sustainability estimator">
+          <label for="platform">Platform profile</label>
+          <select id="platform" name="platform">
+            <option value="light">Light assistant workflow</option>
+            <option value="balanced" selected>Balanced assistant workflow</option>
+            <option value="heavy">Heavy multimodal workflow</option>
+          </select>
+
+          <label for="promptCount">Prompts in this session</label>
+          <input id="promptCount" name="promptCount" type="number" min="1" max="10000" value="25">
+
+          <label for="avgTokens">Average tokens per prompt</label>
+          <input id="avgTokens" name="avgTokens" type="number" min="20" max="120000" value="750">
+
+          <button type="submit" class="btn btn-primary">Calculate impact</button>
+        </form>
+      </article>
+
+      <article class="checker-panel fade-in fade-in-delay-1">
+        <h2>Estimated outcomes</h2>
+        <div class="impact-metrics">
+          <div class="impact-metric">
+            <p class="impact-label">Water usage</p>
+            <p id="waterOutput" class="impact-value">0.00 L</p>
+          </div>
+          <div class="impact-metric">
+            <p class="impact-label">Electricity use</p>
+            <p id="energyOutput" class="impact-value">0.00 kWh</p>
+          </div>
+          <div class="impact-metric">
+            <p class="impact-label">CO₂ equivalent</p>
+            <p id="carbonOutput" class="impact-value">0.00 kg</p>
+          </div>
+        </div>
+        <button id="addToTracker" class="btn btn-secondary" type="button">Add this session to tracker</button>
+
+        <div class="session-total" id="sessionTotal">
+          <h3>Your local running total</h3>
+          <p><strong id="sessionPrompts">0</strong> prompts</p>
+          <p><strong id="sessionWater">0.00 L</strong> estimated water</p>
+          <p><strong id="sessionEnergy">0.00 kWh</strong> estimated electricity</p>
+          <p><strong id="sessionCarbon">0.00 kg CO₂e</strong> estimated emissions</p>
+          <button id="resetTracker" class="btn btn-tertiary" type="button">Reset local tracker</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="checker-section checker-section--alt">
+    <div class="container">
+      <h2 class="section-title fade-in">How this becomes a real product</h2>
+      <div class="checker-roadmap">
+        <article class="modern-card fade-in">
+          <h3>1) Website widget</h3>
+          <p>Embeddable component for schools, nonprofits, and media organizations to visualize AI footprint by activity type.</p>
+        </article>
+        <article class="modern-card fade-in fade-in-delay-1">
+          <h3>2) Chrome extension MVP</h3>
+          <p>Popup-based tracker for prompt count and estimated water/energy/CO₂ impacts with local storage and CSV export potential.</p>
+        </article>
+        <article class="modern-card fade-in fade-in-delay-2">
+          <h3>3) Provider data API</h3>
+          <p>Replace generic coefficients with platform-specific disclosures once providers publish operational sustainability metrics.</p>
+        </article>
+      </div>
+      <div class="checker-note fade-in">
+        <h3>Chrome extension files included in this repo</h3>
+        <p>See <code>extension/ai-sustainability-checker/</code> for a ready-to-load Chrome extension MVP popup that mirrors this estimator and stores totals in browser storage.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <h3>Vancouver Centre for AI Safety, Sustainability, and Ethics</h3>
+          <p>Vancouver's dedicated centre for responsible AI. We research, educate, and advocate across safety, sustainability, and ethics.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Research</h4>
+          <ul>
+            <li><a href="research-safety.html">Safety</a></li>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="research-ethics.html">Ethics</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span class="footer-year"></span> VCASSE. All rights reserved.<span class="footer-separator">|</span>A subsidiary of <a href="https://oasisofchange.org" target="_blank" rel="noopener noreferrer">OASIS OF CHANGE, INC.</a></p>
+        <div class="footer-location">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Vancouver, BC, Canada
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/sustainability-checker.js"></script>
+</body>
+</html>

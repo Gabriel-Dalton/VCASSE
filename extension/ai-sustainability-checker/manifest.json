@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "VCASSE AI Sustainability Checker",
+  "description": "Estimate and track AI prompt water, energy, and carbon footprint.",
+  "version": "0.1.0",
+  "action": {
+    "default_title": "AI Sustainability Checker",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage"
+  ]
+}
