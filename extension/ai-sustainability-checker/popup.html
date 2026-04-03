@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Sustainability Checker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="popup">
+    <h1>AI Sustainability Checker</h1>
+    <p class="lead">Educational estimate for prompts, water, energy, and CO₂. Includes a non-blocking in-page tracker on supported AI websites.</p>
+
+    <form id="extForm">
+      <label for="extPlatform">Profile</label>
+      <select id="extPlatform">
+        <option value="light">Light assistant workflow</option>
+        <option value="balanced" selected>Balanced assistant workflow</option>
+        <option value="heavy">Heavy multimodal workflow</option>
+      </select>
+
+      <label for="extPromptCount">Prompts</label>
+      <input id="extPromptCount" type="number" min="1" value="15">
+
+      <label for="extAvgTokens">Avg tokens/prompt</label>
+      <input id="extAvgTokens" type="number" min="20" value="600">
+
+      <button type="submit">Calculate</button>
+    </form>
+
+    <section class="result">
+      <p><span>Water</span><strong id="extWater">0.00 L</strong></p>
+      <p><span>Energy</span><strong id="extEnergy">0.00 kWh</strong></p>
+      <p><span>CO₂</span><strong id="extCarbon">0.00 kg</strong></p>
+    </section>
+
+    <section class="totals">
+      <h2>Running total</h2>
+      <p id="extTotalPrompts">0 prompts</p>
+      <p id="extTotalWater">0.00 L water</p>
+      <p id="extTotalEnergy">0.00 kWh electricity</p>
+      <p id="extTotalCarbon">0.00 kg CO₂e</p>
+      <div class="actions">
+        <button id="extAdd" type="button">Add session</button>
+        <button id="extReset" type="button" class="ghost">Reset</button>
+      </div>
+    </section>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

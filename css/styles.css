@@ -1698,3 +1698,189 @@ noscript + * .fade-in,
   .form-row { grid-template-columns: 1fr; }
   .about-page { padding-bottom: 60px; }
 }
+
+/* ─────────────── AI SUSTAINABILITY CHECKER ─────────────── */
+
+.checker-hero {
+  background: linear-gradient(165deg, #f8fafc 0%, #dcfce7 42%, #f0fdf4 100%);
+}
+
+.checker-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.checker-badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  background: #f0fdf4;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.checker-card-preview {
+  width: min(360px, 100%);
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-lg);
+  background: rgba(240, 253, 244, 0.88);
+  padding: 22px;
+  box-shadow: var(--shadow-md);
+}
+
+.checker-card-preview h3 {
+  margin-bottom: 12px;
+  color: #14532d;
+}
+
+.checker-section {
+  padding: 72px 0;
+}
+
+.checker-section--alt {
+  background: var(--bg-light);
+}
+
+.checker-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.checker-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.checker-panel h2 {
+  font-size: 28px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  color: var(--text-dark);
+}
+
+.checker-lead {
+  margin-bottom: 20px;
+}
+
+.checker-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checker-form label {
+  font-size: 14px;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.checker-form input,
+.checker-form select {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  min-height: 44px;
+  padding: 10px 12px;
+  font-size: 15px;
+  margin-bottom: 8px;
+  background: #fff;
+}
+
+.impact-metrics {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.impact-metric {
+  border: 1px solid var(--border-light);
+  background: var(--bg-light);
+  border-radius: var(--radius-md);
+  padding: 14px;
+}
+
+.impact-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.impact-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  line-height: 1.1;
+}
+
+.session-total {
+  margin-top: 16px;
+  border: 1px dashed #86efac;
+  border-radius: var(--radius-md);
+  background: #f7fee7;
+  padding: 16px;
+}
+
+.session-total h3 {
+  margin-bottom: 8px;
+  color: #14532d;
+}
+
+.checker-roadmap {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 24px;
+}
+
+.checker-note {
+  margin-top: 24px;
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 18px;
+  border-radius: var(--radius-md);
+}
+
+.btn-tertiary {
+  margin-top: 12px;
+  border: 1px solid #86efac;
+  background: #fff;
+  color: #166534;
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 980px) {
+  .checker-grid,
+  .checker-roadmap {
+    grid-template-columns: 1fr;
+  }
+}
+
+.checker-method-list,
+.checker-footnotes {
+  margin-left: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.checker-method-list li,
+.checker-footnotes li {
+  color: var(--text-body);
+}
+
+.checker-footnotes a {
+  color: var(--primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
