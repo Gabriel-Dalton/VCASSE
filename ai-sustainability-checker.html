@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Sustainability Checker — VCASSE</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo nav-logo-mark">
+        <img src="img/logo.svg" alt="VCASSE" width="28" height="28">
+        VCASSE
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-dropdown nav-dropdown--active">
+          <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="navResearchMenu">
+            Research
+            <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav-dropdown-menu" id="navResearchMenu" role="menu">
+            <li role="none"><a href="research-safety.html" role="menuitem">Safety</a></li>
+            <li role="none"><a href="sustainability.html" role="menuitem" class="active">Sustainability</a></li>
+            <li role="none"><a href="research-ethics.html" role="menuitem">Ethics</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button type="button" class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero checker-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="section-label">VCASSE PROJECT</div>
+        <h1 class="page-hero-title">AI Sustainability <span class="italic-accent">Checker</span></h1>
+        <p class="page-hero-description">A research-backed public tool that translates AI usage into estimated water, electricity, and carbon impact with transparent assumptions and citations.</p>
+        <div class="checker-badges">
+          <span class="checker-badge">Footnoted methodology</span>
+          <span class="checker-badge">Prompt-level estimates</span>
+          <span class="checker-badge">Chrome extension + website widget</span>
+        </div>
+      </div>
+      <div class="page-hero-visual">
+        <div class="checker-card-preview">
+          <h3>Live session snapshot</h3>
+          <p><strong id="heroPromptCount">0</strong> prompts tracked</p>
+          <p><strong id="heroWaterMl">0 mL</strong> estimated water</p>
+          <p><strong id="heroEnergyWh">0 Wh</strong> estimated electricity</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="checker-section">
+    <div class="container checker-grid">
+      <article class="checker-panel fade-in">
+        <h2>Estimate your AI usage footprint</h2>
+        <p class="checker-lead">This calculator is designed for public education. It uses disclosed inference-level benchmarks and scales them by workflow intensity. See methodology + footnotes below.</p>
+
+        <form id="impactForm" class="checker-form" aria-label="AI sustainability estimator">
+          <label for="platform">Workflow profile</label>
+          <select id="platform" name="platform">
+            <option value="light">Light (brief text prompts)</option>
+            <option value="balanced" selected>Balanced (typical assistant usage)</option>
+            <option value="heavy">Heavy (long + multimodal usage)</option>
+          </select>
+
+          <label for="promptCount">Prompts in session</label>
+          <input id="promptCount" name="promptCount" type="number" min="1" max="10000" value="25">
+
+          <label for="avgTokens">Average tokens per prompt</label>
+          <input id="avgTokens" name="avgTokens" type="number" min="20" max="120000" value="750">
+
+          <button type="submit" class="btn btn-primary">Calculate impact</button>
+        </form>
+      </article>
+
+      <article class="checker-panel fade-in fade-in-delay-1">
+        <h2>Estimated outcomes</h2>
+        <div class="impact-metrics">
+          <div class="impact-metric">
+            <p class="impact-label">Water usage</p>
+            <p id="waterOutput" class="impact-value">0.000 L</p>
+          </div>
+          <div class="impact-metric">
+            <p class="impact-label">Electricity use</p>
+            <p id="energyOutput" class="impact-value">0.000 kWh</p>
+          </div>
+          <div class="impact-metric">
+            <p class="impact-label">CO₂ equivalent</p>
+            <p id="carbonOutput" class="impact-value">0.0000 kg</p>
+          </div>
+        </div>
+        <button id="addToTracker" class="btn btn-secondary" type="button">Add this session to tracker</button>
+
+        <div class="session-total" id="sessionTotal">
+          <h3>Your local running total</h3>
+          <p><strong id="sessionPrompts">0</strong> prompts</p>
+          <p><strong id="sessionWater">0.000 L</strong> estimated water</p>
+          <p><strong id="sessionEnergy">0.000 kWh</strong> estimated electricity</p>
+          <p><strong id="sessionCarbon">0.0000 kg CO₂e</strong> estimated emissions</p>
+          <button id="resetTracker" class="btn btn-tertiary" type="button">Reset local tracker</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="checker-section checker-section--alt">
+    <div class="container">
+      <h2 class="section-title fade-in">Evidence-backed context (why this matters)</h2>
+      <div class="checker-roadmap">
+        <article class="modern-card fade-in">
+          <h3>Grid impact is accelerating</h3>
+          <p>IEA reports data centres used around <strong>415 TWh in 2024</strong> (~1.5% of world electricity) and projects <strong>~945 TWh by 2030</strong> in its base case.<sup><a href="#footnote-1">[1]</a></sup></p>
+        </article>
+        <article class="modern-card fade-in fade-in-delay-1">
+          <h3>U.S. growth is steep</h3>
+          <p>DOE/FEMP notes U.S. data centres consumed <strong>176 TWh in 2023</strong> (about 4.4% of U.S. electricity) with projected 2023–2028 CAGR of <strong>13% to 27%</strong>.<sup><a href="#footnote-2">[2]</a></sup></p>
+        </article>
+        <article class="modern-card fade-in fade-in-delay-2">
+          <h3>Water is a core issue</h3>
+          <p>Microsoft reports contracting <strong>50,031,857 m³</strong> water replenishment in FY24 and cites a Quincy project cutting local potable use by <strong>97%</strong>.<sup><a href="#footnote-3">[3]</a></sup></p>
+        </article>
+      </div>
+
+      <div class="checker-note fade-in">
+        <h3>Methodology (transparent assumptions)</h3>
+        <ul class="checker-method-list">
+          <li>Prompt-level baselines are calibrated to publicly disclosed median text-prompt figures from Google research (<strong>0.24 Wh</strong>, <strong>0.03 g CO₂e</strong>, and <strong>0.26 mL water</strong> per prompt under their measured conditions).<sup><a href="#footnote-4">[4]</a></sup></li>
+          <li>Profiles (Light/Balanced/Heavy) scale these baseline intensities by workflow complexity and token volume for educational comparisons, not audited accounting.</li>
+          <li>System-wide context (IEA/DOE/corporate sustainability reports) is presented so users can connect personal usage to infrastructure realities.<sup><a href="#footnote-1">[1]</a></sup><sup><a href="#footnote-2">[2]</a></sup><sup><a href="#footnote-5">[5]</a></sup></li>
+        </ul>
+      </div>
+
+      <div class="checker-note fade-in">
+        <h3>Footnotes & sources</h3>
+        <ol class="checker-footnotes">
+          <li id="footnote-1">International Energy Agency, <em>Energy and AI (Executive summary)</em>, 2025. <a href="https://www.iea.org/reports/energy-and-ai/executive-summary" target="_blank" rel="noopener noreferrer">https://www.iea.org/reports/energy-and-ai/executive-summary</a></li>
+          <li id="footnote-2">U.S. DOE FEMP, <em>Data Center Energy Efficiency Fact Sheet</em>, July 2025. <a href="https://www.energy.gov/sites/default/files/2025-08/femp-data-centers-fact-sheet-2025.pdf" target="_blank" rel="noopener noreferrer">https://www.energy.gov/.../femp-data-centers-fact-sheet-2025.pdf</a></li>
+          <li id="footnote-3">Microsoft, <em>2025 Environmental Sustainability Report</em> (water chapter/FY24 metrics). <a href="https://www.microsoft.com/dmc/en-us/corporate-responsibility/sustainability/report/" target="_blank" rel="noopener noreferrer">https://www.microsoft.com/.../sustainability/report/</a></li>
+          <li id="footnote-4">Google Research, LCA inference analysis (prompt-level energy, carbon, and water medians), 2024. <a href="https://arxiv.org/abs/2411.16863" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2411.16863</a></li>
+          <li id="footnote-5">Google, <em>2025 Environmental Report</em> (operations and infrastructure sustainability context). <a href="https://sustainability.google/reports/" target="_blank" rel="noopener noreferrer">https://sustainability.google/reports/</a></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <h3>Vancouver Centre for AI Safety, Sustainability, and Ethics</h3>
+          <p>Vancouver's dedicated centre for responsible AI. We research, educate, and advocate across safety, sustainability, and ethics.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Research</h4>
+          <ul>
+            <li><a href="research-safety.html">Safety</a></li>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="research-ethics.html">Ethics</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span class="footer-year"></span> VCASSE. All rights reserved.<span class="footer-separator">|</span>A subsidiary of <a href="https://oasisofchange.org" target="_blank" rel="noopener noreferrer">OASIS OF CHANGE, INC.</a></p>
+        <div class="footer-location">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Vancouver, BC, Canada
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/sustainability-checker.js"></script>
+</body>
+</html>
