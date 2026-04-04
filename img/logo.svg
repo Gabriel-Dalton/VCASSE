@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="VCASSE logo">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0A5C3F"/>
-      <stop offset="100%" stop-color="#042E1E"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0E4E3A"/>
+      <stop offset="100%" stop-color="#083325"/>
     </linearGradient>
   </defs>
-  <rect width="32" height="32" rx="7" fill="url(#g)"/>
-  <path d="M8 9 L16 23 L24 9" fill="none" stroke="#C7DEC0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="16" cy="13" r="2.5" fill="#C7DEC0" opacity="0.6"/>
+  <rect width="32" height="32" rx="8" fill="url(#bg)"/>
+  <path d="M8 9.5l8 13 8-13" fill="none" stroke="#DDF7EA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M16 13.25v5.5" fill="none" stroke="#8CE3BC" stroke-width="2" stroke-linecap="round"/>
 </svg>
