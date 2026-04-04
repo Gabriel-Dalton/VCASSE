@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://vercel.com",
+    "profile": "Low carbon and lighter page payload profile."
+  },
+  {
+    "url": "https://www.apple.com",
+    "profile": "Heavier media profile with moderate sustainability score."
+  },
+  {
+    "url": "https://example.com",
+    "profile": "Neutral baseline for demonstrations."
+  }
+]
