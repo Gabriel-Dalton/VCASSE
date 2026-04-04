@@ -1512,13 +1512,41 @@ noscript + * .fade-in,
   margin: 0;
 }
 
-.events-luma-btn {
+.events-hero-actions {
+  margin-top: 22px;
+  margin-bottom: 0;
+}
+
+.events-hero-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  width: 100%;
+}
+
+.events-hero-caption {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: right;
+  width: 100%;
+  max-width: 280px;
+}
+
+#luma-rsvp {
+  scroll-margin-top: calc(var(--nav-height) + 20px);
+}
+
+.events-luma-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   width: 100%;
-  max-width: 280px;
 }
 
 .events-luma-icon {
@@ -1741,11 +1769,21 @@ noscript + * .fade-in,
 }
 
 .events-luma-aside {
-  background: linear-gradient(165deg, #ecfdf5 0%, #f8fafc 55%, #ffffff 100%);
-  border: 1px solid var(--border-light);
+  position: relative;
+  background: linear-gradient(165deg, #ecfdf5 0%, #f8fafc 50%, #ffffff 100%);
+  border: 1px solid rgba(4, 120, 87, 0.12);
   border-radius: var(--radius-lg);
-  padding: 28px 26px;
+  padding: 26px 24px 28px;
   box-shadow: var(--shadow-sm);
+}
+
+.events-luma-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0 0 8px;
 }
 
 .events-luma-title {
@@ -1753,30 +1791,16 @@ noscript + * .fade-in,
   font-size: 1.35rem;
   font-weight: 600;
   color: var(--text-dark);
-  margin: 0 0 12px;
+  margin: 0 0 14px;
   letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .events-luma-copy {
   font-size: 15px;
   line-height: 1.65;
   color: var(--text-body);
-  margin: 0 0 20px;
-}
-
-.events-luma-note {
-  margin: 18px 0 0;
-  font-size: 12px;
-  line-height: 1.5;
-  color: var(--text-muted);
-}
-
-.events-code {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 11px;
-  background: rgba(15, 23, 42, 0.06);
-  padding: 2px 6px;
-  border-radius: 4px;
+  margin: 0 0 22px;
 }
 
 /* ─────────────── RESPONSIVE ─────────────── */
@@ -2010,5 +2034,6 @@ noscript + * .fade-in,
   .about-page { padding-bottom: 60px; }
   .events-calendar-row { grid-template-columns: 1fr; gap: 28px; }
   .events-hero-stack { max-width: none; align-items: stretch; }
-  .events-luma-btn { max-width: none; }
+  .events-hero-caption { text-align: left; max-width: none; }
+  .events-hero-figure { align-items: stretch; }
 }
