@@ -61,7 +61,36 @@ body {
   overflow-x: hidden;
 }
 
+#main-content {
+  display: block;
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -44px;
+  z-index: 2000;
+  background: var(--primary-dark);
+  color: var(--white);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
 a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
 img { max-width: 100%; height: auto; display: block; }
 
 .container {
