@@ -51,99 +51,11 @@
   <section class="home-section publications-index">
     <div class="container">
       <header class="home-section-header">
-        <p class="home-section-kicker">Safety</p>
-        <h2 class="home-section-title">Safety publications</h2>
+        <p class="home-section-kicker">Research Library</p>
+        <h2 class="home-section-title">VCASSE Publications</h2>
+        <p class="home-section-lead">A consolidated library of VCASSE research, policy briefs, and operational guidance across AI safety, sustainability, and ethics for public-interest institutions and decision-makers.</p>
       </header>
-      <div class="publication-cards-grid">
-        <article class="publication-card">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--safety">Safety</span>
-            <span>Mar 15, 2026</span>
-            <span>7 min read</span>
-          </div>
-          <h3>Practical AI Safety Evaluations for Public-Interest Teams</h3>
-          <p>A practical framework for evaluating model failure modes before deployment in civic and public-service contexts.</p>
-          <ul class="publication-tags"><li>Evaluations</li><li>Risk</li><li>Governance</li></ul>
-          <a class="modern-card-link" href="publications/safety-evaluations-public-interest.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="publication-card">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--safety">Safety</span>
-            <span>Dec 12, 2025</span>
-            <span>5 min read</span>
-          </div>
-          <h3>Incident Reporting Playbook for Responsible AI Teams</h3>
-          <p>A simple operational playbook for classifying incidents, escalating quickly, and learning from postmortems.</p>
-          <ul class="publication-tags"><li>Operations</li><li>Incident Response</li><li>Monitoring</li></ul>
-          <a class="modern-card-link" href="publications/incident-reporting-playbook.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="home-section publications-index">
-    <div class="container">
-      <header class="home-section-header">
-        <p class="home-section-kicker">Sustainability</p>
-        <h2 class="home-section-title">Sustainability publications</h2>
-      </header>
-      <div class="publication-cards-grid">
-        <article class="publication-card">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--sustainability">Sustainability</span>
-            <span>Feb 27, 2026</span>
-            <span>6 min read</span>
-          </div>
-          <h3>A Sustainability Checklist for AI Procurement</h3>
-          <p>How organizations can ask better vendor questions around energy use, lifecycle impact, and reporting transparency.</p>
-          <ul class="publication-tags"><li>Climate</li><li>Procurement</li><li>Infrastructure</li></ul>
-          <a class="modern-card-link" href="publications/sustainability-procurement-checklist.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="publication-card">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--sustainability">Sustainability</span>
-            <span>Nov 19, 2025</span>
-            <span>6 min read</span>
-          </div>
-          <h3>Energy Footprint Reporting: A Starter Standard</h3>
-          <p>A baseline reporting format for teams that want to disclose AI energy impact with minimal overhead.</p>
-          <ul class="publication-tags"><li>Reporting</li><li>Standards</li><li>Metrics</li></ul>
-          <a class="modern-card-link" href="publications/energy-footprint-reporting-standard.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="home-section publications-index">
-    <div class="container">
-      <header class="home-section-header">
-        <p class="home-section-kicker">Ethics</p>
-        <h2 class="home-section-title">Ethics publications</h2>
-      </header>
-      <div class="publication-cards-grid">
-        <article class="publication-card">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--ethics">Ethics</span>
-            <span>Jan 31, 2026</span>
-            <span>8 min read</span>
-          </div>
-          <h3>Participatory Ethics in Municipal AI Decisions</h3>
-          <p>Why public-facing AI decisions should include structured resident participation, not only internal review.</p>
-          <ul class="publication-tags"><li>Inclusion</li><li>Policy</li><li>Public Deliberation</li></ul>
-          <a class="modern-card-link" href="publications/participatory-ethics-municipal-ai.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="publication-card">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--ethics">Ethics</span>
-            <span>Oct 28, 2025</span>
-            <span>7 min read</span>
-          </div>
-          <h3>Human Oversight Design Patterns That Actually Work</h3>
-          <p>Common oversight patterns fail when reviewers are overloaded. These design patterns improve decision quality.</p>
-          <ul class="publication-tags"><li>Human-in-the-loop</li><li>UX</li><li>Accountability</li></ul>
-          <a class="modern-card-link" href="publications/human-oversight-design-patterns.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-      </div>
+      <div class="publication-cards-grid" data-publications-grid></div>
     </div>
   </section>
 
@@ -188,6 +100,8 @@
     </div>
   </footer>
 
+  <script src="js/publications-data.js"></script>
+  <script src="js/publications-page.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

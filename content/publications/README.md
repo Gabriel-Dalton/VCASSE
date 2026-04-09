@@ -6,8 +6,9 @@ Publications are individual HTML pages under `publications/`.
 
 1. Duplicate one of the existing publication pages in `publications/`.
 2. Update title, date, tags, excerpt, and body copy.
-3. Add a card to `publications.html` pointing to the new page.
-4. Add a metadata record in `js/publications-data.js` so related-post widgets can include it.
+3. Add a metadata record in `js/publications-data.js`.
+
+The main `publications.html` page and related-post widgets render from `js/publications-data.js`, so new entries appear automatically once the dataset is updated.
 
 ## Related posts on pillar pages
 
