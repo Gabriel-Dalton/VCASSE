@@ -1,7 +1,7 @@
 # VCASSE Design System
 **Vancouver Centre for AI, Safety, Sustainability & Ethics**
 
-*Version 1.0 | Last Updated: April 2026*
+*Version 1.1 | Last Updated: April 2026*
 
 ## Quick Start
 
@@ -10,8 +10,9 @@ This design system defines the visual language for all VCASSE digital properties
 ### Core Design Philosophy
 - **Professional & Posh**: Clean, institutional aesthetic with premium presentation
 - **Industrial Modern**: Purposeful design with precision and clarity
-- **Green Sustainability**: Primary green theme (#047857) reinforces our commitment to ethics and sustainability
+- **Green Sustainability**: Primary green theme (#047857) reinforces our commitment to ethics and sustainability, with civic blue and teal accents used sparingly for depth
 - **Responsive & Accessible**: Works flawlessly across all devices and accessibility standards
+- **Editorial First Impression**: Homepage heroes should feel like an institutional publication or civic research centre, not a generic split-card landing page
 
 ---
 
@@ -38,7 +39,7 @@ This design system defines the visual language for all VCASSE digital properties
 - **Card**: `#ffffff` — Card surfaces, modals
 - **Card Alt**: `#f8fafc` — Alternative card surfaces
 - **Dark**: `#0f172a` (RGB: 15, 23, 42) — Dark sections, contrast
-- **Hero Gradient**: Linear 165deg from `#f8fafc` → `#ecfdf5` → `#f8fafc`
+- **Subpage Hero Gradient**: Linear from `#ffffff` → `#f0fdf4` → `#eff6ff`
 
 #### Accents & Highlights
 - **Green Accent**: `#a7f3d0` — Subtle highlights, badges
@@ -158,9 +159,9 @@ All spacing is based on **4px units**:
 | Size | Value | Usage |
 |------|-------|-------|
 | **Small** | 6px | Small buttons, minor UI elements |
-| **Medium** | 12px | Cards, moderate components |
-| **Large** | 16px | Large cards, modal corners |
-| **XLarge** | 24px | Hero sections, full-bleed containers |
+| **Medium** | 8px | Cards, moderate components |
+| **Large** | 8px | Large cards, modal corners |
+| **XLarge** | 8px | Hero sections, full-bleed containers |
 
 ---
 
@@ -188,19 +189,21 @@ All spacing is based on **4px units**:
 - **Mobile**: Hamburger toggle, stacked menu
 
 ### Hero Sections
-- **Background**: Gradient hero (light → soft green → light)
+- **Homepage Background**: Full-width Vancouver/civic image with deep green overlay and subtle grid texture
+- **Subpage Background**: Light institutional gradient (white → mint → pale civic blue)
 - **Padding**: 120–160px top/bottom
-- **Content Alignment**: Center or left-aligned based on layout
+- **Content Alignment**: Left-aligned, editorial, never boxed in a decorative card
 - **Typography**:
   - Title: H1, primary color emphasis possible
   - Subtitle: Body default, max 2 lines
   - CTA Button: Primary green background, white text
+- **Homepage Follow-up**: Use the `.home-impact-strip` operating-model band directly after the hero so the first viewport hints at the next section
 
 ### Cards
 - **Background**: White (`#ffffff`)
 - **Border**: None or `1px solid #e2e8f0`
 - **Padding**: 24–32px
-- **Border Radius**: 12–16px
+- **Border Radius**: 8px
 - **Shadow**: Medium shadow
 - **Hover**: Subtle lift, enhanced shadow (optional)
 
@@ -250,6 +253,8 @@ All spacing is based on **4px units**:
 - **Mobile**: Single column, full-width cards, stacked navigation
 - **Tablet**: Two-column layouts, adjusted font sizes, optimized spacing
 - **Desktop**: Three+ column grids, full typography scale, generous spacing
+- **Typography**: Use fixed sizes per breakpoint; do not scale font size directly with viewport width
+- **Letter Spacing**: Keep letter spacing at `0` for readable institutional typography
 
 ### Mobile-First Approach
 Build for mobile first, then enhance for larger screens. Prioritize:
@@ -312,8 +317,8 @@ Build for mobile first, then enhance for larger screens. Prioritize:
 5. **Footer** (primary-dark background, full width)
 
 ### Hero Variations
-- **Hero with Text**: Title + subtitle + CTA
-- **Hero with Image/Gradient**: Text overlay on visual
+- **Homepage Image Hero**: Title + subtitle + CTA over a full-width image with dark readable overlay
+- **Subpage Institutional Hero**: Title + subtitle on a light gradient with optional supporting visual
 - **Hero Minimal**: Large title only
 
 ### Content Section Patterns
@@ -420,5 +425,5 @@ If guidelines need updates or clarifications, please:
 
 ---
 
-**VCASSE Design System v1.0**  
+**VCASSE Design System v1.1**
 Professional | Institutional | Sustainable | Accessible

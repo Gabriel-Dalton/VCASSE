@@ -9,7 +9,7 @@ Every page follows this general structure for consistency:
 │  Navigation (sticky, 72px height)               │
 ├─────────────────────────────────────────────────┤
 │                                                  │
-│  Hero Section (120–160px top/bottom padding)   │
+│  Image-led or institutional hero               │
 │                                                  │
 ├─────────────────────────────────────────────────┤
 │                                                  │
@@ -32,63 +32,75 @@ Every page follows this general structure for consistency:
 
 ## Hero Section Patterns
 
-### Pattern 1: Centered Hero with Text + CTA
-**Best for**: Homepages, landing pages, introduction screens
+### Pattern 1: Image-Led Homepage Hero
+**Best for**: VCASSE homepage and primary template entry screens
 
 ```html
-<section class="hero hero--centered" style="background: var(--bg-hero);">
+<section class="hero hero--home">
   <div class="container">
     <div class="hero-content">
+      <p class="hero-eyebrow">Public-interest AI guidance for Vancouver</p>
       <h1 class="hero-title">
-        Main Heading
-        <span class="italic-accent">with emphasis</span>
+        Safety, Sustainability,
+        <span class="italic-accent">&amp; Ethics</span>
       </h1>
       <p class="hero-description">
         Supporting description, max 2–3 lines. Explain what this page is about.
       </p>
       <div class="hero-actions">
-        <a href="#" class="button--primary">Primary CTA</a>
-        <a href="#" class="button--secondary">Secondary CTA</a>
+        <a href="#" class="btn btn-white btn-uppercase">Explore Research</a>
+        <a href="#" class="btn btn-outlined btn-uppercase">Work With Us</a>
       </div>
     </div>
   </div>
 </section>
+
+<section class="home-impact-strip" aria-label="VCASSE operating model">
+  <div class="container">
+    <div class="impact-item">
+      <span>01</span>
+      <strong>Research</strong>
+      <p>Plain-language briefs and field notes for responsible AI decisions.</p>
+    </div>
+    <!-- Education, Policy, Community -->
+  </div>
+</section>
 ```
 
 **Layout Details:**
-- Text center-aligned
-- Max-width on content: 600px
-- Title: H1, 48–56px, Ink Strong color
-- Description: Body text, 18px
-- Padding: 120–160px top/bottom
-- Background: Gradient (light → mint → light)
+- Text left-aligned over a full-width civic image with deep green overlay
+- Content is never placed in a decorative card
+- Title: large H1, white text with green accent emphasis
+- Description: Body text, 18px desktop / 16px mobile
+- The operating-model strip follows immediately after the hero so the first viewport hints at the next section
+- Use fixed font sizes per breakpoint; do not use viewport-width font scaling
 
 ---
 
-### Pattern 2: Hero with Image/Illustration
-**Best for**: About page, feature highlights
+### Pattern 2: Institutional Subpage Hero
+**Best for**: About page, research pages, events, publications
 
 ```html
-<section class="hero hero--split" style="background: var(--bg-canvas);">
-  <div class="container hero-split-container">
-    <div class="hero-content hero-split-text">
-      <h1 class="hero-title">Left-aligned Title</h1>
-      <p class="hero-description">Supporting text explaining the image on the right...</p>
-      <a href="#" class="button--primary">Learn More</a>
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="section-label">PILLAR 01</div>
+      <h1 class="page-hero-title">AI Safety <span class="italic-accent">&amp; Robustness</span></h1>
+      <p class="page-hero-description">Supporting text explaining the page.</p>
     </div>
-    <div class="hero-split-media">
-      <img src="image.webp" alt="Descriptive alt text" />
+    <div class="page-hero-visual" aria-hidden="true">
+      <!-- Optional supporting visual, never required for the content to make sense -->
     </div>
   </div>
 </section>
 ```
 
 **Layout Details:**
-- Flexbox: 50/50 split on desktop
-- Stack on mobile (image below text)
-- Image max-width: 600px
+- Light institutional gradient: white → mint → pale civic blue
+- Optional visual is supporting material, not a boxed hero card competing with the copy
+- Stack on mobile
 - Padding: 80–120px top/bottom
-- Gap between text/image: 48px
+- Border radius remains 8px or less
 
 ---
 
@@ -157,7 +169,7 @@ Every page follows this general structure for consistency:
 .feature-card {
   background: var(--bg-card);
   padding: 32px;
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: var(--shadow-md);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -289,7 +301,7 @@ Every page follows this general structure for consistency:
   gap: 24px;
   padding: 32px;
   background: var(--bg-card);
-  border-radius: 12px;
+  border-radius: 8px;
   border-left: 4px solid var(--primary);
 }
 
@@ -593,5 +605,5 @@ Touch: Larger timeline dots (48px), improved tap targets
 
 ---
 
-**Page Layouts v1.0 | April 2026**  
+**Page Layouts v1.1 | April 2026**
 Professional • Responsive • Accessible

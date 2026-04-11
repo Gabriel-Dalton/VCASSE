@@ -9,12 +9,18 @@
 | **Primary Brand Green** | `#047857` | 4, 120, 87 | CTAs, active states, primary branding |
 | **Primary Light** | `#059669` | 5, 150, 105 | Hover states, interactive feedback |
 | **Primary Dark** | `#064e3b` | 6, 78, 59 | Footer, deep emphasis, dark sections |
+| **Accent Civic** | `#2563eb` | 37, 99, 235 | Sparse civic/data accent, gradients only |
+| **Accent Climate** | `#0f766e` | 15, 118, 110 | Secondary green-blue accent for depth |
+| **Accent Signal** | `#b45309` | 180, 83, 9 | Sparse warm signal accent for event/community tags |
 
 **Visual Reference:**
 ```
 ████ Primary #047857 (Brand)
 ████ Primary Light #059669 (Hover)
 ████ Primary Dark #064e3b (Dark Mode/Footer)
+████ Accent Civic #2563eb (Sparse accent)
+████ Accent Climate #0f766e (Depth accent)
+████ Accent Signal #b45309 (Warm signal)
 ```
 
 ---
@@ -200,7 +206,8 @@ Error/Danger: #ef4444 (red, if needed)
 ## Color Palette Uses by Page Type
 
 ### Homepage
-- Hero gradient (light → green → light)
+- Full-width civic image hero with deep green overlay
+- Operating-model strip directly below hero
 - Primary green CTAs
 - White cards with subtle borders
 - Green accent badges on features
@@ -323,5 +330,5 @@ All colors are declared in `css/styles.css`:
 
 ---
 
-**Color Palette v1.0 | April 2026**  
+**Color Palette v1.1 | April 2026**
 Professional • Accessible • Brand-Aligned

@@ -1,7 +1,7 @@
 # VCASSE Design System Documentation
 
-**Version 1.0 | April 2026**  
-Professional • Industrial • Sustainable • Accessible
+**Version 1.1 | April 2026**
+Professional • Editorial • Sustainable • Accessible
 
 ---
 
@@ -49,6 +49,7 @@ This folder contains comprehensive design documentation for the Vancouver Centre
 ✓ **Industrial Modern** — Purposeful design with precision and clarity  
 ✓ **Green Sustainability** — Primary green (#047857) reinforces commitment to ethics  
 ✓ **Responsive & Accessible** — Works flawlessly across all devices, WCAG AA compliant
+✓ **Image-Led First Impression** — The homepage opens with a civic image hero and operating-model strip, not a generic split-card hero
 
 ---
 
@@ -82,9 +83,9 @@ XL:    48px
 ### Radius
 ```
 Small:  6px (buttons, minor)
-Medium: 12px (cards)
-Large:  16px (large cards)
-XL:     24px (hero sections)
+Medium: 8px (cards)
+Large:  8px (large cards)
+XL:     8px (hero sections)
 ```
 
 ---
@@ -205,8 +206,8 @@ var(--green-light)
 var(--max-width)        /* 1280px */
 var(--nav-height)       /* 72px */
 var(--radius-sm)        /* 6px */
-var(--radius-md)        /* 12px */
-var(--radius-lg)        /* 16px */
+var(--radius-md)        /* 8px */
+var(--radius-lg)        /* 8px */
 var(--shadow-sm)        /* subtle */
 var(--shadow-md)        /* medium */
 var(--shadow-lg)        /* large */
@@ -341,6 +342,7 @@ NOT: 10px, 15px, 20px, 25px, etc.
 5. Version the update if major
 
 ### Version History
+- **v1.1** (April 2026) — Added image-led homepage hero, operating-model strip, tighter radii, and fixed breakpoint typography guidance
 - **v1.0** (April 2026) — Initial design system documentation
 
 ---
@@ -366,6 +368,6 @@ If you have questions about the design system:
 
 ---
 
-**VCASSE Design System v1.0**  
+**VCASSE Design System v1.1**
 Professional • Institutional • Sustainable • Accessible  
 *Ready for all future VCASSE sites and deployments*

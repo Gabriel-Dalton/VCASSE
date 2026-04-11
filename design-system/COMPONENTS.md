@@ -61,17 +61,18 @@ Large, striking introduction to a page. Establishes visual hierarchy and mood.
 ### Variations
 
 #### Hero: Title + Subtitle + CTA
-- Centered alignment
+- Left editorial alignment
 - H1 title (max 2 lines)
 - Subtitle text (max 2 lines)
 - 1–2 action buttons
-- Gradient background (light → mint → light)
+- Homepage uses a full-width civic image with a deep green overlay
 - Padding: 120–160px top/bottom
+- Content should sit directly on the hero image/overlay, never inside a decorative card
 
 #### Hero: With Image/Video
-- Split layout: Text (left) + Image (right)
+- Use image-led background treatment for homepage-level heroes
 - Responsive: Stacked on mobile
-- Text over image alternative (dark overlay required for readability)
+- Dark overlay required for readability
 
 #### Hero: Minimal
 - Large H1 only
@@ -99,7 +100,7 @@ Large, striking introduction to a page. Establishes visual hierarchy and mood.
 ### Standard Card
 - White background
 - 24–32px padding
-- 12–16px border-radius
+- 8px border-radius
 - Medium shadow
 - Max-width: 400px (typical)
 
@@ -131,7 +132,7 @@ Large, striking introduction to a page. Establishes visual hierarchy and mood.
   color: #ffffff;
   font-weight: 600;
   padding: 12px 24px;
-  border-radius: 8px;
+  border-radius: 6px;
   transition: background 0.2s ease;
 }
 
@@ -152,7 +153,7 @@ Large, striking introduction to a page. Establishes visual hierarchy and mood.
   border: 1px solid #047857;
   font-weight: 500;
   padding: 11px 23px; /* Account for border */
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .button--secondary:hover {
@@ -402,7 +403,7 @@ Always verify with WAVE or Axe DevTools.
 
 ## Common Mistakes to Avoid
 
-1. **Mixing border-radius**: Use consistent radius (6, 12, 16, 24px only)
+1. **Mixing border-radius**: Use consistent radius (6px for buttons, 8px for cards and panels)
 2. **Inconsistent spacing**: Always use multiples of 4px
 3. **Font size chaos**: Stick to defined scale (14, 16, 18, 24, 32, 40, 48, 56px)
 4. **Color variations**: Use exact hex values, no custom derivations
@@ -432,4 +433,4 @@ Always verify with WAVE or Axe DevTools.
 ---
 
 **Last Updated**: April 2026  
-**Component Library v1.0**
+**Component Library v1.1**
