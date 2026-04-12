@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --primary: #1e3a5f;
-  --primary-light: #2a5a8f;
-  --primary-dark: #14274e;
+  --primary: #0d4f8b;
+  --primary-light: #1a6db5;
+  --primary-dark: #082a4d;
   --ink-strong: #111827;
   --slate-professional: #374151;
   --brand-band: var(--primary-dark);
@@ -11,18 +11,18 @@
   --tertiary: #111827;
   --neutral: #6b7280;
   --bg-canvas: #ffffff;
-  --bg-light: #f0f4f8;
-  --bg-page: #e8edf3;
+  --bg-light: #edf3f8;
+  --bg-page: #e2ecf4;
   --bg-card: #ffffff;
-  --bg-card-alt: #f5f7fa;
-  --bg-dark: #0f1b2d;
+  --bg-card-alt: #f2f6fa;
+  --bg-dark: #051a2e;
   --text-dark: #111827;
   --text-body: #374151;
   --text-muted: #6b7280;
   --text-light: #9ca3af;
   --white: #ffffff;
-  --green-accent: #7dd3fc;
-  --green-light: #dbeafe;
+  --green-accent: #6cb4e4;
+  --green-light: #cfe2f3;
   --border: #e5e7eb;
   --border-light: #f3f4f6;
   --radius-sm: 4px;
@@ -673,9 +673,9 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .publication-pill--vcasse {
-  color: #1e3a5f;
-  background: #dbeafe;
-  border-color: #93c5fd;
+  color: #0d4f8b;
+  background: #cfe2f3;
+  border-color: #6cb4e4;
 }
 
 .publication-pill--community {
@@ -1802,7 +1802,7 @@ noscript + * .fade-in,
     top: 0; left: 0; right: 0;
     width: 100%;
     z-index: 1200;
-    background: #14274e;
+    background: #082a4d;
     border-bottom-color: rgba(255,255,255,0.12);
   }
 
@@ -1819,7 +1819,7 @@ noscript + * .fade-in,
     width: auto;
     min-height: auto;
     max-height: calc(100dvh - var(--nav-height) - 24px);
-    background: #14274e;
+    background: #082a4d;
     flex-direction: column;
     padding: 18px 20px 26px;
     gap: 0;
