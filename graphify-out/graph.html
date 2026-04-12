@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>graphify - graphify-out/graph.html</title>
+<script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f0f1a; color: #e0e0e0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; display: flex; height: 100vh; overflow: hidden; }
+  #graph { flex: 1; }
+  #sidebar { width: 280px; background: #1a1a2e; border-left: 1px solid #2a2a4e; display: flex; flex-direction: column; overflow: hidden; }
+  #search-wrap { padding: 12px; border-bottom: 1px solid #2a2a4e; }
+  #search { width: 100%; background: #0f0f1a; border: 1px solid #3a3a5e; color: #e0e0e0; padding: 7px 10px; border-radius: 6px; font-size: 13px; outline: none; }
+  #search:focus { border-color: #4E79A7; }
+  #search-results { max-height: 140px; overflow-y: auto; padding: 4px 12px; border-bottom: 1px solid #2a2a4e; display: none; }
+  .search-item { padding: 4px 6px; cursor: pointer; border-radius: 4px; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .search-item:hover { background: #2a2a4e; }
+  #info-panel { padding: 14px; border-bottom: 1px solid #2a2a4e; min-height: 140px; }
+  #info-panel h3 { font-size: 13px; color: #aaa; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+  #info-content { font-size: 13px; color: #ccc; line-height: 1.6; }
+  #info-content .field { margin-bottom: 5px; }
+  #info-content .field b { color: #e0e0e0; }
+  #info-content .empty { color: #555; font-style: italic; }
+  .neighbor-link { display: block; padding: 2px 6px; margin: 2px 0; border-radius: 3px; cursor: pointer; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-left: 3px solid #333; }
+  .neighbor-link:hover { background: #2a2a4e; }
+  #neighbors-list { max-height: 160px; overflow-y: auto; margin-top: 4px; }
+  #legend-wrap { flex: 1; overflow-y: auto; padding: 12px; }
+  #legend-wrap h3 { font-size: 13px; color: #aaa; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .legend-item { display: flex; align-items: center; gap: 8px; padding: 4px 0; cursor: pointer; border-radius: 4px; font-size: 12px; }
+  .legend-item:hover { background: #2a2a4e; padding-left: 4px; }
+  .legend-item.dimmed { opacity: 0.35; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .legend-label { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .legend-count { color: #666; font-size: 11px; }
+  #stats { padding: 10px 14px; border-top: 1px solid #2a2a4e; font-size: 11px; color: #555; }
+</style>
+</head>
+<body>
+<div id="graph"></div>
+<div id="sidebar">
+  <div id="search-wrap">
+    <input id="search" type="text" placeholder="Search nodes..." autocomplete="off">
+    <div id="search-results"></div>
+  </div>
+  <div id="info-panel">
+    <h3>Node Info</h3>
+    <div id="info-content"><span class="empty">Click a node to inspect it</span></div>
+  </div>
+  <div id="legend-wrap">
+    <h3>Communities</h3>
+    <div id="legend"></div>
+  </div>
+  <div id="stats">58 nodes &middot; 60 edges &middot; 18 communities</div>
+</div>
+<script>
+const RAW_NODES = [{"id": "events_data", "label": "events-data.js", "color": {"background": "#9C755F", "border": "#9C755F", "highlight": {"background": "#ffffff", "border": "#9C755F"}}, "size": 10.0, "font": {"size": 0, "color": "#ffffff"}, "title": "events-data.js", "community": 8, "community_name": "Events Data Module", "source_file": "js\\events-data.js", "file_type": "code", "degree": 0}, {"id": "events_page", "label": "events-page.js", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 40.0, "font": {"size": 12, "color": "#ffffff"}, "title": "events-page.js", "community": 0, "community_name": "Events Calendar Engine", "source_file": "js\\events-page.js", "file_type": "code", "degree": 10}, {"id": "events_page_pad", "label": "pad()", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 16.0, "font": {"size": 12, "color": "#ffffff"}, "title": "pad()", "community": 0, "community_name": "Events Calendar Engine", "source_file": "js\\events-page.js", "file_type": "code", "degree": 2}, {"id": "events_page_formatiso", "label": "formatISO()", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 19.0, "font": {"size": 12, "color": "#ffffff"}, "title": "formatISO()", "community": 0, "community_name": "Events Calendar Engine", "source_file": "js\\events-page.js", "file_type": "code", "degree": 3}, {"id": "events_page_parseiso", "label": "parseISO()", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 19.0, "font": {"size": 12, "color": "#ffffff"}, "title": "parseISO()", "community": 0, "community_name": "Events Calendar Engine", "source_file": "js\\events-page.js", "file_type": "code", "degree": 3}, {"id": "events_page_daysinmonth", "label": "daysInMonth()", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 16.0, "font": {"size": 12, "color": "#ffffff"}, "title": "daysInMonth()", "community": 0, "community_name": "Events Calendar Engine", "source_file": "js\\events-page.js", "file_type": "code", "degree": 2}, {"id": "events_page_rendercalendar", "label": "renderCalendar()", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 22.0, "font": {"size": 12, "color": "#ffffff"}, "title": "renderCalendar()", "community": 0, "community_name": "Events Calendar Engine", "source_file": "js\\events-page.js", "file_type": "code", "degree": 4}, {"id": "events_page_renderselectedday", "label": "renderSelectedDay()", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 22.0, "font": {"size": 12, "color": "#ffffff"}, "title": "renderSelectedDay()", "community": 0, "community_name": "Events Calendar Engine", "source_file": "js\\events-page.js", "file_type": "code", "degree": 4}, {"id": "events_page_escapehtml", "label": "escapeHtml()", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 19.0, "font": {"size": 12, "color": "#ffffff"}, "title": "escapeHtml()", "community": 0, "community_name": "Events Calendar Engine", "source_file": "js\\events-page.js", "file_type": "code", "degree": 3}, {"id": "events_page_sortevents", "label": "sortEvents()", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 16.0, "font": {"size": 12, "color": "#ffffff"}, "title": "sortEvents()", "community": 0, "community_name": "Events Calendar Engine", "source_file": "js\\events-page.js", "file_type": "code", "degree": 2}, {"id": "events_page_rendercard", "label": "renderCard()", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 19.0, "font": {"size": 12, "color": "#ffffff"}, "title": "renderCard()", "community": 0, "community_name": "Events Calendar Engine", "source_file": "js\\events-page.js", "file_type": "code", "degree": 3}, {"id": "events_page_renderlists", "label": "renderLists()", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 16.0, "font": {"size": 12, "color": "#ffffff"}, "title": "renderLists()", "community": 0, "community_name": "Events Calendar Engine", "source_file": "js\\events-page.js", "file_type": "code", "degree": 2}, {"id": "main", "label": "main.js", "color": {"background": "#76B7B2", "border": "#76B7B2", "highlight": {"background": "#ffffff", "border": "#76B7B2"}}, "size": 22.0, "font": {"size": 12, "color": "#ffffff"}, "title": "main.js", "community": 3, "community_name": "Main UI Controllers", "source_file": "js\\main.js", "file_type": "code", "degree": 4}, {"id": "main_closenavdropdowns", "label": "closeNavDropdowns()", "color": {"background": "#76B7B2", "border": "#76B7B2", "highlight": {"background": "#ffffff", "border": "#76B7B2"}}, "size": 16.0, "font": {"size": 12, "color": "#ffffff"}, "title": "closeNavDropdowns()", "community": 3, "community_name": "Main UI Controllers", "source_file": "js\\main.js", "file_type": "code", "degree": 2}, {"id": "main_closemobilemenu", "label": "closeMobileMenu()", "color": {"background": "#76B7B2", "border": "#76B7B2", "highlight": {"background": "#ffffff", "border": "#76B7B2"}}, "size": 16.0, "font": {"size": 12, "color": "#ffffff"}, "title": "closeMobileMenu()", "community": 3, "community_name": "Main UI Controllers", "source_file": "js\\main.js", "file_type": "code", "degree": 2}, {"id": "main_iselementinview", "label": "isElementInView()", "color": {"background": "#76B7B2", "border": "#76B7B2", "highlight": {"background": "#ffffff", "border": "#76B7B2"}}, "size": 13.0, "font": {"size": 0, "color": "#ffffff"}, "title": "isElementInView()", "community": 3, "community_name": "Main UI Controllers", "source_file": "js\\main.js", "file_type": "code", "degree": 1}, {"id": "main_animatemetric", "label": "animateMetric()", "color": {"background": "#76B7B2", "border": "#76B7B2", "highlight": {"background": "#ffffff", "border": "#76B7B2"}}, "size": 13.0, "font": {"size": 0, "color": "#ffffff"}, "title": "animateMetric()", "community": 3, "community_name": "Main UI Controllers", "source_file": "js\\main.js", "file_type": "code", "degree": 1}, {"id": "publications_data", "label": "publications-data.js", "color": {"background": "#BAB0AC", "border": "#BAB0AC", "highlight": {"background": "#ffffff", "border": "#BAB0AC"}}, "size": 10.0, "font": {"size": 0, "color": "#ffffff"}, "title": "publications-data.js", "community": 9, "community_name": "Publications Data Module", "source_file": "js\\publications-data.js", "file_type": "code", "degree": 0}, {"id": "publications_related", "label": "publications-related.js", "color": {"background": "#B07AA1", "border": "#B07AA1", "highlight": {"background": "#ffffff", "border": "#B07AA1"}}, "size": 16.0, "font": {"size": 12, "color": "#ffffff"}, "title": "publications-related.js", "community": 6, "community_name": "Publications Formatter", "source_file": "js\\publications-related.js", "file_type": "code", "degree": 2}, {"id": "publications_related_formatdate", "label": "formatDate()", "color": {"background": "#B07AA1", "border": "#B07AA1", "highlight": {"background": "#ffffff", "border": "#B07AA1"}}, "size": 13.0, "font": {"size": 0, "color": "#ffffff"}, "title": "formatDate()", "community": 6, "community_name": "Publications Formatter", "source_file": "js\\publications-related.js", "file_type": "code", "degree": 1}, {"id": "publications_related_titlecase", "label": "titleCase()", "color": {"background": "#B07AA1", "border": "#B07AA1", "highlight": {"background": "#ffffff", "border": "#B07AA1"}}, "size": 13.0, "font": {"size": 0, "color": "#ffffff"}, "title": "titleCase()", "community": 6, "community_name": "Publications Formatter", "source_file": "js\\publications-related.js", "file_type": "code", "degree": 1}, {"id": "events_data_vcasse_events", "label": "VCASSE Events Data Store", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 22.0, "font": {"size": 12, "color": "#ffffff"}, "title": "VCASSE Events Data Store", "community": 1, "community_name": "Content Data Pipeline", "source_file": "js/events-data.js", "file_type": "code", "degree": 4}, {"id": "events_data_luma_calendar", "label": "Luma Calendar Integration", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 13.0, "font": {"size": 0, "color": "#ffffff"}, "title": "Luma Calendar Integration", "community": 1, "community_name": "Content Data Pipeline", "source_file": "js/events-data.js", "file_type": "code", "degree": 1}, {"id": "events_page_calendar_renderer", "label": "Events Page Calendar Renderer", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 16.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Events Page Calendar Renderer", "community": 1, "community_name": "Content Data Pipeline", "source_file": "js/events-page.js", "file_type": "code", "degree": 2}, {"id": "events_page_card_renderer", "label": "Events Page Card/List Renderer", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 16.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Events Page Card/List Renderer", "community": 1, "community_name": "Content Data Pipeline", "source_file": "js/events-page.js", "file_type": "code", "degree": 2}, {"id": "events_page_selected_day_panel", "label": "Selected Day Detail Panel", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 13.0, "font": {"size": 0, "color": "#ffffff"}, "title": "Selected Day Detail Panel", "community": 1, "community_name": "Content Data Pipeline", "source_file": "js/events-page.js", "file_type": "code", "degree": 1}, {"id": "main_nav_mobile_menu", "label": "Mobile Navigation Menu Controller", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 10.0, "font": {"size": 0, "color": "#ffffff"}, "title": "Mobile Navigation Menu Controller", "community": 10, "community_name": "Mobile Nav Controller", "source_file": "js/main.js", "file_type": "code", "degree": 0}, {"id": "main_nav_dropdown", "label": "Nav Dropdown Controller", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 10.0, "font": {"size": 0, "color": "#ffffff"}, "title": "Nav Dropdown Controller", "community": 11, "community_name": "Desktop Dropdown Nav", "source_file": "js/main.js", "file_type": "code", "degree": 0}, {"id": "main_fade_in_observer", "label": "Fade-In Scroll Animation (IntersectionObserver)", "color": {"background": "#E15759", "border": "#E15759", "highlight": {"background": "#ffffff", "border": "#E15759"}}, "size": 10.0, "font": {"size": 0, "color": "#ffffff"}, "title": "Fade-In Scroll Animation (IntersectionObserver)", "community": 12, "community_name": "Scroll Fade Animation", "source_file": "js/main.js", "file_type": "code", "degree": 0}, {"id": "main_progress_bar_animation", "label": "Progress Bar Fill Animation", "color": {"background": "#76B7B2", "border": "#76B7B2", "highlight": {"background": "#ffffff", "border": "#76B7B2"}}, "size": 10.0, "font": {"size": 0, "color": "#ffffff"}, "title": "Progress Bar Fill Animation", "community": 13, "community_name": "Progress Bar Animation", "source_file": "js/main.js", "file_type": "code", "degree": 0}, {"id": "main_metric_counter", "label": "Animated Metric Counter", "color": {"background": "#59A14F", "border": "#59A14F", "highlight": {"background": "#ffffff", "border": "#59A14F"}}, "size": 10.0, "font": {"size": 0, "color": "#ffffff"}, "title": "Animated Metric Counter", "community": 14, "community_name": "Metric Counter", "source_file": "js/main.js", "file_type": "code", "degree": 0}, {"id": "main_navbar_scroll_shadow", "label": "Navbar Scroll Shadow Effect", "color": {"background": "#EDC948", "border": "#EDC948", "highlight": {"background": "#ffffff", "border": "#EDC948"}}, "size": 10.0, "font": {"size": 0, "color": "#ffffff"}, "title": "Navbar Scroll Shadow Effect", "community": 15, "community_name": "Navbar Scroll Shadow", "source_file": "js/main.js", "file_type": "code", "degree": 0}, {"id": "main_smooth_scroll", "label": "Smooth Scroll for Anchor Links", "color": {"background": "#B07AA1", "border": "#B07AA1", "highlight": {"background": "#ffffff", "border": "#B07AA1"}}, "size": 10.0, "font": {"size": 0, "color": "#ffffff"}, "title": "Smooth Scroll for Anchor Links", "community": 16, "community_name": "Smooth Scroll Handler", "source_file": "js/main.js", "file_type": "code", "degree": 0}, {"id": "publications_data_store", "label": "Publications Data Store (VCASSE_PUBLICATIONS)", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 22.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Publications Data Store (VCASSE_PUBLICATIONS)", "community": 1, "community_name": "Content Data Pipeline", "source_file": "js/publications-data.js", "file_type": "code", "degree": 4}, {"id": "publications_data_get_publications", "label": "getPublications() Helper", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 16.0, "font": {"size": 12, "color": "#ffffff"}, "title": "getPublications() Helper", "community": 1, "community_name": "Content Data Pipeline", "source_file": "js/publications-data.js", "file_type": "code", "degree": 2}, {"id": "publications_related_renderer", "label": "Related Publications Widget Renderer", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 25.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Related Publications Widget Renderer", "community": 1, "community_name": "Content Data Pipeline", "source_file": "js/publications-related.js", "file_type": "code", "degree": 5}, {"id": "pub_safety_evaluations", "label": "Practical AI Safety Evaluations for Public-Interest Teams", "color": {"background": "#59A14F", "border": "#59A14F", "highlight": {"background": "#ffffff", "border": "#59A14F"}}, "size": 19.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Practical AI Safety Evaluations for Public-Interest Teams", "community": 4, "community_name": "Safety Pillar & Publications", "source_file": "js/publications-data.js", "file_type": "document", "degree": 3}, {"id": "pub_incident_reporting", "label": "Incident Reporting Playbook for Responsible AI Teams", "color": {"background": "#59A14F", "border": "#59A14F", "highlight": {"background": "#ffffff", "border": "#59A14F"}}, "size": 16.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Incident Reporting Playbook for Responsible AI Teams", "community": 4, "community_name": "Safety Pillar & Publications", "source_file": "js/publications-data.js", "file_type": "document", "degree": 2}, {"id": "pub_sustainability_checklist", "label": "A Sustainability Checklist for AI Procurement", "color": {"background": "#EDC948", "border": "#EDC948", "highlight": {"background": "#ffffff", "border": "#EDC948"}}, "size": 19.0, "font": {"size": 12, "color": "#ffffff"}, "title": "A Sustainability Checklist for AI Procurement", "community": 5, "community_name": "Sustainability Pillar & Publications", "source_file": "js/publications-data.js", "file_type": "document", "degree": 3}, {"id": "pub_energy_footprint", "label": "Energy Footprint Reporting: A Starter Standard", "color": {"background": "#EDC948", "border": "#EDC948", "highlight": {"background": "#ffffff", "border": "#EDC948"}}, "size": 19.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Energy Footprint Reporting: A Starter Standard", "community": 5, "community_name": "Sustainability Pillar & Publications", "source_file": "js/publications-data.js", "file_type": "document", "degree": 3}, {"id": "pub_participatory_ethics", "label": "Participatory Ethics in Municipal AI Decisions", "color": {"background": "#E15759", "border": "#E15759", "highlight": {"background": "#ffffff", "border": "#E15759"}}, "size": 22.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Participatory Ethics in Municipal AI Decisions", "community": 2, "community_name": "Ethics & Community Pillar", "source_file": "js/publications-data.js", "file_type": "document", "degree": 4}, {"id": "pub_human_oversight", "label": "Human Oversight Design Patterns That Actually Work", "color": {"background": "#E15759", "border": "#E15759", "highlight": {"background": "#ffffff", "border": "#E15759"}}, "size": 16.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Human Oversight Design Patterns That Actually Work", "community": 2, "community_name": "Ethics & Community Pillar", "source_file": "js/publications-data.js", "file_type": "document", "degree": 2}, {"id": "readme_vcasse_org", "label": "VCASSE Organization Overview", "color": {"background": "#FF9DA7", "border": "#FF9DA7", "highlight": {"background": "#ffffff", "border": "#FF9DA7"}}, "size": 16.0, "font": {"size": 12, "color": "#ffffff"}, "title": "VCASSE Organization Overview", "community": 7, "community_name": "Brand & Organization", "source_file": "README.md", "file_type": "document", "degree": 2}, {"id": "readme_pillar_safety", "label": "Pillar: Safety", "color": {"background": "#59A14F", "border": "#59A14F", "highlight": {"background": "#ffffff", "border": "#59A14F"}}, "size": 22.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Pillar: Safety", "community": 4, "community_name": "Safety Pillar & Publications", "source_file": "README.md", "file_type": "document", "degree": 4}, {"id": "readme_pillar_sustainability", "label": "Pillar: Sustainability", "color": {"background": "#EDC948", "border": "#EDC948", "highlight": {"background": "#ffffff", "border": "#EDC948"}}, "size": 19.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Pillar: Sustainability", "community": 5, "community_name": "Sustainability Pillar & Publications", "source_file": "README.md", "file_type": "document", "degree": 3}, {"id": "readme_pillar_ethics", "label": "Pillar: Ethics", "color": {"background": "#E15759", "border": "#E15759", "highlight": {"background": "#ffffff", "border": "#E15759"}}, "size": 22.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Pillar: Ethics", "community": 2, "community_name": "Ethics & Community Pillar", "source_file": "README.md", "file_type": "document", "degree": 4}, {"id": "readme_safety_ethics_distinction", "label": "Safety vs Ethics Distinction Rationale", "color": {"background": "#59A14F", "border": "#59A14F", "highlight": {"background": "#ffffff", "border": "#59A14F"}}, "size": 16.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Safety vs Ethics Distinction Rationale", "community": 4, "community_name": "Safety Pillar & Publications", "source_file": "README.md", "file_type": "document", "degree": 2}, {"id": "readme_oasis_of_change", "label": "Oasis of Change, Inc. (Parent Org)", "color": {"background": "#FF9DA7", "border": "#FF9DA7", "highlight": {"background": "#ffffff", "border": "#FF9DA7"}}, "size": 13.0, "font": {"size": 0, "color": "#ffffff"}, "title": "Oasis of Change, Inc. (Parent Org)", "community": 7, "community_name": "Brand & Organization", "source_file": "README.md", "file_type": "document", "degree": 1}, {"id": "readme_transparency_value", "label": "Transparency by Default Value", "color": {"background": "#EDC948", "border": "#EDC948", "highlight": {"background": "#ffffff", "border": "#EDC948"}}, "size": 13.0, "font": {"size": 0, "color": "#ffffff"}, "title": "Transparency by Default Value", "community": 5, "community_name": "Sustainability Pillar & Publications", "source_file": "README.md", "file_type": "document", "degree": 1}, {"id": "readme_community_rooted_value", "label": "Community-Rooted Value", "color": {"background": "#E15759", "border": "#E15759", "highlight": {"background": "#ffffff", "border": "#E15759"}}, "size": 13.0, "font": {"size": 0, "color": "#ffffff"}, "title": "Community-Rooted Value", "community": 2, "community_name": "Ethics & Community Pillar", "source_file": "README.md", "file_type": "document", "degree": 1}, {"id": "revert_doc", "label": "Revert of Merge Commit 42b2e46", "color": {"background": "#FF9DA7", "border": "#FF9DA7", "highlight": {"background": "#ffffff", "border": "#FF9DA7"}}, "size": 10.0, "font": {"size": 0, "color": "#ffffff"}, "title": "Revert of Merge Commit 42b2e46", "community": 17, "community_name": "Revert Documentation", "source_file": "REVERT_42b2e46.md", "file_type": "document", "degree": 0}, {"id": "publications_workflow", "label": "Publications Workflow Guide", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 16.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Publications Workflow Guide", "community": 1, "community_name": "Content Data Pipeline", "source_file": "content/publications/README.md", "file_type": "document", "degree": 2}, {"id": "logo_svg", "label": "VCASSE Logo (Green Rounded Square with White V Chevron)", "color": {"background": "#FF9DA7", "border": "#FF9DA7", "highlight": {"background": "#ffffff", "border": "#FF9DA7"}}, "size": 13.0, "font": {"size": 0, "color": "#ffffff"}, "title": "VCASSE Logo (Green Rounded Square with White V Chevron)", "community": 7, "community_name": "Brand & Organization", "source_file": "img/logo.svg", "file_type": "image", "degree": 1}, {"id": "event_responsible_ai_forum", "label": "Responsible AI in the Public Sector Open Forum (Event)", "color": {"background": "#E15759", "border": "#E15759", "highlight": {"background": "#ffffff", "border": "#E15759"}}, "size": 19.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Responsible AI in the Public Sector Open Forum (Event)", "community": 2, "community_name": "Ethics & Community Pillar", "source_file": "js/events-data.js", "file_type": "code", "degree": 3}, {"id": "event_safety_reading_group", "label": "Safety & Evaluations Reading Group (Event)", "color": {"background": "#59A14F", "border": "#59A14F", "highlight": {"background": "#ffffff", "border": "#59A14F"}}, "size": 16.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Safety &amp; Evaluations Reading Group (Event)", "community": 4, "community_name": "Safety Pillar & Publications", "source_file": "js/events-data.js", "file_type": "code", "degree": 2}, {"id": "event_sustainability_workshop", "label": "Spring Sustainability & AI Workshop (Event)", "color": {"background": "#EDC948", "border": "#EDC948", "highlight": {"background": "#ffffff", "border": "#EDC948"}}, "size": 16.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Spring Sustainability &amp; AI Workshop (Event)", "community": 5, "community_name": "Sustainability Pillar & Publications", "source_file": "js/events-data.js", "file_type": "code", "degree": 2}, {"id": "event_indigenous_data_symposium", "label": "Indigenous Data & AI Symposium (Community Event)", "color": {"background": "#E15759", "border": "#E15759", "highlight": {"background": "#ffffff", "border": "#E15759"}}, "size": 13.0, "font": {"size": 0, "color": "#ffffff"}, "title": "Indigenous Data &amp; AI Symposium (Community Event)", "community": 2, "community_name": "Ethics & Community Pillar", "source_file": "js/events-data.js", "file_type": "code", "degree": 1}, {"id": "pillar_data_attribute_system", "label": "Pillar-Based Data Attribute Filtering System", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 13.0, "font": {"size": 0, "color": "#ffffff"}, "title": "Pillar-Based Data Attribute Filtering System", "community": 1, "community_name": "Content Data Pipeline", "source_file": "js/publications-related.js", "file_type": "code", "degree": 1}];
+const RAW_EDGES = [{"from": "events_page", "to": "events_page_pad", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page", "to": "events_page_formatiso", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page", "to": "events_page_parseiso", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page", "to": "events_page_daysinmonth", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page", "to": "events_page_rendercalendar", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page", "to": "events_page_renderselectedday", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page", "to": "events_page_escapehtml", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page", "to": "events_page_sortevents", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page", "to": "events_page_rendercard", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page", "to": "events_page_renderlists", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page_pad", "to": "events_page_formatiso", "label": "calls", "title": "calls [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page_formatiso", "to": "events_page_rendercalendar", "label": "calls", "title": "calls [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page_parseiso", "to": "events_page_renderselectedday", "label": "calls", "title": "calls [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page_parseiso", "to": "events_page_rendercard", "label": "calls", "title": "calls [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page_daysinmonth", "to": "events_page_rendercalendar", "label": "calls", "title": "calls [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page_rendercalendar", "to": "events_page_renderselectedday", "label": "calls", "title": "calls [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page_renderselectedday", "to": "events_page_escapehtml", "label": "calls", "title": "calls [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page_escapehtml", "to": "events_page_rendercard", "label": "calls", "title": "calls [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page_sortevents", "to": "events_page_renderlists", "label": "calls", "title": "calls [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "main", "to": "main_closenavdropdowns", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "main", "to": "main_closemobilemenu", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "main", "to": "main_iselementinview", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "main", "to": "main_animatemetric", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "main_closenavdropdowns", "to": "main_closemobilemenu", "label": "calls", "title": "calls [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "publications_related", "to": "publications_related_formatdate", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "publications_related", "to": "publications_related_titlecase", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_data_vcasse_events", "to": "events_page_calendar_renderer", "label": "shares_data_with", "title": "shares_data_with [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_data_vcasse_events", "to": "events_page_card_renderer", "label": "shares_data_with", "title": "shares_data_with [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_data_vcasse_events", "to": "events_page_selected_day_panel", "label": "shares_data_with", "title": "shares_data_with [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_data_vcasse_events", "to": "publications_data_store", "label": "semantically_similar_to", "title": "semantically_similar_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "events_data_luma_calendar", "to": "events_page_calendar_renderer", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "events_page_card_renderer", "to": "publications_related_renderer", "label": "semantically_similar_to", "title": "semantically_similar_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "publications_data_store", "to": "publications_related_renderer", "label": "shares_data_with", "title": "shares_data_with [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "publications_data_store", "to": "publications_data_get_publications", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "publications_data_store", "to": "publications_workflow", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "publications_data_get_publications", "to": "publications_related_renderer", "label": "calls", "title": "calls [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "publications_related_renderer", "to": "pillar_data_attribute_system", "label": "implements", "title": "implements [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "publications_related_renderer", "to": "publications_workflow", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "pub_safety_evaluations", "to": "readme_pillar_safety", "label": "conceptually_related_to", "title": "conceptually_related_to [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "pub_safety_evaluations", "to": "event_safety_reading_group", "label": "conceptually_related_to", "title": "conceptually_related_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "pub_safety_evaluations", "to": "pub_incident_reporting", "label": "semantically_similar_to", "title": "semantically_similar_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "pub_incident_reporting", "to": "readme_pillar_safety", "label": "conceptually_related_to", "title": "conceptually_related_to [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "pub_sustainability_checklist", "to": "readme_pillar_sustainability", "label": "conceptually_related_to", "title": "conceptually_related_to [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "pub_sustainability_checklist", "to": "event_sustainability_workshop", "label": "conceptually_related_to", "title": "conceptually_related_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "pub_sustainability_checklist", "to": "pub_energy_footprint", "label": "semantically_similar_to", "title": "semantically_similar_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "pub_energy_footprint", "to": "readme_pillar_sustainability", "label": "conceptually_related_to", "title": "conceptually_related_to [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "pub_energy_footprint", "to": "readme_transparency_value", "label": "rationale_for", "title": "rationale_for [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "pub_participatory_ethics", "to": "readme_pillar_ethics", "label": "conceptually_related_to", "title": "conceptually_related_to [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "pub_participatory_ethics", "to": "event_responsible_ai_forum", "label": "conceptually_related_to", "title": "conceptually_related_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "pub_participatory_ethics", "to": "event_indigenous_data_symposium", "label": "conceptually_related_to", "title": "conceptually_related_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "pub_participatory_ethics", "to": "pub_human_oversight", "label": "semantically_similar_to", "title": "semantically_similar_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "pub_human_oversight", "to": "readme_pillar_ethics", "label": "conceptually_related_to", "title": "conceptually_related_to [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "readme_vcasse_org", "to": "readme_oasis_of_change", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "readme_vcasse_org", "to": "logo_svg", "label": "references", "title": "references [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "readme_pillar_safety", "to": "readme_safety_ethics_distinction", "label": "rationale_for", "title": "rationale_for [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "readme_pillar_safety", "to": "event_safety_reading_group", "label": "conceptually_related_to", "title": "conceptually_related_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "readme_pillar_sustainability", "to": "event_sustainability_workshop", "label": "conceptually_related_to", "title": "conceptually_related_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "readme_pillar_ethics", "to": "readme_safety_ethics_distinction", "label": "rationale_for", "title": "rationale_for [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "readme_pillar_ethics", "to": "event_responsible_ai_forum", "label": "conceptually_related_to", "title": "conceptually_related_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "readme_community_rooted_value", "to": "event_responsible_ai_forum", "label": "rationale_for", "title": "rationale_for [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}];
+const LEGEND = [{"cid": 0, "color": "#4E79A7", "label": "Events Calendar Engine", "count": 11}, {"cid": 1, "color": "#F28E2B", "label": "Content Data Pipeline", "count": 10}, {"cid": 2, "color": "#E15759", "label": "Ethics &amp; Community Pillar", "count": 6}, {"cid": 3, "color": "#76B7B2", "label": "Main UI Controllers", "count": 5}, {"cid": 4, "color": "#59A14F", "label": "Safety Pillar &amp; Publications", "count": 5}, {"cid": 5, "color": "#EDC948", "label": "Sustainability Pillar &amp; Publications", "count": 5}, {"cid": 6, "color": "#B07AA1", "label": "Publications Formatter", "count": 3}, {"cid": 7, "color": "#FF9DA7", "label": "Brand &amp; Organization", "count": 3}, {"cid": 8, "color": "#9C755F", "label": "Events Data Module", "count": 1}, {"cid": 9, "color": "#BAB0AC", "label": "Publications Data Module", "count": 1}, {"cid": 10, "color": "#4E79A7", "label": "Mobile Nav Controller", "count": 1}, {"cid": 11, "color": "#F28E2B", "label": "Desktop Dropdown Nav", "count": 1}, {"cid": 12, "color": "#E15759", "label": "Scroll Fade Animation", "count": 1}, {"cid": 13, "color": "#76B7B2", "label": "Progress Bar Animation", "count": 1}, {"cid": 14, "color": "#59A14F", "label": "Metric Counter", "count": 1}, {"cid": 15, "color": "#EDC948", "label": "Navbar Scroll Shadow", "count": 1}, {"cid": 16, "color": "#B07AA1", "label": "Smooth Scroll Handler", "count": 1}, {"cid": 17, "color": "#FF9DA7", "label": "Revert Documentation", "count": 1}];
+
+// HTML-escape helper — prevents XSS when injecting graph data into innerHTML
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+// Build vis datasets
+const nodesDS = new vis.DataSet(RAW_NODES.map(n => ({
+  id: n.id, label: n.label, color: n.color, size: n.size,
+  font: n.font, title: n.title,
+  _community: n.community, _community_name: n.community_name,
+  _source_file: n.source_file, _file_type: n.file_type, _degree: n.degree,
+})));
+
+const edgesDS = new vis.DataSet(RAW_EDGES.map((e, i) => ({
+  id: i, from: e.from, to: e.to,
+  label: '',
+  title: e.title,
+  dashes: e.dashes,
+  width: e.width,
+  color: e.color,
+  arrows: { to: { enabled: true, scaleFactor: 0.5 } },
+})));
+
+const container = document.getElementById('graph');
+const network = new vis.Network(container, { nodes: nodesDS, edges: edgesDS }, {
+  physics: {
+    enabled: true,
+    solver: 'forceAtlas2Based',
+    forceAtlas2Based: {
+      gravitationalConstant: -60,
+      centralGravity: 0.005,
+      springLength: 120,
+      springConstant: 0.08,
+      damping: 0.4,
+      avoidOverlap: 0.8,
+    },
+    stabilization: { iterations: 200, fit: true },
+  },
+  interaction: {
+    hover: true,
+    tooltipDelay: 100,
+    hideEdgesOnDrag: true,
+    navigationButtons: false,
+    keyboard: false,
+  },
+  nodes: { shape: 'dot', borderWidth: 1.5 },
+  edges: { smooth: { type: 'continuous', roundness: 0.2 }, selectionWidth: 3 },
+});
+
+network.once('stabilizationIterationsDone', () => {
+  network.setOptions({ physics: { enabled: false } });
+});
+
+function showInfo(nodeId) {
+  const n = nodesDS.get(nodeId);
+  if (!n) return;
+  const neighborIds = network.getConnectedNodes(nodeId);
+  const neighborItems = neighborIds.map(nid => {
+    const nb = nodesDS.get(nid);
+    const color = nb ? nb.color.background : '#555';
+    return `<span class="neighbor-link" style="border-left-color:${esc(color)}" onclick="focusNode(${JSON.stringify(nid)})">${esc(nb ? nb.label : nid)}</span>`;
+  }).join('');
+  document.getElementById('info-content').innerHTML = `
+    <div class="field"><b>${esc(n.label)}</b></div>
+    <div class="field">Type: ${esc(n._file_type || 'unknown')}</div>
+    <div class="field">Community: ${esc(n._community_name)}</div>
+    <div class="field">Source: ${esc(n._source_file || '-')}</div>
+    <div class="field">Degree: ${n._degree}</div>
+    ${neighborIds.length ? `<div class="field" style="margin-top:8px;color:#aaa;font-size:11px">Neighbors (${neighborIds.length})</div><div id="neighbors-list">${neighborItems}</div>` : ''}
+  `;
+}
+
+function focusNode(nodeId) {
+  network.focus(nodeId, { scale: 1.4, animation: true });
+  network.selectNodes([nodeId]);
+  showInfo(nodeId);
+}
+
+// Track hovered node — hover detection is more reliable than click params
+let hoveredNodeId = null;
+network.on('hoverNode', params => {
+  hoveredNodeId = params.node;
+  container.style.cursor = 'pointer';
+});
+network.on('blurNode', () => {
+  hoveredNodeId = null;
+  container.style.cursor = 'default';
+});
+container.addEventListener('click', () => {
+  if (hoveredNodeId !== null) {
+    showInfo(hoveredNodeId);
+    network.selectNodes([hoveredNodeId]);
+  }
+});
+network.on('click', params => {
+  if (params.nodes.length > 0) {
+    showInfo(params.nodes[0]);
+  } else if (hoveredNodeId === null) {
+    document.getElementById('info-content').innerHTML = '<span class="empty">Click a node to inspect it</span>';
+  }
+});
+
+const searchInput = document.getElementById('search');
+const searchResults = document.getElementById('search-results');
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.toLowerCase().trim();
+  searchResults.innerHTML = '';
+  if (!q) { searchResults.style.display = 'none'; return; }
+  const matches = RAW_NODES.filter(n => n.label.toLowerCase().includes(q)).slice(0, 20);
+  if (!matches.length) { searchResults.style.display = 'none'; return; }
+  searchResults.style.display = 'block';
+  matches.forEach(n => {
+    const el = document.createElement('div');
+    el.className = 'search-item';
+    el.textContent = n.label;
+    el.style.borderLeft = `3px solid ${n.color.background}`;
+    el.style.paddingLeft = '8px';
+    el.onclick = () => {
+      network.focus(n.id, { scale: 1.5, animation: true });
+      network.selectNodes([n.id]);
+      showInfo(n.id);
+      searchResults.style.display = 'none';
+      searchInput.value = '';
+    };
+    searchResults.appendChild(el);
+  });
+});
+document.addEventListener('click', e => {
+  if (!searchResults.contains(e.target) && e.target !== searchInput)
+    searchResults.style.display = 'none';
+});
+
+const hiddenCommunities = new Set();
+const legendEl = document.getElementById('legend');
+LEGEND.forEach(c => {
+  const item = document.createElement('div');
+  item.className = 'legend-item';
+  item.innerHTML = `<div class="legend-dot" style="background:${c.color}"></div>
+    <span class="legend-label">${c.label}</span>
+    <span class="legend-count">${c.count}</span>`;
+  item.onclick = () => {
+    if (hiddenCommunities.has(c.cid)) {
+      hiddenCommunities.delete(c.cid);
+      item.classList.remove('dimmed');
+    } else {
+      hiddenCommunities.add(c.cid);
+      item.classList.add('dimmed');
+    }
+    const updates = RAW_NODES
+      .filter(n => n.community === c.cid)
+      .map(n => ({ id: n.id, hidden: hiddenCommunities.has(c.cid) }));
+    nodesDS.update(updates);
+  };
+  legendEl.appendChild(item);
+});
+</script>
+<script>
+// Render hyperedges as shaded regions
+const hyperedges = [{"id": "events_system_data_flow", "label": "Events System: Data -> Calendar + Cards + Day Panel", "nodes": ["events_data_vcasse_events", "events_page_calendar_renderer", "events_page_card_renderer", "events_page_selected_day_panel", "events_data_luma_calendar"], "relation": "participate_in", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "js/events-page.js"}, {"id": "publications_related_system", "label": "Publications Related-Post Widget Pipeline", "nodes": ["publications_data_store", "publications_data_get_publications", "publications_related_renderer", "pillar_data_attribute_system"], "relation": "implement", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "js/publications-related.js"}, {"id": "three_pillars_framework", "label": "VCASSE Three Pillars: Safety, Sustainability, Ethics", "nodes": ["readme_pillar_safety", "readme_pillar_sustainability", "readme_pillar_ethics", "readme_safety_ethics_distinction", "readme_vcasse_org"], "relation": "form", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "README.md"}];
+function drawHyperedges() {
+    const canvas = network.canvas.frame.canvas;
+    const ctx = canvas.getContext('2d');
+    hyperedges.forEach(h => {
+        const positions = h.nodes
+            .map(nid => network.getPositions([nid])[nid])
+            .filter(p => p !== undefined);
+        if (positions.length < 2) return;
+        // Draw convex hull as filled polygon
+        ctx.save();
+        ctx.globalAlpha = 0.12;
+        ctx.fillStyle = '#6366f1';
+        ctx.strokeStyle = '#6366f1';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        const scale = network.getScale();
+        const offset = network.getViewPosition();
+        const toCanvas = (p) => ({
+            x: (p.x - offset.x) * scale + canvas.width / 2,
+            y: (p.y - offset.y) * scale + canvas.height / 2
+        });
+        const pts = positions.map(toCanvas);
+        // Expand hull slightly
+        const cx = pts.reduce((s, p) => s + p.x, 0) / pts.length;
+        const cy = pts.reduce((s, p) => s + p.y, 0) / pts.length;
+        const expanded = pts.map(p => ({
+            x: cx + (p.x - cx) * 1.15,
+            y: cy + (p.y - cy) * 1.15
+        }));
+        ctx.moveTo(expanded[0].x, expanded[0].y);
+        expanded.slice(1).forEach(p => ctx.lineTo(p.x, p.y));
+        ctx.closePath();
+        ctx.fill();
+        ctx.globalAlpha = 0.4;
+        ctx.stroke();
+        // Label
+        ctx.globalAlpha = 0.8;
+        ctx.fillStyle = '#4f46e5';
+        ctx.font = 'bold 11px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(h.label, cx, cy - 5);
+        ctx.restore();
+    });
+}
+network.on('afterDrawing', drawHyperedges);
+</script>
+</body>
+</html>
