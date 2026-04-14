@@ -3,240 +3,245 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VCASSE | Vancouver Centre for AI Safety, Sustainability, and Ethics</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+  <title>VCASSE | Coming Soon</title>
+  <link rel="icon" type="image/svg+xml" href="dev/img/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0d4f8b;
+      --primary-light: #1a6db5;
+      --primary-dark: #082a4d;
+      --bg-dark: #051a2e;
+      --white: #ffffff;
+      --text-muted: rgba(255, 255, 255, 0.6);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'IBM Plex Sans', var(--font-sans);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-dark);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Subtle animated background */
+    body::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at 30% 50%, rgba(13, 79, 139, 0.15) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 50%, rgba(26, 109, 181, 0.1) 0%, transparent 60%);
+      animation: drift 20s ease-in-out infinite alternate;
+      z-index: 0;
+    }
+
+    @keyframes drift {
+      0%   { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(-3%, 2%) rotate(2deg); }
+    }
+
+    .coming-soon {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 48px 32px;
+      max-width: 640px;
+      width: 100%;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+
+    .logo img {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+    }
+
+    .logo span {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .tagline {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 24px;
+    }
+
+    .tagline .accent {
+      font-style: italic;
+      background: linear-gradient(135deg, #6cb4e4, #1a6db5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .description {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.75);
+      letter-spacing: 0.3px;
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .pill .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #6cb4e4;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .pillars {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .pillar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    .pillar svg {
+      width: 20px;
+      height: 20px;
+      opacity: 0.6;
+    }
+
+    .footer-note {
+      position: fixed;
+      bottom: 32px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.3);
+      z-index: 1;
+    }
+
+    .footer-note a {
+      color: rgba(255, 255, 255, 0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-note a:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    @media (max-width: 480px) {
+      .coming-soon { padding: 32px 24px; }
+      .logo { margin-bottom: 40px; }
+      .pillars { gap: 20px; }
+      .description { font-size: 15px; }
+      .footer-note { bottom: 20px; font-size: 12px; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav class="navbar">
-    <div class="container">
-      <a href="index.html" class="nav-logo nav-logo-mark">
-        <img src="img/logo.svg" alt="VCASSE" width="28" height="28">
-        VCASSE
-      </a>
-
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li class="nav-dropdown">
-          <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="navResearchMenu">
-            Research
-            <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <ul class="nav-dropdown-menu" id="navResearchMenu" role="menu">
-            <li role="none"><a href="safety.html" role="menuitem">Safety</a></li>
-            <li role="none"><a href="sustainability.html" role="menuitem">Sustainability</a></li>
-            <li role="none"><a href="ethics.html" role="menuitem">Ethics</a></li>
-          </ul>
-        </li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="publications.html">Publications</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-
-      <button type="button" class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+  <main class="coming-soon">
+    <div class="logo">
+      <img src="dev/img/logo.svg" alt="VCASSE logo">
+      <span>VCASSE</span>
     </div>
-  </nav>
 
-  <!-- HERO -->
-  <section class="hero hero--home">
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="hero-title">
-          Safety, Sustainability,
-          <span class="italic-accent">&amp; Ethics</span>
-        </h1>
+    <h1 class="tagline">
+      Something meaningful<br>is <span class="accent">coming soon.</span>
+    </h1>
 
-        <p class="hero-description">
-          Vancouver's dedicated centre for responsible AI. We research, educate,
-          and advocate across three pillars so that the people most affected by
-          AI have a seat at the table.
-        </p>
+    <p class="description">
+      The Vancouver Centre for AI Safety, Sustainability, and Ethics is
+      building a home for responsible AI research, education, and advocacy.
+    </p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Safety
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 2 6.5c0 5.5-4.5 7-8 7.5z"/><path d="M6 22c1.5-6.5 6.5-10 11-11"/></svg>
+        Sustainability
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4 6h16M7 6l-3 7h6zM17 6l3 7h-6zM9 22h6"/></svg>
+        Ethics
       </div>
     </div>
-  </section>
 
-  <!-- RESEARCH -->
-  <section class="home-section home-research fade-in" aria-labelledby="home-research-heading">
-    <div class="container">
-      <header class="home-section-header">
-        <p class="home-section-kicker">Focus Areas</p>
-        <h2 id="home-research-heading" class="home-section-title">Three pillars of responsible AI</h2>
-        <p class="home-section-lead">Our work spans technical safety, environmental and social sustainability, and the ethical questions that shape who benefits from AI and who bears the risk.</p>
-      </header>
-      <div class="home-research-grid">
-        <article class="modern-card">
-          <div class="modern-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3>Safety</h3>
-          <p>Robustness, alignment, and risk-aware deployment so systems behave reliably in the real world.</p>
-          <a class="modern-card-link" href="safety.html">Explore safety <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="modern-card">
-          <div class="modern-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 2 6.5c0 5.5-4.5 7-8 7.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 22c1.5-6.5 6.5-10 11-11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3>Sustainability</h3>
-          <p>Energy, data, and lifecycle impacts of AI systems in a changing climate and economy.</p>
-          <a class="modern-card-link" href="sustainability.html">Explore sustainability <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="modern-card">
-          <div class="modern-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 2v20M4 6h16M7 6l-3 7h6zM17 6l3 7h-6zM9 22h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3>Ethics</h3>
-          <p>Justice, governance, and participation so AI serves communities fairly and transparently.</p>
-          <a class="modern-card-link" href="ethics.html">Explore ethics <span aria-hidden="true">→</span></a>
-        </article>
-      </div>
+    <div class="pill">
+      <span class="dot"></span>
+      Under development
     </div>
-  </section>
+  </main>
 
-  <!-- PROGRAMS -->
-  <section class="home-section home-programs fade-in" aria-labelledby="home-programs-heading">
-    <div class="container">
-      <header class="home-section-header">
-        <p class="home-section-kicker">Programs</p>
-        <h2 id="home-programs-heading" class="home-section-title">Core programs for Vancouver</h2>
-        <p class="home-section-lead">Our programming translates research into practical action through policy support, public dialogue, and city-wide literacy work.</p>
-      </header>
-      <div class="home-programs-grid">
-        <div class="program-card">
-          <h3>Policy briefs</h3>
-          <p>Research-backed briefs for municipal and provincial government so decisions on AI regulation, funding, and services are evidence-led.</p>
-          <span class="badge-soon">Core program</span>
-        </div>
-        <div class="program-card">
-          <h3>Community forums and public panels</h3>
-          <p>Regular dialogues that bring together researchers, developers, policymakers, and community members around high-impact AI issues.</p>
-          <span class="badge-soon">Core program</span>
-        </div>
-        <div class="program-card">
-          <h3>Vancouver AI literacy programs</h3>
-          <p>Local education programs covering what AI is, how it works, and how it affects privacy, employment, environment, and daily life.</p>
-          <span class="badge-soon">Core program</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOG / PUBLICATIONS -->
-  <section class="home-section home-publications fade-in" aria-labelledby="home-publications-heading">
-    <div class="container">
-      <header class="home-section-header">
-        <p class="home-section-kicker">Blog</p>
-        <h2 id="home-publications-heading" class="home-section-title">Publications across all pillars</h2>
-        <p class="home-section-lead">Notes, briefs, and explainers from Safety, Sustainability, and Ethics.</p>
-      </header>
-      <div class="publication-cards-grid">
-        <article class="publication-card publication-card--compact">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--safety">Safety</span>
-            <span>Mar 15, 2026</span>
-            <span>7 min read</span>
-          </div>
-          <h3>Practical AI Safety Evaluations for Public-Interest Teams</h3>
-          <p>A practical framework for evaluating model failure modes before deployment in civic and public-service contexts.</p>
-          <ul class="publication-tags"><li>Evaluations</li><li>Risk</li><li>Governance</li></ul>
-          <a class="modern-card-link" href="publications/safety-evaluations-public-interest.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="publication-card publication-card--compact">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--sustainability">Sustainability</span>
-            <span>Feb 27, 2026</span>
-            <span>6 min read</span>
-          </div>
-          <h3>A Sustainability Checklist for AI Procurement</h3>
-          <p>How organizations can ask better vendor questions around energy use, lifecycle impact, and reporting transparency.</p>
-          <ul class="publication-tags"><li>Climate</li><li>Procurement</li><li>Infrastructure</li></ul>
-          <a class="modern-card-link" href="publications/sustainability-procurement-checklist.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="publication-card publication-card--compact">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--ethics">Ethics</span>
-            <span>Jan 31, 2026</span>
-            <span>8 min read</span>
-          </div>
-          <h3>Participatory Ethics in Municipal AI Decisions</h3>
-          <p>Why public-facing AI decisions should include structured resident participation, not only internal review.</p>
-          <ul class="publication-tags"><li>Inclusion</li><li>Policy</li><li>Public Deliberation</li></ul>
-          <a class="modern-card-link" href="publications/participatory-ethics-municipal-ai.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-      </div>
-      <div class="home-publications-cta">
-        <a class="btn btn-secondary" href="publications.html">View all publications</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTRIBUTE CTA -->
-  <section class="contribute-cta" id="contribute">
-    <div class="container fade-in">
-      <h2 class="cta-title">Contribute to the Future of Responsible AI.</h2>
-      <p class="cta-description">We serve the general public, youth and students, tech companies and developers, and policymakers. If AI affects your life, we're here for you.</p>
-      <div class="cta-buttons">
-        <a href="contact.html" class="btn btn-white btn-uppercase">Get in Touch</a>
-        <a href="about.html" class="btn btn-outlined btn-uppercase">About Us</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-main">
-        <div class="footer-brand">
-          <h3>Vancouver Centre for AI Safety, Sustainability, and Ethics</h3>
-          <p>Vancouver's dedicated centre for responsible AI. We research, educate, and advocate across safety, sustainability, and ethics.</p>
-          <div class="footer-social">
-            <a href="#" aria-label="Share">
-              <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
-            </a>
-            <a href="#" aria-label="Email">
-              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="footer-column">
-          <h4>Focus Areas</h4>
-          <ul>
-            <li><a href="safety.html">Safety</a></li>
-            <li><a href="sustainability.html">Sustainability</a></li>
-            <li><a href="ethics.html">Ethics</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h4>Information</h4>
-          <ul>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms of Service</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; <span class="footer-year"></span> VCASSE. All rights reserved.<span class="footer-separator">|</span>A subsidiary of <a href="https://oasisofchange.org" target="_blank" rel="noopener noreferrer">OASIS OF CHANGE, INC.</a></p>
-        <div class="footer-location">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Vancouver, BC, Canada
-        </div>
-      </div>
-    </div>
+  <footer class="footer-note">
+    &copy; <script>document.write(new Date().getFullYear())</script> VCASSE.
+    A subsidiary of <a href="https://oasisofchange.org" target="_blank" rel="noopener noreferrer">Oasis of Change, Inc.</a>
   </footer>
 
-  <script src="js/main.js"></script>
 </body>
 </html>
