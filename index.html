@@ -7,19 +7,8 @@
   <link rel="icon" type="image/svg+xml" href="dev/img/logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #0d4f8b;
-      --primary-light: #1a6db5;
-      --primary-dark: #082a4d;
-      --bg-dark: #051a2e;
-      --white: #ffffff;
-      --text-muted: rgba(255, 255, 255, 0.6);
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-display: 'IBM Plex Sans', var(--font-sans);
-    }
-
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     html {
@@ -28,220 +17,234 @@
     }
 
     body {
-      font-family: var(--font-sans);
-      background: var(--bg-dark);
-      color: var(--white);
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #09090b;
+      color: #fafafa;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Grid background on right half ── */
+    .bg-grid {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 55%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .bg-grid::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+
+    /* Floating node dots on the grid */
+    .bg-grid::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 64px 64px;
+      background-position: 32px 32px;
+    }
+
+    /* Soft glow to give depth */
+    .bg-glow {
+      position: fixed;
+      top: 20%;
+      right: 10%;
+      width: 500px;
+      height: 500px;
+      background: rgba(13, 79, 139, 0.08);
+      border-radius: 50%;
+      filter: blur(120px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ── Layout ── */
+    .page {
+      position: relative;
+      z-index: 1;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
+      justify-content: space-between;
+      padding: 48px 64px;
     }
 
-    /* Subtle animated background */
-    body::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(ellipse at 30% 50%, rgba(13, 79, 139, 0.15) 0%, transparent 60%),
-                  radial-gradient(ellipse at 70% 50%, rgba(26, 109, 181, 0.1) 0%, transparent 60%);
-      animation: drift 20s ease-in-out infinite alternate;
-      z-index: 0;
-    }
-
-    @keyframes drift {
-      0%   { transform: translate(0, 0) rotate(0deg); }
-      100% { transform: translate(-3%, 2%) rotate(2deg); }
-    }
-
-    .coming-soon {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 48px 32px;
-      max-width: 640px;
-      width: 100%;
-    }
-
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 56px;
-    }
-
-    .logo img {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-    }
-
-    .logo span {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 22px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--white);
-    }
-
-    .tagline {
-      font-family: var(--font-display);
-      font-size: clamp(36px, 6vw, 56px);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.5px;
-      margin-bottom: 24px;
-    }
-
-    .tagline .accent {
-      font-style: italic;
-      background: linear-gradient(135deg, #6cb4e4, #1a6db5);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .description {
-      font-size: 17px;
-      line-height: 1.7;
-      color: var(--text-muted);
-      margin-bottom: 48px;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 24px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 50px;
-      font-size: 14px;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.75);
-      letter-spacing: 0.3px;
-      backdrop-filter: blur(8px);
-      background: rgba(255, 255, 255, 0.04);
-    }
-
-    .pill .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #6cb4e4;
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%      { opacity: 0.5; transform: scale(0.85); }
-    }
-
-    .pillars {
+    /* ── Nav ── */
+    .nav {
       display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin-bottom: 48px;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav img {
+      width: 32px;
+      height: 32px;
+      border-radius: 7px;
+    }
+
+    .nav span {
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: #fafafa;
+    }
+
+    /* ── Main content ── */
+    .content {
+      max-width: 580px;
+    }
+
+    .label {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #a1a1aa;
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 5.5vw, 72px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      color: #fafafa;
+      margin-bottom: 32px;
+    }
+
+    h1 .thin {
+      font-weight: 300;
+      color: #71717a;
+    }
+
+    .desc {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: #a1a1aa;
+      max-width: 460px;
+    }
+
+    /* ── Footer ── */
+    .bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
       flex-wrap: wrap;
     }
 
-    .pillar {
+    .status {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 14px;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.5);
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-    }
-
-    .pillar svg {
-      width: 20px;
-      height: 20px;
-      opacity: 0.6;
-    }
-
-    .footer-note {
-      position: fixed;
-      bottom: 32px;
-      left: 0;
-      right: 0;
-      text-align: center;
       font-size: 13px;
-      color: rgba(255, 255, 255, 0.3);
-      z-index: 1;
+      font-weight: 500;
+      color: #52525b;
+      letter-spacing: 0.5px;
     }
 
-    .footer-note a {
-      color: rgba(255, 255, 255, 0.45);
+    .status .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: blink 2.5s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0.3; }
+    }
+
+    .copyright {
+      font-size: 13px;
+      color: #3f3f46;
+    }
+
+    .copyright a {
+      color: #52525b;
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .footer-note a:hover {
-      color: rgba(255, 255, 255, 0.7);
+    .copyright a:hover {
+      color: #a1a1aa;
     }
 
-    @media (max-width: 480px) {
-      .coming-soon { padding: 32px 24px; }
-      .logo { margin-bottom: 40px; }
-      .pillars { gap: 20px; }
-      .description { font-size: 15px; }
-      .footer-note { bottom: 20px; font-size: 12px; }
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .page {
+        padding: 32px 28px;
+      }
+
+      .bg-grid {
+        width: 100%;
+        opacity: 0.4;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      .bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <main class="coming-soon">
-    <div class="logo">
-      <img src="dev/img/logo.svg" alt="VCASSE logo">
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <div class="page">
+
+    <nav class="nav">
+      <img src="dev/img/logo.svg" alt="VCASSE">
       <span>VCASSE</span>
-    </div>
+    </nav>
 
-    <h1 class="tagline">
-      Something meaningful<br>is <span class="accent">coming soon.</span>
-    </h1>
+    <main class="content">
+      <p class="label">Coming soon</p>
+      <h1>
+        Responsible AI<br>
+        for <span class="thin">Vancouver.</span>
+      </h1>
+      <p class="desc">
+        The Vancouver Centre for AI Safety, Sustainability, and Ethics.
+        Research, education, and advocacy — launching&nbsp;soon.
+      </p>
+    </main>
 
-    <p class="description">
-      The Vancouver Centre for AI Safety, Sustainability, and Ethics is
-      building a home for responsible AI research, education, and advocacy.
-    </p>
-
-    <div class="pillars">
-      <div class="pillar">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Safety
+    <footer class="bottom">
+      <div class="status">
+        <span class="dot"></span>
+        Building in progress
       </div>
-      <div class="pillar">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 2 6.5c0 5.5-4.5 7-8 7.5z"/><path d="M6 22c1.5-6.5 6.5-10 11-11"/></svg>
-        Sustainability
-      </div>
-      <div class="pillar">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4 6h16M7 6l-3 7h6zM17 6l3 7h-6zM9 22h6"/></svg>
-        Ethics
-      </div>
-    </div>
+      <p class="copyright">
+        &copy; <script>document.write(new Date().getFullYear())</script> VCASSE.
+        A subsidiary of <a href="https://oasisofchange.org" target="_blank" rel="noopener noreferrer">Oasis of Change, Inc.</a>
+      </p>
+    </footer>
 
-    <div class="pill">
-      <span class="dot"></span>
-      Under development
-    </div>
-  </main>
-
-  <footer class="footer-note">
-    &copy; <script>document.write(new Date().getFullYear())</script> VCASSE.
-    A subsidiary of <a href="https://oasisofchange.org" target="_blank" rel="noopener noreferrer">Oasis of Change, Inc.</a>
-  </footer>
+  </div>
 
 </body>
 </html>
