@@ -1810,15 +1810,15 @@ noscript + * .fade-in,
   body.menu-open .nav-mobile-toggle span { background: var(--white); }
 
   .nav-links {
-    display: none;
+    display: flex;
     position: fixed;
     top: calc(var(--nav-height) + 10px);
-    left: 14px;
+    left: auto;
     right: 14px;
-    bottom: 14px;
-    width: auto;
-    min-height: auto;
-    max-height: calc(100dvh - var(--nav-height) - 24px);
+    bottom: auto;
+    width: min(320px, calc(100vw - 28px));
+    min-height: 0;
+    max-height: min(calc(100dvh - var(--nav-height) - 24px), 560px);
     background: #082a4d;
     flex-direction: column;
     padding: 18px 20px 26px;
@@ -1830,7 +1830,8 @@ noscript + * .fade-in,
     pointer-events: none;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-6px);
+    transform: translateY(-10px) scale(0.98);
+    transform-origin: top right;
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 0 24px 70px rgba(2, 8, 23, 0.48);
@@ -1844,10 +1845,9 @@ noscript + * .fade-in,
   }
 
   .nav-links.open {
-    display: flex;
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     pointer-events: auto;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -1860,6 +1860,10 @@ noscript + * .fade-in,
     transform: translateX(-8px);
     transition: opacity 0.25s ease, transform 0.25s ease;
     flex-shrink: 0;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
   }
 
   .nav-links.open li { opacity: 1; transform: translateX(0); }

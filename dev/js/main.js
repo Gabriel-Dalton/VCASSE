@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.classList.remove('open');
     navToggle.classList.remove('active');
     navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Open menu');
     document.body.classList.remove('menu-open');
     document.body.style.overflow = '';
     closeNavDropdowns();
@@ -26,12 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (navToggle && navLinks) {
     navToggle.setAttribute('aria-expanded', 'false');
     navToggle.setAttribute('aria-controls', 'navLinks');
+    navToggle.setAttribute('aria-label', 'Open menu');
 
     navToggle.addEventListener('click', (e) => {
       e.stopPropagation();
       const isOpen = navLinks.classList.toggle('open');
       navToggle.classList.toggle('active', isOpen);
       navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
       document.body.classList.toggle('menu-open', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
@@ -74,7 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeNavDropdowns();
+    if (e.key !== 'Escape') return;
+    closeNavDropdowns();
+    closeMobileMenu();
   });
 
   const fadeElements = document.querySelectorAll('.fade-in');
