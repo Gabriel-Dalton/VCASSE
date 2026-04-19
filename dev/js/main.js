@@ -2,19 +2,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
-  const navContainer = document.querySelector('.navbar .container');
+  const navClose = document.getElementById('navClose');
 
-  let navClose = document.getElementById('navClose');
-  if (navContainer && navToggle && !navClose) {
-    navClose = document.createElement('button');
-    navClose.type = 'button';
-    navClose.id = 'navClose';
-    navClose.className = 'nav-mobile-close';
-    navClose.setAttribute('aria-label', 'Close menu');
-    navClose.innerHTML = '<svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
-    navClose.setAttribute('tabindex', '-1');
-    navToggle.insertAdjacentElement('afterend', navClose);
+  if (navLinks && !navLinks.querySelector('.nav-colophon')) {
+    const colophon = document.createElement('li');
+    colophon.className = 'nav-colophon';
+    colophon.setAttribute('aria-hidden', 'true');
+    colophon.innerHTML = '<span>Vancouver, BC</span><span>49.28°N · 123.12°W</span>';
+    navLinks.appendChild(colophon);
   }
+
+  document.querySelectorAll('.nav-dropdown-trigger').forEach((trigger) => {
+    let label = trigger.querySelector('.menu-label');
+
+    if (!label) {
+      label = document.createElement('span');
+      label.className = 'menu-label';
+      trigger.childNodes.forEach((node) => {
+        if (node.nodeType === Node.TEXT_NODE) node.textContent = '';
+      });
+      trigger.insertBefore(label, trigger.firstChild);
+    }
+
+    label.textContent = 'Research';
+  });
 
   function closeNavDropdowns() {
     document.querySelectorAll('.nav-dropdown.is-open').forEach((dd) => {
@@ -25,8 +36,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const MOBILE_NAV_BREAKPOINT = 768;
-  const MOBILE_MENU_CLOSE_MS = 420;
+  const MOBILE_MENU_CLOSE_MS = 650;
   let mobileMenuCloseTimer = null;
+
+  function openMobileDropdowns() {
+    if (window.innerWidth > MOBILE_NAV_BREAKPOINT) return;
+
+    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+      dropdown.classList.add('is-open');
+      const trigger = dropdown.querySelector('.nav-dropdown-trigger');
+      if (trigger) trigger.setAttribute('aria-expanded', 'true');
+    });
+  }
 
   function finalizeMobileMenuClose() {
     if (mobileMenuCloseTimer) {
@@ -67,7 +88,17 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileMenuCloseTimer = setTimeout(finalizeMobileMenuClose, MOBILE_MENU_CLOSE_MS);
   }
 
+  function setMenuRevealOrigin() {
+    if (!navToggle || !navLinks) return;
+    const rect = navToggle.getBoundingClientRect();
+    const originX = rect.left + rect.width / 2;
+    const originY = rect.top + rect.height / 2;
+    navLinks.style.setProperty('--menu-origin-x', originX + 'px');
+    navLinks.style.setProperty('--menu-origin-y', originY + 'px');
+  }
+
   function openMobileMenuFromToggle() {
+    setMenuRevealOrigin();
     if (mobileMenuCloseTimer) {
       clearTimeout(mobileMenuCloseTimer);
       mobileMenuCloseTimer = null;
@@ -79,9 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.setAttribute('aria-label', 'Close menu');
     document.body.classList.add('menu-open');
     document.body.style.overflow = 'hidden';
-    if (navClose) {
-      navClose.setAttribute('tabindex', '0');
-    }
+    openMobileDropdowns();
+    if (navClose) navClose.setAttribute('tabindex', '0');
   }
 
   if (navToggle && navLinks) {
@@ -118,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener('resize', () => {
+      if (navLinks.classList.contains('open')) setMenuRevealOrigin();
       if (window.innerWidth <= MOBILE_NAV_BREAKPOINT) return;
       if (!navLinks.classList.contains('open')) return;
       closeMobileMenu();
