@@ -4,14 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.getElementById('navLinks');
   const navClose = document.getElementById('navClose');
 
-  if (navLinks && !navLinks.querySelector('.nav-colophon')) {
-    const colophon = document.createElement('li');
-    colophon.className = 'nav-colophon';
-    colophon.setAttribute('aria-hidden', 'true');
-    colophon.innerHTML = '<span>Vancouver, BC</span><span>49.28°N · 123.12°W</span>';
-    navLinks.appendChild(colophon);
-  }
-
   document.querySelectorAll('.nav-dropdown-trigger').forEach((trigger) => {
     let label = trigger.querySelector('.menu-label');
 

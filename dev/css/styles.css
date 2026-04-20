@@ -136,10 +136,6 @@ img { max-width: 100%; height: auto; display: block; }
   list-style: none;
 }
 
-.nav-colophon {
-  display: none;
-}
-
 .nav-links a {
   font-size: 14px;
   font-weight: 500;
@@ -1919,7 +1915,7 @@ noscript + * .fade-in,
     padding:
       calc(env(safe-area-inset-top, 0px) + var(--nav-height) + 28px)
       24px
-      calc(env(safe-area-inset-bottom, 0px) + 84px);
+      calc(env(safe-area-inset-bottom, 0px) + 32px);
     background-color: var(--mobile-menu-bg);
     background-image: repeating-linear-gradient(180deg, transparent 0 1px, rgba(8,42,77,0.02) 1px 2px);
     gap: 0;
@@ -1987,10 +1983,6 @@ noscript + * .fade-in,
   .nav-links > li.nav-dropdown {
     display: block;
     align-items: initial;
-  }
-  .nav-links > li.nav-colophon {
-    counter-increment: none;
-    transform: none;
   }
 
   .nav-links.open > li { opacity: 1; transform: translateY(0); }
@@ -2112,45 +2104,6 @@ noscript + * .fade-in,
     font-size: 9px; font-style: normal; letter-spacing: 1.4px; text-transform: uppercase;
     color: var(--primary); border: 1px solid var(--primary);
     padding: 3px 6px; border-radius: 2px;
-  }
-
-  /* Footer colophon */
-  .nav-links .nav-colophon {
-    position: absolute;
-    left: 24px;
-    right: 24px;
-    width: auto;
-    max-width: none;
-    bottom: calc(env(safe-area-inset-bottom, 0px) + 24px);
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    padding-top: 14px; border-top: 1px solid var(--mobile-menu-rule-strong);
-    border-bottom: none;
-    font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
-    color: var(--muted, #6b7280);
-    opacity: 0; transition: opacity .35s ease .55s;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  .nav-links .nav-colophon span {
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: clip;
-  }
-  .nav-links .nav-colophon span:last-child {
-    flex: 0 0 auto;
-    text-align: right;
-  }
-  .nav-links.open .nav-colophon { opacity: 1; }
-
-  @media (max-width: 420px) {
-    .nav-links .nav-colophon {
-      gap: 12px;
-      font-size: 9px;
-      letter-spacing: 0.7px;
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {
