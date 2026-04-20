@@ -1891,11 +1891,10 @@ noscript + * .fade-in,
   body.menu-open { background-color: var(--mobile-menu-bg); }
 
   body.menu-open .navbar {
-    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 1200;
     background: transparent;
     border-bottom-color: transparent;
     backdrop-filter: none; -webkit-backdrop-filter: none;
-    z-index: 1200;
   }
   body.menu-open .navbar .nav-logo-mark {
     position: relative;
@@ -1913,12 +1912,13 @@ noscript + * .fade-in,
     width: 100%; max-width: none;
     margin: 0;
     padding:
-      calc(env(safe-area-inset-top, 0px) + var(--nav-height) + 28px)
+      calc(env(safe-area-inset-top, 0px) + var(--nav-height) + 44px)
       24px
-      calc(env(safe-area-inset-bottom, 0px) + 32px);
+      calc(env(safe-area-inset-bottom, 0px) + 44px);
     background-color: var(--mobile-menu-bg);
     background-image: repeating-linear-gradient(180deg, transparent 0 1px, rgba(8,42,77,0.02) 1px 2px);
     gap: 0;
+    justify-content: center;
     z-index: 1150;
     overflow-x: hidden;
     overflow-y: auto;
