@@ -32,16 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let mobileMenuCloseTimer = null;
   let lastTouchY = 0;
 
-  function openMobileDropdowns() {
-    if (window.innerWidth > MOBILE_NAV_BREAKPOINT) return;
-
-    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
-      dropdown.classList.add('is-open');
-      const trigger = dropdown.querySelector('.nav-dropdown-trigger');
-      if (trigger) trigger.setAttribute('aria-expanded', 'true');
-    });
-  }
-
   function isMobileMenuActive() {
     return Boolean(navLinks && navLinks.classList.contains('open') && window.innerWidth <= MOBILE_NAV_BREAKPOINT);
   }
@@ -124,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.setAttribute('aria-expanded', 'true');
     navToggle.setAttribute('aria-label', 'Close menu');
     document.body.classList.add('menu-open');
-    openMobileDropdowns();
+    closeNavDropdowns();
     if (navClose) navClose.setAttribute('tabindex', '0');
   }
 
