@@ -39,88 +39,146 @@
     </div>
   </nav>
 
-  <section class="page-hero">
-    <div class="container">
-      <div class="page-hero-content">
-        <div class="section-label">REACH OUT</div>
-        <h1 class="page-hero-title">
-          Get in
-          <span class="italic-accent">Touch</span>
-        </h1>
-        <p class="page-hero-description">Whether you're a researcher, policymaker, or prospective collaborator, we'd love to hear from you. Our team is based in Vancouver, BC.</p>
+  <main>
+
+    <!-- Hero block -->
+    <div class="contact2-hero">
+      <div class="container">
+        <div class="contact2-kicker">CONTACT</div>
+        <h1 class="contact2-heading">Have a question?<br><span class="contact2-heading-blue">Let's talk.</span></h1>
+        <p class="contact2-lede">Whether you're a researcher, policymaker, journalist, or prospective partner, our team is based in Vancouver, BC and collaborates globally.</p>
       </div>
-      <div class="page-hero-visual">
-        <div style="display: flex; flex-direction: column; gap: 16px; align-items: flex-end;">
-          <div class="hero-image-card">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=260&fit=crop&q=80" alt="Vancouver skyline" loading="lazy">
+    </div>
+
+    <!-- Split card -->
+    <div class="contact2-split-section">
+      <div class="container">
+        <div class="contact2-card">
+
+          <!-- Left: skyline panel -->
+          <div class="contact2-skyline" role="img" aria-label="Vancouver skyline">
+            <div class="contact2-coord">
+              <span class="contact2-coord-dot"></span>
+              <span>49.2827° N, 123.1207° W</span>
+            </div>
+            <div class="contact2-skyline-bottom">
+              <p class="contact2-skyline-kicker">OUR HOME</p>
+              <p class="contact2-skyline-coord-mobile">49.28° N · 123.12° W</p>
+              <h2 class="contact2-skyline-heading">Vancouver,<br>British Columbia</h2>
+              <div class="contact2-skyline-meta">
+                <div class="contact2-skyline-meta-cell">
+                  <span class="contact2-skyline-meta-label">Email</span>
+                  <span class="contact2-skyline-meta-value">info@vcasse.org</span>
+                </div>
+                <div class="contact2-skyline-meta-cell">
+                  <span class="contact2-skyline-meta-label">Hours</span>
+                  <span class="contact2-skyline-meta-value">Mon–Fri · 09:00–17:00 PT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: form -->
+          <div class="contact2-form-col">
+            <p class="contact2-form-kicker">SEND A MESSAGE</p>
+            <h2 class="contact2-form-title">Tell us about your inquiry.</h2>
+            <form action="#" method="POST">
+              <div class="contact2-name-row">
+                <div class="contact2-field">
+                  <div class="contact2-field-label">
+                    <label for="c2-firstName">First name</label>
+                  </div>
+                  <input class="contact2-input" type="text" id="c2-firstName" name="firstName" placeholder="Jane" required>
+                </div>
+                <div class="contact2-field">
+                  <div class="contact2-field-label">
+                    <label for="c2-lastName">Last name</label>
+                  </div>
+                  <input class="contact2-input" type="text" id="c2-lastName" name="lastName" placeholder="Doe" required>
+                </div>
+              </div>
+              <div class="contact2-field">
+                <div class="contact2-field-label">
+                  <label for="c2-email">Email</label>
+                </div>
+                <input class="contact2-input" type="email" id="c2-email" name="email" placeholder="jane@example.com" required>
+              </div>
+              <div class="contact2-field">
+                <div class="contact2-field-label">
+                  <label for="c2-org">Organization</label>
+                  <span class="contact2-field-optional">Optional</span>
+                </div>
+                <input class="contact2-input" type="text" id="c2-org" name="organization" placeholder="UBC, City of Vancouver, etc." aria-label="Organization (optional)">
+              </div>
+              <div class="contact2-field">
+                <div class="contact2-field-label">
+                  <label for="c2-topic">Topic</label>
+                </div>
+                <select class="contact2-select" id="c2-topic" name="topic">
+                  <option value="" disabled selected>Select a topic…</option>
+                  <option value="research">Research collaboration</option>
+                  <option value="partnership">Partnership</option>
+                  <option value="media">Media inquiry</option>
+                  <option value="general">General question</option>
+                </select>
+              </div>
+              <div class="contact2-field">
+                <div class="contact2-field-label">
+                  <label for="c2-message">Message</label>
+                </div>
+                <textarea class="contact2-textarea" id="c2-message" name="message" placeholder="Share a few details…" required></textarea>
+              </div>
+              <div class="contact2-form-footer">
+                <button type="submit" class="contact2-submit">
+                  Send message
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Directory strip -->
+    <div class="contact2-directory-section">
+      <div class="container">
+        <div class="contact2-directory">
+          <div class="contact2-dir-card">
+            <p class="contact2-dir-kicker">01 / RESPONSE TIME</p>
+            <p class="contact2-dir-value">Within two business days</p>
+            <p class="contact2-dir-sub">Mon–Fri, Pacific Time</p>
+          </div>
+          <div class="contact2-dir-card">
+            <p class="contact2-dir-kicker">02 / MEDIA & PRESS</p>
+            <p class="contact2-dir-value">press@vcasse.org</p>
+            <p class="contact2-dir-sub">Interviews, commentary, embargoed briefs</p>
+          </div>
+          <div class="contact2-dir-card">
+            <p class="contact2-dir-kicker">03 / RESEARCH PARTNERSHIPS</p>
+            <p class="contact2-dir-value">collaborate@vcasse.org</p>
+            <p class="contact2-dir-sub">Grants, visiting scholars, joint papers</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <section class="research-domains">
+  </main>
+
+
+  <section class="digest-band">
     <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h3>Contact Information</h3>
-          <p>Whether you're a researcher, policymaker, journalist, or prospective partner, we'd love to hear from you. Our team is based in Vancouver, BC and collaborates globally.</p>
-
-          <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            </div>
-            <div>
-              <h4>Email</h4>
-              <p>info@vcasse.org</p>
-            </div>
-          </div>
-
-          <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            </div>
-            <div>
-              <h4>Address</h4>
-              <p>Vancouver, BC<br>Canada</p>
-            </div>
-          </div>
+      <div class="digest-band-inner">
+        <div class="digest-band-copy">
+          <p class="digest-band-kicker">RESEARCH DIGEST</p>
+          <h2 class="digest-band-heading">Stay informed on AI policy and research.</h2>
+          <p class="digest-band-sub">Quarterly updates from VCASSE — policy briefs, new research, and upcoming events. No spam, unsubscribe anytime.</p>
         </div>
-
-        <div class="contact-form">
-          <h3 style="font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 24px;">Send a Message</h3>
-          <form action="#" method="POST">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
-              </div>
-              <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="jane@example.com" required>
-            </div>
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <select id="subject" name="subject">
-                <option value="">Select a topic...</option>
-                <option value="research">Research Collaboration</option>
-                <option value="partnership">Partnership</option>
-                <option value="media">Media Inquiry</option>
-                <option value="general">General Question</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us about your inquiry..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-          </form>
-        </div>
+        <form class="digest-band-form" action="#" method="POST">
+          <input class="digest-band-input" type="email" name="digest_email" placeholder="your@email.com" required aria-label="Email address">
+          <button class="digest-band-submit" type="submit">Subscribe</button>
+        </form>
       </div>
     </div>
   </section>
