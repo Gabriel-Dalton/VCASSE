@@ -181,6 +181,15 @@ img { max-width: 100%; height: auto; display: block; }
   transform: scaleX(1);
 }
 
+/* Single-underline rule: when the user is hovering anywhere in the nav,
+   only the link/trigger they are over should be underlined. The active
+   page's underline is suppressed unless that link is itself the one being
+   hovered. */
+.nav-links:hover > li > a.active:not(:hover)::after,
+.nav-links:hover > li.nav-dropdown:not(:hover) .nav-dropdown-trigger::after {
+  transform: scaleX(0);
+}
+
 /* Desktop CTA on the right */
 .nav-actions {
   display: flex;
@@ -410,20 +419,34 @@ img { max-width: 100%; height: auto; display: block; }
 @media (min-width: 769px) {
   .nav-dropdown-menu {
     position: absolute;
-    top: calc(100% + 4px);
+    top: calc(100% + 10px);
     left: 50%;
-    transform: translateX(-50%) translateY(4px);
-    min-width: 220px;
-    padding: 8px;
+    transform: translateX(-50%) translateY(6px);
+    min-width: 200px;
+    padding: 6px;
     background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 12px;
+    box-shadow:
+      0 16px 40px -16px rgba(8, 42, 77, 0.22),
+      0 2px 6px rgba(8, 42, 77, 0.06);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
     z-index: 1200;
+  }
+
+  /* Invisible bridge that keeps the dropdown open while the cursor crosses
+     the visual gap between the trigger and the menu. Without this, the
+     hover state breaks mid-transit and the menu closes. */
+  .nav-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
   }
 
   .nav-dropdown:hover .nav-dropdown-menu,
@@ -438,21 +461,22 @@ img { max-width: 100%; height: auto; display: block; }
 
 .nav-dropdown-menu a {
   display: block;
-  padding: 10px 14px;
+  padding: 9px 14px;
   border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--slate-professional);
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  color: var(--text-body);
   transition: background 0.15s ease, color 0.15s ease;
 }
 
 .nav-dropdown-menu a:hover {
-  background: var(--bg-page);
-  color: var(--ink-strong);
+  background: rgba(13, 79, 139, 0.07);
+  color: var(--primary-dark);
 }
 
 .nav-dropdown-menu a.active {
-  background: #ecfdf5;
+  background: rgba(13, 79, 139, 0.08);
   color: var(--primary-dark);
   font-weight: 600;
 }
@@ -1447,21 +1471,6 @@ img { max-width: 100%; height: auto; display: block; }
   max-width: 360px;
   margin-bottom: 28px;
 }
-
-.footer-social { display: flex; gap: 16px; }
-
-.footer-social a {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.5);
-  transition: color 0.2s ease;
-}
-
-.footer-social a:hover { color: var(--white); }
-.footer-social a svg { width: 18px; height: 18px; fill: currentColor; }
 
 .footer-column h4 {
   font-size: 12px;
