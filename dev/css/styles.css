@@ -201,19 +201,19 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 600;
   letter-spacing: 0.2px;
   color: var(--white);
-  background: var(--primary-dark);
-  padding: 10px 20px;
+  background: var(--primary);
+  padding: 10px 22px;
   border-radius: 8px;
-  border: 1px solid var(--primary-dark);
+  border: 1px solid var(--primary);
   white-space: nowrap;
-  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
 }
 
 .nav-cta:hover {
   color: var(--white);
-  background: var(--primary);
-  border-color: var(--primary);
-  box-shadow: 0 6px 16px -8px rgba(8, 42, 77, 0.45);
+  background: var(--primary-light);
+  border-color: var(--primary-light);
+  box-shadow: 0 8px 18px -8px rgba(13, 79, 139, 0.55);
 }
 
 .nav-cta-arrow {
@@ -618,6 +618,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 .hero--home .hero-title .italic-accent {
   color: var(--green-accent);
+  font-style: italic;
+  font-weight: 600;
 }
 
 .hero--home .hero-description {
@@ -638,6 +640,7 @@ img { max-width: 100%; height: auto; display: block; }
   margin-bottom: 28px;
 }
 
+
 .hero-actions {
   display: flex;
   align-items: center;
@@ -646,13 +649,13 @@ img { max-width: 100%; height: auto; display: block; }
   margin-top: 40px;
 }
 
-.btn-hero-primary {
+.btn.btn-hero-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: var(--white);
   color: var(--primary-dark);
-  border: none;
+  border: 1.5px solid var(--white);
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: 14px;
@@ -660,20 +663,21 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 14px 28px;
   border-radius: 6px;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.15s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
 }
 
-.btn-hero-primary:hover {
+.btn.btn-hero-primary:hover {
   background: rgba(255,255,255,0.88);
+  border-color: rgba(255,255,255,0.88);
 }
 
-.btn-hero-secondary {
+.btn.btn-hero-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: transparent;
-  color: rgba(255,255,255,0.85);
-  border: 1.5px solid rgba(255,255,255,0.3);
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.85);
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: 14px;
@@ -681,12 +685,12 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 14px 28px;
   border-radius: 6px;
   cursor: pointer;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
-.btn-hero-secondary:hover {
-  border-color: rgba(255,255,255,0.6);
-  background: rgba(255,255,255,0.08);
+.btn.btn-hero-secondary:hover {
+  border-color: var(--white);
+  background: rgba(255,255,255,0.12);
 }
 
 /* ─────────────── HOME: RESEARCH + PROGRAMS ─────────────── */
