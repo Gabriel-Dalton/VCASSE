@@ -3,35 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Publications | VCASSE</title>
-  <meta name="description" content="Policy briefs, explainers, and research notes from VCASSE across AI safety, sustainability, and ethics.">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+  <title>Sustainability Publications | VCASSE</title>
+  <meta name="description" content="VCASSE publications on AI sustainability: energy reporting, procurement, and lifecycle impact in a changing climate.">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="../img/logo.svg">
 </head>
 <body>
   <nav class="navbar">
     <div class="container">
-      <a href="index.html" class="nav-logo nav-logo-mark">
-        <img src="img/logo.svg" alt="VCASSE" width="28" height="28">
+      <a href="../index.html" class="nav-logo nav-logo-mark">
+        <img src="../img/logo.svg" alt="VCASSE" width="28" height="28">
         VCASSE
       </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html"><span class="menu-label">Home</span></a></li>
+        <li><a href="../index.html"><span class="menu-label">Home</span></a></li>
         <li class="nav-dropdown">
           <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="navResearchMenu">
             <span class="menu-label">Research</span>
             <svg class="nav-chevron" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v12M6 12h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </button>
           <ul class="nav-dropdown-menu" id="navResearchMenu" role="menu">
-            <li role="none"><a href="safety.html" role="menuitem"><span class="menu-label">Safety</span></a></li>
-            <li role="none"><a href="sustainability.html" role="menuitem"><span class="menu-label">Sustainability</span></a></li>
-            <li role="none"><a href="ethics.html" role="menuitem"><span class="menu-label">Ethics</span></a></li>
+            <li role="none"><a href="../safety.html" role="menuitem"><span class="menu-label">Safety</span></a></li>
+            <li role="none"><a href="../sustainability.html" role="menuitem"><span class="menu-label">Sustainability</span></a></li>
+            <li role="none"><a href="../ethics.html" role="menuitem"><span class="menu-label">Ethics</span></a></li>
           </ul>
         </li>
-        <li><a href="events.html"><span class="menu-label">Events</span></a></li>
-        <li><a href="publications.html" class="active"><span class="menu-label">Publications</span></a></li>
-        <li><a href="about.html"><span class="menu-label">About</span></a></li>
-        <li><a href="contact.html"><span class="menu-label">Contact</span></a></li>
+        <li><a href="../events.html"><span class="menu-label">Events</span></a></li>
+        <li><a href="../publications.html" class="active"><span class="menu-label">Publications</span></a></li>
+        <li><a href="../about.html"><span class="menu-label">About</span></a></li>
+        <li><a href="../contact.html"><span class="menu-label">Contact</span></a></li>
       </ul>
       <button type="button" class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -42,8 +42,9 @@
   <section class="page-hero publications-hero">
     <div class="container">
       <div class="page-hero-content">
-        <h1 class="page-hero-title">Publications</h1>
-        <p class="page-hero-description">Briefs, notes, and explainers on what we're working on. Filter by topic or search by tag.</p>
+        <p class="publications-hero-crumb"><a href="../publications.html">&larr; All publications</a></p>
+        <h1 class="page-hero-title">Sustainability</h1>
+        <p class="page-hero-description">The energy, water, and hardware costs of running AI at scale, and what honest reporting looks like.</p>
       </div>
     </div>
   </section>
@@ -52,15 +53,9 @@
     <div class="container">
       <div class="publications-toolbar" role="region" aria-label="Publication filters">
         <div class="publications-toolbar-row">
-          <div class="publication-filters" role="group" aria-label="Filter by pillar">
-            <button type="button" class="publication-filter active" data-pub-filter="all" aria-pressed="true">All</button>
-            <button type="button" class="publication-filter publication-filter--safety" data-pub-filter="safety" aria-pressed="false">Safety</button>
-            <button type="button" class="publication-filter publication-filter--sustainability" data-pub-filter="sustainability" aria-pressed="false">Sustainability</button>
-            <button type="button" class="publication-filter publication-filter--ethics" data-pub-filter="ethics" aria-pressed="false">Ethics</button>
-          </div>
           <div class="publications-search">
             <svg class="publications-search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2a8 8 0 1 0 5.3 14.06l4.33 4.33 1.42-1.42-4.33-4.33A8 8 0 0 0 10 2zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12z" fill="currentColor"/></svg>
-            <input type="search" id="publicationsSearch" placeholder="Search title, tag, or author" aria-label="Search publications">
+            <input type="search" id="publicationsSearch" placeholder="Search title, tag, or author" aria-label="Search sustainability publications">
           </div>
         </div>
         <div class="publications-toolbar-row publications-toolbar-row--dense">
@@ -78,7 +73,7 @@
               <option value="az">A &ndash; Z</option>
             </select>
           </div>
-          <p class="publications-count" id="publicationsCount" aria-live="polite">Showing all 6 publications</p>
+          <p class="publications-count" id="publicationsCount" aria-live="polite">Showing all sustainability publications</p>
         </div>
       </div>
     </div>
@@ -86,29 +81,11 @@
 
   <section class="home-section publications-index">
     <div class="container">
-      <div class="publications-grid" id="publicationsGrid" aria-live="polite"></div>
+      <div class="publications-grid" id="publicationsGrid" data-pillar="sustainability" data-base-href="../" aria-live="polite"></div>
       <div class="publications-empty" id="publicationsEmpty" hidden>
-        <h3>No publications match those filters yet.</h3>
-        <p>Try a broader pillar, clear the search, or reset the filters.</p>
+        <h3>No sustainability publications match those filters yet.</h3>
+        <p>Clear the search or change the tag filter.</p>
         <button type="button" class="btn btn-secondary" id="publicationsReset">Reset filters</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="newsletter-band" aria-labelledby="newsletter-heading">
-    <div class="container">
-      <div class="newsletter-card">
-        <div class="newsletter-content">
-          <p class="newsletter-kicker"><span class="newsletter-soon">Coming soon</span></p>
-          <h2 id="newsletter-heading">The VCASSE Briefing</h2>
-          <p class="newsletter-lede">A short monthly note on what we're publishing and what's happening in the city.</p>
-        </div>
-        <form class="newsletter-form" onsubmit="event.preventDefault();" aria-describedby="newsletter-soon-note">
-          <label for="newsletter-email" class="visually-hidden">Email address</label>
-          <input type="email" id="newsletter-email" placeholder="you@example.com" disabled aria-disabled="true">
-          <button type="button" class="btn btn-primary" disabled aria-disabled="true">Notify me</button>
-          <p class="newsletter-note" id="newsletter-soon-note">Sign-ups open soon. We're still setting things up.</p>
-        </form>
       </div>
     </div>
   </section>
@@ -127,20 +104,20 @@
         <div class="footer-column">
           <h4>Focus Areas</h4>
           <ul>
-            <li><a href="safety.html"><span class="menu-label">Safety</span></a></li>
-            <li><a href="sustainability.html"><span class="menu-label">Sustainability</span></a></li>
-            <li><a href="ethics.html"><span class="menu-label">Ethics</span></a></li>
+            <li><a href="../safety.html"><span class="menu-label">Safety</span></a></li>
+            <li><a href="../sustainability.html"><span class="menu-label">Sustainability</span></a></li>
+            <li><a href="../ethics.html"><span class="menu-label">Ethics</span></a></li>
           </ul>
         </div>
         <div class="footer-column">
           <h4>Information</h4>
           <ul>
-            <li><a href="events.html"><span class="menu-label">Events</span></a></li>
-            <li><a href="publications.html"><span class="menu-label">Publications</span></a></li>
-            <li><a href="about.html"><span class="menu-label">About</span></a></li>
-            <li><a href="contact.html"><span class="menu-label">Contact</span></a></li>
-            <li><a href="privacy.html"><span class="menu-label">Privacy Policy</span></a></li>
-            <li><a href="terms.html"><span class="menu-label">Terms of Service</span></a></li>
+            <li><a href="../events.html"><span class="menu-label">Events</span></a></li>
+            <li><a href="../publications.html"><span class="menu-label">Publications</span></a></li>
+            <li><a href="../about.html"><span class="menu-label">About</span></a></li>
+            <li><a href="../contact.html"><span class="menu-label">Contact</span></a></li>
+            <li><a href="../privacy.html"><span class="menu-label">Privacy Policy</span></a></li>
+            <li><a href="../terms.html"><span class="menu-label">Terms of Service</span></a></li>
           </ul>
         </div>
       </div>
@@ -154,8 +131,8 @@
     </div>
   </footer>
 
-  <script src="js/publications-data.js"></script>
-  <script src="js/publications-page.js"></script>
-  <script src="js/main.js"></script>
+  <script src="../js/publications-data.js"></script>
+  <script src="../js/publications-page.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 </html>

@@ -29,20 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
       card.innerHTML = `
         <a class="publication-card-cover" href="${url}" aria-label="Read ${escapeHtml(post.title)}">
           <img src="${cover}" alt="" loading="lazy" decoding="async">
-          <span class="publication-pill publication-pill--${post.pillar}">${PILLAR_LABELS[post.pillar] || post.pillar}</span>
         </a>
         <div class="publication-card-body">
           <div class="publication-card-meta">
+            <span class="publication-pill publication-pill--${post.pillar}">${PILLAR_LABELS[post.pillar] || post.pillar}</span>
             <span>${formatDate(post.date)}</span>
             <span aria-hidden="true">·</span>
             <span>${escapeHtml(post.readingTime)}</span>
           </div>
           <h3><a href="${url}">${escapeHtml(post.title)}</a></h3>
           <p>${escapeHtml(post.excerpt)}</p>
-          <ul class="publication-tags">
-            ${post.tags.map((tag) => `<li>${escapeHtml(tag)}</li>`).join('')}
-          </ul>
-          <a class="modern-card-link" href="${url}">Read publication <span aria-hidden="true">→</span></a>
+          <a class="modern-card-link" href="${url}">Read it <span aria-hidden="true">→</span></a>
         </div>
       `;
       container.appendChild(card);

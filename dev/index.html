@@ -48,21 +48,84 @@
   <section class="hero hero--home">
     <div class="container">
       <div class="hero-content">
-        <p class="hero-badge">Vancouver Centre for Responsible AI</p>
+        <p class="hero-badge">Vancouver, BC</p>
         <h1 class="hero-title">
-          Safety, Sustainability,
-          <span class="italic-accent">&amp; Ethics</span>
+          Vancouver Centre for AI<br>
+          Safety, Sustainability, and Ethics
         </h1>
 
         <p class="hero-description">
-          Vancouver's dedicated centre for responsible AI. We research, educate,
-          and advocate across three pillars so that the people most affected by
-          AI have a seat at the table.
+          We're a small research and advocacy group based in Vancouver. We write
+          about how AI is being built, how it's being used in public life, and
+          where it's heading.
         </p>
         <div class="hero-actions">
-          <a href="about.html" class="btn btn-hero-primary">About VCASSE</a>
-          <a href="publications.html" class="btn btn-hero-secondary">Read our work</a>
+          <a href="publications.html" class="btn btn-hero-primary">Read the publications</a>
+          <a href="about.html" class="btn btn-hero-secondary">About us</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS (featured + 3-up) -->
+  <section class="home-section home-publications fade-in" aria-labelledby="home-publications-heading">
+    <div class="container">
+      <header class="home-section-header">
+        <h2 id="home-publications-heading" class="home-section-title">Recent writing</h2>
+        <p class="home-section-lead">Notes, briefs, and longer pieces. We post when we have something worth saying.</p>
+      </header>
+
+      <article class="home-publications-featured">
+        <a class="home-publications-featured-cover" href="publications/safety-evaluations-public-interest.html" aria-label="Read Practical AI Safety Evaluations for Public-Interest Teams">
+          <img src="img/publications/safety-evaluations.svg" alt="" loading="lazy" decoding="async">
+        </a>
+        <div class="home-publications-featured-body">
+          <p class="home-publications-featured-kicker"><span class="publication-pill publication-pill--safety">Safety</span></p>
+          <h3><a href="publications/safety-evaluations-public-interest.html">Practical AI safety evaluations for public-interest teams</a></h3>
+          <p>A working framework for spotting model failure modes before something built with public money goes live.</p>
+          <div class="home-publications-featured-meta">
+            <span>Mar 15, 2026</span>
+            <span aria-hidden="true">·</span>
+            <span>7 min read</span>
+            <span aria-hidden="true">·</span>
+            <span>Mei Tanaka, Priya Sandhu</span>
+          </div>
+          <a class="modern-card-link" href="publications/safety-evaluations-public-interest.html">Read it <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <div class="publication-cards-grid">
+        <article class="publication-card">
+          <div class="publication-card-meta">
+            <span class="publication-pill publication-pill--sustainability">Sustainability</span>
+            <span>Feb 27, 2026</span>
+          </div>
+          <h3>A sustainability checklist for AI procurement</h3>
+          <p>What to ask vendors about energy use, hardware lifecycle, and how honestly they report it.</p>
+          <a class="modern-card-link" href="publications/sustainability-procurement-checklist.html">Read it <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="publication-card">
+          <div class="publication-card-meta">
+            <span class="publication-pill publication-pill--ethics">Ethics</span>
+            <span>Jan 31, 2026</span>
+          </div>
+          <h3>Participatory ethics in municipal AI decisions</h3>
+          <p>If a city decision uses AI, the people it affects should have a way into the process. A look at how that can actually work.</p>
+          <a class="modern-card-link" href="publications/participatory-ethics-municipal-ai.html">Read it <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="publication-card">
+          <div class="publication-card-meta">
+            <span class="publication-pill publication-pill--safety">Safety</span>
+            <span>Dec 12, 2025</span>
+          </div>
+          <h3>An incident reporting playbook for AI teams</h3>
+          <p>What to do when something goes wrong. Triage, escalation, and a postmortem template you can actually fill in.</p>
+          <a class="modern-card-link" href="publications/incident-reporting-playbook.html">Read it <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+
+      <div class="home-publications-cta">
+        <a class="btn btn-secondary" href="publications.html">All publications <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -71,34 +134,24 @@
   <section class="home-section home-research fade-in" aria-labelledby="home-research-heading">
     <div class="container">
       <header class="home-section-header">
-        <p class="home-section-kicker">Focus Areas</p>
-        <h2 id="home-research-heading" class="home-section-title">Three pillars of responsible AI</h2>
-        <p class="home-section-lead">Our work spans technical safety, environmental and social sustainability, and the ethical questions that shape who benefits from AI and who bears the risk.</p>
+        <h2 id="home-research-heading" class="home-section-title">What we work on</h2>
+        <p class="home-section-lead">We split the work into three areas. They overlap more than they divide, but the shorthand helps.</p>
       </header>
       <div class="home-research-grid">
         <article class="modern-card">
-          <div class="modern-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
           <h3>Safety</h3>
-          <p>Robustness, alignment, and risk-aware deployment so systems behave reliably in the real world.</p>
-          <a class="modern-card-link" href="safety.html">Explore safety <span aria-hidden="true">→</span></a>
+          <p>How AI systems break, how to catch it before they ship, and what to do when something goes wrong in production.</p>
+          <a class="modern-card-link" href="safety.html">More on safety <span aria-hidden="true">→</span></a>
         </article>
         <article class="modern-card">
-          <div class="modern-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 2 6.5c0 5.5-4.5 7-8 7.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 22c1.5-6.5 6.5-10 11-11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
           <h3>Sustainability</h3>
-          <p>Energy, data, and lifecycle impacts of AI systems in a changing climate and economy.</p>
-          <a class="modern-card-link" href="sustainability.html">Explore sustainability <span aria-hidden="true">→</span></a>
+          <p>The energy, water, and hardware costs of running AI at scale, and what honest reporting looks like.</p>
+          <a class="modern-card-link" href="sustainability.html">More on sustainability <span aria-hidden="true">→</span></a>
         </article>
         <article class="modern-card">
-          <div class="modern-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 2v20M4 6h16M7 6l-3 7h6zM17 6l3 7h-6zM9 22h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
           <h3>Ethics</h3>
-          <p>Justice, governance, and participation so AI serves communities fairly and transparently.</p>
-          <a class="modern-card-link" href="ethics.html">Explore ethics <span aria-hidden="true">→</span></a>
+          <p>Who decides where AI is used, who gets to push back, and how those decisions get made in cities like ours.</p>
+          <a class="modern-card-link" href="ethics.html">More on ethics <span aria-hidden="true">→</span></a>
         </article>
       </div>
     </div>
@@ -108,75 +161,50 @@
   <section class="home-section home-programs fade-in" aria-labelledby="home-programs-heading">
     <div class="container">
       <header class="home-section-header">
-        <p class="home-section-kicker">Programs</p>
-        <h2 id="home-programs-heading" class="home-section-title">Core programs for Vancouver</h2>
-        <p class="home-section-lead">Our programming translates research into practical action through policy support, public dialogue, and city-wide literacy work.</p>
+        <h2 id="home-programs-heading" class="home-section-title">What we're building</h2>
+        <p class="home-section-lead">Three things alongside the writing. All three are in early stages. Get in touch if you want to be part of one.</p>
       </header>
       <div class="home-programs-grid">
         <div class="program-card">
           <h3>Policy briefs</h3>
-          <p>Research-backed briefs for municipal and provincial government so decisions on AI regulation, funding, and services are evidence-led.</p>
-          <span class="badge-soon">Core program</span>
+          <p>Short reads for City Hall and the province on specific AI questions as they come up.</p>
+          <span class="badge-soon">In progress</span>
         </div>
         <div class="program-card">
-          <h3>Community forums and public panels</h3>
-          <p>Regular dialogues that bring together researchers, developers, policymakers, and community members around high-impact AI issues.</p>
-          <span class="badge-soon">Core program</span>
+          <h3>Public events</h3>
+          <p>Panels and conversations that put researchers, builders, and residents in the same room.</p>
+          <span class="badge-soon">Starting 2026</span>
         </div>
         <div class="program-card">
-          <h3>Vancouver AI literacy programs</h3>
-          <p>Local education programs covering what AI is, how it works, and how it affects privacy, employment, environment, and daily life.</p>
-          <span class="badge-soon">Core program</span>
+          <h3>AI literacy in the city</h3>
+          <p>Local sessions on what AI actually is, and where you're already running into it at work, at school, and in city services.</p>
+          <span class="badge-soon">Planning</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BLOG / PUBLICATIONS -->
-  <section class="home-section home-publications fade-in" aria-labelledby="home-publications-heading">
+  <!-- HOME CONTACT STRIP -->
+  <section class="home-section home-contact fade-in" aria-labelledby="home-contact-heading">
     <div class="container">
-      <header class="home-section-header">
-        <p class="home-section-kicker">Blog</p>
-        <h2 id="home-publications-heading" class="home-section-title">Publications across all pillars</h2>
-        <p class="home-section-lead">Notes, briefs, and explainers from Safety, Sustainability, and Ethics.</p>
-      </header>
-      <div class="publication-cards-grid">
-        <article class="publication-card publication-card--compact">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--safety">Safety</span>
-            <span>Mar 15, 2026</span>
-            <span>7 min read</span>
-          </div>
-          <h3>Practical AI Safety Evaluations for Public-Interest Teams</h3>
-          <p>A practical framework for evaluating model failure modes before deployment in civic and public-service contexts.</p>
-          <ul class="publication-tags"><li>Evaluations</li><li>Risk</li><li>Governance</li></ul>
-          <a class="modern-card-link" href="publications/safety-evaluations-public-interest.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="publication-card publication-card--compact">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--sustainability">Sustainability</span>
-            <span>Feb 27, 2026</span>
-            <span>6 min read</span>
-          </div>
-          <h3>A Sustainability Checklist for AI Procurement</h3>
-          <p>How organizations can ask better vendor questions around energy use, lifecycle impact, and reporting transparency.</p>
-          <ul class="publication-tags"><li>Climate</li><li>Procurement</li><li>Infrastructure</li></ul>
-          <a class="modern-card-link" href="publications/sustainability-procurement-checklist.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="publication-card publication-card--compact">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--ethics">Ethics</span>
-            <span>Jan 31, 2026</span>
-            <span>8 min read</span>
-          </div>
-          <h3>Participatory Ethics in Municipal AI Decisions</h3>
-          <p>Why public-facing AI decisions should include structured resident participation, not only internal review.</p>
-          <ul class="publication-tags"><li>Inclusion</li><li>Policy</li><li>Public Deliberation</li></ul>
-          <a class="modern-card-link" href="publications/participatory-ethics-municipal-ai.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-      </div>
-      <div class="home-publications-cta">
-        <a class="btn btn-secondary" href="publications.html">View all publications</a>
+      <div class="home-contact-info">
+        <h2 id="home-contact-heading">Get in touch</h2>
+        <p>Most messages get a reply in a couple of business days. Press queries, faster.</p>
+        <ul class="home-contact-emails">
+          <li>
+            <span class="home-contact-label">General</span>
+            <a href="mailto:info@vcasse.org">info@vcasse.org</a>
+          </li>
+          <li>
+            <span class="home-contact-label">Press</span>
+            <a href="mailto:media@vcasse.org">media@vcasse.org</a>
+          </li>
+          <li>
+            <span class="home-contact-label">Research</span>
+            <a href="mailto:research@vcasse.org">research@vcasse.org</a>
+          </li>
+        </ul>
+        <p class="home-contact-aside">If you'd rather use a form, <a href="contact.html">there's one over here</a>.</p>
       </div>
     </div>
   </section>
@@ -184,11 +212,11 @@
   <!-- CONTRIBUTE CTA -->
   <section class="contribute-cta" id="contribute">
     <div class="container fade-in">
-      <h2 class="cta-title">Contribute to the Future of Responsible AI.</h2>
-      <p class="cta-description">We serve the general public, youth and students, tech companies and developers, and policymakers. If AI affects your life, we're here for you.</p>
+      <h2 class="cta-title">Want to be involved?</h2>
+      <p class="cta-description">We work with researchers, public servants, journalists, and people who just want to follow what's happening in the city. Say hi.</p>
       <div class="cta-buttons">
-        <a href="contact.html" class="btn btn-white btn-uppercase"><span class="menu-label">Get in Touch</span></a>
-        <a href="about.html" class="btn btn-outlined btn-uppercase"><span class="menu-label">About Us</span></a>
+        <a href="contact.html" class="btn btn-white"><span class="menu-label">Say hi</span></a>
+        <a href="about.html" class="btn btn-outlined"><span class="menu-label">About us</span></a>
       </div>
     </div>
   </section>

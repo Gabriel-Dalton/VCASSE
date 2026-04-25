@@ -474,17 +474,7 @@ img { max-width: 100%; height: auto; display: block; }
   z-index: 0;
 }
 
-.hero--home::after {
-  content: '';
-  position: absolute;
-  bottom: -120px;
-  right: -80px;
-  width: 520px;
-  height: 520px;
-  background: radial-gradient(circle, rgba(26,109,181,0.4) 0%, transparent 65%);
-  pointer-events: none;
-  z-index: 0;
-}
+.hero--home::after { content: none; }
 
 .hero--home .container {
   grid-template-columns: 1fr;
@@ -799,45 +789,34 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .publication-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--text-muted);
+}
+
+.publication-pill::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
   display: inline-block;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border: 1px solid transparent;
+  flex-shrink: 0;
 }
 
-.publication-pill--safety {
-  color: #065f46;
-  background: #d1fae5;
-  border-color: #a7f3d0;
-}
-
-.publication-pill--sustainability {
-  color: #0f766e;
-  background: #ccfbf1;
-  border-color: #99f6e4;
-}
-
-.publication-pill--ethics {
-  color: #1d4ed8;
-  background: #dbeafe;
-  border-color: #bfdbfe;
-}
-
-.publication-pill--vcasse {
-  color: #0d4f8b;
-  background: #cfe2f3;
-  border-color: #6cb4e4;
-}
-
-.publication-pill--community {
-  color: #9a3412;
-  background: #ffedd5;
-  border-color: #fdba74;
-}
+.publication-pill--safety { color: #047857; }
+.publication-pill--sustainability { color: #0f766e; }
+.publication-pill--ethics { color: #1d4ed8; }
+.publication-pill--vcasse { color: var(--primary); }
+.publication-pill--community { color: #9a3412; }
 
 .home-publications-cta {
   margin-top: 24px;
@@ -945,14 +924,11 @@ img { max-width: 100%; height: auto; display: block; }
 
 .badge-soon {
   display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.95);
-  background: var(--green-accent);
-  padding: 6px 12px;
-  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 0;
+  background: transparent;
 }
 
 @media (max-width: 1024px) {
@@ -1497,6 +1473,23 @@ img { max-width: 100%; height: auto; display: block; }
 
 .contact-info h3 { font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
 .contact-info p { font-size: 15px; line-height: 1.7; color: var(--text-body); margin-bottom: 32px; }
+
+.contact-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 28px;
+  margin-bottom: 24px;
+}
+
+.contact-detail-grid .contact-detail {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .contact-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 .contact-detail {
   display: flex;
@@ -2169,7 +2162,7 @@ noscript + * .fade-in,
     transform: rotate(45deg);
   }
 
-  /* Submenu — indented, smaller, sub-numbered via counter */
+  /* Submenu — indented, sub-numbered via counter, sized for legible mobile tap targets */
   .nav-links .nav-dropdown-menu {
     position: relative !important;
     left: auto;
@@ -2178,7 +2171,7 @@ noscript + * .fade-in,
     transform: none;
     width: 100%;
     min-width: 0;
-    list-style: none; padding: 0 0 6px 34px; margin: 0;
+    list-style: none; padding: 4px 0 10px clamp(20px, 5vw, 28px); margin: 0;
     background: transparent; border: none; box-shadow: none;
     max-height: 0; overflow: hidden;
     opacity: 0; visibility: hidden;
@@ -2186,23 +2179,23 @@ noscript + * .fade-in,
     counter-reset: submenu;
   }
   .nav-links .nav-dropdown.is-open > .nav-dropdown-menu {
-    max-height: 220px; opacity: 1; visibility: visible;
+    max-height: 420px; opacity: 1; visibility: visible;
     transition: max-height .4s ease, opacity .3s ease .1s, visibility 0s linear 0s;
   }
   .nav-links .nav-dropdown-menu li { counter-increment: submenu; border: none; }
   .nav-links .nav-dropdown-menu a {
-    display: flex; gap: 10px; padding: 4px 0;
+    display: flex; gap: 12px; padding: 10px 0;
     align-items: baseline;
     width: 100%;
     border-radius: 0;
-    font-weight: 400;
-    font-family: var(--font-sans); font-size: 13px;
-    color: var(--slate-professional, #374151); text-decoration: none;
+    font-weight: 500;
+    font-family: var(--font-sans); font-size: clamp(1rem, 3.6vw, 1.15rem);
+    color: var(--mobile-menu-ink, #082a4d); text-decoration: none;
   }
   .nav-links .nav-dropdown-menu a::before {
     content: counter(menu, decimal-leading-zero) "." counter(submenu);
     font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: 10px; color: var(--muted, #6b7280); flex: 0 0 24px;
+    font-size: 12px; color: var(--muted, #6b7280); flex: 0 0 30px;
   }
   .nav-links .nav-dropdown-menu a.active {
     background: transparent;
@@ -2475,13 +2468,7 @@ noscript + * .fade-in,
   transform: scale(1.04);
 }
 
-.publication-card-cover .publication-pill {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(4px);
-}
+/* legacy: pill no longer sits on the cover */
 
 .publication-card-body {
   display: flex;
@@ -3145,3 +3132,173 @@ noscript + * .fade-in,
     margin-top: 16px;
   }
 }
+
+/* ─────────────── HOME PUBLICATIONS — FEATURED LEAD ─────────────── */
+
+.home-publications-featured {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 36px;
+  align-items: center;
+  margin-bottom: 56px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.home-publications-featured-cover {
+  display: block;
+  overflow: hidden;
+  background: var(--bg-page);
+  aspect-ratio: 4 / 3;
+}
+
+.home-publications-featured-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.home-publications-featured-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-publications-featured-body .home-publications-featured-kicker {
+  margin-bottom: 14px;
+}
+
+.home-publications-featured-body h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-dark);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.home-publications-featured-body h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.home-publications-featured-body h3 a:hover {
+  color: var(--primary);
+}
+
+.home-publications-featured-body p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin-bottom: 14px;
+}
+
+.home-publications-featured-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+@media (max-width: 768px) {
+  .home-publications-featured {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding-bottom: 32px;
+    margin-bottom: 36px;
+  }
+  .home-publications-featured-cover {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* ─────────────── HOME CONTACT STRIP ─────────────── */
+
+.home-contact-info {
+  max-width: 640px;
+}
+
+.home-contact-info h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+  line-height: 1.15;
+}
+
+.home-contact-info > p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-body);
+  margin-bottom: 24px;
+}
+
+.home-contact-emails {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+  margin-bottom: 22px;
+  padding: 0;
+}
+
+.home-contact-emails li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.home-contact-emails .home-contact-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  min-width: 64px;
+}
+
+.home-contact-emails a {
+  font-size: 1rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.home-contact-emails a:hover {
+  text-decoration: underline;
+}
+
+.home-contact-aside {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.home-contact-aside a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ─────────────── PUBLICATIONS HERO BREADCRUMB (pillar pages) ─────────────── */
+
+.publications-hero-crumb {
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.publications-hero-crumb a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.publications-hero-crumb a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
