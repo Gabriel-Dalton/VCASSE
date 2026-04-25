@@ -13,6 +13,7 @@
 
     const posts = window.getPublications();
     updateHeroStats(posts);
+    populateFilterCounts(posts);
     const filterButtons = Array.from(document.querySelectorAll('[data-pub-filter]'));
     const tagSelect = document.getElementById('publicationsTag');
     const sortSelect = document.getElementById('publicationsSort');
@@ -116,15 +117,34 @@
       if (resultsCount) {
         const total = posts.length;
         const shown = filtered.length;
-        resultsCount.textContent = shown === total
-          ? `Showing all ${total} publications`
-          : `Showing ${shown} of ${total} publications`;
+        const numEl = resultsCount.querySelector('.publications-count-num');
+        const labelEl = resultsCount.querySelector('.publications-count-label');
+        if (numEl && labelEl) {
+          numEl.textContent = shown === total ? String(total) : `${shown} / ${total}`;
+          labelEl.textContent = shown === 1 ? 'publication' : 'publications';
+        } else {
+          resultsCount.textContent = shown === total
+            ? `Showing all ${total} publications`
+            : `Showing ${shown} of ${total} publications`;
+        }
       }
 
       if (emptyState) {
         emptyState.hidden = filtered.length > 0;
       }
       grid.hidden = filtered.length === 0;
+    }
+
+    function populateFilterCounts(list) {
+      const counts = list.reduce((acc, p) => {
+        acc[p.pillar] = (acc[p.pillar] || 0) + 1;
+        return acc;
+      }, {});
+      counts.all = list.length;
+      document.querySelectorAll('[data-pub-count]').forEach((el) => {
+        const key = el.getAttribute('data-pub-count');
+        el.textContent = String(counts[key] || 0);
+      });
     }
 
     function updateHeroStats(list) {

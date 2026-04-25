@@ -1,0 +1,284 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "VCASSE Vancouver Centre for AI Safety, Sustainability, & Ethics" [ref=e4] [cursor=pointer]:
+        - /url: index.html
+        - img "VCASSE" [ref=e5]
+        - generic [ref=e6]:
+          - generic [ref=e7]: Vancouver Centre for AI Safety,
+          - generic [ref=e8]: Sustainability, & Ethics
+      - list [ref=e9]:
+        - listitem [ref=e10]:
+          - link "Home" [ref=e11] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=e12]:
+          - button "Research" [ref=e13] [cursor=pointer]:
+            - generic [ref=e14]: Research
+            - img [ref=e15]
+        - listitem [ref=e17]:
+          - link "Events" [ref=e18] [cursor=pointer]:
+            - /url: events.html
+        - listitem [ref=e19]:
+          - link "Publications" [ref=e20] [cursor=pointer]:
+            - /url: publications.html
+        - listitem [ref=e21]:
+          - link "About" [ref=e22] [cursor=pointer]:
+            - /url: about.html
+        - listitem [ref=e23]:
+          - link "Contact" [ref=e24] [cursor=pointer]:
+            - /url: contact.html
+  - generic [ref=e27]:
+    - generic [ref=e28]: PUBLICATIONS
+    - heading "Policy briefs, research & explainers" [level=1] [ref=e29]
+    - paragraph [ref=e30]: VCASSE publishes practical research across Safety, Sustainability, and Ethics — written to inform Vancouver's policymakers, developers, and residents as AI reshapes public life.
+  - region "Publication filters" [ref=e33]:
+    - generic [ref=e34]:
+      - group "Filter by pillar" [ref=e35]:
+        - button "All 6" [pressed] [ref=e36] [cursor=pointer]:
+          - generic [ref=e37]: All
+          - generic [ref=e38]: "6"
+        - button "Safety 2" [ref=e39] [cursor=pointer]:
+          - generic [ref=e40]: Safety
+          - generic [ref=e41]: "2"
+        - button "Sustainability 2" [ref=e42] [cursor=pointer]:
+          - generic [ref=e43]: Sustainability
+          - generic [ref=e44]: "2"
+        - button "Ethics 2" [ref=e45] [cursor=pointer]:
+          - generic [ref=e46]: Ethics
+          - generic [ref=e47]: "2"
+      - generic [ref=e48]:
+        - img
+        - searchbox "Search publications" [ref=e49]
+    - generic [ref=e50]:
+      - generic [ref=e51]:
+        - generic [ref=e52]: Tag
+        - combobox "Tag" [ref=e53] [cursor=pointer]:
+          - option "All tags" [selected]
+          - option "Accountability"
+          - option "Climate"
+          - option "Evaluations"
+          - option "Governance"
+          - option "Human-in-the-loop"
+          - option "Incident Response"
+          - option "Inclusion"
+          - option "Infrastructure"
+          - option "Metrics"
+          - option "Monitoring"
+          - option "Operations"
+          - option "Policy"
+          - option "Procurement"
+          - option "Public Deliberation"
+          - option "Reporting"
+          - option "Risk"
+          - option "Standards"
+          - option "UX"
+      - generic [ref=e54]:
+        - generic [ref=e55]: Sort
+        - combobox "Sort" [ref=e56] [cursor=pointer]:
+          - option "Newest first" [selected]
+          - option "Oldest first"
+          - option "A – Z"
+      - paragraph [ref=e57]:
+        - generic [ref=e58]: "6"
+        - generic [ref=e59]: publications
+  - generic [ref=e62]:
+    - article [ref=e63]:
+      - link "Read Practical AI Safety Evaluations for Public-Interest Teams" [ref=e64] [cursor=pointer]:
+        - /url: publications/safety-evaluations-public-interest.html
+        - generic [ref=e65]: Safety
+      - generic [ref=e66]:
+        - generic [ref=e67]:
+          - generic [ref=e68]: Mar 15, 2026
+          - generic [ref=e69]: ·
+          - generic [ref=e70]: 7 min read
+        - heading "Practical AI Safety Evaluations for Public-Interest Teams" [level=3] [ref=e71]:
+          - link "Practical AI Safety Evaluations for Public-Interest Teams" [ref=e72] [cursor=pointer]:
+            - /url: publications/safety-evaluations-public-interest.html
+        - paragraph [ref=e73]: A practical framework for evaluating model failure modes before deployment in civic and public-service contexts.
+        - paragraph [ref=e74]: By Dr. Mei Tanaka, Priya Sandhu
+        - list [ref=e75]:
+          - listitem [ref=e76]: Evaluations
+          - listitem [ref=e77]: Risk
+          - listitem [ref=e78]: Governance
+        - link "Read publication" [ref=e79] [cursor=pointer]:
+          - /url: publications/safety-evaluations-public-interest.html
+          - text: Read publication
+          - generic [ref=e80]: →
+    - article [ref=e81]:
+      - link "Read A Sustainability Checklist for AI Procurement" [ref=e82] [cursor=pointer]:
+        - /url: publications/sustainability-procurement-checklist.html
+        - generic [ref=e83]: Sustainability
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - generic [ref=e86]: Feb 27, 2026
+          - generic [ref=e87]: ·
+          - generic [ref=e88]: 6 min read
+        - heading "A Sustainability Checklist for AI Procurement" [level=3] [ref=e89]:
+          - link "A Sustainability Checklist for AI Procurement" [ref=e90] [cursor=pointer]:
+            - /url: publications/sustainability-procurement-checklist.html
+        - paragraph [ref=e91]: How organizations can ask better vendor questions around energy use, lifecycle impact, and reporting transparency.
+        - paragraph [ref=e92]: By Dr. Alejandro Ruiz, Linh Nguyen
+        - list [ref=e93]:
+          - listitem [ref=e94]: Climate
+          - listitem [ref=e95]: Procurement
+          - listitem [ref=e96]: Infrastructure
+        - link "Read publication" [ref=e97] [cursor=pointer]:
+          - /url: publications/sustainability-procurement-checklist.html
+          - text: Read publication
+          - generic [ref=e98]: →
+    - article [ref=e99]:
+      - link "Read Participatory Ethics in Municipal AI Decisions" [ref=e100] [cursor=pointer]:
+        - /url: publications/participatory-ethics-municipal-ai.html
+        - generic [ref=e101]: Ethics
+      - generic [ref=e102]:
+        - generic [ref=e103]:
+          - generic [ref=e104]: Jan 31, 2026
+          - generic [ref=e105]: ·
+          - generic [ref=e106]: 8 min read
+        - heading "Participatory Ethics in Municipal AI Decisions" [level=3] [ref=e107]:
+          - link "Participatory Ethics in Municipal AI Decisions" [ref=e108] [cursor=pointer]:
+            - /url: publications/participatory-ethics-municipal-ai.html
+        - paragraph [ref=e109]: Why public-facing AI decisions should include structured resident participation, not only internal review.
+        - paragraph [ref=e110]: By Dr. Amara Okafor, Jordan Blackwood
+        - list [ref=e111]:
+          - listitem [ref=e112]: Inclusion
+          - listitem [ref=e113]: Policy
+          - listitem [ref=e114]: Public Deliberation
+        - link "Read publication" [ref=e115] [cursor=pointer]:
+          - /url: publications/participatory-ethics-municipal-ai.html
+          - text: Read publication
+          - generic [ref=e116]: →
+    - article [ref=e117]:
+      - link "Read Incident Reporting Playbook for Responsible AI Teams" [ref=e118] [cursor=pointer]:
+        - /url: publications/incident-reporting-playbook.html
+        - generic [ref=e119]: Safety
+      - generic [ref=e120]:
+        - generic [ref=e121]:
+          - generic [ref=e122]: Dec 12, 2025
+          - generic [ref=e123]: ·
+          - generic [ref=e124]: 5 min read
+        - heading "Incident Reporting Playbook for Responsible AI Teams" [level=3] [ref=e125]:
+          - link "Incident Reporting Playbook for Responsible AI Teams" [ref=e126] [cursor=pointer]:
+            - /url: publications/incident-reporting-playbook.html
+        - paragraph [ref=e127]: A simple operational playbook for classifying incidents, escalating quickly, and learning from postmortems.
+        - paragraph [ref=e128]: By Priya Sandhu
+        - list [ref=e129]:
+          - listitem [ref=e130]: Operations
+          - listitem [ref=e131]: Incident Response
+          - listitem [ref=e132]: Monitoring
+        - link "Read publication" [ref=e133] [cursor=pointer]:
+          - /url: publications/incident-reporting-playbook.html
+          - text: Read publication
+          - generic [ref=e134]: →
+    - article [ref=e135]:
+      - 'link "Read Energy Footprint Reporting: A Starter Standard" [ref=e136] [cursor=pointer]':
+        - /url: publications/energy-footprint-reporting-standard.html
+        - generic [ref=e137]: Sustainability
+      - generic [ref=e138]:
+        - generic [ref=e139]:
+          - generic [ref=e140]: Nov 19, 2025
+          - generic [ref=e141]: ·
+          - generic [ref=e142]: 6 min read
+        - 'heading "Energy Footprint Reporting: A Starter Standard" [level=3] [ref=e143]':
+          - 'link "Energy Footprint Reporting: A Starter Standard" [ref=e144] [cursor=pointer]':
+            - /url: publications/energy-footprint-reporting-standard.html
+        - paragraph [ref=e145]: A baseline reporting format for teams that want to disclose AI energy impact with minimal overhead.
+        - paragraph [ref=e146]: By Dr. Alejandro Ruiz
+        - list [ref=e147]:
+          - listitem [ref=e148]: Reporting
+          - listitem [ref=e149]: Standards
+          - listitem [ref=e150]: Metrics
+        - link "Read publication" [ref=e151] [cursor=pointer]:
+          - /url: publications/energy-footprint-reporting-standard.html
+          - text: Read publication
+          - generic [ref=e152]: →
+    - article [ref=e153]:
+      - link "Read Human Oversight Design Patterns That Actually Work" [ref=e154] [cursor=pointer]:
+        - /url: publications/human-oversight-design-patterns.html
+        - generic [ref=e155]: Ethics
+      - generic [ref=e156]:
+        - generic [ref=e157]:
+          - generic [ref=e158]: Oct 28, 2025
+          - generic [ref=e159]: ·
+          - generic [ref=e160]: 7 min read
+        - heading "Human Oversight Design Patterns That Actually Work" [level=3] [ref=e161]:
+          - link "Human Oversight Design Patterns That Actually Work" [ref=e162] [cursor=pointer]:
+            - /url: publications/human-oversight-design-patterns.html
+        - paragraph [ref=e163]: Common oversight patterns fail when reviewers are overloaded. These design patterns improve decision quality.
+        - paragraph [ref=e164]: By Dr. Amara Okafor
+        - list [ref=e165]:
+          - listitem [ref=e166]: Human-in-the-loop
+          - listitem [ref=e167]: UX
+          - listitem [ref=e168]: Accountability
+        - link "Read publication" [ref=e169] [cursor=pointer]:
+          - /url: publications/human-oversight-design-patterns.html
+          - text: Read publication
+          - generic [ref=e170]: →
+  - region "The VCASSE Briefing" [ref=e171]:
+    - generic [ref=e173]:
+      - generic [ref=e174]:
+        - paragraph [ref=e175]:
+          - text: Newsletter ·
+          - generic [ref=e176]: Coming soon
+        - heading "The VCASSE Briefing" [level=2] [ref=e177]
+        - paragraph [ref=e178]: A monthly dispatch with new publications, upcoming public panels, and plain-language notes on what Vancouver should know about AI policy, infrastructure, and ethics.
+      - generic [ref=e179]:
+        - generic [ref=e180]: Email address
+        - textbox "Email address" [disabled]:
+          - /placeholder: you@example.com
+        - button "Notify me" [disabled]
+        - paragraph [ref=e181]: Sign-ups open soon — we're still setting things up.
+  - contentinfo [ref=e182]:
+    - generic [ref=e183]:
+      - generic [ref=e184]:
+        - generic [ref=e185]:
+          - heading "Vancouver Centre for AI Safety, Sustainability, and Ethics" [level=3] [ref=e186]
+          - paragraph [ref=e187]: Vancouver's dedicated centre for responsible AI. We research, educate, and advocate across safety, sustainability, and ethics.
+          - generic [ref=e188]:
+            - link "Share" [ref=e189] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e190]
+            - link "Email" [ref=e192] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e193]
+        - generic [ref=e195]:
+          - heading "Focus Areas" [level=4] [ref=e196]
+          - list [ref=e197]:
+            - listitem [ref=e198]:
+              - link "Safety" [ref=e199] [cursor=pointer]:
+                - /url: safety.html
+            - listitem [ref=e200]:
+              - link "Sustainability" [ref=e201] [cursor=pointer]:
+                - /url: sustainability.html
+            - listitem [ref=e202]:
+              - link "Ethics" [ref=e203] [cursor=pointer]:
+                - /url: ethics.html
+        - generic [ref=e204]:
+          - heading "Information" [level=4] [ref=e205]
+          - list [ref=e206]:
+            - listitem [ref=e207]:
+              - link "Events" [ref=e208] [cursor=pointer]:
+                - /url: events.html
+            - listitem [ref=e209]:
+              - link "Publications" [ref=e210] [cursor=pointer]:
+                - /url: publications.html
+            - listitem [ref=e211]:
+              - link "About" [ref=e212] [cursor=pointer]:
+                - /url: about.html
+            - listitem [ref=e213]:
+              - link "Contact" [ref=e214] [cursor=pointer]:
+                - /url: contact.html
+            - listitem [ref=e215]:
+              - link "Privacy Policy" [ref=e216] [cursor=pointer]:
+                - /url: privacy.html
+            - listitem [ref=e217]:
+              - link "Terms of Service" [ref=e218] [cursor=pointer]:
+                - /url: terms.html
+      - generic [ref=e219]:
+        - paragraph [ref=e220]:
+          - text: © 2026 VCASSE. All rights reserved.|A subsidiary of
+          - link "OASIS OF CHANGE, INC." [ref=e221] [cursor=pointer]:
+            - /url: https://oasisofchange.org
+        - generic [ref=e222]:
+          - img [ref=e223]
+          - text: Vancouver, BC, Canada
