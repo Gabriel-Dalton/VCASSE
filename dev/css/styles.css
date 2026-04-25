@@ -122,12 +122,11 @@ img { max-width: 100%; height: auto; display: block; }
 
 .nav-logo {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: 0.5px;
-  line-height: 1.2;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.1px;
+  line-height: 1;
   color: var(--ink-strong);
-  text-transform: uppercase;
 }
 
 .nav-links {
@@ -167,21 +166,28 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-logo-mark {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .nav-logo-text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 28px;
+  height: 32px;
   line-height: 1;
 }
 
 .nav-logo-mark img {
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+}
+
+@media (max-width: 480px) {
+  .nav-logo { font-size: 11px; }
+  .nav-logo-mark { gap: 10px; }
+  .nav-logo-text { height: 28px; }
+  .nav-logo-mark img { width: 28px; height: 28px; border-radius: 6px; }
 }
 
 .nav-mobile-toggle {
@@ -1502,7 +1508,6 @@ img { max-width: 100%; height: auto; display: block; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-  padding-bottom: 80px;
 }
 
 .contact-info h3 { font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }

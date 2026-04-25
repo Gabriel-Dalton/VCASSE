@@ -1,0 +1,190 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "VCASSE Vancouver Centre for AI Safety, Sustainability, & Ethics" [ref=e4] [cursor=pointer]:
+        - /url: index.html
+        - img "VCASSE" [ref=e5]
+        - generic [ref=e6]:
+          - generic [ref=e7]: Vancouver Centre for AI Safety,
+          - generic [ref=e8]: Sustainability, & Ethics
+      - list [ref=e9]:
+        - listitem [ref=e10]:
+          - link "Home" [ref=e11] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=e12]:
+          - button "Research" [ref=e13] [cursor=pointer]:
+            - generic [ref=e14]: Research
+            - img [ref=e15]
+        - listitem [ref=e17]:
+          - link "Events" [ref=e18] [cursor=pointer]:
+            - /url: events.html
+        - listitem [ref=e19]:
+          - link "Publications" [ref=e20] [cursor=pointer]:
+            - /url: publications.html
+        - listitem [ref=e21]:
+          - link "About" [ref=e22] [cursor=pointer]:
+            - /url: about.html
+        - listitem [ref=e23]:
+          - link "Contact" [ref=e24] [cursor=pointer]:
+            - /url: contact.html
+  - generic [ref=e26]:
+    - generic [ref=e27]:
+      - generic [ref=e28]: REACH OUT
+      - heading "Get in Touch" [level=1] [ref=e29]
+      - paragraph [ref=e30]: Whether you're a researcher, policymaker, journalist, or prospective collaborator, we'd love to hear from you. Our team is based in Vancouver, BC and collaborates globally.
+      - list "Quick contact options" [ref=e31]:
+        - listitem [ref=e32]:
+          - link "Send a message" [ref=e33] [cursor=pointer]:
+            - /url: "#contact-form"
+        - listitem [ref=e34]:
+          - link "Email us" [ref=e35] [cursor=pointer]:
+            - /url: mailto:info@vcasse.org
+    - generic [ref=e37]:
+      - img "Vancouver skyline"
+  - generic [ref=e40]:
+    - generic [ref=e41]:
+      - heading "Contact information" [level=3] [ref=e42]
+      - paragraph [ref=e43]: We read every message. Most enquiries get a first response within two business days. Time-sensitive media requests are flagged for same-day reply.
+      - generic [ref=e44]:
+        - img [ref=e46]
+        - generic [ref=e48]:
+          - heading "General & partnerships" [level=4] [ref=e49]
+          - paragraph [ref=e50]:
+            - link "info@vcasse.org" [ref=e51] [cursor=pointer]:
+              - /url: mailto:info@vcasse.org
+      - generic [ref=e52]:
+        - img [ref=e54]
+        - generic [ref=e56]:
+          - heading "Media enquiries" [level=4] [ref=e57]
+          - paragraph [ref=e58]:
+            - link "media@vcasse.org" [ref=e59] [cursor=pointer]:
+              - /url: mailto:media@vcasse.org
+            - text: · same-day response when possible
+      - generic [ref=e60]:
+        - img [ref=e62]
+        - generic [ref=e64]:
+          - heading "Research collaborations" [level=4] [ref=e65]
+          - paragraph [ref=e66]:
+            - link "research@vcasse.org" [ref=e67] [cursor=pointer]:
+              - /url: mailto:research@vcasse.org
+            - text: · safety, sustainability, ethics
+      - generic [ref=e68]:
+        - img [ref=e70]
+        - generic [ref=e72]:
+          - heading "Where we work" [level=4] [ref=e73]
+          - paragraph [ref=e74]: Vancouver, BC · on the unceded territories of the Musqueam, Squamish, and Tsleil-Waututh Nations.
+      - generic [ref=e75]:
+        - paragraph [ref=e76]: Office hours
+        - paragraph [ref=e77]: Mon – Fri · 9:00 – 17:00 PT
+        - paragraph [ref=e78]:
+          - text: Closed on statutory holidays. Public events are listed on the
+          - link "events page" [ref=e79] [cursor=pointer]:
+            - /url: events.html
+          - text: .
+    - generic [ref=e80]:
+      - heading "Send a message" [level=3] [ref=e81]
+      - paragraph [ref=e82]: Tell us a little about why you're reaching out. We'll route your message to the right person on our team.
+      - generic [ref=e83]:
+        - generic [ref=e84]:
+          - generic [ref=e85]:
+            - generic [ref=e86]: First name
+            - textbox "First name" [ref=e87]:
+              - /placeholder: Jane
+          - generic [ref=e88]:
+            - generic [ref=e89]: Last name
+            - textbox "Last name" [ref=e90]:
+              - /placeholder: Doe
+        - generic [ref=e91]:
+          - generic [ref=e92]: Email address
+          - textbox "Email address" [ref=e93]:
+            - /placeholder: jane@example.com
+        - generic [ref=e94]:
+          - generic [ref=e95]: Organization (optional)
+          - textbox "Organization (optional)" [ref=e96]:
+            - /placeholder: e.g. City of Vancouver
+        - generic [ref=e97]:
+          - generic [ref=e98]: What is this about?
+          - combobox "What is this about?" [ref=e99]:
+            - option "Select a topic…" [selected]
+            - option "Research collaboration"
+            - option "Partnership or sponsorship"
+            - option "Policy & government"
+            - option "Media enquiry"
+            - option "Speaking request"
+            - option "General question"
+        - generic [ref=e100]:
+          - generic [ref=e101]: Message
+          - textbox "Message" [ref=e102]:
+            - /placeholder: Tell us about your enquiry…
+        - paragraph [ref=e103]:
+          - text: By sending, you agree to our
+          - link "privacy policy" [ref=e104] [cursor=pointer]:
+            - /url: privacy.html
+          - text: . We never share your email.
+        - button "Send message" [ref=e105] [cursor=pointer]
+  - region "The VCASSE Briefing" [ref=e106]:
+    - generic [ref=e108]:
+      - paragraph [ref=e109]:
+        - generic [ref=e110]: Coming soon
+      - heading "The VCASSE Briefing" [level=2] [ref=e111]
+      - paragraph [ref=e112]: Monthly notes on AI policy, infrastructure, and ethics for Vancouver.
+      - generic [ref=e113]:
+        - generic [ref=e114]: Email address
+        - textbox "Email address" [disabled]:
+          - /placeholder: your@email.com
+        - button "Notify me" [disabled]
+      - paragraph [ref=e115]: Sign-ups opening soon.
+  - contentinfo [ref=e116]:
+    - generic [ref=e117]:
+      - generic [ref=e118]:
+        - generic [ref=e119]:
+          - heading "Vancouver Centre for AI Safety, Sustainability, and Ethics" [level=3] [ref=e120]
+          - paragraph [ref=e121]: Vancouver's dedicated centre for responsible AI. We research, educate, and advocate across safety, sustainability, and ethics.
+          - generic [ref=e122]:
+            - link "Share" [ref=e123] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e124]
+            - link "Email" [ref=e126] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e127]
+        - generic [ref=e129]:
+          - heading "Focus Areas" [level=4] [ref=e130]
+          - list [ref=e131]:
+            - listitem [ref=e132]:
+              - link "Safety" [ref=e133] [cursor=pointer]:
+                - /url: safety.html
+            - listitem [ref=e134]:
+              - link "Sustainability" [ref=e135] [cursor=pointer]:
+                - /url: sustainability.html
+            - listitem [ref=e136]:
+              - link "Ethics" [ref=e137] [cursor=pointer]:
+                - /url: ethics.html
+        - generic [ref=e138]:
+          - heading "Information" [level=4] [ref=e139]
+          - list [ref=e140]:
+            - listitem [ref=e141]:
+              - link "Events" [ref=e142] [cursor=pointer]:
+                - /url: events.html
+            - listitem [ref=e143]:
+              - link "Publications" [ref=e144] [cursor=pointer]:
+                - /url: publications.html
+            - listitem [ref=e145]:
+              - link "About" [ref=e146] [cursor=pointer]:
+                - /url: about.html
+            - listitem [ref=e147]:
+              - link "Contact" [ref=e148] [cursor=pointer]:
+                - /url: contact.html
+            - listitem [ref=e149]:
+              - link "Privacy Policy" [ref=e150] [cursor=pointer]:
+                - /url: privacy.html
+            - listitem [ref=e151]:
+              - link "Terms of Service" [ref=e152] [cursor=pointer]:
+                - /url: terms.html
+      - generic [ref=e153]:
+        - paragraph [ref=e154]:
+          - text: © 2026 VCASSE. All rights reserved.|A subsidiary of
+          - link "OASIS OF CHANGE, INC." [ref=e155] [cursor=pointer]:
+            - /url: https://oasisofchange.org
+        - generic [ref=e156]:
+          - img [ref=e157]
+          - text: Vancouver, BC, Canada

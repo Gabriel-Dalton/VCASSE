@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About | VCASSE</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=3">
   <link rel="icon" type="image/svg+xml" href="img/logo.svg">
 </head>
 <body>
@@ -100,6 +100,24 @@
       <div class="cta-buttons">
         <a href="contact.html" class="btn btn-white btn-uppercase"><span class="menu-label">Get in Touch</span></a>
         <a href="safety.html" class="btn btn-outlined btn-uppercase"><span class="menu-label">Explore Safety</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter-band" aria-labelledby="newsletter-heading">
+    <div class="container">
+      <div class="newsletter-card">
+        <div class="newsletter-content">
+          <p class="newsletter-kicker">Newsletter &middot; <span class="newsletter-soon">Coming soon</span></p>
+          <h2 id="newsletter-heading">The VCASSE Briefing</h2>
+          <p class="newsletter-lede">A monthly dispatch with new publications, upcoming public panels, and plain-language notes on what Vancouver should know about AI policy, infrastructure, and ethics.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="event.preventDefault();" aria-describedby="newsletter-soon-note">
+          <label for="newsletter-email" class="visually-hidden">Email address</label>
+          <input type="email" id="newsletter-email" placeholder="you@example.com" disabled aria-disabled="true">
+          <button type="button" class="btn btn-primary" disabled aria-disabled="true">Notify me</button>
+          <p class="newsletter-note" id="newsletter-soon-note">Sign-ups open soon &mdash; we're still setting things up.</p>
+        </form>
       </div>
     </div>
   </section>

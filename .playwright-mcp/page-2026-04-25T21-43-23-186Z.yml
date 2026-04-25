@@ -1,0 +1,176 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "VCASSE Vancouver Centre for AI Safety, Sustainability, & Ethics" [ref=e4] [cursor=pointer]:
+        - /url: ../index.html
+        - img "VCASSE" [ref=e5]
+        - generic [ref=e6]:
+          - generic [ref=e7]: Vancouver Centre for AI Safety,
+          - generic [ref=e8]: Sustainability, & Ethics
+      - list [ref=e9]:
+        - listitem [ref=e10]:
+          - link "Home" [ref=e11] [cursor=pointer]:
+            - /url: ../index.html
+        - listitem [ref=e12]:
+          - button "Research" [ref=e13] [cursor=pointer]:
+            - generic [ref=e14]: Research
+            - img [ref=e15]
+        - listitem [ref=e17]:
+          - link "Events" [ref=e18] [cursor=pointer]:
+            - /url: ../events.html
+        - listitem [ref=e19]:
+          - link "Publications" [ref=e20] [cursor=pointer]:
+            - /url: ../publications.html
+        - listitem [ref=e21]:
+          - link "About" [ref=e22] [cursor=pointer]:
+            - /url: ../about.html
+        - listitem [ref=e23]:
+          - link "Contact" [ref=e24] [cursor=pointer]:
+            - /url: ../contact.html
+  - generic [ref=e26]:
+    - paragraph [ref=e27]:
+      - link "Publications" [ref=e28] [cursor=pointer]:
+        - /url: ../publications.html
+      - text: / Safety
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - generic [ref=e31]: Safety
+        - heading "Practical AI Safety Evaluations for Public-Interest Teams" [level=1] [ref=e32]
+        - paragraph [ref=e33]: A practical framework for evaluating model failure modes before deployment in civic and public-service contexts.
+        - list [ref=e34]:
+          - listitem [ref=e35]:
+            - generic [ref=e36]: Published
+            - strong [ref=e37]: Mar 15, 2026
+          - listitem [ref=e38]:
+            - generic [ref=e39]: Reading
+            - strong [ref=e40]: 7 min
+          - listitem [ref=e41]:
+            - generic [ref=e42]: Authors
+            - strong [ref=e43]: Dr. Mei Tanaka, Priya Sandhu
+      - figure [ref=e44]:
+        - img "Concentric ring illustration representing layered AI evaluation rounds" [ref=e45]
+  - generic [ref=e47]:
+    - article [ref=e48]:
+      - paragraph [ref=e49]: AI evaluations should be understandable, repeatable, and proportionate to risk. For most public-interest teams, the challenge is not whether to evaluate systems, but how to do it with limited staff and budget — and how to communicate the result so that residents, elected officials, and journalists can engage with it.
+      - heading "The lightweight evaluation loop" [level=2] [ref=e50]
+      - paragraph [ref=e51]: "VCASSE recommends a four-step loop you can run on a single sprint:"
+      - list [ref=e52]:
+        - listitem [ref=e53]:
+          - strong [ref=e54]: Define high-impact failure classes
+          - text: with the team that will be accountable for the system in production.
+        - listitem [ref=e55]:
+          - strong [ref=e56]: Design representative test sets
+          - text: that reflect Vancouver's languages, neighbourhoods, accessibility needs, and edge cases.
+        - listitem [ref=e57]:
+          - strong [ref=e58]: Review findings with non-technical stakeholders
+          - text: — service designers, frontline staff, and at least one external civic partner.
+        - listitem [ref=e59]:
+          - strong [ref=e60]: Publish plain-language summaries
+          - text: that pair each metric with a short, honest interpretation.
+      - heading "What to test for first" [level=2] [ref=e61]
+      - paragraph [ref=e62]: "Public-interest deployments tend to fail along a small set of recurring axes: language coverage, demographic skew, refusal under stress, and brittle behaviour around novel jurisdictional inputs. Starting evaluations there closes the most common gaps before the system reaches a real applicant."
+      - heading "Why the public summary matters" [level=2] [ref=e63]
+      - paragraph [ref=e64]: A test report that no one outside the engineering team reads cannot create accountability. Plain-language summaries give policymakers and residents a shared reference, and they make it possible to compare deployments across departments and vendors.
+      - blockquote [ref=e65]: "\"If you can't describe a failure mode in two sentences a city councillor would understand, you haven't tested for it yet.\""
+      - heading "Where to go from here" [level=2] [ref=e66]
+      - paragraph [ref=e67]: This brief is the first in a series. Upcoming notes will cover red-teaming for civic chatbots, evaluation cadence after deployment, and how to share evaluation infrastructure across municipalities.
+    - complementary "Publication summary" [ref=e68]:
+      - generic [ref=e69]:
+        - heading "Key takeaways" [level=3] [ref=e70]
+        - list [ref=e71]:
+          - listitem [ref=e72]: Run a four-step evaluation loop sized for small public teams.
+          - listitem [ref=e73]: Test first for language coverage, demographic skew, refusal, and novel input behaviour.
+          - listitem [ref=e74]: Publish plain-language summaries alongside any metric.
+          - listitem [ref=e75]: Treat evaluation reports as governance artefacts, not engineering memos.
+      - generic [ref=e76]:
+        - heading "Tagged" [level=3] [ref=e77]
+        - list [ref=e78]:
+          - listitem [ref=e79]: Evaluations
+          - listitem [ref=e80]: Risk
+          - listitem [ref=e81]: Governance
+  - generic [ref=e83]:
+    - generic [ref=e84]:
+      - paragraph [ref=e85]: Related
+      - heading "More from Safety" [level=2] [ref=e86]
+    - article [ref=e88]:
+      - link "Read Incident Reporting Playbook for Responsible AI Teams" [ref=e89] [cursor=pointer]:
+        - /url: ../publications/incident-reporting-playbook.html
+        - generic [ref=e90]: Safety
+      - generic [ref=e91]:
+        - generic [ref=e92]:
+          - generic [ref=e93]: Dec 12, 2025
+          - generic [ref=e94]: ·
+          - generic [ref=e95]: 5 min read
+        - heading "Incident Reporting Playbook for Responsible AI Teams" [level=3] [ref=e96]:
+          - link "Incident Reporting Playbook for Responsible AI Teams" [ref=e97] [cursor=pointer]:
+            - /url: ../publications/incident-reporting-playbook.html
+        - paragraph [ref=e98]: A simple operational playbook for classifying incidents, escalating quickly, and learning from postmortems.
+        - list [ref=e99]:
+          - listitem [ref=e100]: Operations
+          - listitem [ref=e101]: Incident Response
+          - listitem [ref=e102]: Monitoring
+        - link "Read publication" [ref=e103] [cursor=pointer]:
+          - /url: ../publications/incident-reporting-playbook.html
+          - text: Read publication
+          - generic [ref=e104]: →
+  - region "The VCASSE Briefing" [ref=e105]:
+    - generic [ref=e107]:
+      - generic [ref=e108]:
+        - paragraph [ref=e109]:
+          - text: Newsletter ·
+          - generic [ref=e110]: Coming soon
+        - heading "The VCASSE Briefing" [level=2] [ref=e111]
+        - paragraph [ref=e112]: A monthly dispatch with new publications and notes on what Vancouver should know about AI policy, infrastructure, and ethics.
+      - generic [ref=e113]:
+        - generic [ref=e114]: Email address
+        - textbox "Email address" [disabled]:
+          - /placeholder: you@example.com
+        - button "Notify me" [disabled]
+        - paragraph [ref=e115]: Sign-ups open soon.
+  - contentinfo [ref=e116]:
+    - generic [ref=e117]:
+      - generic [ref=e118]:
+        - generic [ref=e119]:
+          - heading "Vancouver Centre for AI Safety, Sustainability, and Ethics" [level=3] [ref=e120]
+          - paragraph [ref=e121]: Vancouver's dedicated centre for responsible AI. We research, educate, and advocate across safety, sustainability, and ethics.
+        - generic [ref=e122]:
+          - heading "Focus Areas" [level=4] [ref=e123]
+          - list [ref=e124]:
+            - listitem [ref=e125]:
+              - link "Safety" [ref=e126] [cursor=pointer]:
+                - /url: ../safety.html
+            - listitem [ref=e127]:
+              - link "Sustainability" [ref=e128] [cursor=pointer]:
+                - /url: ../sustainability.html
+            - listitem [ref=e129]:
+              - link "Ethics" [ref=e130] [cursor=pointer]:
+                - /url: ../ethics.html
+        - generic [ref=e131]:
+          - heading "Information" [level=4] [ref=e132]
+          - list [ref=e133]:
+            - listitem [ref=e134]:
+              - link "Events" [ref=e135] [cursor=pointer]:
+                - /url: ../events.html
+            - listitem [ref=e136]:
+              - link "Publications" [ref=e137] [cursor=pointer]:
+                - /url: ../publications.html
+            - listitem [ref=e138]:
+              - link "About" [ref=e139] [cursor=pointer]:
+                - /url: ../about.html
+            - listitem [ref=e140]:
+              - link "Contact" [ref=e141] [cursor=pointer]:
+                - /url: ../contact.html
+            - listitem [ref=e142]:
+              - link "Privacy Policy" [ref=e143] [cursor=pointer]:
+                - /url: ../privacy.html
+            - listitem [ref=e144]:
+              - link "Terms of Service" [ref=e145] [cursor=pointer]:
+                - /url: ../terms.html
+      - generic [ref=e146]:
+        - paragraph [ref=e147]:
+          - text: © 2026 VCASSE. All rights reserved.|A subsidiary of
+          - link "OASIS OF CHANGE, INC." [ref=e148] [cursor=pointer]:
+            - /url: https://oasisofchange.org
+        - generic [ref=e149]:
+          - img [ref=e150]
+          - text: Vancouver, BC, Canada
