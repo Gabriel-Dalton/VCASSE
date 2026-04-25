@@ -1598,12 +1598,16 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ─────────────── LEGAL PAGES ─────────────── */
 
-.legal-content { max-width: 800px; margin: 0 auto; padding: 60px 48px 100px; }
+.legal-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 48px 100px;
+}
 
 .legal-content h1 {
   font-family: var(--font-sans);
   font-weight: 800;
-  font-size: 48px;
+  font-size: clamp(2.25rem, 4.2vw, 3rem);
   color: var(--text-dark);
   letter-spacing: -1.5px;
   margin-bottom: 8px;
@@ -1620,9 +1624,17 @@ img { max-width: 100%; height: auto; display: block; }
   letter-spacing: -0.3px;
 }
 
-.legal-content p { font-size: 15px; line-height: 1.8; color: var(--text-body); margin-bottom: 16px; }
+.legal-content p,
+.legal-content li {
+  font-size: clamp(0.98rem, 1.35vw, 1.05rem);
+  line-height: 1.8;
+  color: var(--text-body);
+  margin-bottom: 16px;
+  overflow-wrap: anywhere;
+}
+
 .legal-content ul { padding-left: 24px; margin-bottom: 20px; }
-.legal-content li { font-size: 15px; line-height: 1.8; color: var(--text-body); margin-bottom: 8px; }
+.legal-content li { margin-bottom: 8px; }
 
 /* ─────────────── ANIMATIONS ─────────────── */
 
@@ -1993,14 +2005,41 @@ noscript + * .fade-in,
   .page-hero-visual { justify-content: flex-start; }
   .cta-buttons { flex-direction: column; align-items: stretch; }
   .contact-grid { grid-template-columns: 1fr; }
-  .legal-content { padding: 40px 0 60px; }
-  .legal-content h2 { font-size: 20px; }
+  .legal-content {
+    padding: 36px 20px 60px;
+  }
+  .legal-content h1 {
+    letter-spacing: -0.04em;
+  }
+  .legal-content h2 {
+    font-size: 20px;
+    margin-top: 32px;
+  }
+  .legal-content ul {
+    padding-left: 20px;
+  }
   .form-row { grid-template-columns: 1fr; }
   .about-page { padding-bottom: 60px; }
   .events-calendar-row { grid-template-columns: 1fr; gap: 28px; }
   .events-hero-stack { max-width: none; align-items: stretch; }
   .events-hero-caption { text-align: left; max-width: none; }
   .events-hero-figure { align-items: stretch; }
+}
+
+@media (max-width: 480px) {
+  .legal-content {
+    padding: 30px 16px 50px;
+  }
+
+  .legal-content h2 {
+    font-size: 1.2rem;
+    margin: 28px 0 14px;
+  }
+
+  .legal-content p,
+  .legal-content li {
+    line-height: 1.75;
+  }
 }
 
 /* ─────────────── MOBILE DRAWER — Editorial Index + Circular Reveal ─────────────── */
