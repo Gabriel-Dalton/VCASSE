@@ -2985,22 +2985,6 @@ noscript + * .fade-in,
   z-index: 1;
 }
 
-.newsletter-kicker {
-  margin-bottom: 12px;
-}
-
-.newsletter-soon {
-  display: inline-block;
-  padding: 4px 12px;
-  border: 1px solid var(--green-accent);
-  color: var(--green-accent);
-  border-radius: 999px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
 .newsletter-card h2 {
   font-family: var(--font-display);
   font-weight: 700;
