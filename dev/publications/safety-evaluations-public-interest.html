@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Practical AI Safety Evaluations for Public-Interest Teams | VCASSE</title>
+  <meta name="description" content="A practical framework for evaluating AI failure modes before deployment in civic and public-service contexts.">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="icon" type="image/svg+xml" href="../img/logo.svg">
 </head>
@@ -38,32 +39,140 @@
     </div>
   </nav>
 
-  <section class="page-hero publication-hero">
+  <section class="publication-detail-hero">
     <div class="container">
-      <div class="page-hero-content">
-        <div class="section-label">PUBLICATION</div>
-        <h1 class="page-hero-title">Practical AI Safety Evaluations for Public-Interest Teams</h1>
-        <p class="page-hero-description">A practical framework for evaluating model failure modes before deployment in civic and public-service contexts.</p>
-        <div class="publication-post-meta">
+      <p class="publication-detail-crumb"><a href="../publications.html">Publications</a> <span aria-hidden="true">/</span> <span>Safety</span></p>
+      <div class="publication-detail-grid">
+        <div class="publication-detail-text">
           <span class="publication-pill publication-pill--safety">Safety</span>
-          <span>Mar 15, 2026</span>
-          <span>7 min read</span>
+          <h1>Practical AI Safety Evaluations for Public-Interest Teams</h1>
+          <p class="publication-detail-lede">A practical framework for evaluating model failure modes before deployment in civic and public-service contexts.</p>
+          <ul class="publication-detail-meta">
+            <li><span>Published</span><strong>Mar 15, 2026</strong></li>
+            <li><span>Reading</span><strong>7 min</strong></li>
+            <li><span>Authors</span><strong>Dr. Mei Tanaka, Priya Sandhu</strong></li>
+          </ul>
         </div>
+        <figure class="publication-detail-cover">
+          <img src="../img/publications/safety-evaluations.svg" alt="Concentric ring illustration representing layered AI evaluation rounds" loading="lazy">
+        </figure>
       </div>
     </div>
   </section>
 
   <section class="publication-body">
-    <div class="container">
+    <div class="container publication-body-grid">
       <article class="publication-prose">
-        <p>AI evaluations should be understandable, repeatable, and proportionate to risk. For most public-interest teams, the challenge is not whether to evaluate systems, but how to do it with limited staff and budget.</p>
-        <p>VCASSE recommends a lightweight evaluation loop: define high-impact failure classes, design representative test sets, review findings with non-technical stakeholders, and publish plain-language summaries.</p>
-        <p>This approach improves transparency while giving policymakers and residents a clearer view of system behavior before deployment at scale.</p>
+        <p>AI evaluations should be understandable, repeatable, and proportionate to risk. For most public-interest teams, the challenge is not whether to evaluate systems, but how to do it with limited staff and budget &mdash; and how to communicate the result so that residents, elected officials, and journalists can engage with it.</p>
+
+        <h2>The lightweight evaluation loop</h2>
+        <p>VCASSE recommends a four-step loop you can run on a single sprint:</p>
+        <ol>
+          <li><strong>Define high-impact failure classes</strong> with the team that will be accountable for the system in production.</li>
+          <li><strong>Design representative test sets</strong> that reflect Vancouver's languages, neighbourhoods, accessibility needs, and edge cases.</li>
+          <li><strong>Review findings with non-technical stakeholders</strong> &mdash; service designers, frontline staff, and at least one external civic partner.</li>
+          <li><strong>Publish plain-language summaries</strong> that pair each metric with a short, honest interpretation.</li>
+        </ol>
+
+        <h2>What to test for first</h2>
+        <p>Public-interest deployments tend to fail along a small set of recurring axes: language coverage, demographic skew, refusal under stress, and brittle behaviour around novel jurisdictional inputs. Starting evaluations there closes the most common gaps before the system reaches a real applicant.</p>
+
+        <h2>Why the public summary matters</h2>
+        <p>A test report that no one outside the engineering team reads cannot create accountability. Plain-language summaries give policymakers and residents a shared reference, and they make it possible to compare deployments across departments and vendors.</p>
+
+        <blockquote class="publication-pull">"If you can't describe a failure mode in two sentences a city councillor would understand, you haven't tested for it yet."</blockquote>
+
+        <h2>Where to go from here</h2>
+        <p>This brief is the first in a series. Upcoming notes will cover red-teaming for civic chatbots, evaluation cadence after deployment, and how to share evaluation infrastructure across municipalities.</p>
       </article>
-      <p><a href="../publications.html" class="modern-card-link">Back to all publications <span aria-hidden="true">→</span></a></p>
+
+      <aside class="publication-aside" aria-label="Publication summary">
+        <div class="publication-aside-card">
+          <h3>Key takeaways</h3>
+          <ul>
+            <li>Run a four-step evaluation loop sized for small public teams.</li>
+            <li>Test first for language coverage, demographic skew, refusal, and novel input behaviour.</li>
+            <li>Publish plain-language summaries alongside any metric.</li>
+            <li>Treat evaluation reports as governance artefacts, not engineering memos.</li>
+          </ul>
+        </div>
+        <div class="publication-aside-card publication-aside-card--tags">
+          <h3>Tagged</h3>
+          <ul class="publication-tags">
+            <li>Evaluations</li><li>Risk</li><li>Governance</li>
+          </ul>
+        </div>
+      </aside>
     </div>
   </section>
 
+  <section class="home-section publications-related">
+    <div class="container">
+      <header class="home-section-header">
+        <p class="home-section-kicker">Related</p>
+        <h2 class="home-section-title">More from Safety</h2>
+      </header>
+      <div class="publication-cards-grid" data-related-publications data-pillar="safety" data-limit="2" data-exclude="safety-evaluations-public-interest"></div>
+    </div>
+  </section>
+
+  <section class="newsletter-band" aria-labelledby="newsletter-heading">
+    <div class="container">
+      <div class="newsletter-card">
+        <div class="newsletter-content">
+          <p class="newsletter-kicker">Newsletter &middot; <span class="newsletter-soon">Coming soon</span></p>
+          <h2 id="newsletter-heading">The VCASSE Briefing</h2>
+          <p class="newsletter-lede">A monthly dispatch with new publications and notes on what Vancouver should know about AI policy, infrastructure, and ethics.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="event.preventDefault();">
+          <label for="newsletter-email" class="visually-hidden">Email address</label>
+          <input type="email" id="newsletter-email" placeholder="you@example.com" disabled aria-disabled="true">
+          <button type="button" class="btn btn-primary" disabled aria-disabled="true">Notify me</button>
+          <p class="newsletter-note">Sign-ups open soon.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <h3>Vancouver Centre for AI Safety, Sustainability, and Ethics</h3>
+          <p>Vancouver's dedicated centre for responsible AI. We research, educate, and advocate across safety, sustainability, and ethics.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Focus Areas</h4>
+          <ul>
+            <li><a href="../safety.html"><span class="menu-label">Safety</span></a></li>
+            <li><a href="../sustainability.html"><span class="menu-label">Sustainability</span></a></li>
+            <li><a href="../ethics.html"><span class="menu-label">Ethics</span></a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="../events.html"><span class="menu-label">Events</span></a></li>
+            <li><a href="../publications.html"><span class="menu-label">Publications</span></a></li>
+            <li><a href="../about.html"><span class="menu-label">About</span></a></li>
+            <li><a href="../contact.html"><span class="menu-label">Contact</span></a></li>
+            <li><a href="../privacy.html"><span class="menu-label">Privacy Policy</span></a></li>
+            <li><a href="../terms.html"><span class="menu-label">Terms of Service</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span class="footer-year"></span> VCASSE. All rights reserved.<span class="footer-separator">|</span>A subsidiary of <a href="https://oasisofchange.org" target="_blank" rel="noopener noreferrer"><span class="menu-label">OASIS OF CHANGE, INC.</span></a></p>
+        <div class="footer-location">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Vancouver, BC, Canada
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/publications-data.js"></script>
+  <script src="../js/publications-related.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>

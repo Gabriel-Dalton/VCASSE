@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | VCASSE</title>
+  <meta name="description" content="Get in touch with the Vancouver Centre for AI Safety, Sustainability, and Ethics.">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/svg+xml" href="img/logo.svg">
 </head>
@@ -47,13 +48,16 @@
           Get in
           <span class="italic-accent">Touch</span>
         </h1>
-        <p class="page-hero-description">Whether you're a researcher, policymaker, or prospective collaborator, we'd love to hear from you. Our team is based in Vancouver, BC.</p>
+        <p class="page-hero-description">Whether you're a researcher, policymaker, journalist, or prospective collaborator, we'd love to hear from you. Our team is based in Vancouver, BC and collaborates globally.</p>
+        <ul class="page-hero-quicklinks" aria-label="Quick contact options">
+          <li><a href="#contact-form">Send a message</a></li>
+          <li><a href="mailto:info@vcasse.org">Email us</a></li>
+          <li><a href="#contact-faq">FAQ</a></li>
+        </ul>
       </div>
       <div class="page-hero-visual">
-        <div style="display: flex; flex-direction: column; gap: 16px; align-items: flex-end;">
-          <div class="hero-image-card">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=260&fit=crop&q=80" alt="Vancouver skyline" loading="lazy">
-          </div>
+        <div class="hero-image-card">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=260&fit=crop&q=80" alt="Vancouver skyline" loading="lazy">
         </div>
       </div>
     </div>
@@ -63,16 +67,36 @@
     <div class="container">
       <div class="contact-grid">
         <div class="contact-info">
-          <h3>Contact Information</h3>
-          <p>Whether you're a researcher, policymaker, journalist, or prospective partner, we'd love to hear from you. Our team is based in Vancouver, BC and collaborates globally.</p>
+          <h3>Contact information</h3>
+          <p>We read every message. Most enquiries get a first response within two business days. Time-sensitive media requests are flagged for same-day reply.</p>
 
           <div class="contact-detail">
             <div class="contact-detail-icon">
               <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             </div>
             <div>
-              <h4>Email</h4>
-              <p>info@vcasse.org</p>
+              <h4>General &amp; partnerships</h4>
+              <p><a href="mailto:info@vcasse.org">info@vcasse.org</a></p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 1a4 4 0 0 0-4 4v6a4 4 0 0 0 8 0V5a4 4 0 0 0-4-4zm6 10a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.93V22h2v-3.07A8 8 0 0 0 20 11h-2z"/></svg>
+            </div>
+            <div>
+              <h4>Media enquiries</h4>
+              <p><a href="mailto:media@vcasse.org">media@vcasse.org</a> &middot; same-day response when possible</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 7l-9 6L3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7zm-9 4l9-6H3l9 6z"/></svg>
+            </div>
+            <div>
+              <h4>Research collaborations</h4>
+              <p><a href="mailto:research@vcasse.org">research@vcasse.org</a> &middot; safety, sustainability, ethics</p>
             </div>
           </div>
 
@@ -81,46 +105,110 @@
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             </div>
             <div>
-              <h4>Address</h4>
-              <p>Vancouver, BC<br>Canada</p>
+              <h4>Where we work</h4>
+              <p>Vancouver, BC &middot; on the unceded territories of the Musqueam, Squamish, and Tsleil-Waututh Nations.</p>
             </div>
+          </div>
+
+          <div class="contact-info-card">
+            <p class="contact-info-card-kicker">Office hours</p>
+            <p class="contact-info-card-line">Mon &ndash; Fri &middot; 9:00 &ndash; 17:00 PT</p>
+            <p class="contact-info-card-meta">Closed on statutory holidays. Public events are listed on the <a href="events.html">events page</a>.</p>
           </div>
         </div>
 
-        <div class="contact-form">
-          <h3 style="font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 24px;">Send a Message</h3>
+        <div class="contact-form" id="contact-form">
+          <h3 class="contact-form-title">Send a message</h3>
+          <p class="contact-form-lede">Tell us a little about why you're reaching out. We'll route your message to the right person on our team.</p>
           <form action="#" method="POST">
             <div class="form-row">
               <div class="form-group">
-                <label for="firstName">First Name</label>
+                <label for="firstName">First name</label>
                 <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
               </div>
               <div class="form-group">
-                <label for="lastName">Last Name</label>
+                <label for="lastName">Last name</label>
                 <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
               </div>
             </div>
             <div class="form-group">
-              <label for="email">Email Address</label>
+              <label for="email">Email address</label>
               <input type="email" id="email" name="email" placeholder="jane@example.com" required>
             </div>
             <div class="form-group">
-              <label for="subject">Subject</label>
-              <select id="subject" name="subject">
-                <option value="">Select a topic...</option>
-                <option value="research">Research Collaboration</option>
-                <option value="partnership">Partnership</option>
-                <option value="media">Media Inquiry</option>
-                <option value="general">General Question</option>
+              <label for="organization">Organization <span class="form-optional">(optional)</span></label>
+              <input type="text" id="organization" name="organization" placeholder="e.g. City of Vancouver">
+            </div>
+            <div class="form-group">
+              <label for="subject">What is this about?</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a topic&hellip;</option>
+                <option value="research">Research collaboration</option>
+                <option value="partnership">Partnership or sponsorship</option>
+                <option value="policy">Policy &amp; government</option>
+                <option value="media">Media enquiry</option>
+                <option value="speaking">Speaking request</option>
+                <option value="general">General question</option>
               </select>
             </div>
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us about your inquiry..." required></textarea>
+              <textarea id="message" name="message" placeholder="Tell us about your enquiry&hellip;" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            <p class="contact-form-privacy">By sending, you agree to our <a href="privacy.html">privacy policy</a>. We never share your email.</p>
+            <button type="submit" class="btn btn-primary contact-form-submit">Send message</button>
           </form>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-faq" id="contact-faq" aria-labelledby="contact-faq-heading">
+    <div class="container">
+      <header class="home-section-header">
+        <p class="home-section-kicker">FAQ</p>
+        <h2 id="contact-faq-heading" class="home-section-title">Common questions</h2>
+        <p class="home-section-lead">Quick answers before you write &mdash; if anything here doesn't fit your situation, please send us a message.</p>
+      </header>
+      <div class="contact-faq-list">
+        <details class="contact-faq-item" open>
+          <summary>How quickly will I get a reply?</summary>
+          <p>Most enquiries receive a first response within two business days. Media enquiries are flagged for same-day attention when possible.</p>
+        </details>
+        <details class="contact-faq-item">
+          <summary>Can VCASSE speak at our event or panel?</summary>
+          <p>Yes &mdash; we accept speaking requests across safety, sustainability, and ethics topics. Use the form above and select <em>Speaking request</em>, and please include the date, format, and audience.</p>
+        </details>
+        <details class="contact-faq-item">
+          <summary>How do I propose a research collaboration?</summary>
+          <p>Reach out via <a href="mailto:research@vcasse.org">research@vcasse.org</a> with a short note describing the question, the data or partner involved, and the timeline. We'll set up a 30-minute scoping call.</p>
+        </details>
+        <details class="contact-faq-item">
+          <summary>Are you taking on student researchers or interns?</summary>
+          <p>We work with student researchers from Vancouver-area universities on a rolling basis. Send your CV and a paragraph on what you'd like to work on.</p>
+        </details>
+        <details class="contact-faq-item">
+          <summary>Where can I read your published work?</summary>
+          <p>All briefs, explainers, and research notes are on the <a href="publications.html">publications page</a>, filterable by pillar, tag, and date.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter-band" aria-labelledby="newsletter-heading">
+    <div class="container">
+      <div class="newsletter-card">
+        <div class="newsletter-content">
+          <p class="newsletter-kicker">Newsletter &middot; <span class="newsletter-soon">Coming soon</span></p>
+          <h2 id="newsletter-heading">The VCASSE Briefing</h2>
+          <p class="newsletter-lede">A monthly dispatch with new publications, upcoming public panels, and plain-language notes on what Vancouver should know about AI policy, infrastructure, and ethics.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="event.preventDefault();" aria-describedby="newsletter-soon-note">
+          <label for="newsletter-email" class="visually-hidden">Email address</label>
+          <input type="email" id="newsletter-email" placeholder="you@example.com" disabled aria-disabled="true">
+          <button type="button" class="btn btn-primary" disabled aria-disabled="true">Notify me</button>
+          <p class="newsletter-note" id="newsletter-soon-note">Sign-ups open soon &mdash; we're still setting things up.</p>
+        </form>
       </div>
     </div>
   </section>

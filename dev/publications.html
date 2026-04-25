@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Publications | VCASSE</title>
+  <meta name="description" content="Policy briefs, explainers, and research notes from VCASSE across AI safety, sustainability, and ethics.">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/svg+xml" href="img/logo.svg">
 </head>
@@ -38,111 +39,94 @@
     </div>
   </nav>
 
-  <section class="page-hero">
+  <section class="page-hero publications-hero">
     <div class="container">
       <div class="page-hero-content">
         <div class="section-label">PUBLICATIONS</div>
-        <h1 class="page-hero-title">Policy Briefs, Explainers, and Research Notes</h1>
-        <p class="page-hero-description">VCASSE publishes across Safety, Sustainability, and Ethics to support public understanding, policymaker decision-making, and accountable AI development.</p>
+        <h1 class="page-hero-title">
+          Policy briefs,
+          <span class="italic-accent">research &amp; explainers</span>
+        </h1>
+        <p class="page-hero-description">VCASSE publishes practical research across Safety, Sustainability, and Ethics &mdash; written to inform Vancouver's policymakers, developers, and residents as AI reshapes public life.</p>
+      </div>
+      <aside class="publications-hero-visual" aria-hidden="true">
+        <div class="publications-hero-stat-card">
+          <div class="publications-hero-stat">
+            <span class="publications-hero-stat-num" id="publicationsHeroCount">6</span>
+            <span class="publications-hero-stat-label">publications</span>
+          </div>
+          <ul class="publications-hero-pillars">
+            <li><span class="publication-pill publication-pill--safety">Safety</span><span>2</span></li>
+            <li><span class="publication-pill publication-pill--sustainability">Sustainability</span><span>2</span></li>
+            <li><span class="publication-pill publication-pill--ethics">Ethics</span><span>2</span></li>
+          </ul>
+          <p class="publications-hero-note">Updated continuously as our research program grows.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="publications-toolbar-section">
+    <div class="container">
+      <div class="publications-toolbar" role="region" aria-label="Publication filters">
+        <div class="publications-toolbar-row">
+          <div class="publication-filters" role="group" aria-label="Filter by pillar">
+            <button type="button" class="publication-filter active" data-pub-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="publication-filter publication-filter--safety" data-pub-filter="safety" aria-pressed="false">Safety</button>
+            <button type="button" class="publication-filter publication-filter--sustainability" data-pub-filter="sustainability" aria-pressed="false">Sustainability</button>
+            <button type="button" class="publication-filter publication-filter--ethics" data-pub-filter="ethics" aria-pressed="false">Ethics</button>
+          </div>
+          <div class="publications-search">
+            <svg class="publications-search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2a8 8 0 1 0 5.3 14.06l4.33 4.33 1.42-1.42-4.33-4.33A8 8 0 0 0 10 2zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12z" fill="currentColor"/></svg>
+            <input type="search" id="publicationsSearch" placeholder="Search title, tag, or author" aria-label="Search publications">
+          </div>
+        </div>
+        <div class="publications-toolbar-row publications-toolbar-row--dense">
+          <div class="publications-select-group">
+            <label for="publicationsTag">Tag</label>
+            <select id="publicationsTag">
+              <option value="all">All tags</option>
+            </select>
+          </div>
+          <div class="publications-select-group">
+            <label for="publicationsSort">Sort</label>
+            <select id="publicationsSort">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="az">A &ndash; Z</option>
+            </select>
+          </div>
+          <p class="publications-count" id="publicationsCount" aria-live="polite">Showing all 6 publications</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="home-section publications-index">
     <div class="container">
-      <header class="home-section-header">
-        <p class="home-section-kicker">Safety</p>
-        <h2 class="home-section-title">Safety publications</h2>
-      </header>
-      <div class="publication-cards-grid">
-        <article class="publication-card">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--safety">Safety</span>
-            <span>Mar 15, 2026</span>
-            <span>7 min read</span>
-          </div>
-          <h3>Practical AI Safety Evaluations for Public-Interest Teams</h3>
-          <p>A practical framework for evaluating model failure modes before deployment in civic and public-service contexts.</p>
-          <ul class="publication-tags"><li>Evaluations</li><li>Risk</li><li>Governance</li></ul>
-          <a class="modern-card-link" href="publications/safety-evaluations-public-interest.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="publication-card">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--safety">Safety</span>
-            <span>Dec 12, 2025</span>
-            <span>5 min read</span>
-          </div>
-          <h3>Incident Reporting Playbook for Responsible AI Teams</h3>
-          <p>A simple operational playbook for classifying incidents, escalating quickly, and learning from postmortems.</p>
-          <ul class="publication-tags"><li>Operations</li><li>Incident Response</li><li>Monitoring</li></ul>
-          <a class="modern-card-link" href="publications/incident-reporting-playbook.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
+      <div class="publications-grid" id="publicationsGrid" aria-live="polite"></div>
+      <div class="publications-empty" id="publicationsEmpty" hidden>
+        <h3>No publications match those filters yet.</h3>
+        <p>Try a broader pillar, clear the search, or reset the filters.</p>
+        <button type="button" class="btn btn-secondary" id="publicationsReset">Reset filters</button>
       </div>
     </div>
   </section>
 
-  <section class="home-section publications-index">
+  <section class="newsletter-band" aria-labelledby="newsletter-heading">
     <div class="container">
-      <header class="home-section-header">
-        <p class="home-section-kicker">Sustainability</p>
-        <h2 class="home-section-title">Sustainability publications</h2>
-      </header>
-      <div class="publication-cards-grid">
-        <article class="publication-card">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--sustainability">Sustainability</span>
-            <span>Feb 27, 2026</span>
-            <span>6 min read</span>
-          </div>
-          <h3>A Sustainability Checklist for AI Procurement</h3>
-          <p>How organizations can ask better vendor questions around energy use, lifecycle impact, and reporting transparency.</p>
-          <ul class="publication-tags"><li>Climate</li><li>Procurement</li><li>Infrastructure</li></ul>
-          <a class="modern-card-link" href="publications/sustainability-procurement-checklist.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="publication-card">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--sustainability">Sustainability</span>
-            <span>Nov 19, 2025</span>
-            <span>6 min read</span>
-          </div>
-          <h3>Energy Footprint Reporting: A Starter Standard</h3>
-          <p>A baseline reporting format for teams that want to disclose AI energy impact with minimal overhead.</p>
-          <ul class="publication-tags"><li>Reporting</li><li>Standards</li><li>Metrics</li></ul>
-          <a class="modern-card-link" href="publications/energy-footprint-reporting-standard.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="home-section publications-index">
-    <div class="container">
-      <header class="home-section-header">
-        <p class="home-section-kicker">Ethics</p>
-        <h2 class="home-section-title">Ethics publications</h2>
-      </header>
-      <div class="publication-cards-grid">
-        <article class="publication-card">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--ethics">Ethics</span>
-            <span>Jan 31, 2026</span>
-            <span>8 min read</span>
-          </div>
-          <h3>Participatory Ethics in Municipal AI Decisions</h3>
-          <p>Why public-facing AI decisions should include structured resident participation, not only internal review.</p>
-          <ul class="publication-tags"><li>Inclusion</li><li>Policy</li><li>Public Deliberation</li></ul>
-          <a class="modern-card-link" href="publications/participatory-ethics-municipal-ai.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="publication-card">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--ethics">Ethics</span>
-            <span>Oct 28, 2025</span>
-            <span>7 min read</span>
-          </div>
-          <h3>Human Oversight Design Patterns That Actually Work</h3>
-          <p>Common oversight patterns fail when reviewers are overloaded. These design patterns improve decision quality.</p>
-          <ul class="publication-tags"><li>Human-in-the-loop</li><li>UX</li><li>Accountability</li></ul>
-          <a class="modern-card-link" href="publications/human-oversight-design-patterns.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
+      <div class="newsletter-card">
+        <div class="newsletter-content">
+          <p class="newsletter-kicker">Newsletter &middot; <span class="newsletter-soon">Coming soon</span></p>
+          <h2 id="newsletter-heading">The VCASSE Briefing</h2>
+          <p class="newsletter-lede">A monthly dispatch with new publications, upcoming public panels, and plain-language notes on what Vancouver should know about AI policy, infrastructure, and ethics.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="event.preventDefault();" aria-describedby="newsletter-soon-note">
+          <label for="newsletter-email" class="visually-hidden">Email address</label>
+          <input type="email" id="newsletter-email" placeholder="you@example.com" disabled aria-disabled="true">
+          <button type="button" class="btn btn-primary" disabled aria-disabled="true">Notify me</button>
+          <p class="newsletter-note" id="newsletter-soon-note">Sign-ups open soon &mdash; we're still setting things up.</p>
+        </form>
       </div>
     </div>
   </section>
@@ -188,6 +172,8 @@
     </div>
   </footer>
 
+  <script src="js/publications-data.js"></script>
+  <script src="js/publications-page.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

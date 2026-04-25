@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Layered tiles representing a procurement checklist">
+  <defs>
+    <linearGradient id="sust-proc-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#082a4d"/>
+      <stop offset="1" stop-color="#0d4f8b"/>
+    </linearGradient>
+    <linearGradient id="sust-proc-accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6cb4e4"/>
+      <stop offset="1" stop-color="#a8d3ec"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#sust-proc-bg)"/>
+  <g fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1">
+    <path d="M0 360 Q200 320 400 360 T800 360"/>
+    <path d="M0 400 Q200 360 400 400 T800 400"/>
+  </g>
+  <g transform="translate(440 80)" stroke="rgba(207,226,243,0.5)" stroke-width="1.2" fill="none">
+    <rect x="0" y="0" width="300" height="54" rx="10"/>
+    <rect x="0" y="70" width="300" height="54" rx="10"/>
+    <rect x="0" y="140" width="300" height="54" rx="10"/>
+    <rect x="0" y="210" width="300" height="54" rx="10"/>
+  </g>
+  <g transform="translate(440 80)">
+    <g fill="#6cb4e4">
+      <circle cx="30" cy="27" r="10"/>
+      <circle cx="30" cy="97" r="10"/>
+      <circle cx="30" cy="167" r="10" opacity="0.45"/>
+      <circle cx="30" cy="237" r="10" opacity="0.45"/>
+    </g>
+    <g stroke="#082a4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M24 27 l4 5 l8 -9"/>
+      <path d="M24 97 l4 5 l8 -9"/>
+    </g>
+    <g fill="rgba(255,255,255,0.9)" font-family="'IBM Plex Mono', monospace" font-size="13" letter-spacing="2">
+      <text x="56" y="32">ENERGY DISCLOSURE</text>
+      <text x="56" y="102">LIFECYCLE IMPACT</text>
+      <text x="56" y="172" opacity="0.55">SUPPLIER TRANSPARENCY</text>
+      <text x="56" y="242" opacity="0.55">END-OF-LIFE PLAN</text>
+    </g>
+  </g>
+  <g transform="translate(56 76)" font-family="'IBM Plex Mono', monospace" fill="#cfe2f3" font-size="12" letter-spacing="3">
+    <text y="0" opacity="0.65">VCASSE / SUSTAINABILITY</text>
+    <text y="22" opacity="0.4">CHECKLIST · PROCUREMENT</text>
+  </g>
+  <g transform="translate(56 220)" fill="#ffffff" font-family="'IBM Plex Sans', 'Inter', sans-serif">
+    <text font-size="32" font-weight="600" letter-spacing="-0.5">Better</text>
+    <text y="42" font-size="32" font-weight="600" letter-spacing="-0.5">vendor</text>
+    <text y="84" font-size="32" font-weight="600" letter-spacing="-0.5" fill="url(#sust-proc-accent)">questions</text>
+  </g>
+</svg>

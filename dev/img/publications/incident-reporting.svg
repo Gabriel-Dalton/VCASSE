@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Abstract signal waveform representing incident reporting">
+  <defs>
+    <linearGradient id="incident-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#051a2e"/>
+      <stop offset="0.6" stop-color="#082a4d"/>
+      <stop offset="1" stop-color="#0d4f8b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#incident-bg)"/>
+  <g stroke="rgba(108,180,228,0.18)" stroke-width="1">
+    <line x1="0" y1="90" x2="800" y2="90"/>
+    <line x1="0" y1="180" x2="800" y2="180"/>
+    <line x1="0" y1="270" x2="800" y2="270"/>
+    <line x1="0" y1="360" x2="800" y2="360"/>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 300 L120 300 L150 260 L190 340 L230 210 L275 360 L320 290 L360 300 L440 300 L475 220 L520 380 L565 140 L615 360 L665 300 L760 300"
+          stroke="#6cb4e4" stroke-width="3" opacity="0.9"/>
+    <path d="M40 320 L200 320 L230 310 L280 340 L340 320 L400 320 L450 310 L510 340 L580 320 L760 320"
+          stroke="rgba(207,226,243,0.4)" stroke-width="1.5"/>
+  </g>
+  <g fill="#6cb4e4">
+    <circle cx="565" cy="140" r="6"/>
+    <circle cx="520" cy="380" r="4" opacity="0.7"/>
+    <circle cx="275" cy="360" r="4" opacity="0.7"/>
+  </g>
+  <g transform="translate(56 76)" font-family="'IBM Plex Mono', ui-monospace, monospace" fill="#cfe2f3" font-size="12" letter-spacing="3">
+    <text y="0" opacity="0.65">VCASSE / SAFETY</text>
+    <text y="22" opacity="0.4">PLAYBOOK · INCIDENTS</text>
+  </g>
+  <g transform="translate(56 200)" fill="#ffffff" font-family="'IBM Plex Sans', 'Inter', sans-serif">
+    <text font-size="32" font-weight="600" letter-spacing="-0.5">Report · Escalate</text>
+    <text y="42" font-size="32" font-weight="600" letter-spacing="-0.5" fill="#6cb4e4">Learn</text>
+  </g>
+</svg>
