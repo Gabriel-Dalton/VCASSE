@@ -1,5 +1,21 @@
 {
   "enabledPlugins": {
     "vercel@claude-plugins-official": true
+  },
+  "permissions": {
+    "deny": [
+      "Read(../**)",
+      "Read(~/**)",
+      "Read(//c/**)",
+      "Read(//d/**)",
+      "Edit(../**)",
+      "Edit(~/**)",
+      "Edit(//c/**)",
+      "Edit(//d/**)",
+      "Write(../**)",
+      "Write(~/**)",
+      "Write(//c/**)",
+      "Write(//d/**)"
+    ]
   }
 }
