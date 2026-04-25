@@ -8,7 +8,22 @@
       "Bash(python -c \"import sys; open\\('.graphify_python', 'w'\\).write\\(sys.executable\\)\")",
       "Bash(python -c ':*)",
       "Bash(mkdir -p graphify-out)",
-      "Bash(rm -f .graphify_detect.json .graphify_extract.json .graphify_ast.json .graphify_semantic.json .graphify_analysis.json .graphify_labels.json .graphify_cached.json .graphify_uncached.txt .graphify_semantic_new.json)"
+      "Bash(rm -f .graphify_detect.json .graphify_extract.json .graphify_ast.json .graphify_semantic.json .graphify_analysis.json .graphify_labels.json .graphify_cached.json .graphify_uncached.txt .graphify_semantic_new.json)",
+      "PowerShell(Get-Command *)",
+      "PowerShell(winget install *)",
+      "PowerShell(Test-Path *)",
+      "PowerShell($py = \"C:\\\\Users\\\\Gabriel\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python313\\\\python.exe\"; & $py -c \"import graphify\"; if \\($LASTEXITCODE -ne 0\\) { & $py -m pip install graphifyy -q | Select-Object -Last 5 }; & $py -c \"import sys; open\\('.graphify_python','w'\\).write\\(sys.executable\\); print\\(sys.executable\\)\")",
+      "PowerShell($py = Get-Content .graphify_python; & $py -c \"import graphify; print\\(graphify.__version__ if hasattr\\(graphify,'__version__'\\) else 'ok'\\)\")",
+      "PowerShell($py = Get-Content .graphify_python; & $py .graphify_step3a.py)",
+      "PowerShell($py = Get-Content .graphify_python; & $py .graphify_step3b_cache.py)",
+      "PowerShell($py = Get-Content .graphify_python; & $py .graphify_step3b_merge.py)",
+      "PowerShell($py = Get-Content .graphify_python; & $py .graphify_step3c.py)",
+      "PowerShell($py = Get-Content .graphify_python; & $py .graphify_step4.py)",
+      "PowerShell($py = Get-Content .graphify_python; & $py .graphify_step5_inspect.py)",
+      "PowerShell($py = Get-Content .graphify_python; & $py .graphify_step5_label.py)",
+      "PowerShell($py = Get-Content .graphify_python; & $py .graphify_step6.py)",
+      "PowerShell($py = Get-Content .graphify_python; & $py .graphify_step8.py)",
+      "PowerShell($env:PYTHONIOENCODING = \"utf-8\"; $py = Get-Content .graphify_python; & $py .graphify_step8.py)"
     ]
   }
 }

@@ -1,0 +1,279 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "VCASSE Vancouver Centre for AI Safety, Sustainability, & Ethics" [ref=e4] [cursor=pointer]:
+        - /url: index.html
+        - img "VCASSE" [ref=e5]
+        - generic [ref=e6]:
+          - generic [ref=e7]: Vancouver Centre for AI Safety,
+          - generic [ref=e8]: Sustainability, & Ethics
+      - list [ref=e9]:
+        - listitem [ref=e10]:
+          - link "Home" [ref=e11] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=e12]:
+          - link "About" [ref=e13] [cursor=pointer]:
+            - /url: about.html
+        - listitem [ref=e14]:
+          - button "Research" [ref=e15] [cursor=pointer]:
+            - generic [ref=e16]: Research
+            - img [ref=e17]
+        - listitem [ref=e19]:
+          - link "Events" [ref=e20] [cursor=pointer]:
+            - /url: events.html
+        - listitem [ref=e21]:
+          - link "Contact" [ref=e22] [cursor=pointer]:
+            - /url: contact.html
+      - link "View publications" [ref=e24] [cursor=pointer]:
+        - /url: publications.html
+        - generic [ref=e25]: View publications
+  - generic [ref=e27]:
+    - generic [ref=e28]:
+      - generic [ref=e29]: GATHERINGS
+      - heading "Events & Calendar" [level=1] [ref=e30]
+      - paragraph [ref=e31]: VCASSE-hosted programmes alongside Vancouver happenings we unofficially recommend for people who care about responsible AI. Use the calendar to scan dates; RSVPs and the full schedule live on Luma.
+      - paragraph [ref=e32]:
+        - link "Jump to calendar & RSVP" [ref=e33] [cursor=pointer]:
+          - /url: "#luma-rsvp"
+          - text: Jump to calendar & RSVP
+          - generic [ref=e34]: ↓
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - paragraph [ref=e38]: THIS SEASON
+        - paragraph [ref=e39]: Talks · workshops · city picks
+      - figure "Vancouver & region" [ref=e40]:
+        - img "Vancouver harbour and mountains" [ref=e42]
+        - generic [ref=e43]: Vancouver & region
+  - generic [ref=e46]:
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - button "Previous month" [ref=e49] [cursor=pointer]:
+          - img [ref=e50]
+        - heading "April 2026" [level=2] [ref=e52]
+        - button "Next month" [ref=e53] [cursor=pointer]:
+          - img [ref=e54]
+      - generic "Event calendar" [ref=e56]:
+        - row "Mon Tue Wed Thu Fri Sat Sun" [ref=e57]:
+          - columnheader "Mon" [ref=e58]
+          - columnheader "Tue" [ref=e59]
+          - columnheader "Wed" [ref=e60]
+          - columnheader "Thu" [ref=e61]
+          - columnheader "Fri" [ref=e62]
+          - columnheader "Sat" [ref=e63]
+          - columnheader "Sun" [ref=e64]
+        - grid [ref=e65]:
+          - row "2026-04-01 2026-04-02 2026-04-03 2026-04-04 2026-04-05" [ref=e66]:
+            - gridcell [ref=e67]
+            - gridcell [ref=e68]
+            - gridcell "2026-04-01" [ref=e69] [cursor=pointer]:
+              - generic [ref=e70]: "1"
+            - gridcell "2026-04-02" [ref=e71] [cursor=pointer]:
+              - generic [ref=e72]: "2"
+            - gridcell "2026-04-03" [ref=e73] [cursor=pointer]:
+              - generic [ref=e74]: "3"
+            - gridcell "2026-04-04" [ref=e75] [cursor=pointer]:
+              - generic [ref=e76]: "4"
+            - gridcell "2026-04-05" [ref=e77] [cursor=pointer]:
+              - generic [ref=e78]: "5"
+          - row "2026-04-06 2026-04-07 Events on 2026-04-08 2026-04-09 2026-04-10 2026-04-11 Events on 2026-04-12" [ref=e79]:
+            - gridcell "2026-04-06" [ref=e80] [cursor=pointer]:
+              - generic [ref=e81]: "6"
+            - gridcell "2026-04-07" [ref=e82] [cursor=pointer]:
+              - generic [ref=e83]: "7"
+            - gridcell "Events on 2026-04-08" [ref=e84] [cursor=pointer]:
+              - generic [ref=e85]: "8"
+            - gridcell "2026-04-09" [ref=e88] [cursor=pointer]:
+              - generic [ref=e89]: "9"
+            - gridcell "2026-04-10" [ref=e90] [cursor=pointer]:
+              - generic [ref=e91]: "10"
+            - gridcell "2026-04-11" [ref=e92] [cursor=pointer]:
+              - generic [ref=e93]: "11"
+            - gridcell "Events on 2026-04-12" [ref=e94] [cursor=pointer]:
+              - generic [ref=e95]: "12"
+          - row "2026-04-13 2026-04-14 2026-04-15 2026-04-16 2026-04-17 2026-04-18 Events on 2026-04-19" [ref=e98]:
+            - gridcell "2026-04-13" [ref=e99] [cursor=pointer]:
+              - generic [ref=e100]: "13"
+            - gridcell "2026-04-14" [ref=e101] [cursor=pointer]:
+              - generic [ref=e102]: "14"
+            - gridcell "2026-04-15" [ref=e103] [cursor=pointer]:
+              - generic [ref=e104]: "15"
+            - gridcell "2026-04-16" [ref=e105] [cursor=pointer]:
+              - generic [ref=e106]: "16"
+            - gridcell "2026-04-17" [ref=e107] [cursor=pointer]:
+              - generic [ref=e108]: "17"
+            - gridcell "2026-04-18" [ref=e109] [cursor=pointer]:
+              - generic [ref=e110]: "18"
+            - gridcell "Events on 2026-04-19" [ref=e111] [cursor=pointer]:
+              - generic [ref=e112]: "19"
+          - row "2026-04-20 2026-04-21 Events on 2026-04-22 2026-04-23 2026-04-24 2026-04-25 2026-04-26" [ref=e115]:
+            - gridcell "2026-04-20" [ref=e116] [cursor=pointer]:
+              - generic [ref=e117]: "20"
+            - gridcell "2026-04-21" [ref=e118] [cursor=pointer]:
+              - generic [ref=e119]: "21"
+            - gridcell "Events on 2026-04-22" [ref=e120] [cursor=pointer]:
+              - generic [ref=e121]: "22"
+            - gridcell "2026-04-23" [ref=e124] [cursor=pointer]:
+              - generic [ref=e125]: "23"
+            - gridcell "2026-04-24" [ref=e126] [cursor=pointer]:
+              - generic [ref=e127]: "24"
+            - gridcell "2026-04-25" [ref=e128] [cursor=pointer]:
+              - generic [ref=e129]: "25"
+            - gridcell "2026-04-26" [ref=e130] [cursor=pointer]:
+              - generic [ref=e131]: "26"
+          - row "2026-04-27 2026-04-28 2026-04-29 2026-04-30" [ref=e132]:
+            - gridcell "2026-04-27" [ref=e133] [cursor=pointer]:
+              - generic [ref=e134]: "27"
+            - gridcell "2026-04-28" [ref=e135] [cursor=pointer]:
+              - generic [ref=e136]: "28"
+            - gridcell "2026-04-29" [ref=e137] [cursor=pointer]:
+              - generic [ref=e138]: "29"
+            - gridcell "2026-04-30" [ref=e139] [cursor=pointer]:
+              - generic [ref=e140]: "30"
+            - gridcell [ref=e141]
+            - gridcell [ref=e142]
+            - gridcell [ref=e143]
+      - paragraph [ref=e145]: Select a date on the calendar to see what is scheduled.
+    - complementary "RSVP on Luma" [ref=e146]:
+      - paragraph [ref=e147]: External calendar
+      - heading "RSVP on Luma" [level=3] [ref=e148]
+      - paragraph [ref=e149]: This page shows a quick month view. For registration, waitlists, and email updates, use our public Luma calendar (opens in a new tab).
+      - link "Open Luma calendar" [ref=e150] [cursor=pointer]:
+        - /url: https://lu.ma/vcasse
+        - img [ref=e151]
+        - text: Open Luma calendar
+  - generic [ref=e154]:
+    - generic [ref=e155]:
+      - paragraph [ref=e156]: VCASSE
+      - heading "Our events" [level=2] [ref=e157]
+      - paragraph [ref=e158]: Hosted or co-hosted by VCASSE, with safety, sustainability, and ethics in focus.
+    - generic [ref=e159]:
+      - article [ref=e160]:
+        - generic [ref=e161]:
+          - generic [ref=e162]: VCASSE event
+          - generic [ref=e163]: Apr 12, 2026
+          - generic [ref=e164]: 2:00 – 4:00 PM
+        - heading "Responsible AI in the Public Sector — Open Forum" [level=3] [ref=e165]
+        - paragraph [ref=e166]: VCASSE hosts a community conversation on accountability, procurement, and resident impact.
+        - list [ref=e167]:
+          - listitem [ref=e168]: Downtown Vancouver (TBA)
+      - article [ref=e169]:
+        - generic [ref=e170]:
+          - generic [ref=e171]: VCASSE event
+          - generic [ref=e172]: Apr 22, 2026
+          - generic [ref=e173]: 6:30 – 8:30 PM
+        - heading "Safety & Evaluations Reading Group" [level=3] [ref=e174]
+        - paragraph [ref=e175]: Monthly discussion of recent papers on evaluations and incident learning.
+        - list [ref=e176]:
+          - listitem [ref=e177]: Hybrid (Vancouver + online)
+      - article [ref=e178]:
+        - generic [ref=e179]:
+          - generic [ref=e180]: VCASSE event
+          - generic [ref=e181]: May 3, 2026
+          - generic [ref=e182]: 10:00 AM – 3:00 PM
+        - heading "Spring Sustainability & AI Workshop" [level=3] [ref=e183]
+        - paragraph [ref=e184]: Hands-on session on energy reporting and procurement checklists for local teams.
+        - list [ref=e185]:
+          - listitem [ref=e186]: Vancouver
+  - generic [ref=e188]:
+    - generic [ref=e189]:
+      - paragraph [ref=e190]: Vancouver
+      - heading "City picks we recommend" [level=2] [ref=e191]
+      - paragraph [ref=e192]: Independent Vancouver events we do not run, shared because they often matter to our community. Listing here is not an endorsement of every speaker or sponsor.
+    - generic [ref=e193]:
+      - article [ref=e194]:
+        - generic [ref=e195]:
+          - generic [ref=e196]: Vancouver pick
+          - generic [ref=e197]: Apr 8, 2026
+          - generic [ref=e198]: 7:00 – 9:00 PM
+        - heading "Vancouver Tech Meetup — AI & Society" [level=3] [ref=e199]
+        - paragraph [ref=e200]: Unaffiliated meetup; VCASSE attendees often join for hallway conversations.
+        - list [ref=e201]:
+          - listitem [ref=e202]: Mount Pleasant
+        - link "Details" [ref=e203] [cursor=pointer]:
+          - /url: https://lu.ma
+          - text: Details
+          - generic [ref=e204]: ↗
+      - article [ref=e205]:
+        - generic [ref=e206]:
+          - generic [ref=e207]: Vancouver pick
+          - generic [ref=e208]: Apr 19, 2026
+          - generic [ref=e209]: All day
+        - heading "Coastal Cities Civic Tech Gathering" [level=3] [ref=e210]
+        - paragraph [ref=e211]: Regional civic-tech programme; several Vancouver AI ethics panels.
+        - list [ref=e212]:
+          - listitem [ref=e213]: Convention Centre area
+      - article [ref=e214]:
+        - generic [ref=e215]:
+          - generic [ref=e216]: Vancouver pick
+          - generic [ref=e217]: May 17, 2026
+          - generic [ref=e218]: 1:00 – 5:00 PM
+        - heading "Indigenous Data & AI Symposium (satellite)" [level=3] [ref=e219]
+        - paragraph [ref=e220]: Recommended for members following participatory ethics and governance themes.
+        - list [ref=e221]:
+          - listitem [ref=e222]: UBC / streamed
+  - generic [ref=e223]:
+    - img
+    - generic [ref=e224]:
+      - heading "Want to collaborate on an event?" [level=2] [ref=e225]
+      - paragraph [ref=e226]: Tell us about a talk, workshop, or community session that should be on Vancouver’s responsible-AI map.
+      - generic [ref=e227]:
+        - link "Contact VCASSE" [ref=e228] [cursor=pointer]:
+          - /url: contact.html
+          - generic [ref=e229]: Contact VCASSE
+        - link "Read publications" [ref=e230] [cursor=pointer]:
+          - /url: publications.html
+          - generic [ref=e231]: Read publications
+  - region "The VCASSE Briefing" [ref=e232]:
+    - generic [ref=e234]:
+      - generic [ref=e235]:
+        - heading "The VCASSE Briefing" [level=2] [ref=e236]
+        - paragraph [ref=e237]: A monthly dispatch with new publications, upcoming public panels, and plain-language notes on what Vancouver should know about AI policy, infrastructure, and ethics.
+      - generic [ref=e238]:
+        - generic [ref=e239]: Email address
+        - textbox "Email address" [disabled]:
+          - /placeholder: you@example.com
+        - button "Notify me" [disabled]
+  - contentinfo [ref=e240]:
+    - generic [ref=e241]:
+      - generic [ref=e242]:
+        - generic [ref=e243]:
+          - heading "Vancouver Centre for AI Safety, Sustainability, and Ethics" [level=3] [ref=e244]
+          - paragraph [ref=e245]: Vancouver's dedicated centre for responsible AI. We research, educate, and advocate across safety, sustainability, and ethics.
+        - generic [ref=e246]:
+          - heading "Focus Areas" [level=4] [ref=e247]
+          - list [ref=e248]:
+            - listitem [ref=e249]:
+              - link "Safety" [ref=e250] [cursor=pointer]:
+                - /url: safety.html
+            - listitem [ref=e251]:
+              - link "Sustainability" [ref=e252] [cursor=pointer]:
+                - /url: sustainability.html
+            - listitem [ref=e253]:
+              - link "Ethics" [ref=e254] [cursor=pointer]:
+                - /url: ethics.html
+        - generic [ref=e255]:
+          - heading "Information" [level=4] [ref=e256]
+          - list [ref=e257]:
+            - listitem [ref=e258]:
+              - link "Events" [ref=e259] [cursor=pointer]:
+                - /url: events.html
+            - listitem [ref=e260]:
+              - link "About" [ref=e261] [cursor=pointer]:
+                - /url: about.html
+            - listitem [ref=e262]:
+              - link "Contact" [ref=e263] [cursor=pointer]:
+                - /url: contact.html
+            - listitem [ref=e264]:
+              - link "Privacy Policy" [ref=e265] [cursor=pointer]:
+                - /url: privacy.html
+            - listitem [ref=e266]:
+              - link "Terms of Service" [ref=e267] [cursor=pointer]:
+                - /url: terms.html
+      - generic [ref=e268]:
+        - paragraph [ref=e269]:
+          - text: © 2026 VCASSE. All rights reserved.|A subsidiary of
+          - link "OASIS OF CHANGE, INC." [ref=e270] [cursor=pointer]:
+            - /url: https://oasisofchange.com
+        - generic [ref=e271]:
+          - img [ref=e272]
+          - text: Vancouver, BC, Canada
