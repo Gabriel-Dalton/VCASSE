@@ -1301,7 +1301,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .footer {
   background: var(--brand-band);
-  padding: 80px 0 0;
+  padding: 64px 0 0;
   position: relative;
   overflow: hidden;
 }
@@ -2952,12 +2952,12 @@ noscript + * .fade-in,
 /* ─────────────── NEWSLETTER COMING SOON ─────────────── */
 
 .newsletter-band {
-  padding: 72px 0 24px;
-  background: var(--brand-band);
+  padding: 72px 0 0;
+  margin-bottom: 28px;
 }
 
 .newsletter-card {
-  background: linear-gradient(160deg, var(--bg-dark) 0%, var(--primary-dark) 60%, var(--primary) 130%);
+  background: var(--bg-dark);
   color: var(--white);
   border-radius: 20px;
   padding: 44px 48px;
@@ -2968,22 +2968,11 @@ noscript + * .fade-in,
   text-align: left;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 20px 48px -16px rgba(8, 42, 77, 0.45);
-  z-index: 1;
-}
-
-.newsletter-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 22px 22px;
-  pointer-events: none;
+  box-shadow: 0 20px 48px -16px rgba(8, 42, 77, 0.35);
 }
 
 .newsletter-card > * {
   position: relative;
-  z-index: 1;
 }
 
 .newsletter-card h2 {
@@ -3255,7 +3244,8 @@ noscript + * .fade-in,
     gap: 24px;
   }
   .newsletter-band {
-    padding: 64px 0 20px;
+    padding: 64px 0 0;
+    margin-bottom: 24px;
   }
   .newsletter-form {
     max-width: 100%;
@@ -3305,7 +3295,8 @@ noscript + * .fade-in,
     align-items: stretch;
   }
   .newsletter-band {
-    padding: 56px 0 16px;
+    padding: 56px 0 0;
+    margin-bottom: 20px;
   }
   .newsletter-form {
     flex-direction: column;
