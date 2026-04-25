@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Bar chart representing an energy footprint reporting standard">
+  <defs>
+    <linearGradient id="energy-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#082a4d"/>
+      <stop offset="1" stop-color="#0d4f8b"/>
+    </linearGradient>
+    <linearGradient id="energy-bar" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#6cb4e4" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#6cb4e4"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#energy-bg)"/>
+  <g stroke="rgba(207,226,243,0.12)" stroke-width="1">
+    <line x1="420" y1="120" x2="760" y2="120"/>
+    <line x1="420" y1="180" x2="760" y2="180"/>
+    <line x1="420" y1="240" x2="760" y2="240"/>
+    <line x1="420" y1="300" x2="760" y2="300"/>
+    <line x1="420" y1="360" x2="760" y2="360"/>
+  </g>
+  <g fill="url(#energy-bar)">
+    <rect x="440" y="260" width="34" height="100" rx="6"/>
+    <rect x="488" y="200" width="34" height="160" rx="6"/>
+    <rect x="536" y="230" width="34" height="130" rx="6"/>
+    <rect x="584" y="150" width="34" height="210" rx="6"/>
+    <rect x="632" y="180" width="34" height="180" rx="6"/>
+    <rect x="680" y="130" width="34" height="230" rx="6"/>
+  </g>
+  <g fill="none" stroke="#cfe2f3" stroke-width="2" stroke-linecap="round">
+    <path d="M440 245 Q505 200 570 215 T750 150"/>
+  </g>
+  <g fill="#cfe2f3">
+    <circle cx="440" cy="245" r="4"/>
+    <circle cx="750" cy="150" r="5"/>
+  </g>
+  <g transform="translate(56 76)" font-family="'IBM Plex Mono', monospace" fill="#cfe2f3" font-size="12" letter-spacing="3">
+    <text y="0" opacity="0.65">VCASSE / SUSTAINABILITY</text>
+    <text y="22" opacity="0.4">REPORTING · STANDARD</text>
+  </g>
+  <g transform="translate(56 220)" fill="#ffffff" font-family="'IBM Plex Sans', 'Inter', sans-serif">
+    <text font-size="32" font-weight="600" letter-spacing="-0.5">Measure.</text>
+    <text y="42" font-size="32" font-weight="600" letter-spacing="-0.5">Disclose.</text>
+    <text y="84" font-size="32" font-weight="600" letter-spacing="-0.5" fill="#6cb4e4">Improve.</text>
+  </g>
+</svg>

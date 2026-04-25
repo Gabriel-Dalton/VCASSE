@@ -4,13 +4,171 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Incident Reporting Playbook for Responsible AI Teams | VCASSE</title>
+  <meta name="description" content="A simple operational playbook for classifying incidents, escalating quickly, and learning from postmortems.">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="icon" type="image/svg+xml" href="../img/logo.svg">
 </head>
 <body>
-  <nav class="navbar"><div class="container"><a href="../index.html" class="nav-logo nav-logo-mark"><img src="../img/logo.svg" alt="VCASSE" width="28" height="28">VCASSE</a><ul class="nav-links" id="navLinks"><li><a href="../index.html"><span class="menu-label">Home</span></a></li><li class="nav-dropdown"><button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="navResearchMenu">Focus Areas<svg class="nav-chevron" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v12M6 12h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><ul class="nav-dropdown-menu" id="navResearchMenu" role="menu"><li role="none"><a href="../safety.html" role="menuitem"><span class="menu-label">Safety</span></a></li><li role="none"><a href="../sustainability.html" role="menuitem"><span class="menu-label">Sustainability</span></a></li><li role="none"><a href="../ethics.html" role="menuitem"><span class="menu-label">Ethics</span></a></li></ul></li><li><a href="../events.html"><span class="menu-label">Events</span></a></li><li><a href="../publications.html" class="active"><span class="menu-label">Publications</span></a></li><li><a href="../about.html"><span class="menu-label">About</span></a></li><li><a href="../contact.html"><span class="menu-label">Contact</span></a></li></ul><button type="button" class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button></div></nav>
-  <section class="page-hero publication-hero"><div class="container"><div class="page-hero-content"><div class="section-label">PUBLICATION</div><h1 class="page-hero-title">Incident Reporting Playbook for Responsible AI Teams</h1><p class="page-hero-description">A simple operational playbook for classifying incidents, escalating quickly, and learning from postmortems.</p><div class="publication-post-meta"><span class="publication-pill publication-pill--safety">Safety</span><span>Dec 12, 2025</span><span>5 min read</span></div></div></div></section>
-  <section class="publication-body"><div class="container"><article class="publication-prose"><p>Teams often detect AI failures but lack a shared response protocol. This playbook introduces severity tiers, ownership assignments, escalation windows, and post-incident documentation standards.</p><p>VCASSE proposes consistent incident taxonomies so safety events can be tracked across tools, vendors, and departments. Clear categorization helps organizations move from reaction to prevention.</p><p>Postmortems should include model behavior, social impact, mitigation timing, and corrective actions for future deployments.</p></article><p><a href="../publications.html" class="modern-card-link">Back to all publications <span aria-hidden="true">→</span></a></p></div></section>
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo nav-logo-mark">
+        <img src="../img/logo.svg" alt="VCASSE" width="28" height="28">
+        VCASSE
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html"><span class="menu-label">Home</span></a></li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="navResearchMenu">
+            <span class="menu-label">Research</span>
+            <svg class="nav-chevron" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v12M6 12h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <ul class="nav-dropdown-menu" id="navResearchMenu" role="menu">
+            <li role="none"><a href="../safety.html" role="menuitem"><span class="menu-label">Safety</span></a></li>
+            <li role="none"><a href="../sustainability.html" role="menuitem"><span class="menu-label">Sustainability</span></a></li>
+            <li role="none"><a href="../ethics.html" role="menuitem"><span class="menu-label">Ethics</span></a></li>
+          </ul>
+        </li>
+        <li><a href="../events.html"><span class="menu-label">Events</span></a></li>
+        <li><a href="../publications.html" class="active"><span class="menu-label">Publications</span></a></li>
+        <li><a href="../about.html"><span class="menu-label">About</span></a></li>
+        <li><a href="../contact.html"><span class="menu-label">Contact</span></a></li>
+      </ul>
+      <button type="button" class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="publication-detail-hero">
+    <div class="container">
+      <p class="publication-detail-crumb"><a href="../publications.html">Publications</a> <span aria-hidden="true">/</span> <span>Safety</span></p>
+      <div class="publication-detail-grid">
+        <div class="publication-detail-text">
+          <span class="publication-pill publication-pill--safety">Safety</span>
+          <h1>Incident Reporting Playbook for Responsible AI Teams</h1>
+          <p class="publication-detail-lede">A simple operational playbook for classifying incidents, escalating quickly, and learning from postmortems.</p>
+          <ul class="publication-detail-meta">
+            <li><span>Published</span><strong>Dec 12, 2025</strong></li>
+            <li><span>Reading</span><strong>5 min</strong></li>
+            <li><span>Authors</span><strong>Priya Sandhu</strong></li>
+          </ul>
+        </div>
+        <figure class="publication-detail-cover">
+          <img src="../img/publications/incident-reporting.svg" alt="Signal waveform illustrating incident detection and escalation" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="publication-body">
+    <div class="container publication-body-grid">
+      <article class="publication-prose">
+        <p>Most AI-related incidents are detected by someone who isn't on the team that built the model. The bottleneck is rarely detection &mdash; it's escalation. Without a shared protocol, hours pass between a problem being noticed and the right people hearing about it.</p>
+
+        <h2>Three layers of severity</h2>
+        <p>This playbook proposes three response tiers:</p>
+        <ul>
+          <li><strong>Tier 1 &mdash; observable issue</strong>: model output looks wrong, but no one is harmed yet. Document, monitor, schedule fix.</li>
+          <li><strong>Tier 2 &mdash; user impact</strong>: a person receives a wrong, biased, or harmful output. Page the on-call owner; mitigate within hours.</li>
+          <li><strong>Tier 3 &mdash; systemic harm</strong>: the issue affects a protected group, a regulated process, or public safety. Page leadership; consider taking the system offline.</li>
+        </ul>
+
+        <h2>Ownership and escalation windows</h2>
+        <p>Each tier has a named owner and a time-boxed escalation window. The owner is accountable for both the technical fix and the public-facing communication. We recommend that public-sector teams publish their on-call rota internally so non-engineers know who to reach when something goes wrong.</p>
+
+        <h2>Postmortems that change behaviour</h2>
+        <p>A postmortem is only valuable if it changes the next deployment. VCASSE recommends documenting four things every time: what happened, who was affected, what we will change in the system, and what we will change in our process. The fourth is the one most teams skip &mdash; and it's the one that compounds.</p>
+
+        <blockquote class="publication-pull">"The point of a playbook is not to predict every failure. It's to make sure that when one happens, the response is boring."</blockquote>
+      </article>
+
+      <aside class="publication-aside" aria-label="Publication summary">
+        <div class="publication-aside-card">
+          <h3>Key takeaways</h3>
+          <ul>
+            <li>Adopt three explicit severity tiers with named owners.</li>
+            <li>Set escalation windows in hours, not "as soon as possible".</li>
+            <li>Page leadership when harm crosses into protected groups or regulated processes.</li>
+            <li>Postmortems must change the next deployment, not just the team's notes.</li>
+          </ul>
+        </div>
+        <div class="publication-aside-card publication-aside-card--tags">
+          <h3>Tagged</h3>
+          <ul class="publication-tags">
+            <li>Operations</li><li>Incident Response</li><li>Monitoring</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="home-section publications-related">
+    <div class="container">
+      <header class="home-section-header">
+        <p class="home-section-kicker">Related</p>
+        <h2 class="home-section-title">More from Safety</h2>
+      </header>
+      <div class="publication-cards-grid" data-related-publications data-pillar="safety" data-limit="2" data-exclude="incident-reporting-playbook"></div>
+    </div>
+  </section>
+
+  <section class="newsletter-band" aria-labelledby="newsletter-heading">
+    <div class="container">
+      <div class="newsletter-card">
+        <div class="newsletter-content">
+          <p class="newsletter-kicker">Newsletter &middot; <span class="newsletter-soon">Coming soon</span></p>
+          <h2 id="newsletter-heading">The VCASSE Briefing</h2>
+          <p class="newsletter-lede">A monthly dispatch with new publications and notes on what Vancouver should know about AI policy, infrastructure, and ethics.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="event.preventDefault();">
+          <label for="newsletter-email" class="visually-hidden">Email address</label>
+          <input type="email" id="newsletter-email" placeholder="you@example.com" disabled aria-disabled="true">
+          <button type="button" class="btn btn-primary" disabled aria-disabled="true">Notify me</button>
+          <p class="newsletter-note">Sign-ups open soon.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <h3>Vancouver Centre for AI Safety, Sustainability, and Ethics</h3>
+          <p>Vancouver's dedicated centre for responsible AI. We research, educate, and advocate across safety, sustainability, and ethics.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Focus Areas</h4>
+          <ul>
+            <li><a href="../safety.html"><span class="menu-label">Safety</span></a></li>
+            <li><a href="../sustainability.html"><span class="menu-label">Sustainability</span></a></li>
+            <li><a href="../ethics.html"><span class="menu-label">Ethics</span></a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="../events.html"><span class="menu-label">Events</span></a></li>
+            <li><a href="../publications.html"><span class="menu-label">Publications</span></a></li>
+            <li><a href="../about.html"><span class="menu-label">About</span></a></li>
+            <li><a href="../contact.html"><span class="menu-label">Contact</span></a></li>
+            <li><a href="../privacy.html"><span class="menu-label">Privacy Policy</span></a></li>
+            <li><a href="../terms.html"><span class="menu-label">Terms of Service</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span class="footer-year"></span> VCASSE. All rights reserved.<span class="footer-separator">|</span>A subsidiary of <a href="https://oasisofchange.org" target="_blank" rel="noopener noreferrer"><span class="menu-label">OASIS OF CHANGE, INC.</span></a></p>
+        <div class="footer-location">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Vancouver, BC, Canada
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/publications-data.js"></script>
+  <script src="../js/publications-related.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>
