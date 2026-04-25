@@ -306,15 +306,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const navbar = document.querySelector('.navbar');
 
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
+  function updateNavbarScrollState() {
+    if (!navbar) return;
+    navbar.classList.toggle('is-scrolled', window.scrollY > 10);
+  }
 
-    if (scrollY > 10) {
-      navbar.style.boxShadow = '0 1px 8px rgba(0,0,0,0.06)';
-    } else {
-      navbar.style.boxShadow = 'none';
-    }
-  }, { passive: true });
+  updateNavbarScrollState();
+  window.addEventListener('scroll', updateNavbarScrollState, { passive: true });
 
   document.querySelectorAll('.footer-year').forEach((el) => {
     el.textContent = String(new Date().getFullYear());
