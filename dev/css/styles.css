@@ -2952,13 +2952,13 @@ noscript + * .fade-in,
 /* ─────────────── NEWSLETTER COMING SOON ─────────────── */
 
 .newsletter-band {
-  padding: 72px 0;
+  padding: 72px 0 0;
 }
 
 .newsletter-card {
   background: linear-gradient(160deg, var(--bg-dark) 0%, var(--primary-dark) 60%, var(--primary) 130%);
   color: var(--white);
-  border-radius: 20px;
+  border-radius: 20px 20px 0 0;
   padding: 60px 48px;
   display: flex;
   flex-direction: column;
@@ -2967,6 +2967,7 @@ noscript + * .fade-in,
   position: relative;
   overflow: hidden;
   box-shadow: 0 20px 48px -16px rgba(8, 42, 77, 0.45);
+  margin-bottom: -1px;
 }
 
 .newsletter-card::before {
@@ -3306,7 +3307,7 @@ noscript + * .fade-in,
   }
   .newsletter-card {
     padding: 36px 24px;
-    border-radius: 16px;
+    border-radius: 16px 16px 0 0;
   }
   .newsletter-form {
     flex-direction: column;
