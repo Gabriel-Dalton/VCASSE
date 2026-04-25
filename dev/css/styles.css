@@ -60,11 +60,11 @@
   --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
   --max-width: 1200px;
   --nav-height: 74px;
-  --nav-surface: rgba(4, 12, 26, 0.9);
-  --nav-surface-scrolled: rgba(3, 10, 20, 0.95);
-  --nav-ring: rgba(127, 205, 255, 0.42);
-  --nav-item-hover: rgba(255, 255, 255, 0.12);
-  --nav-item-active: rgba(255, 255, 255, 0.2);
+  --nav-surface: rgba(8, 42, 77, 0.9);
+  --nav-surface-scrolled: rgba(5, 26, 46, 0.95);
+  --nav-ring: rgba(108, 180, 228, 0.45);
+  --nav-item-hover: rgba(108, 180, 228, 0.18);
+  --nav-item-active: rgba(108, 180, 228, 0.26);
   --dropdown-shadow: 0 24px 56px rgba(2, 8, 20, 0.45);
 }
 
@@ -125,7 +125,7 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: 22px;
   background: var(--nav-surface);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 14px 40px rgba(2, 10, 28, 0.35), inset 0 1px 0 rgba(255,255,255,0.18);
+  box-shadow: 0 14px 40px rgba(5, 26, 46, 0.35), inset 0 1px 0 rgba(255,255,255,0.18);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   transition: background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
@@ -134,7 +134,7 @@ img { max-width: 100%; height: auto; display: block; }
 .navbar.is-scrolled .container {
   background: var(--nav-surface-scrolled);
   border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 16px 44px rgba(2, 10, 28, 0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+  box-shadow: 0 16px 44px rgba(5, 26, 46, 0.45), inset 0 1px 0 rgba(255,255,255,0.2);
 }
 
 .navbar .nav-logo-mark {
@@ -232,7 +232,7 @@ img { max-width: 100%; height: auto; display: block; }
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--text-dark);
+  background: rgba(240, 247, 255, 0.95);
   border-radius: 2px;
   transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.3s ease, background 0.3s ease;
   position: absolute;
@@ -306,6 +306,15 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 @media (min-width: 769px) {
+  .nav-links > li.nav-dropdown::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 14px;
+  }
+
   .nav-dropdown-trigger {
     position: relative;
   }
@@ -342,12 +351,12 @@ img { max-width: 100%; height: auto; display: block; }
 @media (min-width: 769px) {
   .nav-dropdown-menu {
     position: absolute;
-    top: calc(100% + 10px);
+    top: calc(100% + 4px);
     left: 50%;
     transform: translateX(-50%) translateY(8px) scale(0.98);
     min-width: 240px;
     padding: 10px;
-    background: linear-gradient(180deg, rgba(7, 21, 40, 0.98), rgba(5, 16, 32, 0.98));
+    background: linear-gradient(180deg, rgba(8, 42, 77, 0.98), rgba(5, 26, 46, 0.98));
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 14px;
     box-shadow: var(--dropdown-shadow);
@@ -379,7 +388,7 @@ img { max-width: 100%; height: auto; display: block; }
     height: 12px;
     border-left: 1px solid rgba(255, 255, 255, 0.12);
     border-top: 1px solid rgba(255, 255, 255, 0.12);
-    background: rgba(7, 21, 40, 0.97);
+    background: rgba(8, 42, 77, 0.97);
     transform: translateX(-50%) rotate(45deg);
   }
 }
@@ -432,8 +441,8 @@ img { max-width: 100%; height: auto; display: block; }
   justify-content: center;
   padding: 11px 18px;
   border-radius: 999px;
-  border: 1px solid rgba(127, 205, 255, 0.35);
-  background: linear-gradient(135deg, rgba(127,205,255,0.24), rgba(101,169,255,0.36));
+  border: 1px solid rgba(108, 180, 228, 0.5);
+  background: linear-gradient(135deg, rgba(13,79,139,0.94), rgba(26,109,181,0.92));
   color: var(--white);
   font-size: 13px;
   font-weight: 700;
@@ -443,13 +452,13 @@ img { max-width: 100%; height: auto; display: block; }
 
 .nav-cta:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(101, 169, 255, 0.35);
-  filter: brightness(1.05);
+  box-shadow: 0 10px 24px rgba(13, 79, 139, 0.4);
+  filter: brightness(1.08);
 }
 
 .nav-cta.active {
-  background: linear-gradient(135deg, rgba(127,205,255,0.36), rgba(127,205,255,0.52));
-  border-color: rgba(127, 205, 255, 0.55);
+  background: linear-gradient(135deg, rgba(26,109,181,0.96), rgba(13,79,139,0.96));
+  border-color: rgba(108, 180, 228, 0.62);
 }
 
 @media (max-width: 900px) {
