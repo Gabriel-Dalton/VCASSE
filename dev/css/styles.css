@@ -123,8 +123,9 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-logo {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 18px;
-  letter-spacing: 1.2px;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
   color: var(--ink-strong);
   text-transform: uppercase;
 }
@@ -167,6 +168,14 @@ img { max-width: 100%; height: auto; display: block; }
   display: inline-flex;
   align-items: center;
   gap: 10px;
+}
+
+.nav-logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 28px;
+  line-height: 1;
 }
 
 .nav-logo-mark img {
