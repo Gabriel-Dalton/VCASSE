@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Energy Footprint Reporting: A Starter Standard | VCASSE</title>
   <meta name="description" content="A baseline reporting format for teams that want to disclose AI energy impact with minimal overhead.">
-  <link rel="stylesheet" href="../css/styles.css?v=3">
+  <link rel="stylesheet" href="../css/styles.css?v=5">
   <link rel="icon" type="image/svg+xml" href="../img/logo.svg">
 </head>
 <body>
@@ -32,10 +32,16 @@
           </ul>
         </li>
         <li><a href="../events.html"><span class="menu-label">Events</span></a></li>
-        <li><a href="../publications.html" class="active"><span class="menu-label">Publications</span></a></li>
+        <li class="nav-link-mobile-only"><a href="../publications.html" class="active"><span class="menu-label">Publications</span></a></li>
         <li><a href="../about.html"><span class="menu-label">About</span></a></li>
         <li><a href="../contact.html"><span class="menu-label">Contact</span></a></li>
       </ul>
+      <div class="nav-actions">
+        <a href="../publications.html" class="nav-cta nav-cta--current" aria-current="page">
+          <span class="menu-label">View publications</span>
+          <svg class="nav-cta-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
       <button type="button" class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>

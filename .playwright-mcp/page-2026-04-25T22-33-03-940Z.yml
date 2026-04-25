@@ -1,0 +1,85 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - img [ref=e6]
+      - heading "Foghlaim Gaeilge" [level=1] [ref=e12]:
+        - text: Foghlaim
+        - text: Gaeilge
+      - paragraph [ref=e13]: A reader, translator & companion to the Irish tongue.
+    - tablist "Sections" [ref=e14]:
+      - tab "I Aistrigh Translate" [selected] [ref=e15] [cursor=pointer]:
+        - generic [ref=e16]: I
+        - generic [ref=e17]:
+          - generic [ref=e18]: Aistrigh
+          - generic [ref=e19]: Translate
+      - tab "II Foclóir Dictionary" [ref=e20] [cursor=pointer]:
+        - generic [ref=e21]: II
+        - generic [ref=e22]:
+          - generic [ref=e23]: Foclóir
+          - generic [ref=e24]: Dictionary
+      - tab "III Scéalta Stories" [ref=e25] [cursor=pointer]:
+        - generic [ref=e26]: III
+        - generic [ref=e27]:
+          - generic [ref=e28]: Scéalta
+          - generic [ref=e29]: Stories
+      - tab "IV Cluiche Game" [ref=e30] [cursor=pointer]:
+        - generic [ref=e31]: IV
+        - generic [ref=e32]:
+          - generic [ref=e33]: Cluiche
+          - generic [ref=e34]: Game
+    - img [ref=e35]
+    - paragraph [ref=e39]:
+      - text: Foilsithe le
+      - strong [ref=e40]: grá
+      - text: ón nGaeltacht
+  - main [ref=e41]:
+    - generic [ref=e42]:
+      - generic [ref=e43]: Caibidil I · Translate
+      - heading "Cuir focal i bhfocail eile." [level=2] [ref=e44]:
+        - text: Cuir focal i
+        - emphasis [ref=e45]: bhfocail eile
+        - text: .
+      - paragraph [ref=e46]: From a single word to a whole letter — render any phrase across Irish, English, French, Spanish, or German.
+    - generic [ref=e47]:
+      - article [ref=e48]:
+        - generic [ref=e49]:
+          - generic [ref=e50]: Source
+          - combobox "Source language" [ref=e51] [cursor=pointer]:
+            - option "Gaeilge"
+            - option "English" [selected]
+            - option "Français"
+            - option "Español"
+            - option "Deutsch"
+        - textbox "Type or paste — Cuir téacs anseo…" [ref=e52]
+        - generic [ref=e53]:
+          - generic [ref=e54]: English · ⌘ + Enter
+          - button "Speak input" [ref=e56] [cursor=pointer]:
+            - img [ref=e57]
+      - article [ref=e60]:
+        - generic [ref=e61]:
+          - generic [ref=e62]: Target
+          - generic [ref=e63]:
+            - button "Swap languages" [ref=e64] [cursor=pointer]:
+              - img [ref=e65]
+            - combobox "Target language" [ref=e68] [cursor=pointer]:
+              - option "Gaeilge" [selected]
+              - option "English"
+              - option "Français"
+              - option "Español"
+              - option "Deutsch"
+        - generic [ref=e69]: Aistriúchán le feiceáil anseo…
+        - generic [ref=e70]:
+          - generic [ref=e71]: Gaeilge
+          - button "Read translation aloud" [disabled] [ref=e73]:
+            - img [ref=e74]
+    - button "Aistrigh — Translate" [ref=e79] [cursor=pointer]
+    - generic [ref=e80]:
+      - generic [ref=e81]:
+        - text: Aistriúchán le
+        - link "MyMemory" [ref=e82] [cursor=pointer]:
+          - /url: https://mymemory.translated.net
+        - text: ; foclóir cúltaca le
+        - link "Wiktionary" [ref=e83] [cursor=pointer]:
+          - /url: https://en.wiktionary.org
+        - text: .
+      - generic [ref=e84]: An. Domh. ⁘ MMXXVI
