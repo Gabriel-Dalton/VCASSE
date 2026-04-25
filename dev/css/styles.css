@@ -1301,7 +1301,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .footer {
   background: var(--brand-band);
-  padding: 80px 0 0;
+  padding: 64px 0 0;
   position: relative;
   overflow: hidden;
 }
@@ -2952,13 +2952,37 @@ noscript + * .fade-in,
 /* ─────────────── NEWSLETTER COMING SOON ─────────────── */
 
 .newsletter-band {
-  padding: 72px 0 0;
+  position: relative;
+  padding: 72px 0 34px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 58%,
+    rgba(7, 35, 66, 0.22) 78%,
+    var(--brand-band) 100%
+  );
+}
+
+.newsletter-band::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 42, 77, 0) 0%,
+    rgba(8, 42, 77, 0.45) 58%,
+    var(--brand-band) 100%
+  );
+  pointer-events: none;
 }
 
 .newsletter-card {
   background: linear-gradient(160deg, var(--bg-dark) 0%, var(--primary-dark) 60%, var(--primary) 130%);
   color: var(--white);
-  border-radius: 20px 20px 0 0;
+  border-radius: 20px;
   padding: 44px 48px;
   display: flex;
   gap: 40px;
@@ -2968,7 +2992,7 @@ noscript + * .fade-in,
   position: relative;
   overflow: hidden;
   box-shadow: 0 20px 48px -16px rgba(8, 42, 77, 0.45);
-  margin-bottom: -1px;
+  z-index: 1;
 }
 
 .newsletter-card::before {
@@ -3253,6 +3277,12 @@ noscript + * .fade-in,
     align-items: flex-start;
     gap: 24px;
   }
+  .newsletter-band {
+    padding: 64px 0 28px;
+  }
+  .newsletter-band::after {
+    height: 96px;
+  }
   .newsletter-form {
     max-width: 100%;
     width: 100%;
@@ -3297,8 +3327,14 @@ noscript + * .fade-in,
   }
   .newsletter-card {
     padding: 36px 24px;
-    border-radius: 16px 16px 0 0;
+    border-radius: 16px;
     align-items: stretch;
+  }
+  .newsletter-band {
+    padding: 56px 0 24px;
+  }
+  .newsletter-band::after {
+    height: 84px;
   }
   .newsletter-form {
     flex-direction: column;
