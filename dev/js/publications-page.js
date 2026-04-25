@@ -11,8 +11,15 @@
     const grid = document.getElementById('publicationsGrid');
     if (!grid || typeof window.getPublications !== 'function') return;
 
-    const posts = window.getPublications();
-    updateHeroStats(posts);
+    const lockedPillar = grid.dataset.pillar && grid.dataset.pillar !== 'all'
+      ? grid.dataset.pillar
+      : null;
+    const baseHref = grid.dataset.baseHref || '';
+    const allPosts = window.getPublications();
+    const posts = lockedPillar
+      ? allPosts.filter((p) => p.pillar === lockedPillar)
+      : allPosts;
+    updateHeroStats(lockedPillar ? posts : allPosts);
     const filterButtons = Array.from(document.querySelectorAll('[data-pub-filter]'));
     const tagSelect = document.getElementById('publicationsTag');
     const sortSelect = document.getElementById('publicationsSort');
@@ -153,10 +160,12 @@
       const dateText = formatDate(post.date);
       const tags = post.tags.map((t) => `<li>${escapeHtml(t)}</li>`).join('');
       const authors = (post.authors || []).join(', ');
+      const url = baseHref + post.url;
+      const cover = baseHref + post.cover;
 
       article.innerHTML = `
-        <a class="publication-card-cover" href="${post.url}" aria-label="Read ${escapeHtml(post.title)}">
-          <img src="${post.cover}" alt="" loading="lazy" decoding="async">
+        <a class="publication-card-cover" href="${url}" aria-label="Read ${escapeHtml(post.title)}">
+          <img src="${cover}" alt="" loading="lazy" decoding="async">
           <span class="publication-pill publication-pill--${post.pillar}">${pillarLabel}</span>
         </a>
         <div class="publication-card-body">
@@ -165,11 +174,11 @@
             <span aria-hidden="true">·</span>
             <span>${escapeHtml(post.readingTime)}</span>
           </div>
-          <h3><a href="${post.url}">${escapeHtml(post.title)}</a></h3>
+          <h3><a href="${url}">${escapeHtml(post.title)}</a></h3>
           <p>${escapeHtml(post.excerpt)}</p>
           ${authors ? `<p class="publication-card-authors">By ${escapeHtml(authors)}</p>` : ''}
           <ul class="publication-tags">${tags}</ul>
-          <a class="modern-card-link" href="${post.url}">Read publication <span aria-hidden="true">→</span></a>
+          <a class="modern-card-link" href="${url}">Read publication <span aria-hidden="true">→</span></a>
         </div>
       `;
       return article;

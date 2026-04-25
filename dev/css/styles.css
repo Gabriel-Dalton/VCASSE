@@ -1498,6 +1498,23 @@ img { max-width: 100%; height: auto; display: block; }
 .contact-info h3 { font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
 .contact-info p { font-size: 15px; line-height: 1.7; color: var(--text-body); margin-bottom: 32px; }
 
+.contact-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 28px;
+  margin-bottom: 24px;
+}
+
+.contact-detail-grid .contact-detail {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .contact-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .contact-detail {
   display: flex;
   align-items: flex-start;
@@ -2169,7 +2186,7 @@ noscript + * .fade-in,
     transform: rotate(45deg);
   }
 
-  /* Submenu — indented, smaller, sub-numbered via counter */
+  /* Submenu — indented, sub-numbered via counter, sized for legible mobile tap targets */
   .nav-links .nav-dropdown-menu {
     position: relative !important;
     left: auto;
@@ -2178,7 +2195,7 @@ noscript + * .fade-in,
     transform: none;
     width: 100%;
     min-width: 0;
-    list-style: none; padding: 0 0 6px 34px; margin: 0;
+    list-style: none; padding: 4px 0 10px clamp(20px, 5vw, 28px); margin: 0;
     background: transparent; border: none; box-shadow: none;
     max-height: 0; overflow: hidden;
     opacity: 0; visibility: hidden;
@@ -2186,23 +2203,23 @@ noscript + * .fade-in,
     counter-reset: submenu;
   }
   .nav-links .nav-dropdown.is-open > .nav-dropdown-menu {
-    max-height: 220px; opacity: 1; visibility: visible;
+    max-height: 420px; opacity: 1; visibility: visible;
     transition: max-height .4s ease, opacity .3s ease .1s, visibility 0s linear 0s;
   }
   .nav-links .nav-dropdown-menu li { counter-increment: submenu; border: none; }
   .nav-links .nav-dropdown-menu a {
-    display: flex; gap: 10px; padding: 4px 0;
+    display: flex; gap: 12px; padding: 10px 0;
     align-items: baseline;
     width: 100%;
     border-radius: 0;
-    font-weight: 400;
-    font-family: var(--font-sans); font-size: 13px;
-    color: var(--slate-professional, #374151); text-decoration: none;
+    font-weight: 500;
+    font-family: var(--font-sans); font-size: clamp(1rem, 3.6vw, 1.15rem);
+    color: var(--mobile-menu-ink, #082a4d); text-decoration: none;
   }
   .nav-links .nav-dropdown-menu a::before {
     content: counter(menu, decimal-leading-zero) "." counter(submenu);
     font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-    font-size: 10px; color: var(--muted, #6b7280); flex: 0 0 24px;
+    font-size: 12px; color: var(--muted, #6b7280); flex: 0 0 30px;
   }
   .nav-links .nav-dropdown-menu a.active {
     background: transparent;
@@ -3145,3 +3162,264 @@ noscript + * .fade-in,
     margin-top: 16px;
   }
 }
+
+/* ─────────────── HOME PUBLICATIONS — FEATURED LEAD CARD ─────────────── */
+
+.home-publications-featured {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 28px;
+  background: var(--bg-card);
+  border: 1px solid rgba(15, 23, 42, 0.07);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.home-publications-featured:hover {
+  border-color: var(--primary);
+  box-shadow: 0 18px 40px -24px rgba(15, 23, 42, 0.28);
+  transform: translateY(-2px);
+}
+
+.home-publications-featured-cover {
+  position: relative;
+  display: block;
+  background: var(--bg-page);
+  min-height: 280px;
+  overflow: hidden;
+}
+
+.home-publications-featured-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.home-publications-featured:hover .home-publications-featured-cover img {
+  transform: scale(1.03);
+}
+
+.home-publications-featured-cover .publication-pill {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(6px);
+}
+
+.home-publications-featured-body {
+  padding: 32px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-publications-featured-body .home-publications-featured-kicker {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.home-publications-featured-body h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-dark);
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.home-publications-featured-body h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.home-publications-featured-body h3 a:hover {
+  color: var(--primary);
+}
+
+.home-publications-featured-body p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin-bottom: 16px;
+}
+
+.home-publications-featured-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.publication-card:hover {
+  box-shadow: 0 14px 30px -20px rgba(15, 23, 42, 0.22);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .home-publications-featured {
+    grid-template-columns: 1fr;
+  }
+  .home-publications-featured-cover {
+    min-height: 200px;
+    aspect-ratio: 16 / 9;
+  }
+  .home-publications-featured-body {
+    padding: 24px 22px 26px;
+  }
+}
+
+/* ─────────────── HOME CONTACT STRIP ─────────────── */
+
+.home-contact {
+  position: relative;
+}
+
+.home-contact-card {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 32px;
+  background: var(--bg-card);
+  border: 1px solid rgba(15, 23, 42, 0.07);
+  border-radius: 20px;
+  padding: 40px;
+  align-items: stretch;
+}
+
+.home-contact-info h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+  line-height: 1.15;
+}
+
+.home-contact-info > p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-body);
+  margin-bottom: 22px;
+  max-width: 44ch;
+}
+
+.home-contact-emails {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.home-contact-emails li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.home-contact-emails .home-contact-label {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.home-contact-emails a {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.home-contact-emails a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.home-contact-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.home-contact-location svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.home-contact-cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bg-page);
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid var(--border);
+}
+
+.home-contact-cta h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.home-contact-cta p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin-bottom: 18px;
+}
+
+@media (max-width: 768px) {
+  .home-contact-card {
+    grid-template-columns: 1fr;
+    padding: 28px 22px;
+    gap: 24px;
+  }
+  .home-contact-cta {
+    padding: 22px;
+  }
+}
+
+/* ─────────────── PUBLICATIONS HERO BREADCRUMB (pillar pages) ─────────────── */
+
+.publications-hero-crumb {
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.publications-hero-crumb a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.publications-hero-crumb a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
