@@ -474,17 +474,7 @@ img { max-width: 100%; height: auto; display: block; }
   z-index: 0;
 }
 
-.hero--home::after {
-  content: '';
-  position: absolute;
-  bottom: -120px;
-  right: -80px;
-  width: 520px;
-  height: 520px;
-  background: radial-gradient(circle, rgba(26,109,181,0.4) 0%, transparent 65%);
-  pointer-events: none;
-  z-index: 0;
-}
+.hero--home::after { content: none; }
 
 .hero--home .container {
   grid-template-columns: 1fr;
@@ -799,45 +789,34 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .publication-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--text-muted);
+}
+
+.publication-pill::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
   display: inline-block;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border: 1px solid transparent;
+  flex-shrink: 0;
 }
 
-.publication-pill--safety {
-  color: #065f46;
-  background: #d1fae5;
-  border-color: #a7f3d0;
-}
-
-.publication-pill--sustainability {
-  color: #0f766e;
-  background: #ccfbf1;
-  border-color: #99f6e4;
-}
-
-.publication-pill--ethics {
-  color: #1d4ed8;
-  background: #dbeafe;
-  border-color: #bfdbfe;
-}
-
-.publication-pill--vcasse {
-  color: #0d4f8b;
-  background: #cfe2f3;
-  border-color: #6cb4e4;
-}
-
-.publication-pill--community {
-  color: #9a3412;
-  background: #ffedd5;
-  border-color: #fdba74;
-}
+.publication-pill--safety { color: #047857; }
+.publication-pill--sustainability { color: #0f766e; }
+.publication-pill--ethics { color: #1d4ed8; }
+.publication-pill--vcasse { color: var(--primary); }
+.publication-pill--community { color: #9a3412; }
 
 .home-publications-cta {
   margin-top: 24px;
@@ -945,14 +924,11 @@ img { max-width: 100%; height: auto; display: block; }
 
 .badge-soon {
   display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.95);
-  background: var(--green-accent);
-  padding: 6px 12px;
-  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 0;
+  background: transparent;
 }
 
 @media (max-width: 1024px) {
@@ -2492,13 +2468,7 @@ noscript + * .fade-in,
   transform: scale(1.04);
 }
 
-.publication-card-cover .publication-pill {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(4px);
-}
+/* legacy: pill no longer sits on the cover */
 
 .publication-card-body {
   display: flex;
@@ -3163,32 +3133,23 @@ noscript + * .fade-in,
   }
 }
 
-/* ─────────────── HOME PUBLICATIONS — FEATURED LEAD CARD ─────────────── */
+/* ─────────────── HOME PUBLICATIONS — FEATURED LEAD ─────────────── */
 
 .home-publications-featured {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 28px;
-  background: var(--bg-card);
-  border: 1px solid rgba(15, 23, 42, 0.07);
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 28px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.home-publications-featured:hover {
-  border-color: var(--primary);
-  box-shadow: 0 18px 40px -24px rgba(15, 23, 42, 0.28);
-  transform: translateY(-2px);
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 36px;
+  align-items: center;
+  margin-bottom: 56px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
 }
 
 .home-publications-featured-cover {
-  position: relative;
   display: block;
-  background: var(--bg-page);
-  min-height: 280px;
   overflow: hidden;
+  background: var(--bg-page);
+  aspect-ratio: 4 / 3;
 }
 
 .home-publications-featured-cover img {
@@ -3196,36 +3157,15 @@ noscript + * .fade-in,
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
-}
-
-.home-publications-featured:hover .home-publications-featured-cover img {
-  transform: scale(1.03);
-}
-
-.home-publications-featured-cover .publication-pill {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(6px);
 }
 
 .home-publications-featured-body {
-  padding: 32px 32px 28px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .home-publications-featured-body .home-publications-featured-kicker {
-  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .home-publications-featured-body h3 {
@@ -3234,7 +3174,7 @@ noscript + * .fade-in,
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--text-dark);
-  line-height: 1.15;
+  line-height: 1.2;
   margin-bottom: 14px;
 }
 
@@ -3251,52 +3191,35 @@ noscript + * .fade-in,
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-body);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .home-publications-featured-meta {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
   font-size: 13px;
   color: var(--text-muted);
-  margin-bottom: 20px;
-}
-
-.publication-card:hover {
-  box-shadow: 0 14px 30px -20px rgba(15, 23, 42, 0.22);
-  transform: translateY(-2px);
+  margin-bottom: 18px;
 }
 
 @media (max-width: 768px) {
   .home-publications-featured {
     grid-template-columns: 1fr;
+    gap: 22px;
+    padding-bottom: 32px;
+    margin-bottom: 36px;
   }
   .home-publications-featured-cover {
-    min-height: 200px;
     aspect-ratio: 16 / 9;
-  }
-  .home-publications-featured-body {
-    padding: 24px 22px 26px;
   }
 }
 
 /* ─────────────── HOME CONTACT STRIP ─────────────── */
 
-.home-contact {
-  position: relative;
-}
-
-.home-contact-card {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 32px;
-  background: var(--bg-card);
-  border: 1px solid rgba(15, 23, 42, 0.07);
-  border-radius: 20px;
-  padding: 40px;
-  align-items: stretch;
+.home-contact-info {
+  max-width: 640px;
 }
 
 .home-contact-info h2 {
@@ -3313,8 +3236,7 @@ noscript + * .fade-in,
   font-size: 1rem;
   line-height: 1.65;
   color: var(--text-body);
-  margin-bottom: 22px;
-  max-width: 44ch;
+  margin-bottom: 24px;
 }
 
 .home-contact-emails {
@@ -3322,85 +3244,42 @@ noscript + * .fade-in,
   display: grid;
   gap: 14px;
   margin-bottom: 22px;
+  padding: 0;
 }
 
 .home-contact-emails li {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
 }
 
 .home-contact-emails .home-contact-label {
-  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-size: 13px;
   color: var(--text-muted);
+  min-width: 64px;
 }
 
 .home-contact-emails a {
   font-size: 1rem;
-  font-weight: 600;
   color: var(--primary);
   text-decoration: none;
-  transition: color 0.2s ease;
+  font-weight: 500;
 }
 
 .home-contact-emails a:hover {
-  color: var(--primary-dark);
   text-decoration: underline;
 }
 
-.home-contact-location {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
+.home-contact-aside {
+  font-size: 14px;
   color: var(--text-muted);
 }
 
-.home-contact-location svg {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
-}
-
-.home-contact-cta {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: var(--bg-page);
-  border-radius: 16px;
-  padding: 28px;
-  border: 1px solid var(--border);
-}
-
-.home-contact-cta h3 {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--text-dark);
-  margin-bottom: 10px;
-}
-
-.home-contact-cta p {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--text-body);
-  margin-bottom: 18px;
-}
-
-@media (max-width: 768px) {
-  .home-contact-card {
-    grid-template-columns: 1fr;
-    padding: 28px 22px;
-    gap: 24px;
-  }
-  .home-contact-cta {
-    padding: 22px;
-  }
+.home-contact-aside a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 /* ─────────────── PUBLICATIONS HERO BREADCRUMB (pillar pages) ─────────────── */
