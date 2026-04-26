@@ -9,7 +9,10 @@ window.VCASSE_PUBLICATIONS = [
     authors: ['Dr. Mei Tanaka', 'Priya Sandhu'],
     excerpt: 'A practical framework for evaluating model failure modes before deployment in civic and public-service contexts.',
     cover: 'img/publications/safety-evaluations.svg',
-    url: 'publications/safety-evaluations-public-interest.html'
+    url: 'publications/safety-evaluations-public-interest.html',
+    // Publication lifecycle stage. One of:
+    //   'draft' | 'in-review' | 'published' | 'updated'
+    stage: 'published'
   }
 ];
 

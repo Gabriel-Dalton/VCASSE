@@ -160,6 +160,70 @@
       def: "The learned numerical parameters that make a model do what it does. Releasing model weights changes the security and safety calculus dramatically.",
       seeAlso: ['foundation-model', 'training']
     },
+    {
+      id: 'aida',
+      term: "AIDA (Artificial Intelligence and Data Act)",
+      pillar: "ethics",
+      level: "advanced",
+      def: "Canada's proposed federal AI law, originally tabled as part of Bill C-27. It would regulate 'high-impact' AI systems with obligations around risk assessment, mitigation, and disclosure.",
+      seeAlso: ['high-impact-system', 'disclosure', 'audit']
+    },
+    {
+      id: 'high-impact-system',
+      term: "High-impact AI system",
+      pillar: "ethics",
+      level: "advanced",
+      def: "A regulatory category — most prominently in Canada's draft AIDA — for AI systems whose use could meaningfully affect a person's health, livelihood, rights, or safety, and which therefore carry stricter obligations.",
+      seeAlso: ['aida', 'algorithmic-bias', 'audit']
+    },
+    {
+      id: 'algorithmic-impact-assessment',
+      term: "Algorithmic Impact Assessment (AIA)",
+      pillar: "ethics",
+      level: "intermediate",
+      def: "A structured questionnaire — used by the Government of Canada for federal automated decision systems — that scores the risk level of an AI system before it is deployed, and triggers proportional safeguards.",
+      seeAlso: ['audit', 'disclosure', 'procurement']
+    },
+    {
+      id: 'pipeda',
+      term: "PIPEDA",
+      pillar: "ethics",
+      level: "intermediate",
+      def: "Canada's federal private-sector privacy law (Personal Information Protection and Electronic Documents Act). Governs how organisations collect and use personal data, including data feeding AI systems, in the course of commercial activity.",
+      seeAlso: ['disclosure']
+    },
+    {
+      id: 'foippa',
+      term: "FOIPPA (BC)",
+      pillar: "ethics",
+      level: "intermediate",
+      def: "British Columbia's Freedom of Information and Protection of Privacy Act. Governs how BC public bodies handle personal information — directly relevant to AI tools deployed in municipal and provincial services.",
+      seeAlso: ['disclosure', 'procurement']
+    },
+    {
+      id: 'open-weight',
+      term: "Open-weight model",
+      pillar: "safety",
+      level: "advanced",
+      def: "A model whose trained parameters are publicly downloadable. Unlocks research and local deployment, but removes the vendor's ability to retract a model after a safety issue is found.",
+      seeAlso: ['weight', 'foundation-model']
+    },
+    {
+      id: 'data-centre',
+      term: "Data centre",
+      pillar: "sustainability",
+      level: "beginner",
+      def: "The buildings full of servers where AI training and inference physically run. Their electricity demand and water cooling are the dominant environmental costs of AI in BC and Canada.",
+      seeAlso: ['compute', 'training', 'inference', 'carbon-aware']
+    },
+    {
+      id: 'automated-decision',
+      term: "Automated decision system",
+      pillar: "ethics",
+      level: "beginner",
+      def: "Any system that uses software — including AI — to make or recommend a decision affecting a person, like benefits eligibility or content moderation. The umbrella term federal and provincial policies usually regulate.",
+      seeAlso: ['algorithmic-impact-assessment', 'disclosure', 'algorithmic-bias']
+    },
   ];
 
   const TERM_BY_ID = Object.fromEntries(TERMS.map(t => [t.id, t]));
@@ -173,6 +237,17 @@
   const lettersEl = document.getElementById('glossary-letters');
   const pillarFilters = document.querySelectorAll('.glossary-filter:not(.glossary-filter--level)');
   const levelFilters = document.querySelectorAll('.glossary-filter--level');
+
+  // Modal references.
+  const modalEl = document.getElementById('glossary-modal');
+  const modalTagsEl = document.getElementById('glossary-modal-tags');
+  const modalTermEl = document.getElementById('glossary-modal-title');
+  const modalDefEl = document.getElementById('glossary-modal-def');
+  const modalSeeAlsoWrap = document.getElementById('glossary-modal-seealso');
+  const modalSeeAlsoListEl = document.getElementById('glossary-modal-seealso-list');
+  const modalCopyBtn = document.getElementById('glossary-modal-copy');
+  let lastFocused = null;
+  let activeTermId = null;
 
   const state = { query: '', pillar: 'all', level: 'all' };
 
@@ -227,9 +302,9 @@
         .join(' · ');
 
       return `
-        <article class="glossary-item" id="${t.id}" data-letter="${t.term[0].toUpperCase()}">
+        <article class="glossary-item" id="${t.id}" data-letter="${t.term[0].toUpperCase()}" tabindex="0" role="button" aria-label="Open definition for ${escapeHtml(t.term)}" data-open-term="${t.id}">
           <div class="glossary-item-header">
-            <a class="glossary-term" href="#${t.id}" data-copy="${t.id}" title="Copy link to this term">${escapeHtml(t.term)}</a>
+            <span class="glossary-term">${escapeHtml(t.term)}</span>
             <span class="pill pill--${t.pillar}">${PILLAR_LABEL[t.pillar]}</span>
             <span class="glossary-level glossary-level--${t.level}">${LEVEL_LABEL[t.level]}</span>
           </div>
@@ -239,44 +314,130 @@
       `;
     }).join('');
 
-    // Cross-reference jumping (animated highlight on the target).
+    // Card click / keyboard activation → open modal. Cross-ref clicks bubble
+    // up but stopPropagation prevents the card's open-modal from firing.
+    listEl.querySelectorAll('[data-open-term]').forEach((card) => {
+      card.addEventListener('click', (e) => {
+        // Ignore clicks that originated on a cross-ref link.
+        if (e.target.closest('[data-jump]')) return;
+        const id = card.dataset.openTerm;
+        if (id) openModal(id);
+      });
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const id = card.dataset.openTerm;
+          if (id) openModal(id);
+        }
+      });
+    });
+
+    // Cross-reference jumping inside an inline card (does NOT open modal).
     listEl.querySelectorAll('[data-jump]').forEach((a) => {
       a.addEventListener('click', (e) => {
         const id = a.dataset.jump;
         const target = document.getElementById(id);
         if (!target) return;
         e.preventDefault();
+        e.stopPropagation();
         history.replaceState(null, '', '#' + id);
         target.scrollIntoView({ behavior: 'smooth', block: 'center' });
         target.classList.remove('is-flash');
-        // Force reflow so the animation can re-trigger.
         void target.offsetWidth;
         target.classList.add('is-flash');
       });
     });
 
-    // Click on the term heading copies a deep link.
-    listEl.querySelectorAll('[data-copy]').forEach((a) => {
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        const id = a.dataset.copy;
-        const url = location.origin + location.pathname + '#' + id;
-        history.replaceState(null, '', '#' + id);
-        if (navigator.clipboard) {
-          navigator.clipboard.writeText(url).then(() => flashCopied(a)).catch(() => {});
-        }
-      });
-    });
-
-    // Initial deep-link target — flash highlight if URL has a hash.
+    // Initial deep-link target — open modal if URL has a hash matching a term.
     if (location.hash) {
-      const target = document.getElementById(location.hash.slice(1));
-      if (target) {
-        target.classList.add('is-flash');
-        target.scrollIntoView({ behavior: 'auto', block: 'center' });
+      const id = location.hash.slice(1);
+      if (TERM_BY_ID[id]) {
+        openModal(id);
+      } else {
+        const target = document.getElementById(id);
+        if (target) {
+          target.classList.add('is-flash');
+          target.scrollIntoView({ behavior: 'auto', block: 'center' });
+        }
       }
     }
   }
+
+  // ── Modal ──────────────────────────────────────────────────────
+  function openModal(id) {
+    const t = TERM_BY_ID[id];
+    if (!t) return;
+    activeTermId = id;
+    history.replaceState(null, '', '#' + id);
+    if (!modalEl.hidden) lastFocused = lastFocused || document.activeElement;
+    else lastFocused = document.activeElement;
+
+    modalTagsEl.innerHTML = `
+      <span class="pill pill--${t.pillar}">${PILLAR_LABEL[t.pillar]}</span>
+      <span class="glossary-level glossary-level--${t.level}">${LEVEL_LABEL[t.level]}</span>
+    `;
+    modalTermEl.textContent = t.term;
+    modalDefEl.textContent = t.def;
+
+    const seeAlsoTerms = (t.seeAlso || []).map((sid) => TERM_BY_ID[sid]).filter(Boolean);
+    if (seeAlsoTerms.length) {
+      modalSeeAlsoWrap.hidden = false;
+      modalSeeAlsoListEl.innerHTML = seeAlsoTerms.map((ref) => `
+        <button type="button" class="glossary-modal-xref" data-modal-jump="${ref.id}">
+          ${escapeHtml(ref.term.split(' (')[0])}
+        </button>
+      `).join('');
+      modalSeeAlsoListEl.querySelectorAll('[data-modal-jump]').forEach((btn) => {
+        btn.addEventListener('click', () => openModal(btn.dataset.modalJump));
+      });
+    } else {
+      modalSeeAlsoWrap.hidden = true;
+      modalSeeAlsoListEl.innerHTML = '';
+    }
+
+    modalEl.hidden = false;
+    document.body.classList.add('glossary-modal-open');
+    requestAnimationFrame(() => modalEl.classList.add('is-open'));
+
+    // Move focus into the modal for keyboard users.
+    const focusTarget = modalEl.querySelector('.glossary-modal-close');
+    if (focusTarget) focusTarget.focus({ preventScroll: true });
+  }
+
+  function closeModal() {
+    if (modalEl.hidden) return;
+    modalEl.classList.remove('is-open');
+    activeTermId = null;
+    // Wait for transition before hiding.
+    setTimeout(() => {
+      modalEl.hidden = true;
+      document.body.classList.remove('glossary-modal-open');
+      if (lastFocused && typeof lastFocused.focus === 'function') {
+        lastFocused.focus({ preventScroll: true });
+      }
+      lastFocused = null;
+    }, 200);
+  }
+
+  modalEl.querySelectorAll('[data-close-modal]').forEach((el) => {
+    el.addEventListener('click', closeModal);
+  });
+
+  modalCopyBtn.addEventListener('click', () => {
+    if (!activeTermId) return;
+    const url = location.origin + location.pathname + '#' + activeTermId;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(() => {
+        const prev = modalCopyBtn.innerHTML;
+        modalCopyBtn.classList.add('is-copied');
+        modalCopyBtn.textContent = 'Link copied';
+        setTimeout(() => {
+          modalCopyBtn.classList.remove('is-copied');
+          modalCopyBtn.innerHTML = prev;
+        }, 1300);
+      }).catch(() => {});
+    }
+  });
 
   function flashCopied(a) {
     const prev = a.getAttribute('data-prev-text') || a.textContent;
@@ -322,10 +483,17 @@
     });
   });
 
-  // Keyboard: '/' to focus search, Esc to clear.
+  // Keyboard: Esc closes modal first; otherwise clears search; '/' focuses search.
   document.addEventListener('keydown', (e) => {
     const tag = (e.target.tagName || '').toLowerCase();
     const typing = tag === 'input' || tag === 'textarea' || e.target.isContentEditable;
+
+    if (e.key === 'Escape' && !modalEl.hidden) {
+      e.preventDefault();
+      closeModal();
+      return;
+    }
+
     if (e.key === '/' && !typing) {
       e.preventDefault();
       searchEl.focus();

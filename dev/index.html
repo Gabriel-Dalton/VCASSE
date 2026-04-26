@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VCASSE | Vancouver Centre for AI Safety, Sustainability, and Ethics</title>
-  <link rel="stylesheet" href="css/styles.css?v=7">
+  <link rel="stylesheet" href="css/styles.css?v=8">
   <link rel="icon" type="image/svg+xml" href="img/logo.svg">
 </head>
 <body>
@@ -22,7 +22,6 @@
 
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html" class="active"><span class="menu-label">Home</span></a></li>
-        <li><a href="about.html"><span class="menu-label">About</span></a></li>
         <li class="nav-dropdown">
           <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="navResearchMenu">
             <span class="menu-label">Research</span>
@@ -35,6 +34,7 @@
           </ul>
         </li>
         <li><a href="events.html"><span class="menu-label">Events</span></a></li>
+        <li><a href="about.html"><span class="menu-label">About</span></a></li>
         <li><a href="contact.html"><span class="menu-label">Contact</span></a></li>
       </ul>
 
@@ -123,6 +123,51 @@
       <div class="home-publications-cta">
         <a class="btn btn-secondary" href="publications.html">View all publications</a>
       </div>
+    </div>
+  </section>
+
+  <!-- TOOLS — Policy Brief Tracker promo -->
+  <section class="home-tools fade-in" aria-labelledby="home-tools-heading">
+    <div class="container">
+      <article class="home-tools-card">
+        <div class="home-tools-text">
+          <p class="home-tools-kicker">Tool · Transparency</p>
+          <h2 class="home-tools-title" id="home-tools-heading">
+            See where every brief we've written <em>actually stands.</em>
+          </h2>
+          <p class="home-tools-lede">
+            VCASSE doesn't write the policies — governments do. We comment on
+            the AI policy moving through Vancouver, BC, and Ottawa, and the
+            Policy Brief Tracker shows every comment we've filed, the policy it
+            responds to, and whether it has reached draft, review, submission,
+            or adoption.
+          </p>
+          <div class="home-tools-actions">
+            <a class="btn btn-primary" href="policy-tracker.html">Open the Policy Tracker <span aria-hidden="true">→</span></a>
+            <span class="home-tools-link-secondary">
+              <strong>City</strong> · <strong>Province</strong> · <strong>Federal</strong>
+            </span>
+          </div>
+        </div>
+        <aside class="home-tools-preview" aria-hidden="true">
+          <div class="home-tools-preview-row">
+            <strong>Municipal AI Procurement Standards</strong>
+            <span class="home-tools-preview-stage home-tools-preview-stage--adopted">Adopted</span>
+          </div>
+          <div class="home-tools-preview-row">
+            <strong>BC AI water + energy disclosure</strong>
+            <span class="home-tools-preview-stage home-tools-preview-stage--submitted">Submitted</span>
+          </div>
+          <div class="home-tools-preview-row">
+            <strong>Federal AIDA — high-impact thresholds</strong>
+            <span class="home-tools-preview-stage home-tools-preview-stage--draft">Draft</span>
+          </div>
+          <div class="home-tools-preview-row">
+            <strong>Online Harms Act — synthetic media</strong>
+            <span class="home-tools-preview-stage home-tools-preview-stage--review">In review</span>
+          </div>
+        </aside>
+      </article>
     </div>
   </section>
 

@@ -71,6 +71,32 @@
     </div>
   </main>
 
+  <!-- Modal: opens when a term card is clicked -->
+  <div class="glossary-modal" id="glossary-modal" hidden role="dialog" aria-modal="true" aria-labelledby="glossary-modal-title">
+    <div class="glossary-modal-backdrop" data-close-modal></div>
+    <article class="glossary-modal-card" role="document">
+      <header class="glossary-modal-head">
+        <div class="glossary-modal-tags" id="glossary-modal-tags"></div>
+        <button type="button" class="glossary-modal-close" data-close-modal aria-label="Close definition">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </header>
+      <h2 class="glossary-modal-term" id="glossary-modal-title"></h2>
+      <p class="glossary-modal-def" id="glossary-modal-def"></p>
+      <div class="glossary-modal-seealso" id="glossary-modal-seealso" hidden>
+        <p class="glossary-modal-seealso-label">See also</p>
+        <div class="glossary-modal-seealso-list" id="glossary-modal-seealso-list"></div>
+      </div>
+      <footer class="glossary-modal-foot">
+        <button type="button" class="glossary-modal-link" id="glossary-modal-copy">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
+          Copy link
+        </button>
+        <button type="button" class="glossary-modal-link" data-close-modal>Close</button>
+      </footer>
+    </article>
+  </div>
+
   <script src="js/glossary.js"></script>
 </body>
 </html>

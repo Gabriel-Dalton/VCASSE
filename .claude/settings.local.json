@@ -23,7 +23,8 @@
       "PowerShell($py = Get-Content .graphify_python; & $py .graphify_step5_label.py)",
       "PowerShell($py = Get-Content .graphify_python; & $py .graphify_step6.py)",
       "PowerShell($py = Get-Content .graphify_python; & $py .graphify_step8.py)",
-      "PowerShell($env:PYTHONIOENCODING = \"utf-8\"; $py = Get-Content .graphify_python; & $py .graphify_step8.py)"
+      "PowerShell($env:PYTHONIOENCODING = \"utf-8\"; $py = Get-Content .graphify_python; & $py .graphify_step8.py)",
+      "PowerShell($py = Get-Content .graphify_python; & $py .nav_reorder.py)"
     ]
   }
 }

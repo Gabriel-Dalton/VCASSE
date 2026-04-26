@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service | VCASSE</title>
+  <title>Policy Brief Tracker | VCASSE</title>
+  <meta name="description" content="VCASSE's commentary on Vancouver, BC, and Canadian government AI policy — every brief we have written, the policy it responds to, and where it stands from draft to adopted.">
   <link rel="stylesheet" href="css/styles.css?v=8">
   <link rel="icon" type="image/svg+xml" href="img/logo.svg">
 </head>
 <body>
-
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo nav-logo-mark">
@@ -46,58 +46,71 @@
     </div>
   </nav>
 
-  <div class="legal-content">
-    <h1>Terms of Service</h1>
-    <p class="legal-updated">Last updated: March 1, 2026</p>
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="section-label">TOOL · TRANSPARENCY</div>
+        <h1 class="page-hero-title">Government AI policy in Vancouver, BC, and Canada — <span class="italic-accent">and where our commentary stands.</span></h1>
+        <p class="page-hero-description">VCASSE doesn't write the policies. Governments do. We read each one, write a public brief on what's strong, what's missing, and what to fix, then track our submission from draft through to whether it was cited in the final version.</p>
+      </div>
+    </div>
+  </section>
 
-    <p>Welcome to the website of the Vancouver Centre for AI Safety, Sustainability, and Ethics ("VCASSE"). By accessing or using our website, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website.</p>
+  <section class="policy-tracker-section">
+    <div class="container">
+      <div class="tracker-stats" id="tracker-stats"></div>
 
-    <h2>1. Acceptance of Terms</h2>
-    <p>By accessing and using this website, you accept and agree to be bound by these Terms of Service and our Privacy Policy. These terms apply to all visitors, users, and others who access or use the website.</p>
+      <section class="tracker-panel">
+        <div class="tracker-toolbar">
+          <div class="tracker-toolbar-row">
+            <div class="tracker-search-wrap">
+              <svg class="tracker-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+              <input type="search" id="tracker-search" class="tracker-search" placeholder="Search by policy name, issuer, or lead">
+            </div>
+            <select id="tracker-sort" class="tracker-select" aria-label="Sort">
+              <option value="recent" selected>Most recently updated</option>
+              <option value="oldest">Oldest first</option>
+              <option value="stage-desc">Furthest along</option>
+              <option value="stage-asc">Earliest stage</option>
+              <option value="title">Policy name (A–Z)</option>
+            </select>
+            <div class="tracker-view-toggle" role="radiogroup" aria-label="View">
+              <button type="button" data-view="list" class="is-active" aria-pressed="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+                List
+              </button>
+              <button type="button" data-view="kanban" aria-pressed="false">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="11" rx="1"/></svg>
+                Stage view
+              </button>
+            </div>
+          </div>
+        </div>
 
-    <h2>2. Intellectual Property</h2>
-    <p>Unless otherwise stated, VCASSE and/or its licensors own the intellectual property rights for all material on this website. All intellectual property rights are reserved. You may access content from the website for your own personal use subject to restrictions set in these terms.</p>
-    <p>You must not:</p>
-    <ul>
-      <li>Republish material from this website without proper attribution</li>
-      <li>Sell, rent, or sub-license material from the website</li>
-      <li>Reproduce, duplicate, or copy material for commercial purposes</li>
-      <li>Redistribute content from this website unless content is specifically made for redistribution</li>
-    </ul>
+        <div class="tracker-filters">
+          <div class="glossary-filters" role="tablist" aria-label="Filter by pillar">
+            <button class="glossary-filter is-active" data-pillar="all" type="button">All pillars</button>
+            <button class="glossary-filter" data-pillar="safety" type="button">Safety</button>
+            <button class="glossary-filter" data-pillar="sustainability" type="button">Sustainability</button>
+            <button class="glossary-filter" data-pillar="ethics" type="button">Ethics</button>
+          </div>
 
-    <h2>3. Research Publications</h2>
-    <p>Research publications, technical reports, and datasets made available through our website may be subject to separate licensing terms. Please refer to the specific license associated with each publication. Unless otherwise indicated, our publications are made available under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).</p>
+          <div class="glossary-filters" role="tablist" aria-label="Filter by government level">
+            <button class="glossary-filter glossary-filter--level is-active" data-gov="all" type="button">All levels</button>
+            <button class="glossary-filter glossary-filter--level" data-gov="city" type="button">City</button>
+            <button class="glossary-filter glossary-filter--level" data-gov="province" type="button">Province</button>
+            <button class="glossary-filter glossary-filter--level" data-gov="federal" type="button">Federal</button>
+          </div>
+        </div>
 
-    <h2>4. User Submissions</h2>
-    <p>When you submit applications, proposals, or other materials through our website, you grant VCASSE a non-exclusive right to review, evaluate, and process your submission for the stated purpose. We will handle all submissions in accordance with our Privacy Policy.</p>
+        <p class="tracker-count" id="tracker-count"></p>
 
-    <h2>5. Accuracy of Information</h2>
-    <p>While we strive to ensure the accuracy of information on our website, we make no warranties or representations about the completeness, reliability, or accuracy of any information. Research findings presented on this website represent the views of individual researchers and do not necessarily reflect the official position of VCASSE.</p>
-
-    <h2>6. External Links</h2>
-    <p>Our website may contain links to external websites that are not operated by us. We have no control over the content and practices of these sites and cannot accept responsibility for their respective privacy policies or content.</p>
-
-    <h2>7. Limitation of Liability</h2>
-    <p>To the fullest extent permitted by applicable law, VCASSE shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses resulting from your access to or use of the website.</p>
-
-    <h2>8. Indemnification</h2>
-    <p>You agree to defend, indemnify, and hold harmless VCASSE, its officers, directors, employees, and agents from and against any claims, damages, obligations, losses, liabilities, costs, or debt arising from your use of the website or violation of these terms.</p>
-
-    <h2>9. Governing Law</h2>
-    <p>These Terms of Service shall be governed by and construed in accordance with the laws of the Province of British Columbia, Canada, without regard to its conflict of law provisions. Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the courts of British Columbia.</p>
-
-    <h2>10. Changes to Terms</h2>
-    <p>We reserve the right to modify or replace these Terms of Service at any time. Material changes will be posted on this page with an updated revision date. Your continued use of the website after any changes constitutes acceptance of the new terms.</p>
-
-    <h2>11. Contact</h2>
-    <p>If you have any questions about these Terms of Service, please contact us:</p>
-    <p>
-      <strong>VCASSE Legal</strong><br>
-      515 West Hastings Street<br>
-      Vancouver, BC V6B 5K3, Canada<br>
-      Email: legal@vcasse.org
-    </p>
-  </div>
+        <div class="tracker-list" id="tracker-list" hidden></div>
+        <div class="tracker-kanban" id="tracker-kanban" hidden></div>
+        <div class="tracker-empty" id="tracker-empty" hidden>No briefs match these filters.</div>
+      </section>
+    </div>
+  </section>
 
   <section class="newsletter-band" aria-labelledby="newsletter-heading">
     <div class="container">
@@ -151,6 +164,7 @@
     </div>
   </footer>
 
+  <script src="js/policy-tracker.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
