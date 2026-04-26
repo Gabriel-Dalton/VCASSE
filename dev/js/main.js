@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const MOBILE_NAV_BREAKPOINT = 768;
-  const MOBILE_MENU_CLOSE_MS = 650;
+  const MOBILE_MENU_CLOSE_MS = 460;
   let mobileMenuCloseTimer = null;
   let lastTouchY = 0;
 

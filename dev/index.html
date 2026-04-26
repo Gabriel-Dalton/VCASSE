@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VCASSE | Vancouver Centre for AI Safety, Sustainability, and Ethics</title>
-  <link rel="stylesheet" href="css/styles.css?v=5">
+  <link rel="stylesheet" href="css/styles.css?v=7">
   <link rel="icon" type="image/svg+xml" href="img/logo.svg">
 </head>
 <body>
@@ -119,41 +119,7 @@
         <h2 id="home-publications-heading" class="home-section-title">Publications across all pillars</h2>
         <p class="home-section-lead">Notes, briefs, and explainers from Safety, Sustainability, and Ethics.</p>
       </header>
-      <div class="publication-cards-grid">
-        <article class="publication-card publication-card--compact">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--safety">Safety</span>
-            <span>Mar 15, 2026</span>
-            <span>7 min read</span>
-          </div>
-          <h3>Practical AI Safety Evaluations for Public-Interest Teams</h3>
-          <p>A practical framework for evaluating model failure modes before deployment in civic and public-service contexts.</p>
-          <ul class="publication-tags"><li>Evaluations</li><li>Risk</li><li>Governance</li></ul>
-          <a class="modern-card-link" href="publications/safety-evaluations-public-interest.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="publication-card publication-card--compact">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--sustainability">Sustainability</span>
-            <span>Feb 27, 2026</span>
-            <span>6 min read</span>
-          </div>
-          <h3>A Sustainability Checklist for AI Procurement</h3>
-          <p>How organizations can ask better vendor questions around energy use, lifecycle impact, and reporting transparency.</p>
-          <ul class="publication-tags"><li>Climate</li><li>Procurement</li><li>Infrastructure</li></ul>
-          <a class="modern-card-link" href="publications/sustainability-procurement-checklist.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="publication-card publication-card--compact">
-          <div class="publication-card-meta">
-            <span class="publication-pill publication-pill--ethics">Ethics</span>
-            <span>Jan 31, 2026</span>
-            <span>8 min read</span>
-          </div>
-          <h3>Participatory Ethics in Municipal AI Decisions</h3>
-          <p>Why public-facing AI decisions should include structured resident participation, not only internal review.</p>
-          <ul class="publication-tags"><li>Inclusion</li><li>Policy</li><li>Public Deliberation</li></ul>
-          <a class="modern-card-link" href="publications/participatory-ethics-municipal-ai.html">Read publication <span aria-hidden="true">→</span></a>
-        </article>
-      </div>
+      <div class="publication-cards-grid" data-related-publications data-limit="3"></div>
       <div class="home-publications-cta">
         <a class="btn btn-secondary" href="publications.html">View all publications</a>
       </div>
@@ -216,6 +182,8 @@
     </div>
   </footer>
 
+  <script src="js/publications-data.js"></script>
+  <script src="js/publications-related.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

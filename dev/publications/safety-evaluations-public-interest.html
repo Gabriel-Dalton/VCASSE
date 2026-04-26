@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Practical AI Safety Evaluations for Public-Interest Teams | VCASSE</title>
   <meta name="description" content="A practical framework for evaluating AI failure modes before deployment in civic and public-service contexts.">
-  <link rel="stylesheet" href="../css/styles.css?v=5">
+  <link rel="stylesheet" href="../css/styles.css?v=7">
   <link rel="icon" type="image/svg+xml" href="../img/logo.svg">
 </head>
 <body>
@@ -56,7 +56,7 @@
           <p class="publication-detail-lede">A practical framework for evaluating model failure modes before deployment in civic and public-service contexts.</p>
           <ul class="publication-detail-meta">
             <li><span>Published</span><strong>Mar 15, 2026</strong></li>
-            <li><span>Reading</span><strong>7 min</strong></li>
+            <li><span>Reading</span><strong>12 min</strong></li>
             <li><span>Authors</span><strong>Dr. Mei Tanaka, Priya Sandhu</strong></li>
           </ul>
         </div>
@@ -70,27 +70,66 @@
   <section class="publication-body">
     <div class="container publication-body-grid">
       <article class="publication-prose">
-        <p>AI evaluations should be understandable, repeatable, and proportionate to risk. For most public-interest teams, the challenge is not whether to evaluate systems, but how to do it with limited staff and budget &mdash; and how to communicate the result so that residents, elected officials, and journalists can engage with it.</p>
+        <p class="publication-prose-lede">AI evaluations should be understandable, repeatable, and proportionate to risk. For most public-interest teams, the challenge is not whether to evaluate systems, but how to do it with limited staff and budget, and how to communicate the result so that residents, elected officials, and journalists can engage with it.</p>
+
+        <p>Over the past year, VCASSE has worked with three Lower Mainland agencies that were preparing to ship AI features into public-facing services: a benefits screening tool, a multilingual permit assistant, and an internal triage classifier for a 311-style citizen request system. None of them had the staffing of a private-sector machine learning team. All of them had statutory obligations the private sector does not. This brief is what we wish we had handed each of them on day one.</p>
+
+        <figure class="publication-figure publication-figure--wide">
+          <img src="../img/publications/safety-evaluations.svg" alt="Concentric ring diagram showing layered evaluation rounds, from internal review at the centre to public summary at the outer ring.">
+          <figcaption>Fig. 01 — Concentric review layers. Each ring widens the audience: from the engineering team, to service partners, to the public.</figcaption>
+        </figure>
 
         <h2>The lightweight evaluation loop</h2>
-        <p>VCASSE recommends a four-step loop you can run on a single sprint:</p>
+        <p>VCASSE recommends a four-step loop you can run on a single sprint. It is intentionally modest: it does not require a dedicated red team, a dataset science budget, or a vendor relationship that produces glossy reports nobody can verify. It requires curiosity, a calendar, and a willingness to write down what you find.</p>
         <ol>
-          <li><strong>Define high-impact failure classes</strong> with the team that will be accountable for the system in production.</li>
-          <li><strong>Design representative test sets</strong> that reflect Vancouver's languages, neighbourhoods, accessibility needs, and edge cases.</li>
-          <li><strong>Review findings with non-technical stakeholders</strong> &mdash; service designers, frontline staff, and at least one external civic partner.</li>
-          <li><strong>Publish plain-language summaries</strong> that pair each metric with a short, honest interpretation.</li>
+          <li><strong>Define high-impact failure classes</strong> with the team that will be accountable for the system in production. Not the team that built it. Not the team that procured it. The team that will be standing in front of a journalist when something goes wrong.</li>
+          <li><strong>Design representative test sets</strong> that reflect Vancouver's languages, neighbourhoods, accessibility needs, and edge cases. A test set built from English-only training data will miss a third of the city before it ever leaves the dev environment.</li>
+          <li><strong>Review findings with non-technical stakeholders</strong>, including service designers, frontline staff, and at least one external civic partner. The goal is to surface the failure modes that matter to the people who use the service, not just the ones that show up in logs.</li>
+          <li><strong>Publish plain-language summaries</strong> that pair each metric with a short, honest interpretation. A 92% accuracy score with no context is a marketing number. The same score, paired with a sentence describing what the 8% of failures look like in the lives of residents, is governance.</li>
         </ol>
 
+        <blockquote class="publication-pull">
+          If you can't describe a failure mode in two sentences a city councillor would understand, you haven't tested for it yet.
+          <cite>Field interview, BC municipal staff, 2025</cite>
+        </blockquote>
+
         <h2>What to test for first</h2>
-        <p>Public-interest deployments tend to fail along a small set of recurring axes: language coverage, demographic skew, refusal under stress, and brittle behaviour around novel jurisdictional inputs. Starting evaluations there closes the most common gaps before the system reaches a real applicant.</p>
+        <p>Public-interest deployments tend to fail along a small set of recurring axes. They are unglamorous and predictable, which is why so few teams plan for them. Starting evaluations here closes the most common gaps before the system reaches a real applicant.</p>
+        <ul>
+          <li><strong>Language coverage.</strong> The model performs well in English but degrades sharply in Cantonese, Punjabi, Tagalog, and other languages spoken across the city. This often shows up first as longer response times, then as confidently wrong answers.</li>
+          <li><strong>Demographic skew.</strong> Outcomes vary by age, postal code, immigration status, or other features the system should never have learned to weight. The fix is rarely a model fine-tune; it is usually a data pipeline that was never audited.</li>
+          <li><strong>Refusal under stress.</strong> Models that handle clean, polite inputs collapse under angry, distressed, or repetitive ones. People in crisis are exactly the people most likely to interact with public services.</li>
+          <li><strong>Brittle behaviour around novel jurisdictional inputs.</strong> Vancouver is not Toronto, Toronto is not New York, and a model trained on US procurement data does not know what a strata council is. Local edge cases will surface within the first week of deployment, whether you tested for them or not.</li>
+        </ul>
+
+        <figure class="publication-figure">
+          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200&h=700&fit=crop&q=80" alt="Researchers reviewing printed reports around a long table, low warm light.">
+          <figcaption>Photo: VCASSE field session with civic partners, Vancouver City Hall, 2025.</figcaption>
+        </figure>
 
         <h2>Why the public summary matters</h2>
         <p>A test report that no one outside the engineering team reads cannot create accountability. Plain-language summaries give policymakers and residents a shared reference, and they make it possible to compare deployments across departments and vendors.</p>
+        <p>The public summary is also a forcing function on the evaluation itself. Teams that know they will publish their findings tend to test for things they can defend in writing. Teams that publish only an internal dashboard tend to test for things that look good on a dashboard. The difference is not subtle, and it shows up in the systems that ship.</p>
 
-        <blockquote class="publication-pull">"If you can't describe a failure mode in two sentences a city councillor would understand, you haven't tested for it yet."</blockquote>
+        <h2>Three patterns we see go wrong</h2>
+        <p>Across the agencies we work with, the same three anti-patterns reappear with surprising consistency. Naming them is the first step to avoiding them.</p>
+        <ol>
+          <li><strong>The vendor evaluation.</strong> The procurement contract requires "evaluation" and the vendor delivers a glossy document. Nobody on the public side has the standing to push back on a methodology written by the people being evaluated.</li>
+          <li><strong>The accuracy headline.</strong> A single top-line number gets quoted in the press release. The disaggregated breakdown, where the real story lives, is buried in an appendix the press release does not link to.</li>
+          <li><strong>The launch-week rush.</strong> Evaluations get scheduled for the two weeks before launch, when there is no longer time to act on what they find. The result is a report that exists, was paid for, and changed nothing.</li>
+        </ol>
+
+        <blockquote class="publication-pull">
+          We didn't fail because we couldn't measure the system. We failed because we measured it on a calendar that didn't allow us to fix what we found.
+          <cite>Pilot retrospective, anonymized, 2025</cite>
+        </blockquote>
+
+        <h2>What good looks like</h2>
+        <p>The teams we have seen do this well share three habits. They schedule evaluations before the launch is locked in, so they have time to act on findings. They invite at least one outsider into the review, even when it is uncomfortable. And they treat the public summary as a deliverable, not an afterthought, which means somebody on the team owns it, edits it, and signs their name to it.</p>
+        <p>None of these are technical practices. They are governance practices, applied to a technical artefact. That is a deliberate choice. The teams that try to solve evaluation as a pure ML problem keep landing in the same place: a beautifully measured system that nobody outside the build team can interpret, defend, or correct.</p>
 
         <h2>Where to go from here</h2>
-        <p>This brief is the first in a series. Upcoming notes will cover red-teaming for civic chatbots, evaluation cadence after deployment, and how to share evaluation infrastructure across municipalities.</p>
+        <p>This brief is the first in a series. Upcoming notes will cover red-teaming for civic chatbots, evaluation cadence after deployment, how to share evaluation infrastructure across municipalities, and how to read a vendor evaluation report critically. If your team is working on something in this space and would like to compare notes, our contact form is the right place to start.</p>
       </article>
 
       <aside class="publication-aside" aria-label="Publication summary">
@@ -119,7 +158,7 @@
         <p class="home-section-kicker">Related</p>
         <h2 class="home-section-title">More from Safety</h2>
       </header>
-      <div class="publication-cards-grid" data-related-publications data-pillar="safety" data-limit="2" data-exclude="safety-evaluations-public-interest"></div>
+      <div class="publication-cards-grid" data-related-publications data-pillar="safety" data-limit="2" data-exclude="safety-evaluations-public-interest" data-base-href="../"></div>
     </div>
   </section>
 

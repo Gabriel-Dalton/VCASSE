@@ -13,11 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const pillar = (container.getAttribute('data-pillar') || '').toLowerCase();
     const limit = Number(container.getAttribute('data-limit') || 2);
     const exclude = container.getAttribute('data-exclude') || '';
-    const baseHref = container.getAttribute('data-base-href') || '../';
-    if (!pillar) return;
+    const baseHref = container.getAttribute('data-base-href') || '';
 
     const posts = allPosts
-      .filter((post) => post.pillar === pillar && post.slug !== exclude)
+      .filter((post) => (!pillar || post.pillar === pillar) && post.slug !== exclude)
       .slice(0, limit);
 
     container.innerHTML = '';
