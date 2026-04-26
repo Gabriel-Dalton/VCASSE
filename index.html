@@ -7,7 +7,7 @@
   <link rel="icon" type="image/svg+xml" href="dev/img/logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -85,20 +85,32 @@
     .nav {
       display: flex;
       align-items: center;
-      gap: 12px;
     }
 
-    .nav img {
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .nav-logo img {
       width: 32px;
       height: 32px;
       border-radius: 7px;
     }
 
-    .nav span {
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 32px;
+      line-height: 1;
+      font-family: 'IBM Plex Sans', 'Space Grotesk', sans-serif;
       font-weight: 600;
-      font-size: 16px;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0.1px;
       color: #fafafa;
     }
 
@@ -108,13 +120,24 @@
     }
 
     .label {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       font-size: 13px;
       font-weight: 500;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: #a1a1aa;
       margin-bottom: 32px;
+    }
+
+    .label .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: blink 2.5s ease-in-out infinite;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.12);
     }
 
     h1 {
@@ -143,47 +166,32 @@
     .bottom {
       display: flex;
       align-items: flex-end;
-      justify-content: space-between;
+      justify-content: flex-end;
       gap: 24px;
       flex-wrap: wrap;
     }
 
-    .status {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 13px;
-      font-weight: 500;
-      color: #52525b;
-      letter-spacing: 0.5px;
-    }
-
-    .status .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #22c55e;
-      animation: blink 2.5s ease-in-out infinite;
-    }
-
     @keyframes blink {
       0%, 100% { opacity: 1; }
-      50%      { opacity: 0.3; }
+      50%      { opacity: 0.35; }
     }
 
     .copyright {
       font-size: 13px;
-      color: #3f3f46;
+      color: #a1a1aa;
+      line-height: 1.5;
     }
 
     .copyright a {
-      color: #52525b;
-      text-decoration: none;
+      color: #d4d4d8;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
       transition: color 0.2s;
     }
 
     .copyright a:hover {
-      color: #a1a1aa;
+      color: #fafafa;
     }
 
     /* ── Responsive ── */
@@ -217,30 +225,34 @@
   <div class="page">
 
     <nav class="nav">
-      <img src="dev/img/logo.svg" alt="VCASSE">
-      <span>VCASSE</span>
+      <a href="#" class="nav-logo">
+        <img src="dev/img/logo.svg" alt="VCASSE">
+        <span class="nav-logo-text">
+          <span>Vancouver Centre for AI Safety,</span>
+          <span>Sustainability, &amp; Ethics</span>
+        </span>
+      </a>
     </nav>
 
     <main class="content">
-      <p class="label">Coming soon</p>
+      <p class="label">
+        <span class="dot" aria-hidden="true"></span>
+        Building in progress
+      </p>
       <h1>
         Responsible AI<br>
         for <span class="thin">Vancouver.</span>
       </h1>
       <p class="desc">
         The Vancouver Centre for AI Safety, Sustainability, and Ethics.
-        Research, education, and advocacy — launching&nbsp;soon.
+        Research, education, and advocacy, launching&nbsp;soon.
       </p>
     </main>
 
     <footer class="bottom">
-      <div class="status">
-        <span class="dot"></span>
-        Building in progress
-      </div>
       <p class="copyright">
         &copy; <script>document.write(new Date().getFullYear())</script> VCASSE.
-        A subsidiary of <a href="https://oasisofchange.com" target="_blank">Oasis of Change, Inc.</a>
+        A subsidiary of <a href="https://oasisofchange.com" target="_blank" rel="noopener">Oasis of Change, Inc.</a>
       </p>
     </footer>
 
