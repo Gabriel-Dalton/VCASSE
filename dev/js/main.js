@@ -339,4 +339,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ── Hero AI concept scene cycler ────────────────────────────────
+  // Walks the hero visual through three AI concepts every ~5s. Pauses
+  // when the user has set prefers-reduced-motion or when the page is
+  // hidden. Clicking a dot selects a scene manually and resets the timer.
+  const heroScene = document.getElementById('heroScene');
+  if (heroScene) {
+    const SCENES = ['nn', 'attn', 'tok'];
+    const SCENE_MS = 5200;
+    let idx = SCENES.indexOf(heroScene.dataset.scene) || 0;
+    let timer = null;
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function setScene(name) {
+      const next = SCENES.indexOf(name);
+      if (next < 0) return;
+      idx = next;
+      heroScene.dataset.scene = name;
+    }
+
+    function tick() {
+      idx = (idx + 1) % SCENES.length;
+      heroScene.dataset.scene = SCENES[idx];
+    }
+
+    function start() {
+      stop();
+      if (reduce.matches || document.hidden) return;
+      timer = setInterval(tick, SCENE_MS);
+    }
+
+    function stop() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+
+    document.querySelectorAll('.hero-caption-dot').forEach((dot) => {
+      dot.addEventListener('click', () => {
+        setScene(dot.dataset.go);
+        start(); // reset cadence on manual selection
+      });
+    });
+
+    document.addEventListener('visibilitychange', () => {
+      document.hidden ? stop() : start();
+    });
+
+    if (reduce.addEventListener) {
+      reduce.addEventListener('change', start);
+    }
+
+    start();
+  }
+
 });

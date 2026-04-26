@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VCASSE | Vancouver Centre for AI Safety, Sustainability, and Ethics</title>
-  <link rel="stylesheet" href="css/styles.css?v=9">
+  <link rel="stylesheet" href="css/styles.css?v=11">
   <link rel="icon" type="image/svg+xml" href="img/logo.svg">
 </head>
 <body>
@@ -69,6 +69,236 @@
         <div class="hero-actions">
           <a href="publications.html" class="btn btn-hero-primary">Read our work</a>
           <a href="about.html" class="btn btn-hero-secondary">About VCASSE</a>
+        </div>
+      </div>
+
+      <!-- Hero visual: a small motion-graphic that cycles through three
+           AI concepts (neural network → attention → tokenization &
+           embeddings) with a caption underneath so the imagery is
+           legible. Pure SVG + CSS animations driven by a tiny scene
+           controller in main.js. -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-scene" id="heroScene" data-scene="nn">
+
+          <svg class="hero-anim" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false">
+            <defs>
+              <radialGradient id="heroPulse" cx="50%" cy="50%" r="50%">
+                <stop offset="0%"   stop-color="#ffffff" stop-opacity="1"/>
+                <stop offset="45%"  stop-color="#a9d3ee" stop-opacity="0.85"/>
+                <stop offset="100%" stop-color="#6cb4e4" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="heroNodeFill" cx="50%" cy="50%" r="50%">
+                <stop offset="0%"  stop-color="#a9d3ee" stop-opacity="0.95"/>
+                <stop offset="100%" stop-color="#0d4f8b" stop-opacity="0.55"/>
+              </radialGradient>
+              <linearGradient id="heroEdge" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%"   stop-color="#6cb4e4" stop-opacity="0.18"/>
+                <stop offset="100%" stop-color="#6cb4e4" stop-opacity="0.55"/>
+              </linearGradient>
+              <linearGradient id="heroBar" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%"  stop-color="#0d4f8b" stop-opacity="0.55"/>
+                <stop offset="100%" stop-color="#a9d3ee" stop-opacity="1"/>
+              </linearGradient>
+            </defs>
+
+            <!-- ─── Scene 1 — Neural network (forward pass) ─── -->
+            <g class="hero-anim-scene hero-anim-scene--nn">
+              <!-- All inter-layer connections drawn as one path for perf -->
+              <path class="hero-nn-edges" stroke="url(#heroEdge)" stroke-width="1" fill="none" d="
+                M100,140 L240,100 M100,140 L240,200 M100,140 L240,300 M100,140 L240,400
+                M100,220 L240,100 M100,220 L240,200 M100,220 L240,300 M100,220 L240,400
+                M100,300 L240,100 M100,300 L240,200 M100,300 L240,300 M100,300 L240,400
+                M100,380 L240,100 M100,380 L240,200 M100,380 L240,300 M100,380 L240,400
+                M240,100 L380,100 M240,100 L380,200 M240,100 L380,300 M240,100 L380,400
+                M240,200 L380,100 M240,200 L380,200 M240,200 L380,300 M240,200 L380,400
+                M240,300 L380,100 M240,300 L380,200 M240,300 L380,300 M240,300 L380,400
+                M240,400 L380,100 M240,400 L380,200 M240,400 L380,300 M240,400 L380,400
+                M380,100 L520,180 M380,100 L520,300 M380,100 L520,420
+                M380,200 L520,180 M380,200 L520,300 M380,200 L520,420
+                M380,300 L520,180 M380,300 L520,300 M380,300 L520,420
+                M380,400 L520,180 M380,400 L520,300 M380,400 L520,420
+              "/>
+
+              <!-- Highlighted forward-pass paths with traveling light pulses -->
+              <circle r="6" fill="url(#heroPulse)">
+                <animateMotion dur="2.6s" repeatCount="indefinite" path="M100,220 L240,200 L380,200 L520,180"/>
+              </circle>
+              <circle r="6" fill="url(#heroPulse)">
+                <animateMotion dur="2.6s" begin="0.5s" repeatCount="indefinite" path="M100,300 L240,300 L380,300 L520,300"/>
+              </circle>
+              <circle r="6" fill="url(#heroPulse)">
+                <animateMotion dur="2.6s" begin="1s" repeatCount="indefinite" path="M100,380 L240,400 L380,400 L520,420"/>
+              </circle>
+
+              <!-- Layer 1 (input): 4 nodes -->
+              <g class="hero-nn-layer hero-nn-layer--1">
+                <circle cx="100" cy="140" r="10" fill="url(#heroNodeFill)" stroke="#a9d3ee" stroke-width="1.2"/>
+                <circle cx="100" cy="220" r="10" fill="url(#heroNodeFill)" stroke="#a9d3ee" stroke-width="1.2"/>
+                <circle cx="100" cy="300" r="10" fill="url(#heroNodeFill)" stroke="#a9d3ee" stroke-width="1.2"/>
+                <circle cx="100" cy="380" r="10" fill="url(#heroNodeFill)" stroke="#a9d3ee" stroke-width="1.2"/>
+              </g>
+              <g class="hero-nn-layer hero-nn-layer--2">
+                <circle cx="240" cy="100" r="11" fill="url(#heroNodeFill)" stroke="#a9d3ee" stroke-width="1.2"/>
+                <circle cx="240" cy="200" r="11" fill="url(#heroNodeFill)" stroke="#a9d3ee" stroke-width="1.2"/>
+                <circle cx="240" cy="300" r="11" fill="url(#heroNodeFill)" stroke="#a9d3ee" stroke-width="1.2"/>
+                <circle cx="240" cy="400" r="11" fill="url(#heroNodeFill)" stroke="#a9d3ee" stroke-width="1.2"/>
+              </g>
+              <g class="hero-nn-layer hero-nn-layer--3">
+                <circle cx="380" cy="100" r="11" fill="url(#heroNodeFill)" stroke="#a9d3ee" stroke-width="1.2"/>
+                <circle cx="380" cy="200" r="11" fill="url(#heroNodeFill)" stroke="#a9d3ee" stroke-width="1.2"/>
+                <circle cx="380" cy="300" r="11" fill="url(#heroNodeFill)" stroke="#a9d3ee" stroke-width="1.2"/>
+                <circle cx="380" cy="400" r="11" fill="url(#heroNodeFill)" stroke="#a9d3ee" stroke-width="1.2"/>
+              </g>
+              <g class="hero-nn-layer hero-nn-layer--4">
+                <circle cx="520" cy="180" r="13" fill="url(#heroNodeFill)" stroke="#ffffff" stroke-width="1.4"/>
+                <circle cx="520" cy="300" r="13" fill="url(#heroNodeFill)" stroke="#ffffff" stroke-width="1.4"/>
+                <circle cx="520" cy="420" r="13" fill="url(#heroNodeFill)" stroke="#ffffff" stroke-width="1.4"/>
+              </g>
+
+              <text x="100" y="475" class="hero-anim-axis" text-anchor="middle">INPUT</text>
+              <text x="240" y="475" class="hero-anim-axis" text-anchor="middle">HIDDEN</text>
+              <text x="380" y="475" class="hero-anim-axis" text-anchor="middle">HIDDEN</text>
+              <text x="520" y="475" class="hero-anim-axis" text-anchor="middle">OUTPUT</text>
+            </g>
+
+            <!-- ─── Scene 2 — Attention ─── -->
+            <g class="hero-anim-scene hero-anim-scene--attn">
+              <!-- Tokens row -->
+              <g class="hero-attn-tokens">
+                <g class="hero-attn-token" data-i="0">
+                  <rect x="40"  y="380" width="92" height="50" rx="10" fill="rgba(13,79,139,0.35)" stroke="#6cb4e4" stroke-width="1.2"/>
+                  <text x="86"  y="411" text-anchor="middle" class="hero-attn-text">Vancouver</text>
+                </g>
+                <g class="hero-attn-token" data-i="1">
+                  <rect x="148" y="380" width="60" height="50" rx="10" fill="rgba(13,79,139,0.35)" stroke="#6cb4e4" stroke-width="1.2"/>
+                  <text x="178" y="411" text-anchor="middle" class="hero-attn-text">trusts</text>
+                </g>
+                <g class="hero-attn-token" data-i="2">
+                  <rect x="224" y="380" width="46" height="50" rx="10" fill="rgba(13,79,139,0.35)" stroke="#6cb4e4" stroke-width="1.2"/>
+                  <text x="247" y="411" text-anchor="middle" class="hero-attn-text">AI</text>
+                </g>
+                <g class="hero-attn-token" data-i="3">
+                  <rect x="286" y="380" width="56" height="50" rx="10" fill="rgba(13,79,139,0.35)" stroke="#6cb4e4" stroke-width="1.2"/>
+                  <text x="314" y="411" text-anchor="middle" class="hero-attn-text">that</text>
+                </g>
+                <g class="hero-attn-token" data-i="4">
+                  <rect x="358" y="380" width="80" height="50" rx="10" fill="rgba(13,79,139,0.35)" stroke="#6cb4e4" stroke-width="1.2"/>
+                  <text x="398" y="411" text-anchor="middle" class="hero-attn-text">serves</text>
+                </g>
+                <g class="hero-attn-token" data-i="5">
+                  <rect x="454" y="380" width="100" height="50" rx="10" fill="rgba(13,79,139,0.35)" stroke="#6cb4e4" stroke-width="1.2"/>
+                  <text x="504" y="411" text-anchor="middle" class="hero-attn-text">residents</text>
+                </g>
+              </g>
+
+              <!-- Attention arcs (origin: token "AI" at x=247) -->
+              <g class="hero-attn-arcs" fill="none" stroke="#6cb4e4">
+                <path class="hero-attn-arc hero-attn-arc--strong"   d="M247,380 Q166,200 86,380"/>
+                <path class="hero-attn-arc hero-attn-arc--medium"   d="M247,380 Q212,260 178,380"/>
+                <path class="hero-attn-arc hero-attn-arc--faint"    d="M247,380 Q280,300 314,380"/>
+                <path class="hero-attn-arc hero-attn-arc--medium"   d="M247,380 Q322,240 398,380"/>
+                <path class="hero-attn-arc hero-attn-arc--strong"   d="M247,380 Q376,160 504,380"/>
+              </g>
+
+              <text x="300" y="60"  class="hero-anim-eyebrow" text-anchor="middle">ATTENTION WEIGHTS</text>
+              <text x="300" y="475" class="hero-anim-axis"    text-anchor="middle">QUERY: AI →</text>
+            </g>
+
+            <!-- ─── Scene 3 — Tokenization & embeddings ─── -->
+            <g class="hero-anim-scene hero-anim-scene--tok">
+              <!-- The phrase being tokenized -->
+              <text x="300" y="60" class="hero-anim-eyebrow" text-anchor="middle">RESPONSIBLE AI FOR VANCOUVER</text>
+
+              <!-- Token chips with IDs above -->
+              <g class="hero-tok-tokens">
+                <g class="hero-tok-token" data-i="0">
+                  <text x="115" y="125" text-anchor="middle" class="hero-tok-id">2841</text>
+                  <rect x="55"  y="135" width="120" height="46" rx="8" fill="rgba(13,79,139,0.30)" stroke="#6cb4e4" stroke-width="1.2"/>
+                  <text x="115" y="164" text-anchor="middle" class="hero-attn-text">responsible</text>
+                </g>
+                <g class="hero-tok-token" data-i="1">
+                  <text x="225" y="125" text-anchor="middle" class="hero-tok-id">17</text>
+                  <rect x="190" y="135" width="70" height="46" rx="8" fill="rgba(13,79,139,0.30)" stroke="#6cb4e4" stroke-width="1.2"/>
+                  <text x="225" y="164" text-anchor="middle" class="hero-attn-text">AI</text>
+                </g>
+                <g class="hero-tok-token" data-i="2">
+                  <text x="305" y="125" text-anchor="middle" class="hero-tok-id">329</text>
+                  <rect x="275" y="135" width="60" height="46" rx="8" fill="rgba(13,79,139,0.30)" stroke="#6cb4e4" stroke-width="1.2"/>
+                  <text x="305" y="164" text-anchor="middle" class="hero-attn-text">for</text>
+                </g>
+                <g class="hero-tok-token" data-i="3">
+                  <text x="425" y="125" text-anchor="middle" class="hero-tok-id">9914</text>
+                  <rect x="350" y="135" width="150" height="46" rx="8" fill="rgba(13,79,139,0.30)" stroke="#6cb4e4" stroke-width="1.2"/>
+                  <text x="425" y="164" text-anchor="middle" class="hero-attn-text">Vancouver</text>
+                </g>
+              </g>
+
+              <!-- Vector arrows pointing down to embedding bars -->
+              <path d="M115,200 L115,230 M225,200 L225,230 M305,200 L305,230 M425,200 L425,230"
+                    stroke="rgba(108,180,228,0.6)" stroke-width="1.2" stroke-dasharray="2 4" fill="none"/>
+
+              <text x="40" y="252" class="hero-anim-axis">EMBEDDING</text>
+
+              <!-- Embedding bar charts (one per token, animated) -->
+              <g class="hero-tok-embed" data-i="0" transform="translate(75 240)">
+                <rect class="hero-tok-bar" x="0"  y="20"  width="9" height="60"  fill="url(#heroBar)"/>
+                <rect class="hero-tok-bar" x="14" y="50"  width="9" height="30"  fill="url(#heroBar)"/>
+                <rect class="hero-tok-bar" x="28" y="10"  width="9" height="70"  fill="url(#heroBar)"/>
+                <rect class="hero-tok-bar" x="42" y="40"  width="9" height="40"  fill="url(#heroBar)"/>
+                <rect class="hero-tok-bar" x="56" y="0"   width="9" height="80"  fill="url(#heroBar)"/>
+                <rect class="hero-tok-bar" x="70" y="30"  width="9" height="50"  fill="url(#heroBar)"/>
+              </g>
+              <g class="hero-tok-embed" data-i="1" transform="translate(190 240)">
+                <rect class="hero-tok-bar" x="0"  y="40" width="7" height="40"/>
+                <rect class="hero-tok-bar" x="11" y="20" width="7" height="60"/>
+                <rect class="hero-tok-bar" x="22" y="60" width="7" height="20"/>
+                <rect class="hero-tok-bar" x="33" y="10" width="7" height="70"/>
+                <rect class="hero-tok-bar" x="44" y="35" width="7" height="45"/>
+                <rect class="hero-tok-bar" x="55" y="55" width="7" height="25"/>
+              </g>
+              <g class="hero-tok-embed" data-i="2" transform="translate(275 240)" fill="url(#heroBar)">
+                <rect class="hero-tok-bar" x="0"  y="30" width="7" height="50"/>
+                <rect class="hero-tok-bar" x="11" y="50" width="7" height="30"/>
+                <rect class="hero-tok-bar" x="22" y="20" width="7" height="60"/>
+                <rect class="hero-tok-bar" x="33" y="40" width="7" height="40"/>
+                <rect class="hero-tok-bar" x="44" y="15" width="7" height="65"/>
+                <rect class="hero-tok-bar" x="55" y="45" width="7" height="35"/>
+              </g>
+              <g class="hero-tok-embed" data-i="3" transform="translate(360 240)" fill="url(#heroBar)">
+                <rect class="hero-tok-bar" x="0"   y="10" width="9" height="70"/>
+                <rect class="hero-tok-bar" x="14"  y="40" width="9" height="40"/>
+                <rect class="hero-tok-bar" x="28"  y="25" width="9" height="55"/>
+                <rect class="hero-tok-bar" x="42"  y="55" width="9" height="25"/>
+                <rect class="hero-tok-bar" x="56"  y="0"  width="9" height="80"/>
+                <rect class="hero-tok-bar" x="70"  y="35" width="9" height="45"/>
+                <rect class="hero-tok-bar" x="84"  y="20" width="9" height="60"/>
+                <rect class="hero-tok-bar" x="98"  y="50" width="9" height="30"/>
+                <rect class="hero-tok-bar" x="112" y="15" width="9" height="65"/>
+                <rect class="hero-tok-bar" x="126" y="45" width="9" height="35"/>
+              </g>
+
+              <text x="40" y="425" class="hero-anim-axis">TOKEN ID</text>
+              <line x1="40" y1="380" x2="560" y2="380" stroke="rgba(108,180,228,0.18)" stroke-width="1"/>
+              <text x="300" y="475" class="hero-anim-axis" text-anchor="middle">TEXT → TOKENS → VECTORS</text>
+            </g>
+          </svg>
+
+          <!-- Caption + scene indicator -->
+          <div class="hero-caption" role="status" aria-live="polite">
+            <div class="hero-caption-text">
+              <p class="hero-caption-title" data-scene="nn">Neural network</p>
+              <p class="hero-caption-title" data-scene="attn">Attention</p>
+              <p class="hero-caption-title" data-scene="tok">Tokens &amp; embeddings</p>
+              <p class="hero-caption-desc" data-scene="nn">Layers of weighted connections that turn an input into an output, one signal at a time.</p>
+              <p class="hero-caption-desc" data-scene="attn">How a model decides which earlier words matter when it reads a new one.</p>
+              <p class="hero-caption-desc" data-scene="tok">Words become numbers. Numbers become vectors. Vectors become meaning.</p>
+            </div>
+            <div class="hero-caption-dots" role="tablist" aria-label="AI concept slides">
+              <button type="button" class="hero-caption-dot" data-go="nn"   aria-label="Neural network"></button>
+              <button type="button" class="hero-caption-dot" data-go="attn" aria-label="Attention"></button>
+              <button type="button" class="hero-caption-dot" data-go="tok"  aria-label="Tokens and embeddings"></button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -175,48 +405,42 @@
   <section class="home-glossary fade-in" aria-labelledby="home-glossary-heading">
     <div class="container">
       <article class="home-glossary-card">
-        <div class="home-glossary-text">
+        <header class="home-glossary-head">
           <p class="home-glossary-kicker">Tool · Literacy</p>
-          <h2 class="home-glossary-title" id="home-glossary-heading">
-            A plain-language glossary for <em>responsible AI conversations.</em>
-          </h2>
-          <p class="home-glossary-lede">
-            Search the term you saw in the news. Filter by safety, sustainability,
-            ethics, or difficulty. Each definition is short enough to drop into
-            a council meeting, accurate enough to stand up to a researcher — with
-            cross-references that connect the vocabulary together.
-          </p>
-          <div class="home-glossary-actions">
-            <a class="btn btn-primary" href="glossary.html">Browse the glossary <span aria-hidden="true">→</span></a>
-            <span class="home-glossary-stat"><strong>27</strong> terms · <strong>3</strong> pillars · <strong>3</strong> levels</span>
-          </div>
-        </div>
-        <aside class="home-glossary-preview" aria-hidden="true">
-          <article class="home-glossary-preview-card">
-            <div class="home-glossary-preview-head">
-              <h3 class="home-glossary-preview-term">Alignment</h3>
-              <span class="pill pill--safety">Safety</span>
-              <span class="glossary-level glossary-level--intermediate">Intermediate</span>
-            </div>
-            <p class="home-glossary-preview-def">Getting an AI system to actually pursue the goals its operators intended, even in situations the designers didn't anticipate.</p>
-          </article>
-          <article class="home-glossary-preview-card">
-            <div class="home-glossary-preview-head">
-              <h3 class="home-glossary-preview-term">AIDA</h3>
-              <span class="pill pill--ethics">Ethics</span>
-              <span class="glossary-level glossary-level--advanced">Advanced</span>
-            </div>
-            <p class="home-glossary-preview-def">Canada's proposed federal AI law — the Artificial Intelligence and Data Act — regulating "high-impact" systems with risk and disclosure obligations.</p>
-          </article>
-          <article class="home-glossary-preview-card">
-            <div class="home-glossary-preview-head">
-              <h3 class="home-glossary-preview-term">Carbon-aware computing</h3>
-              <span class="pill pill--sustainability">Sustainability</span>
-              <span class="glossary-level glossary-level--intermediate">Intermediate</span>
-            </div>
-            <p class="home-glossary-preview-def">Scheduling AI workloads — especially training — for times and regions when the local grid is greener.</p>
-          </article>
-        </aside>
+          <span class="home-glossary-meta">A→Z · 27 entries</span>
+        </header>
+
+        <h2 class="home-glossary-title" id="home-glossary-heading">
+          The plain-language
+          <em>responsible-AI dictionary.</em>
+        </h2>
+
+        <p class="home-glossary-lede">
+          Search the term you saw in the news. Filter by safety, sustainability,
+          ethics, or difficulty. Each definition is short enough to drop into a
+          council meeting, accurate enough to stand up to a researcher.
+        </p>
+
+        <ul class="home-glossary-specimen" aria-hidden="true">
+          <li>Alignment</li>
+          <li>Bias</li>
+          <li>Compute</li>
+          <li>Dataset</li>
+          <li>Evaluation</li>
+          <li>Hallucination</li>
+          <li>Inference</li>
+          <li>LLM</li>
+          <li>Prompt injection</li>
+          <li>RLHF</li>
+          <li>Token</li>
+          <li>Watermarking</li>
+        </ul>
+
+        <footer class="home-glossary-foot">
+          <a class="home-glossary-link" href="glossary.html">
+            Browse the glossary <span aria-hidden="true">→</span>
+          </a>
+        </footer>
       </article>
     </div>
   </section>
