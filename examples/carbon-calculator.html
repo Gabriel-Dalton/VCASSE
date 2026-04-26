@@ -40,8 +40,18 @@
       <div class="calc-grid">
 
         <section class="panel" aria-labelledby="calc-input-title">
-          <h2 class="panel-title" id="calc-input-title">Tell us about a typical week</h2>
-          <p class="panel-sub">Drag the sliders. Numbers update as you go.</p>
+          <header class="calc-panel-header">
+            <div>
+              <h2 class="panel-title" id="calc-input-title">Tell us about a typical week</h2>
+              <p class="panel-sub" style="margin-bottom:0;">Drag the sliders. Numbers update as you go.</p>
+            </div>
+            <div class="calc-presets" role="group" aria-label="Quick presets">
+              <button type="button" class="calc-preset" data-preset="light">Light</button>
+              <button type="button" class="calc-preset is-active" data-preset="typical">Typical</button>
+              <button type="button" class="calc-preset" data-preset="heavy">Heavy</button>
+              <button type="button" class="calc-preset" data-preset="power">Power user</button>
+            </div>
+          </header>
 
           <div class="calc-input-group">
             <label for="chats">
@@ -60,6 +70,14 @@
           </div>
 
           <div class="calc-input-group">
+            <label for="code">
+              Code completions / dev queries per day
+              <span class="calc-value"><span data-out="code">15</span></span>
+            </label>
+            <input class="calc-slider" type="range" id="code" min="0" max="500" value="15">
+          </div>
+
+          <div class="calc-input-group">
             <label for="images">
               AI images generated per day
               <span class="calc-value"><span data-out="images">2</span></span>
@@ -68,21 +86,39 @@
           </div>
 
           <div class="calc-input-group">
-            <label for="model">Default model class</label>
-            <select id="model" class="calc-select">
-              <option value="small">Small / efficient (e.g. 8B distilled)</option>
-              <option value="mid" selected>Mid-size general assistant</option>
-              <option value="frontier">Frontier model (largest available)</option>
-            </select>
+            <label for="voice">
+              Voice / audio minutes per day <small style="font-weight:400;color:var(--text-muted);">(transcription, TTS)</small>
+              <span class="calc-value"><span data-out="voice">0</span></span>
+            </label>
+            <input class="calc-slider" type="range" id="voice" min="0" max="120" value="0">
           </div>
 
           <div class="calc-input-group">
-            <label for="grid">Where the data centre runs</label>
-            <select id="grid" class="calc-select">
-              <option value="bc" selected>BC / Pacific NW (mostly hydro)</option>
-              <option value="us">U.S. national average grid</option>
-              <option value="coal">Coal-heavy grid</option>
-            </select>
+            <label for="video">
+              AI video clips generated per week
+              <span class="calc-value"><span data-out="video">0</span></span>
+            </label>
+            <input class="calc-slider" type="range" id="video" min="0" max="20" value="0">
+          </div>
+
+          <div class="calc-row-2">
+            <div class="calc-input-group">
+              <label for="model">Default model class</label>
+              <select id="model" class="calc-select">
+                <option value="small">Small / efficient (8B distilled)</option>
+                <option value="mid" selected>Mid-size general assistant</option>
+                <option value="frontier">Frontier model (largest available)</option>
+              </select>
+            </div>
+
+            <div class="calc-input-group">
+              <label for="grid">Data-centre grid</label>
+              <select id="grid" class="calc-select">
+                <option value="bc" selected>BC / Pacific NW (mostly hydro)</option>
+                <option value="us">U.S. national average</option>
+                <option value="coal">Coal-heavy grid</option>
+              </select>
+            </div>
           </div>
         </section>
 
@@ -90,6 +126,8 @@
           <p class="calc-results-headline">Estimated weekly footprint</p>
           <div class="calc-results-number"><span id="co2-out">0</span></div>
           <div class="calc-results-unit">grams CO₂-equivalent</div>
+
+          <div class="calc-bench" id="bench-out"></div>
 
           <div class="calc-breakdown">
             <div class="calc-breakdown-row">
@@ -106,9 +144,17 @@
             </div>
           </div>
 
+          <div class="calc-attr">
+            <p class="calc-attr-title">Where it comes from</p>
+            <div class="calc-attr-bar" id="attr-bar" role="img" aria-label="Activity attribution"></div>
+            <ul class="calc-attr-legend" id="attr-legend"></ul>
+          </div>
+
           <div class="calc-equiv" id="equiv-out"></div>
 
-          <p style="font-size:11px;color:rgba(255,255,255,0.55);margin-top:18px;line-height:1.5;">
+          <div class="calc-tips" id="tips-out"></div>
+
+          <p class="calc-disclaimer">
             Estimates only. Per-query figures are drawn from public reporting on
             commercial AI inference and vary widely by provider. VCASSE publishes
             updated assumptions in our sustainability briefs.
