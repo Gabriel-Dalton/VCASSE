@@ -74,14 +74,28 @@
           </button>
         </div>
         <div class="publications-toolbar-end">
-          <label class="publications-sort">
+          <div class="publications-sort">
             <span class="publications-sort-label">Sort</span>
-            <select id="publicationsSort">
-              <option value="newest">Newest first</option>
-              <option value="oldest">Oldest first</option>
-            </select>
-            <svg class="publications-sort-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </label>
+            <div class="vc-dropdown" id="publicationsSort" data-vc-dropdown>
+              <button type="button" class="vc-dropdown-trigger"
+                      aria-haspopup="listbox"
+                      aria-expanded="false"
+                      aria-labelledby="publicationsSortValue">
+                <span class="vc-dropdown-value" id="publicationsSortValue">Newest first</span>
+                <svg class="vc-dropdown-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <ul class="vc-dropdown-menu" role="listbox" aria-label="Sort publications by date" tabindex="-1">
+                <li class="vc-dropdown-option is-selected" role="option" data-value="newest" aria-selected="true">
+                  <span class="vc-dropdown-option-label">Newest first</span>
+                  <svg class="vc-dropdown-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </li>
+                <li class="vc-dropdown-option" role="option" data-value="oldest" aria-selected="false">
+                  <span class="vc-dropdown-option-label">Oldest first</span>
+                  <svg class="vc-dropdown-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </li>
+              </ul>
+            </div>
+          </div>
           <p class="publications-count" id="publicationsCount" aria-live="polite">
             <span class="publications-count-num">6</span>
             <span class="publications-count-label">items</span>
@@ -159,7 +173,7 @@
   </footer>
 
   <script src="js/publications-data.js?v=2"></script>
-  <script src="js/publications-page.js?v=4"></script>
+  <script src="js/publications-page.js?v=5"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
