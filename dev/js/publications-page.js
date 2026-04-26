@@ -12,19 +12,14 @@
     if (!grid || typeof window.getPublications !== 'function') return;
 
     const posts = window.getPublications();
-    updateHeroStats(posts);
-    populateFilterCounts(posts);
     const filterButtons = Array.from(document.querySelectorAll('[data-pub-filter]'));
-    const tagSelect = document.getElementById('publicationsTag');
     const sortSelect = document.getElementById('publicationsSort');
-    const searchInput = document.getElementById('publicationsSearch');
     const resultsCount = document.getElementById('publicationsCount');
     const emptyState = document.getElementById('publicationsEmpty');
     const resetBtn = document.getElementById('publicationsReset');
 
-    const state = { pillar: 'all', tag: 'all', sort: 'newest', query: '' };
+    const state = { pillar: 'all', sort: 'newest' };
 
-    populateTags(tagSelect, posts);
     render();
 
     filterButtons.forEach((btn) => {
@@ -36,13 +31,6 @@
       });
     });
 
-    if (tagSelect) {
-      tagSelect.addEventListener('change', () => {
-        state.tag = tagSelect.value;
-        render();
-      });
-    }
-
     if (sortSelect) {
       sortSelect.addEventListener('change', () => {
         state.sort = sortSelect.value;
@@ -50,25 +38,10 @@
       });
     }
 
-    if (searchInput) {
-      let timer;
-      searchInput.addEventListener('input', () => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-          state.query = searchInput.value.trim().toLowerCase();
-          render();
-        }, 120);
-      });
-    }
-
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
         state.pillar = 'all';
-        state.tag = 'all';
         state.sort = 'newest';
-        state.query = '';
-        if (searchInput) searchInput.value = '';
-        if (tagSelect) tagSelect.value = 'all';
         if (sortSelect) sortSelect.value = 'newest';
         filterButtons.forEach((b) => {
           const isAll = b.getAttribute('data-pub-filter') === 'all';
@@ -79,89 +52,32 @@
       });
     }
 
-    function populateTags(select, list) {
-      if (!select) return;
-      const tags = new Set();
-      list.forEach((p) => p.tags.forEach((t) => tags.add(t)));
-      const sorted = Array.from(tags).sort((a, b) => a.localeCompare(b));
-      sorted.forEach((tag) => {
-        const opt = document.createElement('option');
-        opt.value = tag;
-        opt.textContent = tag;
-        select.appendChild(opt);
-      });
-    }
-
     function render() {
-      const filtered = posts.filter((post) => {
-        if (state.pillar !== 'all' && post.pillar !== state.pillar) return false;
-        if (state.tag !== 'all' && !post.tags.includes(state.tag)) return false;
-        if (state.query) {
-          const haystack = [post.title, post.excerpt, post.tags.join(' '), (post.authors || []).join(' ')]
-            .join(' ')
-            .toLowerCase();
-          if (!haystack.includes(state.query)) return false;
-        }
-        return true;
-      });
+      const filtered = state.pillar === 'all'
+        ? posts.slice()
+        : posts.filter((p) => p.pillar === state.pillar);
 
       filtered.sort((a, b) => {
-        if (state.sort === 'oldest') return new Date(a.date) - new Date(b.date);
-        if (state.sort === 'az') return a.title.localeCompare(b.title);
-        return new Date(b.date) - new Date(a.date);
+        const da = new Date(a.date).getTime();
+        const db = new Date(b.date).getTime();
+        return state.sort === 'oldest' ? da - db : db - da;
       });
 
       grid.innerHTML = '';
       filtered.forEach((post) => grid.appendChild(buildCard(post)));
 
-      if (resultsCount) {
-        const total = posts.length;
-        const shown = filtered.length;
-        const numEl = resultsCount.querySelector('.publications-count-num');
-        const labelEl = resultsCount.querySelector('.publications-count-label');
-        if (numEl && labelEl) {
-          numEl.textContent = shown === total ? String(total) : `${shown} / ${total}`;
-          labelEl.textContent = shown === 1 ? 'publication' : 'publications';
-        } else {
-          resultsCount.textContent = shown === total
-            ? `Showing all ${total} publications`
-            : `Showing ${shown} of ${total} publications`;
-        }
-      }
+      updateCount(filtered.length);
 
-      if (emptyState) {
-        emptyState.hidden = filtered.length > 0;
-      }
+      if (emptyState) emptyState.hidden = filtered.length > 0;
       grid.hidden = filtered.length === 0;
     }
 
-    function populateFilterCounts(list) {
-      const counts = list.reduce((acc, p) => {
-        acc[p.pillar] = (acc[p.pillar] || 0) + 1;
-        return acc;
-      }, {});
-      counts.all = list.length;
-      document.querySelectorAll('[data-pub-count]').forEach((el) => {
-        const key = el.getAttribute('data-pub-count');
-        el.textContent = String(counts[key] || 0);
-      });
-    }
-
-    function updateHeroStats(list) {
-      const total = list.length;
-      const heroCount = document.getElementById('publicationsHeroCount');
-      if (heroCount) heroCount.textContent = String(total);
-      const pillarCounts = list.reduce((acc, p) => {
-        acc[p.pillar] = (acc[p.pillar] || 0) + 1;
-        return acc;
-      }, {});
-      document.querySelectorAll('.publications-hero-pillars li').forEach((li) => {
-        const pill = li.querySelector('.publication-pill');
-        if (!pill) return;
-        const key = ['safety', 'sustainability', 'ethics'].find((k) => pill.classList.contains(`publication-pill--${k}`));
-        const valueEl = li.querySelector('span:last-child');
-        if (key && valueEl) valueEl.textContent = String(pillarCounts[key] || 0);
-      });
+    function updateCount(shown) {
+      if (!resultsCount) return;
+      const numEl = resultsCount.querySelector('.publications-count-num');
+      const labelEl = resultsCount.querySelector('.publications-count-label');
+      if (numEl) numEl.textContent = String(shown);
+      if (labelEl) labelEl.textContent = shown === 1 ? 'item' : 'items';
     }
 
     function buildCard(post) {
@@ -171,8 +87,6 @@
 
       const pillarLabel = PILLAR_LABELS[post.pillar] || post.pillar;
       const dateText = formatDate(post.date);
-      const tags = post.tags.map((t) => `<li>${escapeHtml(t)}</li>`).join('');
-      const authors = (post.authors || []).join(', ');
 
       article.innerHTML = `
         <a class="publication-card-cover" href="${post.url}" aria-label="Read ${escapeHtml(post.title)}">
@@ -187,9 +101,7 @@
           </div>
           <h3><a href="${post.url}">${escapeHtml(post.title)}</a></h3>
           <p>${escapeHtml(post.excerpt)}</p>
-          ${authors ? `<p class="publication-card-authors">By ${escapeHtml(authors)}</p>` : ''}
-          <ul class="publication-tags">${tags}</ul>
-          <a class="modern-card-link" href="${post.url}">Read publication <span aria-hidden="true">→</span></a>
+          <a class="publication-card-link" href="${post.url}">Read brief <span aria-hidden="true">→</span></a>
         </div>
       `;
       return article;
@@ -198,7 +110,8 @@
 
   function formatDate(dateISO) {
     return new Date(dateISO).toLocaleDateString('en-CA', {
-      year: 'numeric', month: 'short', day: 'numeric'
+      year: 'numeric',
+      month: 'short'
     });
   }
 

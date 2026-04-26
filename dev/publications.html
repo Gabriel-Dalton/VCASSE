@@ -50,74 +50,41 @@
     <div class="container">
       <div class="page-hero-content">
         <div class="section-label">PUBLICATIONS</div>
-        <h1 class="page-hero-title">
-          Policy briefs,
-          <span class="italic-accent">research &amp; explainers</span>
-        </h1>
-        <p class="page-hero-description">VCASSE publishes practical research across Safety, Sustainability, and Ethics &mdash; written to inform Vancouver's policymakers, developers, and residents as AI reshapes public life.</p>
+        <h1 class="page-hero-title">Plain-language briefs &amp; field guides on responsible AI.</h1>
+        <p class="page-hero-description">Short, practical, and freely available. Six per year, on average.</p>
       </div>
-      <aside class="publications-hero-visual" aria-hidden="true">
-        <div class="publications-hero-stat-card">
-          <div class="publications-hero-stat">
-            <span class="publications-hero-stat-num" id="publicationsHeroCount">6</span>
-            <span class="publications-hero-stat-label">publications</span>
-          </div>
-          <ul class="publications-hero-pillars">
-            <li><span class="publication-pill publication-pill--safety">Safety</span><span>2</span></li>
-            <li><span class="publication-pill publication-pill--sustainability">Sustainability</span><span>2</span></li>
-            <li><span class="publication-pill publication-pill--ethics">Ethics</span><span>2</span></li>
-          </ul>
-          <p class="publications-hero-note">Updated continuously as our research program grows.</p>
-        </div>
-      </aside>
     </div>
   </section>
 
   <section class="publications-toolbar-section">
     <div class="container">
       <div class="publications-toolbar" role="region" aria-label="Publication filters">
-        <div class="publications-toolbar-row">
-          <div class="publication-filters" role="group" aria-label="Filter by pillar">
-            <button type="button" class="publication-filter active" data-pub-filter="all" aria-pressed="true">
-              <span class="publication-filter-label">All</span>
-              <span class="publication-filter-count" data-pub-count="all">6</span>
-            </button>
-            <button type="button" class="publication-filter publication-filter--safety" data-pub-filter="safety" aria-pressed="false">
-              <span class="publication-filter-label">Safety</span>
-              <span class="publication-filter-count" data-pub-count="safety">0</span>
-            </button>
-            <button type="button" class="publication-filter publication-filter--sustainability" data-pub-filter="sustainability" aria-pressed="false">
-              <span class="publication-filter-label">Sustainability</span>
-              <span class="publication-filter-count" data-pub-count="sustainability">0</span>
-            </button>
-            <button type="button" class="publication-filter publication-filter--ethics" data-pub-filter="ethics" aria-pressed="false">
-              <span class="publication-filter-label">Ethics</span>
-              <span class="publication-filter-count" data-pub-count="ethics">0</span>
-            </button>
-          </div>
-          <div class="publications-search">
-            <svg class="publications-search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2a8 8 0 1 0 5.3 14.06l4.33 4.33 1.42-1.42-4.33-4.33A8 8 0 0 0 10 2zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12z" fill="currentColor"/></svg>
-            <input type="search" id="publicationsSearch" placeholder="Search title, tag, or author" aria-label="Search publications">
-          </div>
+        <div class="publication-filters" role="group" aria-label="Filter by category">
+          <button type="button" class="publication-filter active" data-pub-filter="all" aria-pressed="true">
+            <span class="publication-filter-label">All</span>
+          </button>
+          <button type="button" class="publication-filter publication-filter--safety" data-pub-filter="safety" aria-pressed="false">
+            <span class="publication-filter-label">Safety</span>
+          </button>
+          <button type="button" class="publication-filter publication-filter--sustainability" data-pub-filter="sustainability" aria-pressed="false">
+            <span class="publication-filter-label">Sustainability</span>
+          </button>
+          <button type="button" class="publication-filter publication-filter--ethics" data-pub-filter="ethics" aria-pressed="false">
+            <span class="publication-filter-label">Ethics</span>
+          </button>
         </div>
-        <div class="publications-toolbar-row publications-toolbar-row--dense">
-          <div class="publications-select-group">
-            <label for="publicationsTag">Tag</label>
-            <select id="publicationsTag">
-              <option value="all">All tags</option>
-            </select>
-          </div>
-          <div class="publications-select-group">
-            <label for="publicationsSort">Sort</label>
+        <div class="publications-toolbar-end">
+          <label class="publications-sort">
+            <span class="publications-sort-label">Sort</span>
             <select id="publicationsSort">
               <option value="newest">Newest first</option>
               <option value="oldest">Oldest first</option>
-              <option value="az">A &ndash; Z</option>
             </select>
-          </div>
+            <svg class="publications-sort-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </label>
           <p class="publications-count" id="publicationsCount" aria-live="polite">
             <span class="publications-count-num">6</span>
-            <span class="publications-count-label">publications</span>
+            <span class="publications-count-label">items</span>
           </p>
         </div>
       </div>
@@ -131,11 +98,10 @@
         <svg class="publications-empty-icon" viewBox="0 0 64 64" aria-hidden="true">
           <circle cx="28" cy="28" r="18" fill="none" stroke="currentColor" stroke-width="2.5"/>
           <line x1="42" y1="42" x2="56" y2="56" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="22" y1="28" x2="34" y2="28" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
         </svg>
-        <h3>Nothing matches those filters.</h3>
-        <p>Try a broader pillar, clear the search, or reset everything.</p>
-        <button type="button" class="btn btn-secondary" id="publicationsReset">Reset filters</button>
+        <h3>Nothing matches that filter.</h3>
+        <p>Try a different category, or view all publications.</p>
+        <button type="button" class="btn btn-secondary" id="publicationsReset">Show all</button>
       </div>
     </div>
   </section>
@@ -193,7 +159,7 @@
   </footer>
 
   <script src="js/publications-data.js?v=2"></script>
-  <script src="js/publications-page.js?v=2"></script>
+  <script src="js/publications-page.js?v=4"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
