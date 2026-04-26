@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual AI Learning Hub | VCASSE</title>
+  <meta name="description" content="Interactive, visual explainers for LLMs, neural networks, CNNs, attention, and AI safety concepts in Vancouver contexts.">
+  <link rel="stylesheet" href="css/styles.css?v=12">
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo nav-logo-mark">
+        <img src="img/logo.svg" alt="VCASSE" width="28" height="28">
+        <span class="nav-logo-text">
+          <span>Vancouver Centre for AI Safety,</span>
+          <span>Sustainability, &amp; Ethics</span>
+        </span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"><span class="menu-label">Home</span></a></li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="navResearchMenu">
+            <span class="menu-label">Research</span>
+            <svg class="nav-chevron" width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav-dropdown-menu" id="navResearchMenu" role="menu">
+            <li role="none"><a href="safety.html" role="menuitem"><span class="menu-label">Safety</span></a></li>
+            <li role="none"><a href="sustainability.html" role="menuitem"><span class="menu-label">Sustainability</span></a></li>
+            <li role="none"><a href="ethics.html" role="menuitem"><span class="menu-label">Ethics</span></a></li>
+          </ul>
+        </li>
+        <li><a href="events.html"><span class="menu-label">Events</span></a></li>
+        <li><a href="ai-visual-learning.html" class="active" aria-current="page"><span class="menu-label">Learn AI</span></a></li>
+        <li><a href="about.html"><span class="menu-label">About</span></a></li>
+        <li><a href="contact.html"><span class="menu-label">Contact</span></a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="publications.html" class="nav-cta">
+          <span class="menu-label">View publications</span>
+        </a>
+      </div>
+      <button type="button" class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero ai-visual-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="section-label">VISUAL AI LEARNING HUB</div>
+        <h1 class="page-hero-title">AI concepts made visual, local, and practical.</h1>
+        <p class="page-hero-description">Explore animated explainers for LLMs, neural networks, CNNs, and key safety concepts—with Vancouver-focused examples and source footnotes.</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="ai-visual-main">
+    <section class="ai-concepts-grid container" aria-label="AI learning concepts">
+      <article class="ai-concept-card" id="concept-llm">
+        <h2>Large Language Models (LLMs)<sup><a href="#fn-1" class="footnote-ref" id="ref-1">[1]</a></sup></h2>
+        <p>LLMs predict the next token in a sequence. They can summarize, translate, and assist with drafting by learning statistical language patterns from large datasets.</p>
+        <div class="ai-visualization" data-viz="llm" aria-label="Animated LLM token flow"></div>
+        <div class="ai-callout"><strong>Vancouver example:</strong> A multilingual city-service assistant can summarize transit notices across English, Punjabi, and Mandarin.</div>
+      </article>
+
+      <article class="ai-concept-card" id="concept-nn">
+        <h2>Neural Networks<sup><a href="#fn-2" class="footnote-ref" id="ref-2">[2]</a></sup></h2>
+        <p>Neural networks pass inputs through layers of weighted connections. During training, those weights are adjusted to reduce prediction error.</p>
+        <div class="ai-visualization" data-viz="nn" aria-label="Animated forward pass in a neural network"></div>
+        <div class="ai-callout"><strong>Vancouver example:</strong> Routing housing support requests to the right service channel based on urgency and needs.</div>
+      </article>
+
+      <article class="ai-concept-card" id="concept-cnn">
+        <h2>Convolutional Neural Networks (CNNs)<sup><a href="#fn-3" class="footnote-ref" id="ref-3">[3]</a></sup></h2>
+        <p>CNNs use learnable filters to detect visual patterns like edges, textures, and objects. They are commonly used for image classification tasks.</p>
+        <div class="ai-visualization" data-viz="cnn" aria-label="Animated CNN feature extraction"></div>
+        <div class="ai-callout"><strong>Vancouver example:</strong> Classifying shoreline photos to identify marine debris patterns over time.</div>
+      </article>
+
+      <article class="ai-concept-card" id="concept-attention">
+        <h2>Attention Mechanisms<sup><a href="#fn-4" class="footnote-ref" id="ref-4">[4]</a></sup></h2>
+        <p>Attention lets a model focus on the most relevant tokens when generating each next token, improving long-range reasoning and context handling.</p>
+        <div class="ai-visualization" data-viz="attention" aria-label="Animated attention weight visualization"></div>
+        <div class="ai-callout"><strong>Vancouver example:</strong> Question-answering over local policy documents, where key clauses need weighted focus.</div>
+      </article>
+
+      <article class="ai-concept-card" id="concept-embeddings">
+        <h2>Embeddings<sup><a href="#fn-5" class="footnote-ref" id="ref-5">[5]</a></sup></h2>
+        <p>Embeddings turn words or items into vectors so semantic similarity can be measured mathematically and searched efficiently.</p>
+        <div class="ai-visualization" data-viz="embeddings" aria-label="Animated embeddings similarity map"></div>
+        <div class="ai-callout"><strong>Vancouver example:</strong> Matching residents to training programs using meaning-based similarity, not only keyword matches.</div>
+      </article>
+
+      <article class="ai-concept-card" id="concept-safety">
+        <h2>AI Safety, Bias, and Sustainability<sup><a href="#fn-6" class="footnote-ref" id="ref-6">[6]</a></sup></h2>
+        <p>Responsible AI requires model safety checks, fairness audits, and clear awareness of environmental costs such as compute energy use.</p>
+        <div class="ai-visualization" data-viz="safety" aria-label="Animated risk and mitigation dashboard"></div>
+        <div class="ai-callout"><strong>Vancouver example:</strong> Evaluating whether public-facing AI tools are accurate across neighborhoods and language groups.</div>
+      </article>
+    </section>
+
+    <section class="ai-footnotes container" aria-labelledby="footnotes-heading">
+      <h2 id="footnotes-heading">Sources &amp; Footnotes</h2>
+      <ol>
+        <li id="fn-1"><a href="#ref-1" aria-label="Back to LLM reference">↩</a> Vaswani et al., 2017, <em>Attention Is All You Need</em>. https://arxiv.org/abs/1706.03762</li>
+        <li id="fn-2"><a href="#ref-2" aria-label="Back to Neural Network reference">↩</a> Goodfellow, Bengio, Courville, 2016, <em>Deep Learning</em>. https://www.deeplearningbook.org/</li>
+        <li id="fn-3"><a href="#ref-3" aria-label="Back to CNN reference">↩</a> LeCun et al., 1998, <em>Gradient-Based Learning Applied to Document Recognition</em>. https://ieeexplore.ieee.org/document/726791</li>
+        <li id="fn-4"><a href="#ref-4" aria-label="Back to Attention reference">↩</a> Bahdanau et al., 2014, <em>Neural Machine Translation by Jointly Learning to Align and Translate</em>. https://arxiv.org/abs/1409.0473</li>
+        <li id="fn-5"><a href="#ref-5" aria-label="Back to Embeddings reference">↩</a> Mikolov et al., 2013, <em>Efficient Estimation of Word Representations in Vector Space</em>. https://arxiv.org/abs/1301.3781</li>
+        <li id="fn-6"><a href="#ref-6" aria-label="Back to Safety reference">↩</a> OECD AI Principles (2019+) and NIST AI Risk Management Framework 1.0 (2023). https://www.nist.gov/itl/ai-risk-management-framework</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <h3>Vancouver Centre for AI Safety, Sustainability, and Ethics</h3>
+          <p>Vancouver's dedicated centre for responsible AI. We research, educate, and advocate across safety, sustainability, and ethics.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Focus Areas</h4>
+          <ul>
+            <li><a href="safety.html"><span class="menu-label">Safety</span></a></li>
+            <li><a href="sustainability.html"><span class="menu-label">Sustainability</span></a></li>
+            <li><a href="ethics.html"><span class="menu-label">Ethics</span></a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="events.html"><span class="menu-label">Events</span></a></li>
+            <li><a href="ai-visual-learning.html"><span class="menu-label">Learn AI</span></a></li>
+            <li><a href="about.html"><span class="menu-label">About</span></a></li>
+            <li><a href="contact.html"><span class="menu-label">Contact</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span class="footer-year"></span> VCASSE. All rights reserved.</p>
+        <div class="footer-location">Vancouver, BC, Canada</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/ai-visual-learning.js?v=1"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
