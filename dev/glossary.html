@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Events | VCASSE</title>
+  <title>AI Glossary | VCASSE</title>
+  <meta name="description" content="A plain-language glossary of AI terms for Vancouver, BC, and Canadian readers — search, filter, and click any term for a focused definition with cross-references.">
   <link rel="stylesheet" href="css/styles.css?v=9">
   <link rel="icon" type="image/svg+xml" href="img/logo.svg">
 </head>
@@ -30,7 +31,7 @@
             <li role="none"><a href="ethics.html" role="menuitem"><span class="menu-label">Ethics</span></a></li>
           </ul>
         </li>
-        <li><a href="events.html" class="active"><span class="menu-label">Events</span></a></li>
+        <li><a href="events.html"><span class="menu-label">Events</span></a></li>
         <li><a href="about.html"><span class="menu-label">About</span></a></li>
         <li><a href="contact.html"><span class="menu-label">Contact</span></a></li>
       </ul>
@@ -45,26 +46,77 @@
     </div>
   </nav>
 
-  <section class="about-manifesto">
+  <section class="page-hero">
     <div class="container">
-      <p class="manifesto-meta">
-        <span class="status-dot" aria-hidden="true"></span>
-        <span>Building in progress</span>
-      </p>
-      <h1 class="manifesto-headline">
-        Events are
-        <span class="serif-emphasis">on the way.</span>
-      </h1>
-      <p class="manifesto-lede">
-        Public panels, reading groups, and city-wide gatherings. We're booking
-        the calendar now. If you'd like to host or co-host something with
-        VCASSE, the contact page is the right place to start.
-      </p>
-      <p style="margin-top: 28px;">
-        <a href="contact.html" class="publication-card-link">Get in touch <span aria-hidden="true">→</span></a>
-      </p>
+      <div class="page-hero-content">
+        <div class="section-label">TOOL · LITERACY</div>
+        <h1 class="page-hero-title">A shared vocabulary for <span class="italic-accent">responsible AI conversations.</span></h1>
+        <p class="page-hero-description">Search the term you saw in the news. Filter by pillar or difficulty. Each definition is written in plain Vancouver English — short enough to drop into a council meeting, accurate enough to stand up to a researcher. Click any term for a focused popup with cross-references.</p>
+      </div>
     </div>
   </section>
+
+  <section class="glossary-section">
+    <div class="container">
+      <section class="glossary-panel">
+        <div class="glossary-controls">
+          <div class="glossary-search-wrap">
+            <svg class="glossary-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+            <input type="search" id="glossary-search" class="glossary-search" placeholder="Search a term — e.g. 'alignment', 'AIDA', 'inference'" aria-label="Search glossary">
+            <kbd class="glossary-shortcut" aria-hidden="true">/</kbd>
+          </div>
+
+          <div class="glossary-filters" role="tablist" aria-label="Filter by pillar">
+            <button class="glossary-filter is-active" data-pillar="all" type="button">All</button>
+            <button class="glossary-filter" data-pillar="safety" type="button">Safety</button>
+            <button class="glossary-filter" data-pillar="sustainability" type="button">Sustainability</button>
+            <button class="glossary-filter" data-pillar="ethics" type="button">Ethics</button>
+          </div>
+
+          <div class="glossary-filters" role="tablist" aria-label="Filter by level">
+            <button class="glossary-filter glossary-filter--level is-active" data-level="all" type="button">Any level</button>
+            <button class="glossary-filter glossary-filter--level" data-level="beginner" type="button">Beginner</button>
+            <button class="glossary-filter glossary-filter--level" data-level="intermediate" type="button">Intermediate</button>
+            <button class="glossary-filter glossary-filter--level" data-level="advanced" type="button">Advanced</button>
+          </div>
+        </div>
+
+        <div class="glossary-meta">
+          <p class="glossary-count" id="glossary-count">Showing all terms.</p>
+          <nav class="glossary-letters" id="glossary-letters" aria-label="Jump to letter"></nav>
+        </div>
+
+        <div class="glossary-list" id="glossary-list" aria-live="polite"></div>
+        <div class="glossary-empty" id="glossary-empty" hidden>No terms match. Try a shorter search or clear the filters.</div>
+      </section>
+    </div>
+  </section>
+
+  <!-- Modal: opens when a term card is clicked -->
+  <div class="glossary-modal" id="glossary-modal" hidden role="dialog" aria-modal="true" aria-labelledby="glossary-modal-title">
+    <div class="glossary-modal-backdrop" data-close-modal></div>
+    <article class="glossary-modal-card" role="document">
+      <header class="glossary-modal-head">
+        <div class="glossary-modal-tags" id="glossary-modal-tags"></div>
+        <button type="button" class="glossary-modal-close" data-close-modal aria-label="Close definition">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </header>
+      <h2 class="glossary-modal-term" id="glossary-modal-title"></h2>
+      <p class="glossary-modal-def" id="glossary-modal-def"></p>
+      <div class="glossary-modal-seealso" id="glossary-modal-seealso" hidden>
+        <p class="glossary-modal-seealso-label">See also</p>
+        <div class="glossary-modal-seealso-list" id="glossary-modal-seealso-list"></div>
+      </div>
+      <footer class="glossary-modal-foot">
+        <button type="button" class="glossary-modal-link" id="glossary-modal-copy">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
+          Copy link
+        </button>
+        <button type="button" class="glossary-modal-link" data-close-modal>Close</button>
+      </footer>
+    </article>
+  </div>
 
   <section class="newsletter-band" aria-labelledby="newsletter-heading">
     <div class="container">
@@ -118,6 +170,7 @@
     </div>
   </footer>
 
+  <script src="js/glossary.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
