@@ -396,15 +396,12 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-chevron {
   flex-shrink: 0;
   opacity: 0.55;
-  transition: transform 0.25s ease, opacity 0.2s ease;
+  transition: transform 0.32s cubic-bezier(0.34, 1.4, 0.64, 1), opacity 0.2s ease;
   transform-origin: center;
 }
 
 .nav-dropdown:hover .nav-chevron,
-.nav-dropdown:focus-within .nav-chevron {
-  opacity: 0.9;
-}
-
+.nav-dropdown:focus-within .nav-chevron,
 .nav-dropdown.is-open .nav-chevron {
   transform: rotate(180deg);
   opacity: 0.9;
@@ -3572,24 +3569,25 @@ noscript + * .fade-in,
   position: relative;
 }
 
-.manifesto-meta {
+.manifesto-eyebrow {
   font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
+  font-weight: 600;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--ink-deep);
+  color: var(--primary);
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   margin: 0 0 60px;
-  opacity: 0.7;
 }
 
-.manifesto-meta-dot {
-  color: var(--primary);
-  font-weight: 700;
+.manifesto-eyebrow-rule {
+  width: 32px;
+  height: 1px;
+  background: var(--primary);
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 .manifesto-headline {
@@ -3623,6 +3621,18 @@ noscript + * .fade-in,
   max-width: 38ch;
   opacity: 0.78;
   margin: 0;
+}
+
+.manifesto-note {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-deep);
+  opacity: 0.55;
+  max-width: 44ch;
+  margin: 36px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--paper-rule);
 }
 
 /* ── Document body ── */
@@ -3824,15 +3834,17 @@ noscript + * .fade-in,
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .manifesto-meta,
+  .manifesto-eyebrow,
   .manifesto-headline,
-  .manifesto-lede {
+  .manifesto-lede,
+  .manifesto-note {
     opacity: 0;
     animation: manifestoFade 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
   .manifesto-headline { animation-delay: 0.12s; }
   .manifesto-lede { animation-delay: 0.24s; }
+  .manifesto-note { animation-delay: 0.34s; }
 }
 
 /* ── Responsive ── */
@@ -3863,8 +3875,15 @@ noscript + * .fade-in,
   .doc-value-marker {
     font-size: 19px;
   }
-  .manifesto-meta {
+  .manifesto-eyebrow {
     gap: 10px;
     font-size: 10.5px;
+  }
+  .manifesto-eyebrow-rule {
+    width: 22px;
+  }
+  .manifesto-note {
+    margin-top: 28px;
+    padding-top: 20px;
   }
 }
