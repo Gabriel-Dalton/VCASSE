@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Carbon Footprint Calculator — VCASSE</title>
+  <link rel="stylesheet" href="css/examples.css">
+  <link rel="icon" type="image/svg+xml" href="../dev/img/logo.svg">
+</head>
+<body>
+
+  <nav class="examples-nav">
+    <div class="container">
+      <a href="../dev/index.html" class="examples-nav-brand">
+        <span class="examples-nav-brand-mark">V</span>
+        <span>VCASSE</span>
+      </a>
+      <span class="examples-nav-tag">Widget · Sustainability</span>
+      <a href="index.html" class="examples-nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All widgets
+      </a>
+    </div>
+  </nav>
+
+  <header class="example-hero">
+    <div class="container">
+      <p class="example-hero-kicker">AI Carbon Footprint Calculator</p>
+      <h1 class="example-hero-title">What does a week of <em>your AI use</em> actually cost the planet?</h1>
+      <p class="example-hero-lede">
+        Estimates the energy, water, and CO₂ associated with how you use AI in a typical week.
+        Numbers are illustrative — built on published per-query estimates for current
+        commercial models — and are translated into everyday equivalents.
+      </p>
+    </div>
+  </header>
+
+  <main class="example-section">
+    <div class="container">
+      <div class="calc-grid">
+
+        <section class="panel" aria-labelledby="calc-input-title">
+          <h2 class="panel-title" id="calc-input-title">Tell us about a typical week</h2>
+          <p class="panel-sub">Drag the sliders. Numbers update as you go.</p>
+
+          <div class="calc-input-group">
+            <label for="chats">
+              Short chat messages per day
+              <span class="calc-value"><span data-out="chats">20</span></span>
+            </label>
+            <input class="calc-slider" type="range" id="chats" min="0" max="200" value="20">
+          </div>
+
+          <div class="calc-input-group">
+            <label for="long">
+              Long-form generations per day <small style="font-weight:400;color:var(--text-muted);">(essays, reports)</small>
+              <span class="calc-value"><span data-out="long">3</span></span>
+            </label>
+            <input class="calc-slider" type="range" id="long" min="0" max="50" value="3">
+          </div>
+
+          <div class="calc-input-group">
+            <label for="images">
+              AI images generated per day
+              <span class="calc-value"><span data-out="images">2</span></span>
+            </label>
+            <input class="calc-slider" type="range" id="images" min="0" max="50" value="2">
+          </div>
+
+          <div class="calc-input-group">
+            <label for="model">Default model class</label>
+            <select id="model" class="calc-select">
+              <option value="small">Small / efficient (e.g. 8B distilled)</option>
+              <option value="mid" selected>Mid-size general assistant</option>
+              <option value="frontier">Frontier model (largest available)</option>
+            </select>
+          </div>
+
+          <div class="calc-input-group">
+            <label for="grid">Where the data centre runs</label>
+            <select id="grid" class="calc-select">
+              <option value="bc" selected>BC / Pacific NW (mostly hydro)</option>
+              <option value="us">U.S. national average grid</option>
+              <option value="coal">Coal-heavy grid</option>
+            </select>
+          </div>
+        </section>
+
+        <aside class="calc-results" aria-live="polite">
+          <p class="calc-results-headline">Estimated weekly footprint</p>
+          <div class="calc-results-number"><span id="co2-out">0</span></div>
+          <div class="calc-results-unit">grams CO₂-equivalent</div>
+
+          <div class="calc-breakdown">
+            <div class="calc-breakdown-row">
+              <span>Electricity</span>
+              <span><span id="kwh-out">0</span> Wh</span>
+            </div>
+            <div class="calc-breakdown-row">
+              <span>Water (cooling)</span>
+              <span><span id="water-out">0</span> mL</span>
+            </div>
+            <div class="calc-breakdown-row">
+              <span>Annual projection</span>
+              <span><span id="annual-out">0</span> kg CO₂e</span>
+            </div>
+          </div>
+
+          <div class="calc-equiv" id="equiv-out"></div>
+
+          <p style="font-size:11px;color:rgba(255,255,255,0.55);margin-top:18px;line-height:1.5;">
+            Estimates only. Per-query figures are drawn from public reporting on
+            commercial AI inference and vary widely by provider. VCASSE publishes
+            updated assumptions in our sustainability briefs.
+          </p>
+        </aside>
+      </div>
+
+      <p class="example-footnote">
+        Want help building <strong>real</strong> reporting like this for your team or municipality?
+        That is exactly the kind of work VCASSE's sustainability pillar takes on.
+      </p>
+    </div>
+  </main>
+
+  <script src="js/carbon-calculator.js"></script>
+</body>
+</html>

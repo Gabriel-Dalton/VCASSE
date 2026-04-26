@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plain-Language AI Glossary — VCASSE</title>
+  <link rel="stylesheet" href="css/examples.css">
+  <link rel="icon" type="image/svg+xml" href="../dev/img/logo.svg">
+</head>
+<body>
+
+  <nav class="examples-nav">
+    <div class="container">
+      <a href="../dev/index.html" class="examples-nav-brand">
+        <span class="examples-nav-brand-mark">V</span>
+        <span>VCASSE</span>
+      </a>
+      <span class="examples-nav-tag">Widget · Literacy</span>
+      <a href="index.html" class="examples-nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All widgets
+      </a>
+    </div>
+  </nav>
+
+  <header class="example-hero">
+    <div class="container">
+      <p class="example-hero-kicker">Plain-Language AI Glossary</p>
+      <h1 class="example-hero-title">A shared vocabulary for <em>responsible AI conversations.</em></h1>
+      <p class="example-hero-lede">
+        Search the term you saw in the news. Filter by pillar. Each definition is
+        written in plain Vancouver English — short enough to drop into a council
+        meeting, accurate enough to stand up to a researcher.
+      </p>
+    </div>
+  </header>
+
+  <main class="example-section">
+    <div class="container">
+      <section class="panel">
+        <div class="glossary-controls">
+          <input type="search" id="glossary-search" class="glossary-search" placeholder="Search a term — e.g. ‘alignment’, ‘deepfake’, ‘inference’" aria-label="Search glossary">
+          <div class="glossary-filters" role="tablist">
+            <button class="glossary-filter is-active" data-pillar="all" type="button">All</button>
+            <button class="glossary-filter" data-pillar="safety" type="button">Safety</button>
+            <button class="glossary-filter" data-pillar="sustainability" type="button">Sustainability</button>
+            <button class="glossary-filter" data-pillar="ethics" type="button">Ethics</button>
+          </div>
+        </div>
+
+        <div class="glossary-list" id="glossary-list" aria-live="polite"></div>
+        <div class="glossary-empty" id="glossary-empty" hidden>No terms match. Try a shorter search.</div>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/glossary.js"></script>
+</body>
+</html>
