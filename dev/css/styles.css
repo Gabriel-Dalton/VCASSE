@@ -2427,10 +2427,10 @@ noscript + * .fade-in,
   .nav-links > li > a,
   .nav-links > li > .nav-dropdown-trigger {
     display: flex; align-items: baseline; gap: 18px;
-    width: 100%; padding: clamp(10px, 1.8vh, 16px) 0;
+    width: 100%; padding: clamp(12px, 2.1vh, 18px) 0;
     background: transparent; border: none; cursor: pointer;
     font-family: var(--font-display);
-    font-size: clamp(1.3rem, 5.2vw, 1.75rem);
+    font-size: clamp(1.6rem, 6vw, 2.1rem);
     font-weight: 500; line-height: 1.05;
     letter-spacing: -0.5px; color: var(--mobile-menu-ink);
     text-decoration: none; text-align: left;
