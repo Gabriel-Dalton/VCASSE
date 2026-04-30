@@ -1063,49 +1063,6 @@ img { max-width: 100%; height: auto; display: block; }
   border-color: #6cb4e4;
 }
 
-.publication-pill-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 16px;
-}
-
-/* ── Publication stage indicator ── */
-.publication-stage {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 4px 10px 4px 8px;
-  border-radius: 999px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  background: rgba(15, 23, 42, 0.04);
-  border: 1px solid rgba(15, 23, 42, 0.10);
-  color: var(--text-body);
-}
-
-.publication-stage-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: currentColor;
-  flex-shrink: 0;
-  position: relative;
-}
-
-.publication-stage--draft        { color: #8a6d1a; background: #fdf6e3; border-color: rgba(138, 109, 26, 0.25); }
-.publication-stage--in-review    { color: #6b4f9c; background: #f3eefa; border-color: rgba(107, 79, 156, 0.25); }
-.publication-stage--published    { color: #1f7a3a; background: #ecf7ee; border-color: rgba(31, 122, 58, 0.25); }
-.publication-stage--updated      { color: #0d4f8b; background: #e7f1f9; border-color: rgba(13, 79, 139, 0.25); }
-
-.publication-stage--published .publication-stage-dot {
-  box-shadow: 0 0 0 2px rgba(31, 122, 58, 0.18);
-}
-
 .publication-pill--community {
   color: #9a3412;
   background: #ffedd5;
