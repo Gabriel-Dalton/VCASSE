@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const containers = document.querySelectorAll('[data-related-publications]');
   if (!containers.length || typeof window.getPublications !== 'function') return;
 
-  const allPosts = window.getPublications();
   const PILLAR_LABELS = {
     safety: 'Safety',
     sustainability: 'Sustainability',
@@ -10,14 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   containers.forEach((container) => {
-    const pillar = (container.getAttribute('data-pillar') || '').toLowerCase();
+    const slug = container.getAttribute('data-slug') || '';
     const limit = Number(container.getAttribute('data-limit') || 2);
-    const exclude = container.getAttribute('data-exclude') || '';
     const baseHref = container.getAttribute('data-base-href') || '';
 
-    const posts = allPosts
-      .filter((post) => (!pillar || post.pillar === pillar) && post.slug !== exclude)
-      .slice(0, limit);
+    let posts;
+    if (slug && typeof window.getRelatedPublications === 'function') {
+      posts = window.getRelatedPublications(slug, { limit });
+    } else {
+      // Legacy fallback: filter by pillar/exclude when no slug is provided.
+      const pillar = (container.getAttribute('data-pillar') || '').toLowerCase();
+      const exclude = container.getAttribute('data-exclude') || '';
+      posts = window.getPublications()
+        .filter((post) => (!pillar || post.pillar === pillar) && post.slug !== exclude)
+        .slice(0, limit);
+    }
 
     container.innerHTML = '';
     posts.forEach((post) => {

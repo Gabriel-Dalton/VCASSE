@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energy & Water Footprints of Frontier AI: A Vancouver Procurement Lens | VCASSE</title>
+  <meta name="description" content="What public buyers should ask vendors about energy, water, and embodied carbon before signing an AI contract.">
+  <link rel="stylesheet" href="../css/styles.css?v=11">
+  <link rel="icon" type="image/svg+xml" href="../img/logo.svg">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo nav-logo-mark">
+        <img src="../img/logo.svg" alt="VCASSE" width="28" height="28">
+        <span class="nav-logo-text">
+          <span>Vancouver Centre for AI Safety,</span>
+          <span>Sustainability, &amp; Ethics</span>
+        </span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html"><span class="menu-label">Home</span></a></li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="navResearchMenu">
+            <span class="menu-label">Research</span>
+            <svg class="nav-chevron" width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav-dropdown-menu" id="navResearchMenu" role="menu">
+            <li role="none"><a href="../safety.html" role="menuitem"><span class="menu-label">Safety</span></a></li>
+            <li role="none"><a href="../sustainability.html" role="menuitem"><span class="menu-label">Sustainability</span></a></li>
+            <li role="none"><a href="../ethics.html" role="menuitem"><span class="menu-label">Ethics</span></a></li>
+          </ul>
+        </li>
+        <li><a href="../events.html"><span class="menu-label">Events</span></a></li>
+        <li><a href="../about.html"><span class="menu-label">About</span></a></li>
+        <li><a href="../contact.html"><span class="menu-label">Contact</span></a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="../publications.html" class="nav-cta nav-cta--current" aria-current="page">
+          <span class="menu-label">View publications</span>
+        </a>
+      </div>
+      <button type="button" class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="publication-detail-hero">
+    <div class="container">
+      <p class="publication-detail-crumb"><a href="../publications.html">Publications</a> <span aria-hidden="true">/</span> <span>Sustainability</span></p>
+      <div class="publication-detail-grid">
+        <div class="publication-detail-text">
+          <span class="publication-pill publication-pill--sustainability">Sustainability</span>
+          <h1>Energy &amp; Water Footprints of Frontier AI: A Vancouver Procurement Lens</h1>
+          <p class="publication-detail-lede">What public buyers should ask vendors about energy, water, and embodied carbon before signing an AI contract.</p>
+          <ul class="publication-detail-meta">
+            <li><span>Published</span><strong>Apr 8, 2026</strong></li>
+            <li><span>Reading</span><strong>9 min</strong></li>
+            <li><span>Authors</span><strong>Dr. Léa Moreau, Jordan Park</strong></li>
+          </ul>
+        </div>
+        <figure class="publication-detail-cover">
+          <img src="../img/publications/sustainability-procurement.svg" alt="Layered diagram representing energy, water, and embodied carbon disclosures across an AI procurement lifecycle" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="publication-body">
+    <div class="container publication-body-grid">
+      <article class="publication-prose">
+        <p class="publication-prose-lede">Most public-sector AI contracts in BC are still signed without a single number on energy use, water draw, or embodied carbon. That is a procurement problem before it is an environmental one — buyers are comparing offers without a comparable unit.</p>
+
+        <p>This brief is for procurement officers, sustainability leads, and elected officials who have to decide whether a particular AI deployment is consistent with municipal and provincial climate commitments. It is not a life-cycle assessment. It is a checklist of the questions a buyer can reasonably ask, and the answers that should make a buyer pause.</p>
+
+        <h2>The four numbers worth asking for</h2>
+        <p>Vendor disclosures vary wildly. Some publish global aggregates, some publish nothing, and a small number publish per-query estimates that are difficult to verify. For most procurement decisions, four numbers are enough to start a useful conversation.</p>
+        <ol>
+          <li><strong>Inference energy per 1,000 requests</strong>, in kilowatt-hours, for the specific model variant you intend to deploy. Not the flagship model. Not last year's model. The one in the contract.</li>
+          <li><strong>Cooling water draw</strong> at the data centres serving Canadian customers, including any evaporative loss, expressed per 1,000 requests if available, or as a regional total with a denominator if not.</li>
+          <li><strong>Grid carbon intensity</strong> at the serving region, hourly if possible, with a clear pointer to which region's grid actually handles your workload.</li>
+          <li><strong>Embodied emissions per accelerator</strong>, amortised over a stated useful-life assumption, so that buyers can reason about the share attributable to their workload over the contract term.</li>
+        </ol>
+
+        <blockquote class="publication-pull">
+          A vendor that cannot produce these four numbers is not unable to. They have decided not to.
+          <cite>VCASSE procurement workshop, 2025</cite>
+        </blockquote>
+
+        <h2>What a credible disclosure looks like</h2>
+        <p>Credibility is mostly about denominators. A glossy "carbon-neutral cloud" claim with no underlying request volume, no regional breakdown, and no audited boundary is the procurement equivalent of "trust us." A credible disclosure ties each number to a measurable unit of work, names the third party that verified it, and is willing to be cited in a council document by name.</p>
+
+        <ul>
+          <li><strong>Boundary stated.</strong> Does the figure cover training, inference, idle baseline, or some combination? If the boundary is not stated, the number is not comparable.</li>
+          <li><strong>Region named.</strong> A provincial or state-level region, not a continent. Grid carbon intensity in Quebec and Wyoming differ by more than an order of magnitude.</li>
+          <li><strong>Verification party named.</strong> Internal claims are fine as a starting point, but procurement-grade disclosures should be reviewable by a third party the buyer can contact directly.</li>
+          <li><strong>Update cadence stated.</strong> A 2022 disclosure for a 2026 model is not a disclosure. Ask when the figure was last refreshed and what triggers a refresh.</li>
+        </ul>
+
+        <h2>Where buyers usually go wrong</h2>
+        <p>Across the procurements VCASSE has reviewed, a small number of recurring mistakes account for most of the gap between intent and outcome.</p>
+        <ol>
+          <li><strong>Accepting a global average.</strong> A worldwide kWh-per-query figure tells you almost nothing about the specific deployment that will serve Vancouver users.</li>
+          <li><strong>Ignoring water entirely.</strong> Water is often the binding constraint at hyperscale data centres before energy is. It rarely shows up in standard procurement templates.</li>
+          <li><strong>Treating offsets as equivalent to reductions.</strong> Offsets are easier to procure and harder to verify. They are not a substitute for a measured reduction.</li>
+          <li><strong>Locking in long contracts without a refresh clause.</strong> Frontier AI infrastructure is changing faster than five-year procurement cycles. Buyers should retain the right to revisit disclosures annually.</li>
+        </ol>
+
+        <blockquote class="publication-pull">
+          Sustainability claims that cannot survive being read aloud at a council meeting probably should not survive procurement.
+        </blockquote>
+
+        <h2>A short procurement clause that works</h2>
+        <p>The most useful single artefact we have seen is a short procurement clause that requires the vendor to disclose, on request and in writing, the four numbers above for the specific deployment under contract. The clause does not specify thresholds — that is for council to decide — but it makes it impossible to sign without those numbers being on the table. We are happy to share a template version with any BC public-sector buyer who asks.</p>
+
+        <h2>What we are working on next</h2>
+        <p>The next note in this series will cover regional grid signalling and how municipalities can route AI workloads to lower-carbon hours without paying a vendor premium for the privilege. If your team is preparing a procurement and would like to compare drafts, our contact form is the place to start.</p>
+      </article>
+
+      <aside class="publication-aside" aria-label="Publication summary">
+        <div class="publication-aside-card">
+          <h3>Key takeaways</h3>
+          <ul>
+            <li>Ask for inference energy, water draw, grid intensity, and embodied emissions per accelerator.</li>
+            <li>Reject global averages — insist on the deployment region you will actually use.</li>
+            <li>Treat offsets as a separate question from measured reductions.</li>
+            <li>Build an annual disclosure-refresh clause into multi-year contracts.</li>
+          </ul>
+        </div>
+        <div class="publication-aside-card publication-aside-card--tags">
+          <h3>Tagged</h3>
+          <ul class="publication-tags">
+            <li>Procurement</li><li>Compute</li><li>Disclosure</li><li>Risk</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="home-section publications-related">
+    <div class="container">
+      <header class="home-section-header">
+        <p class="home-section-kicker">Suggested reading</p>
+        <h2 class="home-section-title">You might also like</h2>
+      </header>
+      <div class="publication-cards-grid" data-related-publications data-slug="sustainability-procurement-frontier-ai" data-limit="2" data-base-href="../"></div>
+    </div>
+  </section>
+
+  <section class="newsletter-band" aria-labelledby="newsletter-heading">
+    <div class="container">
+      <div class="newsletter-card">
+        <div class="newsletter-content">
+          <h2 id="newsletter-heading">The VCASSE Briefing</h2>
+          <p class="newsletter-lede">A monthly dispatch with new publications and notes on what Vancouver should know about AI policy, infrastructure, and ethics.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="event.preventDefault();">
+          <label for="newsletter-email" class="visually-hidden">Email address</label>
+          <input type="email" id="newsletter-email" placeholder="you@example.com" disabled aria-disabled="true">
+          <button type="button" class="btn btn-primary" disabled aria-disabled="true">Notify me</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <h3>Vancouver Centre for AI Safety, Sustainability, and Ethics</h3>
+          <p>Vancouver's dedicated centre for responsible AI. We research, educate, and advocate across safety, sustainability, and ethics.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Focus Areas</h4>
+          <ul>
+            <li><a href="../safety.html"><span class="menu-label">Safety</span></a></li>
+            <li><a href="../sustainability.html"><span class="menu-label">Sustainability</span></a></li>
+            <li><a href="../ethics.html"><span class="menu-label">Ethics</span></a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="../events.html"><span class="menu-label">Events</span></a></li>
+            <li><a href="../about.html"><span class="menu-label">About</span></a></li>
+            <li><a href="../contact.html"><span class="menu-label">Contact</span></a></li>
+            <li><a href="../privacy.html"><span class="menu-label">Privacy Policy</span></a></li>
+            <li><a href="../terms.html"><span class="menu-label">Terms of Service</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span class="footer-year"></span> VCASSE. All rights reserved.<span class="footer-separator">|</span>A subsidiary of <a href="https://oasisofchange.com" target="_blank"><span class="menu-label">OASIS OF CHANGE, INC.</span></a></p>
+        <div class="footer-location">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Vancouver, BC, Canada
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/publications-data.js"></script>
+  <script src="../js/publications-related.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
