@@ -5707,6 +5707,37 @@ body.glossary-modal-open {
   border: 1px solid rgba(13, 79, 139, 0.16);
   border-radius: 8px;
   padding: 10px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.ai-footnotes .footnote-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 6px;
+  border-radius: 6px;
+  color: var(--primary);
+  vertical-align: -6px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.ai-footnotes .footnote-back:hover,
+.ai-footnotes .footnote-back:focus-visible {
+  background: rgba(13, 79, 139, 0.08);
+  outline: none;
+}
+
+.ai-footnotes .footnote-back-icon {
+  display: block;
+}
+
+.ai-footnotes .footnote-link {
+  word-break: break-all;
+  overflow-wrap: anywhere;
 }
 
 .footnote-ref {
@@ -5722,5 +5753,15 @@ body.glossary-modal-open {
 @media (max-width: 768px) {
   .ai-concepts-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ai-footnotes ol {
+    padding-left: 22px;
+  }
+
+  .ai-footnotes li {
+    padding: 10px;
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 }
