@@ -5681,9 +5681,8 @@ body.glossary-modal-open {
 .ai-callout {
   font-size: 0.93rem;
   background: var(--bg-light);
-  border-left: 3px solid var(--primary);
   border-radius: 8px;
-  padding: 10px 12px;
+  padding: 12px 14px;
 }
 
 .ai-footnotes {
