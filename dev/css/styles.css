@@ -278,11 +278,16 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: 7px;
 }
 
+@media (max-width: 768px) {
+  .nav-logo { font-size: 13.5px; }
+  .nav-logo-text { height: 32px; }
+}
+
 @media (max-width: 480px) {
-  .nav-logo { font-size: 11px; }
+  .nav-logo { font-size: 12.5px; }
   .nav-logo-mark { gap: 10px; }
-  .nav-logo-text { height: 28px; }
-  .nav-logo-mark img { width: 28px; height: 28px; border-radius: 6px; }
+  .nav-logo-text { height: 30px; }
+  .nav-logo-mark img { width: 30px; height: 30px; border-radius: 6px; }
 }
 
 .nav-mobile-toggle {
@@ -2321,9 +2326,17 @@ noscript + * .fade-in,
     position: relative;
     z-index: 1225;
   }
-  body.menu-open .nav-logo { color: var(--mobile-menu-ink); transition: color 0.3s ease; }
+  body.menu-open .nav-logo {
+    color: var(--mobile-menu-ink);
+    font-size: 16px;
+    transition: color 0.3s ease, font-size 0.3s ease;
+  }
+  body.menu-open .nav-logo-text { height: 36px; gap: 2px; }
+  body.menu-open .nav-logo-mark { gap: 12px; }
+  body.menu-open .nav-logo-mark img { width: 34px; height: 34px; border-radius: 7px; }
   body.menu-open .nav-mobile-toggle span { background: var(--mobile-menu-ink); }
-  .nav-logo { transition: color 0.3s ease; }
+  .nav-logo { transition: color 0.3s ease, font-size 0.3s ease; }
+  .nav-logo-text { transition: height 0.3s ease; }
 
   .nav-mobile-toggle { display: block; margin-left: auto; z-index: 1225; }
 
@@ -2414,12 +2427,12 @@ noscript + * .fade-in,
   .nav-links > li > a,
   .nav-links > li > .nav-dropdown-trigger {
     display: flex; align-items: baseline; gap: 18px;
-    width: 100%; padding: clamp(12px, 2.2vh, 18px) 0;
+    width: 100%; padding: clamp(10px, 1.8vh, 16px) 0;
     background: transparent; border: none; cursor: pointer;
     font-family: var(--font-display);
-    font-size: clamp(1.55rem, 6.2vw, 2.15rem);
+    font-size: clamp(1.3rem, 5.2vw, 1.75rem);
     font-weight: 500; line-height: 1.05;
-    letter-spacing: -0.6px; color: var(--mobile-menu-ink);
+    letter-spacing: -0.5px; color: var(--mobile-menu-ink);
     text-decoration: none; text-align: left;
   }
 
